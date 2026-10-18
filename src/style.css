@@ -290,14 +290,14 @@ button { font: inherit; color: inherit; }
 .tabs button[aria-selected="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
 .lang-btn { border: 1px solid var(--line); background: var(--surface); color: var(--text); border-radius: 999px; height: 40px; min-width: 44px; padding: 0 10px; display: grid; place-items: center; text-decoration: none; font-weight: 700; font-size: .85rem; flex: none; }
 .lang-btn:hover, .theme-btn:hover { border-color: var(--accent); }
-.gh-btn { border: 1px solid var(--line); background: transparent; color: var(--text); border-radius: 999px; height: 40px; padding: 0 12px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 700; font-size: .85rem; flex: none; }
+.gh-btn { border: 1px solid var(--line); background: transparent; color: var(--text); border-radius: 11px; height: 37px; padding: 0 12px; display: inline-flex; align-items: center; gap: 6px; text-decoration: none; font-weight: 500; font-size: 13px; flex: none; }
 .gh-btn:hover, .gh-btn:focus-visible { background: var(--accent-soft); border-color: var(--accent); }
 .gh-btn svg { flex: none; }
 .home .top-in .gh-btn { margin-left: auto; }
 .home .top-in .lang-btn, .home .top-in .theme-btn { margin-left: 0; }
 @media (max-width: 560px) {
   .top-search { min-width: 0; }
-  .gh-btn { width: 40px; padding: 0; justify-content: center; }
+  .gh-btn { width: 37px; padding: 0; justify-content: center; }
   .gh-btn span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 }
 .bar.ph-wash { color: #fff; }
