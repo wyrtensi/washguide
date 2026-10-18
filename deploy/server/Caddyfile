@@ -1,0 +1,38 @@
+# Static server for washguide.ru inside the washguide-web container. It has no
+# public ports: edge-caddy terminates TLS and proxies here over the "proxy"
+# docker network. /srv/current is a symlink the deploy key swaps atomically.
+{
+	admin off
+	auto_https off
+}
+
+:80 {
+	root * /srv/current
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		Content-Security-Policy "frame-ancestors 'none'"
+		-Server
+	}
+
+	# Asset names carry no content hash, so caching stays short; pages and data revalidate.
+	@assets path /assets/*
+	header @assets Cache-Control "public, max-age=3600"
+	@data path *.json *.txt *.xml
+	header @data Cache-Control "no-cache"
+	@pages path / */ *.html
+	header @pages Cache-Control "no-cache"
+
+	file_server
+
+	handle_errors {
+		@missing expression {err.status_code} == 404
+		handle @missing {
+			rewrite * /404.html
+			file_server
+		}
+	}
+}

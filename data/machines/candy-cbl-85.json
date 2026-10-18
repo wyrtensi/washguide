@@ -1,0 +1,2224 @@
+{
+  "id": "candy-cbl-85",
+  "brand": "Candy",
+  "model": "CBL 85",
+  "aliases": [
+    "канди cbl 85",
+    "cbl85",
+    "candy cbl85",
+    "канди cbl85"
+  ],
+  "years": "2001-2006",
+  "loading": "front",
+  "capacityKg": 5,
+  "maxSpinRpm": 850,
+  "summary": "Фронтальная Candy на 5 кг с ручкой программ, которая вращается в обе стороны и имеет положение OFF, отдельными кнопками START и открывания люка и четырьмя функциями (Супер скорость, Без складок, Экстра полоскание, Интенсивная). Метки ручки в инструкции не показаны, их порядок восстановлен по таблице программ.",
+  "pitfalls": [
+    "Ручка программ вращается в обе стороны и имеет положение OFF. Из OFF машина включается (загорается лампа «машина вкл»), вернуть на OFF - выключить.",
+    "START нажимается с фиксацией. Чтобы открыть люк, добавить бельё или отменить программу, сначала отожмите START и подождите около 2 минут; отмена программы: отожмите START, поверните ручку на OFF, подождите 5 секунд.",
+    "В контейнере четыре отделения: I предстирка, II основная стирка (и 32-минутная программа), треугольник отбеливатель, цветок добавки. В треугольник и цветок заливают только жидкие средства.",
+    "Загрузка: хлопок и лён до 5 кг, смесовые и синтетика 2 кг, деликатные 1,5 кг, шерсть 1 кг. Для сильно загрязнённого белья инструкция советует до 3 кг.",
+    "Кнопка «Супер скорость» работает только в хлопковых и синтетических программах и сокращает стирку на 10-50 минут. «Интенсивная» только в хлопковых программах для прочных тканей.",
+    "С кнопкой «Без складок» в деликатных программах и в шерсти бельё остаётся в воде после последнего полоскания. Слив: отожмите START, ручку на OFF, выберите «Слив», подождите 5 секунд и нажмите START.",
+    "Русская и английская таблицы программ расходятся в одной строке (смесовые, предстирка, 60 °C): по-русски «линяющие», по-английски «нелинючие»."
+  ],
+  "panel": {
+    "face": "#eceae4",
+    "ink": "#2b2b2b",
+    "rows": [
+      [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive",
+        "phases",
+        "spin",
+        "dooropen",
+        "start",
+        "power-lamp",
+        "prog"
+      ]
+    ],
+    "controls": [
+      {
+        "id": "rapid",
+        "type": "button",
+        "role": "option",
+        "label": "Супер скорость",
+        "name": "Супер скорость (D)",
+        "latching": true,
+        "help": "Кнопка D «Супер Скорость»: сокращает время стирки на 10-50 минут (по программе и температуре). Для загрузки 1-5 кг, только в хлопковых и синтетических программах."
+      },
+      {
+        "id": "crease",
+        "type": "button",
+        "role": "option",
+        "label": "Без складок",
+        "name": "Без складок (E)",
+        "latching": true,
+        "help": "Кнопка E «Без складок»: уменьшает сминание вещей. Для смесовых тканей вода постепенно охлаждается, барабан не вращается, отжим деликатный. Для деликатных тканей, шерсти и прочных тканей бельё остаётся в воде после последнего полоскания; чтобы слить воду: отожмите START, поверните ручку на OFF, выберите «Слив», подождите 5 секунд и включите машину кнопкой START."
+      },
+      {
+        "id": "extrarinse",
+        "type": "button",
+        "role": "option",
+        "label": "Экстра полоскание",
+        "symbol": "extra-rinse",
+        "name": "Экстра полоскание (F)",
+        "latching": true,
+        "help": "Кнопка F: добавляет полоскание или больше воды (по программе). Важно для чувствительной кожи и аллергиков."
+      },
+      {
+        "id": "intensive",
+        "type": "button",
+        "role": "option",
+        "label": "Интенсивная",
+        "symbol": "intensive",
+        "name": "Интенсивная стирка (G)",
+        "latching": true,
+        "help": "Кнопка G: только для хлопковых программ для прочных тканей. Температура стирки держится постоянной на всех этапах, программа удлиняется для лучшей очистки сильно загрязнённого стойко окрашенного белья."
+      },
+      {
+        "id": "phases",
+        "type": "lamp",
+        "color": "green",
+        "lit": "phase",
+        "label": "",
+        "name": "Индикаторы фаз (N)",
+        "help": "Ряд лампочек N над ручками: показывает, какой этап программы выполняется (предварительная стирка, стирка, полоскание, отжим), и конец цикла."
+      },
+      {
+        "id": "spin",
+        "type": "knob",
+        "role": "spin",
+        "label": "об/мин",
+        "rotation": "free",
+        "pointer": "bar",
+        "anglesEstimate": true,
+        "positions": [
+          {
+            "value": "850",
+            "label": "макс.",
+            "angle": 0,
+            "rpm": 850
+          },
+          {
+            "value": "0",
+            "label": "без отжима",
+            "short": "без отжима",
+            "angle": 300,
+            "rpm": 0,
+            "symbol": "no-spin"
+          }
+        ],
+        "help": "Ручка H, вращается в обе стороны. Максимальную скорость отжима можно снизить вплоть до полного отключения (положение со значком «без отжима»). Максимум модели 850 об/мин; промежуточные обороты в инструкции не названы. Есть электронная защита от дисбаланса при неравномерной загрузке."
+      },
+      {
+        "id": "dooropen",
+        "type": "button",
+        "role": "option",
+        "label": "люк",
+        "symbol": "door",
+        "name": "Открывание люка (B)",
+        "latching": false,
+        "help": "Кнопка B: открывает загрузочный люк. По окончании стирки или отжима устройство безопасности не даёт открыть люк около 2 минут. Люк не откроется, пока нажата кнопка START."
+      },
+      {
+        "id": "start",
+        "type": "button",
+        "role": "start",
+        "label": "START",
+        "symbol": "start",
+        "name": "START (C)",
+        "latching": true,
+        "help": "Кнопка C START: запускает выбранную программу, до начала работы может пройти несколько секунд. Чтобы изменить параметры уже идущей программы (пауза): отожмите START, внесите изменения, нажмите START ещё раз. Чтобы открыть люк или добавить бельё, отожмите START и подождите 2 минуты."
+      },
+      {
+        "id": "power-lamp",
+        "type": "lamp",
+        "color": "green",
+        "lit": "power",
+        "label": "",
+        "name": "Лампа «машина включена» (M)",
+        "help": "Светится, когда ручка программ выведена из положения OFF."
+      },
+      {
+        "id": "prog",
+        "type": "knob",
+        "role": "program",
+        "label": "программы",
+        "rotation": "free",
+        "pointer": "bar",
+        "anglesEstimate": true,
+        "positions": [
+          {
+            "value": "off",
+            "label": "OFF",
+            "short": "выкл.",
+            "angle": 0,
+            "stop": true
+          },
+          {
+            "value": "w90",
+            "label": "90",
+            "angle": 16,
+            "zone": "resistant",
+            "tempC": 90
+          },
+          {
+            "value": "w60-pre",
+            "label": "60 + пред.",
+            "angle": 33,
+            "zone": "resistant",
+            "short": "60+",
+            "tempC": 60
+          },
+          {
+            "value": "f60",
+            "label": "60",
+            "angle": 49,
+            "zone": "resistant",
+            "tempC": 60
+          },
+          {
+            "value": "f50",
+            "label": "50",
+            "angle": 65,
+            "zone": "resistant",
+            "tempC": 50
+          },
+          {
+            "value": "nf40",
+            "label": "40",
+            "angle": 82,
+            "zone": "resistant",
+            "tempC": 40
+          },
+          {
+            "value": "cold-c",
+            "label": "хол.",
+            "angle": 98,
+            "zone": "resistant",
+            "short": "хол.",
+            "tempC": 0
+          },
+          {
+            "value": "spin-n",
+            "label": "отжим",
+            "angle": 115,
+            "zone": "resistant",
+            "short": "отжим",
+            "tempC": 0
+          },
+          {
+            "value": "m-f60-pre",
+            "label": "60 + пред.",
+            "angle": 131,
+            "zone": "mixed",
+            "short": "60+",
+            "tempC": 60
+          },
+          {
+            "value": "m-f60",
+            "label": "60",
+            "angle": 147,
+            "zone": "mixed",
+            "tempC": 60
+          },
+          {
+            "value": "m-f50",
+            "label": "50",
+            "angle": 164,
+            "zone": "mixed",
+            "tempC": 50
+          },
+          {
+            "value": "m-nf40",
+            "label": "40",
+            "angle": 180,
+            "zone": "mixed",
+            "tempC": 40
+          },
+          {
+            "value": "m-nf30",
+            "label": "30",
+            "angle": 196,
+            "zone": "mixed",
+            "tempC": 30
+          },
+          {
+            "value": "m-cold",
+            "label": "хол.",
+            "angle": 213,
+            "zone": "mixed",
+            "short": "хол.",
+            "tempC": 0
+          },
+          {
+            "value": "spin-s",
+            "label": "короткий отжим",
+            "angle": 229,
+            "zone": "mixed",
+            "short": "кор. отжим"
+          },
+          {
+            "value": "del40",
+            "label": "40",
+            "angle": 245,
+            "zone": "delicate",
+            "tempC": 40
+          },
+          {
+            "value": "wool30",
+            "label": "30",
+            "angle": 262,
+            "zone": "delicate",
+            "tempC": 30
+          },
+          {
+            "value": "wool-cold",
+            "label": "хол.",
+            "angle": 278,
+            "zone": "delicate",
+            "short": "хол.",
+            "tempC": 0
+          },
+          {
+            "value": "rapid32",
+            "label": "32'",
+            "angle": 295,
+            "zone": "special",
+            "short": "32'",
+            "tempC": 50
+          },
+          {
+            "value": "hand30",
+            "label": "ручная",
+            "angle": 311,
+            "zone": "special",
+            "short": "ручная",
+            "tempC": 30
+          },
+          {
+            "value": "rinse",
+            "label": "полоскание",
+            "angle": 327,
+            "zone": "special",
+            "short": "полоск."
+          },
+          {
+            "value": "drain",
+            "label": "слив",
+            "angle": 344,
+            "zone": "special",
+            "short": "слив"
+          }
+        ],
+        "zones": [
+          {
+            "id": "resistant",
+            "label": "Прочные ткани: хлопок и лён (программы 90...хол.)",
+            "color": "#0d9488"
+          },
+          {
+            "id": "mixed",
+            "label": "Смесовые и синтетические ткани",
+            "color": "#2563eb"
+          },
+          {
+            "id": "delicate",
+            "label": "Очень деликатные ткани и шерсть",
+            "color": "#b45309"
+          },
+          {
+            "id": "special",
+            "label": "Специальные и вспомогательные программы",
+            "color": "#64748b"
+          }
+        ],
+        "help": "Ручка L: переключатель программ с положением OFF, вращается в обе стороны. Вращением из OFF машина включается, загорается лампа «машина вкл». Метки на ручке нужно сопоставлять с таблицей программ по температуре или значку. Сама ручка в инструкции не нарисована: положения восстановлены по таблице, порядок и углы приблизительные. Выключить: вернуть на OFF."
+      }
+    ]
+  },
+  "tray": {
+    "location": "top-left",
+    "layout": "columns",
+    "compartments": [
+      {
+        "id": "I",
+        "mark": "I",
+        "use": "prewash",
+        "label": "Предварительная стирка",
+        "width": 1
+      },
+      {
+        "id": "II",
+        "mark": "II",
+        "use": "main",
+        "label": "Основная стирка и программа 32 минуты",
+        "width": 2
+      },
+      {
+        "id": "bleach",
+        "mark": "triangle-cl",
+        "use": "bleach",
+        "label": "Отбеливатель (только жидкий)",
+        "width": 1
+      },
+      {
+        "id": "flower",
+        "mark": "flower",
+        "use": "softener",
+        "label": "Добавки: кондиционер, крахмал, ароматизаторы (только жидкие)",
+        "width": 1
+      }
+    ],
+    "help": "Контейнер разделён на 4 отделения: I - порошок для предварительной стирки; II - порошок для основных программ и для 32-минутной программы; треугольник - отбеливатель; цветок - специальные добавки (смягчители, ароматизаторы, крахмал, подсинивание). В третье и четвёртое отделения заливают только жидкие средства. Для жидкого моющего средства вставьте в отделение II прилагаемую ванночку. Мерная лопатка «32» для быстрой программы идёт в комплекте. Порядок отделений слева направо взят с рисунка."
+  },
+  "cycle": {
+    "dialMoves": false,
+    "timerPausesForHeating": false,
+    "washLitres": 12,
+    "inletTempC": 15,
+    "estimate": true,
+    "steps": [
+      {
+        "pos": "w90",
+        "phase": "wash",
+        "min": 60,
+        "dose": [
+          "II",
+          "bleach"
+        ]
+      },
+      {
+        "pos": "w90",
+        "phase": "rinse",
+        "min": 32
+      },
+      {
+        "pos": "w90",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "w90",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "w90",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "prewash",
+        "min": 18,
+        "dose": [
+          "I"
+        ]
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "wash",
+        "min": 50,
+        "dose": [
+          "II",
+          "bleach"
+        ]
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "rinse",
+        "min": 32
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "w60-pre",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "f60",
+        "phase": "wash",
+        "min": 50,
+        "dose": [
+          "II",
+          "bleach"
+        ]
+      },
+      {
+        "pos": "f60",
+        "phase": "rinse",
+        "min": 32
+      },
+      {
+        "pos": "f60",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "f60",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "f60",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "f50",
+        "phase": "wash",
+        "min": 50,
+        "dose": [
+          "II",
+          "bleach"
+        ]
+      },
+      {
+        "pos": "f50",
+        "phase": "rinse",
+        "min": 32
+      },
+      {
+        "pos": "f50",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "f50",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "f50",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "nf40",
+        "phase": "wash",
+        "min": 45,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "nf40",
+        "phase": "rinse",
+        "min": 30
+      },
+      {
+        "pos": "nf40",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "nf40",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "nf40",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "cold-c",
+        "phase": "wash",
+        "min": 45,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "cold-c",
+        "phase": "rinse",
+        "min": 30
+      },
+      {
+        "pos": "cold-c",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "cold-c",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "cold-c",
+        "phase": "spin",
+        "min": 14,
+        "end": "stop"
+      },
+      {
+        "pos": "spin-n",
+        "phase": "drain",
+        "min": 2
+      },
+      {
+        "pos": "spin-n",
+        "phase": "spin",
+        "min": 12,
+        "end": "stop"
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "prewash",
+        "min": 18,
+        "dose": [
+          "I"
+        ]
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "wash",
+        "min": 35,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-f60-pre",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "m-f60",
+        "phase": "wash",
+        "min": 35,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-f60",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-f60",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-f60",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-f60",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "m-f50",
+        "phase": "wash",
+        "min": 35,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-f50",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-f50",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-f50",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-f50",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "m-nf40",
+        "phase": "wash",
+        "min": 32,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-nf40",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-nf40",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-nf40",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-nf40",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "m-nf30",
+        "phase": "wash",
+        "min": 32,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-nf30",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-nf30",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-nf30",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-nf30",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "m-cold",
+        "phase": "wash",
+        "min": 32,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "m-cold",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "m-cold",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "m-cold",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "m-cold",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "spin-s",
+        "phase": "drain",
+        "min": 2
+      },
+      {
+        "pos": "spin-s",
+        "phase": "spin",
+        "min": 5,
+        "end": "stop"
+      },
+      {
+        "pos": "del40",
+        "phase": "wash",
+        "min": 25,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "del40",
+        "phase": "rinse",
+        "min": 24
+      },
+      {
+        "pos": "del40",
+        "phase": "softener",
+        "min": 6,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "del40",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "del40",
+        "phase": "spin",
+        "min": 4,
+        "end": "stop"
+      },
+      {
+        "pos": "wool30",
+        "phase": "wash",
+        "min": 18,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "wool30",
+        "phase": "rinse",
+        "min": 22
+      },
+      {
+        "pos": "wool30",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "wool30",
+        "phase": "spin",
+        "min": 3,
+        "end": "stop"
+      },
+      {
+        "pos": "wool-cold",
+        "phase": "wash",
+        "min": 18,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "wool-cold",
+        "phase": "rinse",
+        "min": 22
+      },
+      {
+        "pos": "wool-cold",
+        "phase": "drain",
+        "min": 3
+      },
+      {
+        "pos": "wool-cold",
+        "phase": "spin",
+        "min": 3,
+        "end": "stop"
+      },
+      {
+        "pos": "rapid32",
+        "phase": "wash",
+        "min": 14,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "rapid32",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "rapid32",
+        "phase": "drain",
+        "min": 2
+      },
+      {
+        "pos": "rapid32",
+        "phase": "spin",
+        "min": 7,
+        "end": "stop"
+      },
+      {
+        "pos": "hand30",
+        "phase": "wash",
+        "min": 12,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "hand30",
+        "phase": "rinse",
+        "min": 14
+      },
+      {
+        "pos": "hand30",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "hand30",
+        "phase": "drain",
+        "min": 2
+      },
+      {
+        "pos": "hand30",
+        "phase": "spin",
+        "min": 4,
+        "end": "stop"
+      },
+      {
+        "pos": "rinse",
+        "phase": "rinse",
+        "min": 15
+      },
+      {
+        "pos": "rinse",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "rinse",
+        "phase": "drain",
+        "min": 2
+      },
+      {
+        "pos": "rinse",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "drain",
+        "phase": "drain",
+        "min": 3,
+        "end": "drain"
+      }
+    ]
+  },
+  "programs": [
+    {
+      "pos": "w90",
+      "name": "Белые ткани 90 °C (хлопок, лён)",
+      "fabric": "cotton",
+      "tempMaxC": 90,
+      "tempDefaultC": 90,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "bleach",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "note": "Прочные ткани, хлопок и лён. Для сильно загрязнённого белья загрузку рекомендуется снизить до 3 кг сухого белья. Отбеливатель в отделение с треугольником действует автоматически.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "w60-pre",
+      "name": "Белые ткани с предварительной стиркой 60 °C",
+      "fabric": "cotton",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 850,
+      "dose": [
+        "I",
+        "II",
+        "bleach",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "note": "Предварительная стирка: порошок в отделение I. Загрузка 5 кг, для сильно загрязнённого белья до 3 кг.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "f60",
+      "name": "Цветные нелинючие ткани 60 °C (хлопок, смесовые прочные)",
+      "fabric": "cotton",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "bleach",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "note": "Программа отмечена звёздочкой: соответствует EN 60456 (контрольная стирка).",
+      "sourcePage": 44
+    },
+    {
+      "pos": "f50",
+      "name": "Цветные нелинючие ткани 50 °C",
+      "fabric": "cotton",
+      "tempMaxC": 50,
+      "tempDefaultC": 50,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "bleach",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "nf40",
+      "name": "Цветные линяющие ткани 40 °C",
+      "fabric": "cotton",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "note": "Для цветного белья, которое может линять. Отбеливатель в этой программе не отмечен.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "cold-c",
+      "name": "Цветные линяющие ткани, холодная вода (хлопок)",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse",
+        "intensive"
+      ],
+      "loadKg": 5,
+      "ends": "stop",
+      "note": "Стирка в холодной воде; температура в таблице не указана.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "spin-n",
+      "name": "Нормальный отжим (хлопок, лён)",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "note": "Только отжим, моющие средства не нужны. Значок спирали в колонке «Программа».",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-f60-pre",
+      "name": "Цветные нелинючие, смесовые и синтетика, с предстиркой 60 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 850,
+      "dose": [
+        "I",
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "note": "В русской таблице эта строка названа «линяющие», в английской «Fast coloureds». Принято по английскому тексту: нелинючие.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-f60",
+      "name": "Цветные нелинючие, смесовые и синтетика, 60 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "note": "Звёздочка в таблице: контрольная программа EN 60456.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-f50",
+      "name": "Цветные нелинючие, синтетика (нейлон, перлон), смесовые, 50 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 50,
+      "tempDefaultC": 50,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-nf40",
+      "name": "Цветные линяющие, синтетика, 40 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-nf30",
+      "name": "Цветные линяющие, смесовые и деликатная синтетика, 30 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 30,
+      "tempDefaultC": 30,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "m-cold",
+      "name": "Цветные линяющие, смесовые и деликатная синтетика, холодная вода",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "rapid",
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 2,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "spin-s",
+      "name": "Короткий отжим (смесовые, синтетика, деликатные, шерсть)",
+      "fabric": "special",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "note": "Только короткий отжим, моющие средства не нужны. В таблице дан и для смесовых, и для очень деликатных тканей.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "del40",
+      "name": "Деликатные ткани 40 °C",
+      "fabric": "delicate",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 1.5,
+      "ends": "stop",
+      "note": "Очень деликатные ткани. Звёздочка в таблице: программа EN 60456. Загрузка 1,5 кг.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "wool30",
+      "name": "Шерсть «для машинной стирки» 30 °C",
+      "fabric": "wool",
+      "tempMaxC": 30,
+      "tempDefaultC": 30,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 1,
+      "ends": "stop",
+      "note": "Только шерсть с пометкой «можно стирать в машине». Загрузка 1 кг; для особо деликатных вещей мешок для стирки.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "wool-cold",
+      "name": "Шерсть «для машинной стирки», холодная вода",
+      "fabric": "wool",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 1,
+      "ends": "stop",
+      "sourcePage": 44
+    },
+    {
+      "pos": "rapid32",
+      "name": "Сверхбыстрая программа 32 минуты, 50 °C",
+      "fabric": "special",
+      "tempMaxC": 50,
+      "tempDefaultC": 50,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II"
+      ],
+      "options": [],
+      "loadKg": 2,
+      "ends": "stop",
+      "note": "Полный цикл примерно за 32 минуты, до 2 кг белья. Порошок только по мерной лопатке с отметкой «32», в отделение II.",
+      "sourcePage": 40,
+      "durationMin": 32,
+      "durationAtC": 50
+    },
+    {
+      "pos": "hand30",
+      "name": "Программа «Ручная стирка» 30 °C",
+      "fabric": "delicate",
+      "tempMaxC": 30,
+      "tempDefaultC": 30,
+      "spinMaxRpm": 850,
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "crease",
+        "extrarinse"
+      ],
+      "loadKg": 1,
+      "ends": "stop",
+      "note": "Для изделий с пометкой «Hand Wash only»: 30 °C, два полоскания и медленный деликатный отжим.",
+      "sourcePage": 40
+    },
+    {
+      "pos": "rinse",
+      "name": "Полоскание",
+      "fabric": "special",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 850,
+      "dose": [
+        "flower"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Только полоскание; кондиционер в отделение с цветком.",
+      "sourcePage": 44
+    },
+    {
+      "pos": "drain",
+      "name": "Только слив (для белья без отжима)",
+      "fabric": "special",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 0,
+      "dose": [],
+      "options": [],
+      "ends": "drain",
+      "note": "Слив воды без отжима.",
+      "sourcePage": 44
+    }
+  ],
+  "rules": [
+    {
+      "when": {
+        "pos": [
+          "rapid32",
+          "hand30",
+          "del40",
+          "wool30",
+          "wool-cold",
+          "spin-n",
+          "spin-s",
+          "rinse",
+          "drain"
+        ]
+      },
+      "check": {
+        "forbidOptions": [
+          "rapid"
+        ]
+      },
+      "level": "error",
+      "message": "Кнопка «Супер скорость» работает только в программах для хлопка и синтетики.",
+      "sourcePage": 26
+    },
+    {
+      "when": {
+        "pos": [
+          "spin-n",
+          "m-f60-pre",
+          "m-f60",
+          "m-f50",
+          "m-nf40",
+          "m-nf30",
+          "m-cold",
+          "spin-s",
+          "del40",
+          "wool30",
+          "wool-cold",
+          "rapid32",
+          "hand30",
+          "rinse",
+          "drain"
+        ]
+      },
+      "check": {
+        "forbidOptions": [
+          "intensive"
+        ]
+      },
+      "level": "error",
+      "message": "Кнопка «Интенсивная стирка» действует только в хлопковых программах для прочных тканей.",
+      "sourcePage": 30
+    },
+    {
+      "when": {
+        "pos": [
+          "wool30",
+          "wool-cold"
+        ]
+      },
+      "check": {
+        "tempMaxC": 30
+      },
+      "level": "error",
+      "message": "Шерсть: не выше 30 °C, иначе вещи сядут. Только изделия с пометкой «можно стирать в машине».",
+      "sourcePage": 44
+    },
+    {
+      "when": {
+        "pos": [
+          "del40"
+        ]
+      },
+      "check": {
+        "tempMaxC": 40
+      },
+      "level": "error",
+      "message": "Деликатные ткани: не выше 40 °C.",
+      "sourcePage": 44
+    },
+    {
+      "when": {
+        "pos": [
+          "w90",
+          "w60-pre",
+          "f60",
+          "f50"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "info",
+      "message": "Отбеливатель в отделение с треугольником действует автоматически только в программах, отмеченных в таблице (хлопок: 90, 60 с предстиркой, 60, 50).",
+      "sourcePage": 44
+    },
+    {
+      "when": {
+        "pos": [
+          "w90",
+          "w60-pre",
+          "f60",
+          "f50",
+          "nf40",
+          "cold-c",
+          "spin-n",
+          "m-f60-pre",
+          "m-f60",
+          "m-f50",
+          "m-nf40",
+          "m-nf30",
+          "m-cold",
+          "spin-s",
+          "del40",
+          "wool30",
+          "wool-cold",
+          "rapid32",
+          "hand30",
+          "rinse",
+          "drain"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "info",
+      "message": "Загрузка: хлопок и лён до 5 кг, смесовые и синтетика до 2 кг, деликатные 1,5 кг, шерсть 1 кг. Для сильно загрязнённого белья загрузку снижают до 3 кг.",
+      "sourcePage": 44
+    },
+    {
+      "when": {
+        "pos": [
+          "w90",
+          "w60-pre",
+          "f60",
+          "f50",
+          "nf40",
+          "cold-c",
+          "spin-n",
+          "m-f60-pre",
+          "m-f60",
+          "m-f50",
+          "m-nf40",
+          "m-nf30",
+          "m-cold",
+          "spin-s",
+          "del40",
+          "wool30",
+          "wool-cold",
+          "rapid32",
+          "hand30",
+          "rinse",
+          "drain"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "info",
+      "message": "Люк не откроется, пока нажата кнопка START: отожмите START и подождите 2 минуты. Отмена программы: отожмите START, поверните ручку на OFF, подождите 5 секунд.",
+      "sourcePage": 26
+    }
+  ],
+  "presets": [
+    {
+      "id": "everyday-40",
+      "title": "Повседневная одежда, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "nf40",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Порошок или гель",
+        "flower": "Кондиционер (по желанию)"
+      },
+      "note": "Цветные линяющие, хлопок, до 5 кг."
+    },
+    {
+      "id": "everyday-60",
+      "title": "Хлопок обычной загрязнённости, 60 °C",
+      "group": "wash",
+      "set": {
+        "prog": "f60",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Порошок",
+        "flower": "Кондиционер (по желанию)"
+      },
+      "note": "Цветные нелинючие, до 5 кг. Программа соответствует EN 60456."
+    },
+    {
+      "id": "whites-90",
+      "title": "Белое бельё, 90 °C",
+      "group": "wash",
+      "set": {
+        "prog": "w90",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Порошок",
+        "bleach": "Жидкий отбеливатель (по желанию)",
+        "flower": "Кондиционер (по желанию)"
+      },
+      "note": "Для сильно загрязнённого загрузку снижают до 3 кг."
+    },
+    {
+      "id": "heavy-60-prewash",
+      "title": "Очень грязное, 60 °C с предстиркой",
+      "group": "wash",
+      "set": {
+        "prog": "w60-pre",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "I": "Порошок для предстирки",
+        "II": "Порошок для основной стирки"
+      },
+      "note": "Предстирка отделение I, основная стирка отделение II."
+    },
+    {
+      "id": "quick-32",
+      "title": "Быстрая стирка 32 минуты",
+      "group": "wash",
+      "set": {
+        "prog": "rapid32",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Порошок (по мерной лопатке «32»)"
+      },
+      "note": "До 2 кг, 50 °C, около 32 минут."
+    },
+    {
+      "id": "synthetic-40",
+      "title": "Синтетика, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "m-nf40",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Порошок или гель",
+        "flower": "Кондиционер (по желанию)"
+      },
+      "note": "До 2 кг."
+    },
+    {
+      "id": "delicate-40",
+      "title": "Деликатные ткани, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "del40",
+        "spin": "850",
+        "rapid": false,
+        "crease": true,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Средство для деликатной стирки"
+      },
+      "note": "До 1,5 кг. С кнопкой «Без складок» бельё остаётся в воде после последнего полоскания (потом программа «Слив»)."
+    },
+    {
+      "id": "wool-30",
+      "title": "Шерсть, 30 °C",
+      "group": "care",
+      "set": {
+        "prog": "wool30",
+        "spin": "0",
+        "rapid": false,
+        "crease": true,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Средство для шерсти"
+      },
+      "note": "До 1 кг, только шерсть «для машинной стирки». Затем слив."
+    },
+    {
+      "id": "hand-wash-30",
+      "title": "Ручная стирка, 30 °C",
+      "group": "care",
+      "set": {
+        "prog": "hand30",
+        "spin": "0",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "II": "Средство для деликатной стирки"
+      },
+      "note": "Для изделий с пометкой «Hand Wash only»."
+    },
+    {
+      "id": "rinse-only",
+      "title": "Только полоскание",
+      "group": "rinse",
+      "set": {
+        "prog": "rinse",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "dose": {
+        "flower": "Кондиционер"
+      }
+    },
+    {
+      "id": "spin-only",
+      "title": "Только отжим",
+      "group": "spin",
+      "set": {
+        "prog": "spin-n",
+        "spin": "850",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "note": "Нормальный отжим хлопка. Для деликатных вещей выберите короткий отжим."
+    },
+    {
+      "id": "drain-only",
+      "title": "Только слив воды",
+      "group": "rinse",
+      "set": {
+        "prog": "drain",
+        "spin": "0",
+        "rapid": false,
+        "crease": false,
+        "extrarinse": false,
+        "intensive": false
+      },
+      "note": "Слив без отжима."
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Машина не работает ни на одной программе",
+      "causes": [
+        "Вилка плохо включена в розетку.",
+        "Не нажата кнопка или не повёрнута ручка из положения OFF.",
+        "Нет электроэнергии или перегорели предохранители.",
+        "Открыт загрузочный люк."
+      ],
+      "sourcePage": 64
+    },
+    {
+      "title": "Машина не заполняется водой",
+      "causes": [
+        "Те же причины, что в предыдущем пункте.",
+        "Закрыт кран подачи воды.",
+        "Неправильно установлена ручка L выбора программ стирки."
+      ],
+      "sourcePage": 64
+    },
+    {
+      "title": "Машина не сливает воду",
+      "causes": [
+        "Засорился фильтр: прочистите.",
+        "Перегнута трубка слива: выпрямите."
+      ],
+      "sourcePage": 64
+    },
+    {
+      "title": "Вода на полу вокруг машины",
+      "causes": [
+        "Вода проникает через прокладку между краном и трубкой подачи воды: замените прокладку и затяните соединение."
+      ],
+      "sourcePage": 64
+    },
+    {
+      "title": "Машина не отжимает бельё",
+      "causes": [
+        "Ещё не слита вода: подождите несколько минут, пока машина сольёт воду.",
+        "Включён режим без отжима (на некоторых моделях): переведите ручку на отжим."
+      ],
+      "sourcePage": 64
+    },
+    {
+      "title": "Сильные вибрации во время отжима",
+      "causes": [
+        "Машина неровно стоит на полу: выровняйте регулируемыми ножками.",
+        "Не сняты транспортировочные скобы.",
+        "Бельё неравномерно распределилось в барабане."
+      ],
+      "sourcePage": 64
+    }
+  ],
+  "care": [
+    {
+      "title": "Корпус",
+      "text": "Для внешней чистки не пользуйтесь абразивными средствами, спиртом и растворителями; достаточно протереть влажной салфеткой.",
+      "sourcePage": 60
+    },
+    {
+      "title": "Контейнер для моющих средств",
+      "text": "Время от времени чистите отделения для отбеливателя и смягчителя: без усилий выньте ванночки из контейнера, промойте контейнер и ванночки струёй воды и поставьте на место.",
+      "interval": "время от времени",
+      "sourcePage": 60
+    },
+    {
+      "title": "Фильтр слива",
+      "text": "Фильтр задерживает монеты, пуговицы и другие предметы. Откройте поддон-цоколь и используйте его для сбора остатков воды, ослабьте винт, поверните фильтр против часовой стрелки до упора в вертикальном положении, извлеките и очистите. Ставьте обратно в обратном порядке.",
+      "interval": "при засорении",
+      "sourcePage": 62
+    },
+    {
+      "title": "Перемещение и длительная остановка",
+      "text": "При перемещении или длительном простое в неотапливаемом помещении отсоедините вилку, слейте воду из машины и трубки слива (используйте ёмкость и фиксатор шланга), то же сделайте со шлангом подачи воды.",
+      "sourcePage": 62
+    }
+  ],
+  "sources": [
+    {
+      "title": "Инструкция по эксплуатации Candy CBL 85 (RU/UKR/CZ/PL/EN, копия сервисного сайта)",
+      "url": "https://rembitteh.ru/manuals/krupnaya-byitovaya-tehnika/stiralnie-mashini/candy/cbl-85/",
+      "kind": "manual-archive",
+      "pages": "14-67 (печатные номера страниц на разворотах; номера страниц PDF в 1,5-2 раза меньше)"
+    }
+  ],
+  "notes": {
+    "assumptions": [
+      "Состав и порядок положений ручки программ L восстановлены по таблице программ (стр. 44): сама ручка в инструкции не нарисована. Метки, порядок и углы приблизительные (anglesEstimate=true), надписи на панели могут отличаться.",
+      "Селектор вращается в обе стороны, имеет положение OFF, лампы фаз и память программы при сбое питания (стр. 58), поэтому принято cycle.dialMoves=false: ручка не отражает ход программы. Инструкция при этом называет ручку «timer knob» (стр. 23): устройство ручки не уточнено.",
+      "Время этапов оценочное (cycle.estimate=true): в инструкции указана длительность только быстрой программы (около 32 мин, 2 кг, 50 °C); остальные длительности не приведены.",
+      "sourcePage - печатные номера на разворотах русской части инструкции (таблица программ стр. 44, панель стр. 22, кнопки стр. 24-33, контейнер стр. 36).",
+      "Таблицы программ на русском и английском расходятся в одной строке (смесовые с предстиркой 60 °C): в русской «линяющие», в английской «Fast coloureds». Принят английский вариант.",
+      "Максимум 850 об/мин дан по таблице технических характеристик (стр. 14). Отдельного ограничения оборотов по программам в инструкции нет, поэтому spinMaxRpm=850 у всех.",
+      "Загрузка по группам: хлопок 5 кг, смесовые 2 кг, деликатные 1,5 кг, шерсть и ручная стирка 1 кг (колонка «макс. загрузка», стр. 44). Для сильно загрязнённого рекомендуется 3 кг.",
+      "Допустимые кнопки: «Супер скорость» только хлопок и синтетика (стр. 26), «Интенсивная» только хлопок для прочных тканей (стр. 30); применимость «Без складок» и «Экстра полоскание» к отдельным программам не уточнена и принята для стиральных программ.",
+      "Годы выпуска приблизительные: на последней странице код 01.11 (возможно, ноябрь 2001), точных годов нет.",
+      "Цвета панели приблизительные: фото машины не просмотрено."
+    ],
+    "gaps": [
+      "Нет рисунка ручки программ: неизвестны точные надписи, порядок и число положений.",
+      "Нет значений промежуточных скоростей отжима, только максимум 850 об/мин и отключение.",
+      "Нет длительностей программ (кроме быстрой 32 мин), расхода воды и энергии по программам.",
+      "Нет разбивки времени по этапам и нет температуры для положений холодной стирки.",
+      "Не указано, как лампы фаз соотносятся с отдельными символами и лампой «конец цикла»."
+    ]
+  },
+  "en": {
+    "summary": "Candy front loader (5 kg, 850 rpm) with a programme selector that turns both ways and has an OFF position, separate START and door buttons, four option buttons (Super Rapid, Crease Guard, Extra Rinse, Intensive) and a four-compartment drawer with bleach. The manual does not draw the knob, so its marks are rebuilt from the programme table.",
+    "years": "approx. 2001-2006 (approximate)",
+    "pitfalls": [
+      "The programme knob turns in both directions and has an OFF position. Turning it out of OFF switches the machine on (the ON lamp lights). To switch off, return it to OFF.",
+      "START is a latching button. To open the door, add laundry or cancel a programme, release START first and wait about 2 minutes. To cancel: release START, turn the knob to OFF, wait 5 seconds.",
+      "The drawer has four compartments: I prewash, II main wash (also the 32-minute programme), triangle bleach, flower additives. Only liquids go into the triangle and flower compartments.",
+      "Loads: cotton and linen up to 5 kg, mixed and synthetics 2 kg, delicates 1.5 kg, wool 1 kg. For heavily soiled laundry the manual advises up to 3 kg.",
+      "The \"Super Rapid\" button works only on cotton and synthetic programmes and shortens the wash by 10-50 minutes. The \"Intensive\" button works only on cotton programmes for hard-wearing fabrics.",
+      "With the \"Crease Guard\" button on delicates and wool the laundry stays in the water after the final rinse. To drain: release START, turn the knob to OFF, choose Drain, wait 5 seconds and press START again.",
+      "The Russian and English programme tables disagree in one row (mixed fabrics, 60 °C with prewash): \"bleeding\" in Russian, \"fast coloureds\" in English."
+    ],
+    "controls": {
+      "rapid": {
+        "label": "Super Rapid",
+        "name": "Super Rapid (D)",
+        "help": "Button D \"Super Rapid\": shortens the wash by 10-50 minutes depending on programme and temperature. For loads of 1-5 kg, only on cotton and synthetic programmes."
+      },
+      "crease": {
+        "label": "Crease Guard",
+        "name": "Crease Guard (E)",
+        "help": "Button E \"Crease Guard\": reduces creasing. For mixed fabrics the water is cooled gradually, the drum does not turn and the spin is delicate. For delicates, wool and hard-wearing fabrics the laundry stays in the water after the last rinse; to drain: release START, turn the knob to OFF, choose Drain, wait 5 seconds and press START."
+      },
+      "extrarinse": {
+        "label": "Extra Rinse",
+        "name": "Extra Rinse (F)",
+        "help": "Button F: adds a rinse or more water depending on the programme. Important for sensitive skin and allergy sufferers."
+      },
+      "intensive": {
+        "label": "Intensive",
+        "name": "Intensive wash (G)",
+        "help": "Button G: only for cotton programmes for hard-wearing fabrics. The wash temperature is kept constant in all stages and the programme is extended for a deeper clean of heavily soiled, colour-fast laundry."
+      },
+      "phases": {
+        "name": "Phase indicators (N)",
+        "help": "The row of lamps N above the knobs shows which stage of the programme is running (prewash, wash, rinse, spin) and the end of the cycle."
+      },
+      "spin": {
+        "label": "rpm",
+        "name": "Spin speed (H)",
+        "positions": {
+          "850": "max",
+          "0": "no spin"
+        },
+        "help": "Knob H, turns in both directions. The maximum spin speed can be reduced right down to no spin (position with the no-spin symbol). The model maximum is 850 rpm; the manual gives no intermediate speeds. There is an electronic unbalance guard."
+      },
+      "dooropen": {
+        "label": "door",
+        "name": "Door open (B)",
+        "help": "Button B opens the door. After the wash or spin a safety device keeps the door locked for about 2 minutes. The door does not open while START is pressed in."
+      },
+      "start": {
+        "name": "START (C)",
+        "help": "Button C START: starts the selected programme; it may take a few seconds to begin. To change settings of a running programme (pause), release START, make the change and press START again. To open the door or add laundry, release START and wait 2 minutes."
+      },
+      "power-lamp": {
+        "name": "Machine on lamp (M)",
+        "help": "Lit when the programme knob is out of the OFF position."
+      },
+      "prog": {
+        "label": "programmes",
+        "help": "Knob L: programme selector with an OFF position, turns in both directions. Turning it from OFF switches the machine on and lights the ON lamp. Match the marks with the programme table by temperature or symbol. The knob itself is not drawn in the manual: the positions are rebuilt from the table, order and angles are approximate. To switch off, return to OFF.",
+        "zones": {
+          "resistant": "Hard-wearing fabrics: cotton and linen (90...cold)",
+          "mixed": "Mixed and synthetic fabrics",
+          "delicate": "Very delicate fabrics and wool",
+          "special": "Special and auxiliary programmes"
+        },
+        "positions": {
+          "w90": "90",
+          "w60-pre": "60 + prewash",
+          "spin-n": "spin",
+          "m-f60-pre": "60 + prewash",
+          "spin-s": "short spin",
+          "hand30": "hand wash",
+          "rinse": "rinse",
+          "drain": "drain",
+          "cold-c": "cold",
+          "m-cold": "cold",
+          "wool-cold": "cold",
+          "off": "OFF"
+        }
+      }
+    },
+    "tray": {
+      "help": "The drawer has 4 compartments: I powder for prewash; II powder for the main programmes and the 32-minute programme; triangle bleach; flower special additives (softeners, perfumes, starch, bluing). Only liquids go into the third and fourth compartments. For liquid detergent put the supplied container into compartment II. The \"32\" scoop for the rapid programme is supplied. The order left to right is taken from the drawing.",
+      "compartments": {
+        "I": "Prewash",
+        "II": "Main wash and 32-minute programme",
+        "bleach": "Bleach (liquid only)",
+        "flower": "Additives: softener, starch, perfumes (liquid only)"
+      }
+    },
+    "programs": {
+      "w90": {
+        "name": "Whites 90 °C (cotton, linen)",
+        "note": "Hard-wearing cotton and linen. For heavily soiled laundry the manual recommends reducing the load to 3 kg dry. Bleach poured into the triangle compartment acts automatically."
+      },
+      "w60-pre": {
+        "name": "Whites with prewash 60 °C",
+        "note": "Prewash: put powder in compartment I. Load 5 kg, up to 3 kg for heavily soiled laundry."
+      },
+      "f60": {
+        "name": "Fast coloureds 60 °C (cotton, hard-wearing mixed)",
+        "note": "Marked with an asterisk: complies with EN 60456 (reference wash)."
+      },
+      "f50": {
+        "name": "Fast coloureds 50 °C"
+      },
+      "nf40": {
+        "name": "Non-fast coloureds 40 °C",
+        "note": "For coloured laundry that may bleed. Bleach is not marked for this programme."
+      },
+      "cold-c": {
+        "name": "Non-fast coloureds, cold wash (cotton)",
+        "note": "Cold-water wash; the table gives no temperature."
+      },
+      "spin-n": {
+        "name": "Normal spin (cotton, linen)",
+        "note": "Spin only, no detergents needed. Spiral symbol in the \"programme\" column."
+      },
+      "m-f60-pre": {
+        "name": "Fast coloureds, mixed and synthetics, with prewash 60 °C",
+        "note": "The Russian table calls this row \"линяющие\" (bleeding), the English one \"Fast coloureds\". The English text is used: colour-fast."
+      },
+      "m-f60": {
+        "name": "Fast coloureds, mixed and synthetics, 60 °C",
+        "note": "Asterisk in the table: reference programme EN 60456."
+      },
+      "m-f50": {
+        "name": "Fast coloureds, synthetics (nylon, perlon), mixed cotton, 50 °C"
+      },
+      "m-nf40": {
+        "name": "Non-fast coloureds, synthetics, 40 °C"
+      },
+      "m-nf30": {
+        "name": "Non-fast coloureds, mixed and delicate synthetics, 30 °C"
+      },
+      "m-cold": {
+        "name": "Non-fast coloureds, mixed and delicate synthetics, cold wash"
+      },
+      "spin-s": {
+        "name": "Short spin (mixed, synthetics, delicates, wool)",
+        "note": "Short spin only, no detergents. The table lists it for both mixed and very delicate fabrics."
+      },
+      "del40": {
+        "name": "Delicates 40 °C",
+        "note": "Very delicate fabrics. Asterisk in the table: EN 60456 programme. Load 1.5 kg."
+      },
+      "wool30": {
+        "name": "\"Machine washable\" wool 30 °C",
+        "note": "Only wool marked machine washable. Load 1 kg; use a net bag for particularly delicate items."
+      },
+      "wool-cold": {
+        "name": "\"Machine washable\" wool, cold water"
+      },
+      "rapid32": {
+        "name": "32-minute rapid programme, 50 °C",
+        "note": "Full cycle in about 32 minutes, up to 2 kg. Powder only per the marked \"32\" scoop, in compartment II."
+      },
+      "hand30": {
+        "name": "\"Hand wash\" programme 30 °C",
+        "note": "For items marked \"Hand Wash only\": 30 °C, two rinses and a slow gentle spin."
+      },
+      "rinse": {
+        "name": "Rinse",
+        "note": "Rinse only; fabric softener goes in the flower compartment."
+      },
+      "drain": {
+        "name": "Drain only (for items that must not be spun)",
+        "note": "Drains water without spinning."
+      }
+    },
+    "rules": [
+      "The \"Super Rapid\" button works only on cotton and synthetic programmes.",
+      "The \"Intensive\" button works only on cotton programmes for hard-wearing fabrics.",
+      "Wool: no higher than 30 °C, otherwise items will shrink. Only items marked machine washable.",
+      "Delicates: no higher than 40 °C.",
+      "Bleach in the triangle compartment acts automatically only in the programmes marked in the table (cotton: 90, 60 with prewash, 60, 50).",
+      "Loads: cotton and linen up to 5 kg, mixed and synthetics up to 2 kg, delicates 1.5 kg, wool 1 kg. For heavily soiled laundry reduce the load to 3 kg.",
+      "The door will not open while START is pressed in: release START and wait 2 minutes. To cancel a programme: release START, turn the knob to OFF, wait 5 seconds."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Non-fast coloureds, cotton, up to 5 kg.",
+        "dose": {
+          "II": "Powder or gel",
+          "flower": "Softener (optional)"
+        }
+      },
+      "everyday-60": {
+        "title": "Normally soiled cotton, 60 °C",
+        "note": "Fast coloureds, up to 5 kg. The programme complies with EN 60456.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (optional)"
+        }
+      },
+      "whites-90": {
+        "title": "Whites, 90 °C",
+        "note": "For heavily soiled laundry reduce the load to 3 kg.",
+        "dose": {
+          "II": "Powder",
+          "bleach": "Liquid bleach (optional)",
+          "flower": "Softener (optional)"
+        }
+      },
+      "heavy-60-prewash": {
+        "title": "Very dirty, 60 °C with prewash",
+        "note": "Prewash in compartment I, main wash in compartment II.",
+        "dose": {
+          "I": "Prewash powder",
+          "II": "Main wash powder"
+        }
+      },
+      "quick-32": {
+        "title": "Quick wash, 32 minutes",
+        "note": "Up to 2 kg, 50 °C, about 32 minutes.",
+        "dose": {
+          "II": "Powder (use the \"32\" scoop)"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Up to 2 kg.",
+        "dose": {
+          "II": "Powder or gel",
+          "flower": "Softener (optional)"
+        }
+      },
+      "delicate-40": {
+        "title": "Delicates, 40 °C",
+        "note": "Up to 1.5 kg. With the Crease Guard button the laundry stays in the water after the last rinse (then run Drain).",
+        "dose": {
+          "II": "Detergent for delicates"
+        }
+      },
+      "wool-30": {
+        "title": "Wool, 30 °C",
+        "note": "Up to 1 kg, only machine washable wool. Then drain.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "hand-wash-30": {
+        "title": "Hand wash, 30 °C",
+        "note": "For items marked \"Hand Wash only\".",
+        "dose": {
+          "II": "Detergent for delicates"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "dose": {
+          "flower": "Fabric softener"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Normal spin for cotton. For delicates choose the short spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Drains without spinning."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not work on any programme",
+        "causes": [
+          "The plug is not properly in the socket.",
+          "The switch was not pressed or the knob was not turned out of OFF.",
+          "No power or blown fuses.",
+          "The load door is open."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The same causes as in the previous item.",
+          "The water tap is closed.",
+          "The programme knob L is set incorrectly."
+        ]
+      },
+      {
+        "title": "The machine does not drain",
+        "causes": [
+          "The filter is clogged: clean it.",
+          "The drain tube is kinked: straighten it."
+        ]
+      },
+      {
+        "title": "Water on the floor around the machine",
+        "causes": [
+          "Water leaks between the tap and the inlet tube: replace the washer and tighten the connection."
+        ]
+      },
+      {
+        "title": "The machine does not spin",
+        "causes": [
+          "The water has not yet been drained: wait a few minutes until the machine drains.",
+          "The \"no spin\" setting is on (some models): turn the dial to spin."
+        ]
+      },
+      {
+        "title": "Strong vibration during the spin",
+        "causes": [
+          "The machine is not level: adjust the feet.",
+          "The transport brackets were not removed.",
+          "The load is not evenly distributed in the drum."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Housing",
+        "text": "Do not use abrasives, spirits or solvents on the outside; a damp cloth is enough."
+      },
+      {
+        "title": "Detergent drawer",
+        "text": "From time to time clean the bleach and softener compartments: pull the inserts out gently, wash the drawer and inserts under running water and put them back.",
+        "interval": "from time to time"
+      },
+      {
+        "title": "Drain filter",
+        "text": "The filter catches coins, buttons and other objects. Open the plinth cover and use it to catch leftover water, loosen the screw, turn the filter anticlockwise until it stops in a vertical position, take it out and clean it. Refit in reverse order.",
+        "interval": "when blocked"
+      },
+      {
+        "title": "Moving or long storage",
+        "text": "Before moving the machine or leaving it for a long period in an unheated room, unplug it and drain the water from the machine and the drain tube (use a container and the hose clamp); do the same with the inlet hose."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The set and order of programme knob (L) positions is rebuilt from the programme table (p. 44): the knob itself is not drawn in the manual. The marks, order and angles are approximate (anglesEstimate=true); what is printed on the panel may differ.",
+        "The selector turns in both directions, has an OFF position, phase lamps and remembers the programme after a power cut (p. 58), so cycle.dialMoves=false is assumed: the knob does not show the progress of the programme. The manual does call it a \"timer knob\" (p. 23), so the exact mechanism is not certain.",
+        "Step times are estimates (cycle.estimate=true): the manual states a duration only for the rapid programme (about 32 min, 2 kg, 50 °C).",
+        "sourcePage values are the printed page numbers on the spreads of the Russian part (programme table p. 44, panel p. 22, buttons p. 24-33, drawer p. 36).",
+        "The Russian and English programme tables disagree in one row (mixed fabrics with prewash, 60 °C): \"bleeding\" in Russian, \"fast coloureds\" in English. The English version is used.",
+        "The 850 rpm maximum comes from the technical data table (p. 14). The manual gives no per-programme spin limit, so spinMaxRpm=850 for all programmes.",
+        "Loads by group: cotton 5 kg, mixed 2 kg, delicates 1.5 kg, wool and hand wash 1 kg (\"max load\" column, p. 44). 3 kg is recommended for heavy soiling.",
+        "Buttons: \"Super Rapid\" only cotton and synthetics (p. 26), \"Intensive\" only cotton for hard-wearing fabrics (p. 30); the applicability of \"Crease Guard\" and \"Extra Rinse\" to individual programmes is not specified and is assumed for wash programmes.",
+        "Years are approximate: the last page carries the code 01.11 (possibly November 2001), there are no exact years.",
+        "Panel colours are approximate: no photo of the machine was viewed."
+      ],
+      "gaps": [
+        "There is no drawing of the programme knob: the exact marks, order and number of positions are unknown.",
+        "No intermediate spin speeds, only the 850 rpm maximum and no spin.",
+        "No programme durations (except the 32-minute one), no water or energy consumption per programme.",
+        "No split of times by stage and no temperature for the cold-wash positions.",
+        "It is not stated how the phase lamps map to the individual symbols and the end-of-cycle lamp."
+      ]
+    },
+    "sources": [
+      "Operating instructions Candy CBL 85 (RU/UKR/CZ/PL/EN, copy from a service site)"
+    ]
+  }
+}

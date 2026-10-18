@@ -449,6 +449,8 @@ function llmsFull(list) {
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(join(dist, 'assets'), { recursive: true });
 for (const f of ['engine.js', 'render.js', 'i18n.js', 'app.js', 'style.css']) copyFileSync(join(root, 'src', f), join(dist, 'assets', f));
+// static/ is copied to the site root as is (IndexNow key file and the like)
+if (existsSync(join(root, 'static'))) for (const f of readdirSync(join(root, 'static'))) copyFileSync(join(root, 'static', f), join(dist, f));
 
 for (const lang of LANGS) {
   const list = machines.map(m => localize(m, lang));

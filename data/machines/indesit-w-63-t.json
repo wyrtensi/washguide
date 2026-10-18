@@ -1,0 +1,1669 @@
+{
+  "id": "indesit-w-63-t",
+  "brand": "Indesit",
+  "model": "W 63 T",
+  "aliases": [
+    "индезит w 63 t",
+    "индезит w63t",
+    "w63t",
+    "indesit w63",
+    "индезит 63 т",
+    "w 63 t"
+  ],
+  "years": "ок. 1998-2005 (оценка, в руководстве не указано)",
+  "loading": "front",
+  "capacityKg": 5,
+  "maxSpinRpm": 600,
+  "heaterW": 2000,
+  "summary": "Электромеханическая Indesit с двумя ручками (программа и температура) и тремя кнопками без подписей. Ручки отжима нет: отжим только выключается кнопкой, а синтетика и шерсть останавливаются с водой в барабане.",
+  "pitfalls": [
+    "Ручку программ A можно вращать только по часовой стрелке и только при выключенной машине. Машина стартует, когда после выбора программы и температуры нажать кнопку F.",
+    "Кнопки D, E, F в руководстве показаны только буквами на схеме: D - без отжима, E - экстра-экономия (меньше воды на полоскание), F - включение/выключение.",
+    "На схеме обе ручки названы «Рукоятка выбора программ», это опечатка: правая A выбирает программу, левая B задаёт температуру.",
+    "Программы 2, 3 и 5 в таблице повторяются при разных температурах и дают одно время; температуру выбирает ручка B, а не номер программы.",
+    "Знаки полоскания, смягчения, отжима и слива на ручке A - отдельные частичные программы, которые можно выбрать, а не только этапы внутри цикла.",
+    "Синтетика и шерсть (5-8) останавливаются с водой в барабане. Выключите машину кнопкой F, поверните ручку A по часовой на один щелчок (отжим) или на знак слива, затем включите снова.",
+    "После окончания стирки подождите около 3 минут, нажмите F (положение O) и только потом открывайте дверцу.",
+    "При пуске новой машины сделайте один цикл по программе 1 при 90 °C без белья."
+  ],
+  "panel": {
+    "face": "#e9e9e6",
+    "ink": "#2c3238",
+    "programChangeWhenOff": true,
+    "rows": [
+      [
+        "nospin",
+        "eco",
+        "lamp-power",
+        "power",
+        "temp",
+        "prog"
+      ]
+    ],
+    "controls": [
+      {
+        "id": "nospin",
+        "type": "button",
+        "role": "option",
+        "label": "D",
+        "name": "Кнопка исключения отжима",
+        "latching": true,
+        "symbol": "no-spin",
+        "help": "Кнопка D: исключает отжим из программы. Рекомендуется для лёгкомнущихся тканей."
+      },
+      {
+        "id": "eco",
+        "type": "button",
+        "role": "option",
+        "label": "E",
+        "name": "Кнопка экстра-экономии",
+        "latching": true,
+        "help": "Кнопка E: уменьшает расход воды при полоскании. Рекомендуется при неполной загрузке, с пропорциональным уменьшением моющего средства."
+      },
+      {
+        "id": "lamp-power",
+        "type": "lamp",
+        "color": "orange",
+        "lit": "power",
+        "label": "",
+        "name": "Индикатор включения (G)",
+        "help": "Индикатор G: горит, пока машина включена."
+      },
+      {
+        "id": "power",
+        "type": "button",
+        "role": "power",
+        "label": "F",
+        "name": "Кнопка включения/выключения",
+        "symbol": "power",
+        "latching": true,
+        "help": "Кнопка F (положения I и O): нажатие включает машину и запускает выбранную программу, повторное выключает. Программу и температуру выбирайте до включения. После остановки с водой машину выключают этой кнопкой, прежде чем трогать ручку программ."
+      },
+      {
+        "id": "temp",
+        "type": "knob",
+        "role": "temperature",
+        "label": "B",
+        "name": "Ручка температуры",
+        "rotation": "free",
+        "pointer": "bar",
+        "anglesEstimate": true,
+        "positions": [
+          {
+            "value": "0",
+            "label": "*",
+            "angle": 20,
+            "tempC": 0
+          },
+          {
+            "value": "40",
+            "label": "40",
+            "angle": 100,
+            "tempC": 40
+          },
+          {
+            "value": "50",
+            "label": "50",
+            "angle": 170,
+            "tempC": 50
+          },
+          {
+            "value": "60",
+            "label": "60",
+            "angle": 240,
+            "tempC": 60
+          },
+          {
+            "value": "90",
+            "label": "MAX",
+            "angle": 310,
+            "tempC": 90
+          }
+        ],
+        "help": "Ручка B (в тексте руководства по опечатке названа «Рукоятка выбора программ»): температура стирки по таблице программ. Можно поставить ниже рекомендованной или выбрать холодную стирку (снежинка). Значения на ручке взяты из таблицы программ; MAX принят за 90 °C."
+      },
+      {
+        "id": "prog",
+        "type": "knob",
+        "role": "program",
+        "label": "A",
+        "name": "Ручка выбора программ",
+        "rotation": "cw-only",
+        "pointer": "bar",
+        "anglesEstimate": true,
+        "positions": [
+          {
+            "value": "1",
+            "angle": 10,
+            "zone": "cotton",
+            "label": "1"
+          },
+          {
+            "value": "2",
+            "angle": 30,
+            "zone": "cotton",
+            "label": "2"
+          },
+          {
+            "value": "3",
+            "angle": 50,
+            "zone": "cotton",
+            "label": "3"
+          },
+          {
+            "value": "4",
+            "angle": 70,
+            "zone": "cotton",
+            "label": "4"
+          },
+          {
+            "value": "rinse-c",
+            "angle": 90,
+            "zone": "cotton",
+            "label": "",
+            "symbol": "rinse"
+          },
+          {
+            "value": "soft-c",
+            "angle": 110,
+            "zone": "cotton",
+            "label": "",
+            "symbol": "softener"
+          },
+          {
+            "value": "spin-c",
+            "angle": 130,
+            "zone": "cotton",
+            "label": "",
+            "symbol": "spin"
+          },
+          {
+            "value": "5",
+            "angle": 150,
+            "zone": "synthetic",
+            "label": "5"
+          },
+          {
+            "value": "6",
+            "angle": 170,
+            "zone": "synthetic",
+            "label": "6"
+          },
+          {
+            "value": "7",
+            "angle": 190,
+            "zone": "synthetic",
+            "label": "7"
+          },
+          {
+            "value": "rinse-s",
+            "angle": 210,
+            "zone": "synthetic",
+            "label": "",
+            "symbol": "rinse"
+          },
+          {
+            "value": "soft-s",
+            "angle": 230,
+            "zone": "synthetic",
+            "label": "",
+            "symbol": "softener"
+          },
+          {
+            "value": "spin-s",
+            "angle": 250,
+            "zone": "synthetic",
+            "label": "",
+            "symbol": "spin"
+          },
+          {
+            "value": "8",
+            "angle": 270,
+            "zone": "delicate",
+            "label": "8"
+          },
+          {
+            "value": "rinse-w",
+            "angle": 290,
+            "zone": "delicate",
+            "label": "",
+            "symbol": "rinse"
+          },
+          {
+            "value": "soft-w",
+            "angle": 310,
+            "zone": "delicate",
+            "label": "",
+            "symbol": "softener"
+          },
+          {
+            "value": "spin-w",
+            "angle": 330,
+            "zone": "delicate",
+            "label": "",
+            "symbol": "spin"
+          },
+          {
+            "value": "drain",
+            "angle": 350,
+            "zone": "delicate",
+            "label": "",
+            "symbol": "drain"
+          }
+        ],
+        "zones": [
+          {
+            "id": "cotton",
+            "label": "Хлопок и лён (1-4, полоскание, смягчение, отжим)",
+            "color": "#0d9488"
+          },
+          {
+            "id": "synthetic",
+            "label": "Синтетика (5-7, полоскание, смягчение, отжим)",
+            "color": "#7c3aed"
+          },
+          {
+            "id": "delicate",
+            "label": "Деликатные ткани и шерсть (8, полоскание, смягчение, отжим, слив)",
+            "color": "#b45309"
+          }
+        ],
+        "help": "Ручка A: выбор программы. Вращать только по часовой стрелке и только при выключенной машине. Знаки полоскания, смягчения, отжима и слива на ручке выбираются как отдельные частичные программы. В ходе цикла ручка поворачивается сама. Порядок положений собран по таблице программ (с. 4), рисунка ручки в руководстве нет."
+      }
+    ]
+  },
+  "tray": {
+    "location": "top-left",
+    "layout": "columns",
+    "compartments": [
+      {
+        "id": "1",
+        "mark": "1",
+        "use": "prewash",
+        "label": "Отделение 1: моющее средство для предварительной стирки (порошок)",
+        "width": 1
+      },
+      {
+        "id": "2",
+        "mark": "2",
+        "use": "main",
+        "label": "Отделение 2: моющее средство для стирки (порошок или жидкое)",
+        "width": 1
+      },
+      {
+        "id": "3",
+        "mark": "3",
+        "use": "softener",
+        "label": "Отделение 3: добавки (смягчители, ароматизаторы), не выше решётки",
+        "width": 1
+      }
+    ],
+    "help": "Распределитель выдвигается на себя. Жидкое средство наливают в отделение 2 непосредственно перед пуском; оно годится для стирки до 60 °C и программ без предварительной стирки. Не переполняйте отделение 3 выше решётки. Для мытья потяните лоток на себя и оставьте под струёй воды на несколько минут."
+  },
+  "cycle": {
+    "timerPausesForHeating": true,
+    "washLitres": 12,
+    "inletTempC": 15,
+    "steps": [
+      {
+        "pos": "1",
+        "phase": "prewash",
+        "min": 14,
+        "heats": true,
+        "maxHeatC": 40,
+        "dose": [
+          "1"
+        ]
+      },
+      {
+        "pos": "1",
+        "phase": "wash",
+        "min": 50,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "1",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "1",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "1",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "1",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "1",
+        "phase": "spin",
+        "min": 10,
+        "end": "stop"
+      },
+      {
+        "pos": "2",
+        "phase": "wash",
+        "min": 56,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "2",
+        "phase": "rinse",
+        "min": 12
+      },
+      {
+        "pos": "2",
+        "phase": "rinse",
+        "min": 12
+      },
+      {
+        "pos": "2",
+        "phase": "rinse",
+        "min": 12
+      },
+      {
+        "pos": "2",
+        "phase": "rinse",
+        "min": 10,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "2",
+        "phase": "spin",
+        "min": 10,
+        "end": "stop"
+      },
+      {
+        "pos": "3",
+        "phase": "wash",
+        "min": 38,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "3",
+        "phase": "rinse",
+        "min": 10
+      },
+      {
+        "pos": "3",
+        "phase": "rinse",
+        "min": 10
+      },
+      {
+        "pos": "3",
+        "phase": "rinse",
+        "min": 10
+      },
+      {
+        "pos": "3",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "3",
+        "phase": "spin",
+        "min": 10,
+        "end": "stop"
+      },
+      {
+        "pos": "4",
+        "phase": "wash",
+        "min": 30,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "4",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "4",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "4",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "4",
+        "phase": "rinse",
+        "min": 8,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "4",
+        "phase": "spin",
+        "min": 9,
+        "end": "stop"
+      },
+      {
+        "pos": "rinse-c",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "rinse-c",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "rinse-c",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "rinse-c",
+        "phase": "spin",
+        "min": 9,
+        "end": "stop"
+      },
+      {
+        "pos": "soft-c",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "soft-c",
+        "phase": "spin",
+        "min": 9,
+        "end": "stop"
+      },
+      {
+        "pos": "spin-c",
+        "phase": "spin",
+        "min": 10,
+        "end": "stop"
+      },
+      {
+        "pos": "5",
+        "phase": "wash",
+        "min": 35,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "5",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "5",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "5",
+        "phase": "rinse",
+        "min": 8,
+        "dose": [
+          "3"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "6",
+        "phase": "wash",
+        "min": 30,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "6",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "6",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "6",
+        "phase": "rinse",
+        "min": 8,
+        "dose": [
+          "3"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "7",
+        "phase": "wash",
+        "min": 25,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "7",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "7",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "7",
+        "phase": "rinse",
+        "min": 8,
+        "dose": [
+          "3"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "rinse-s",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "rinse-s",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "rinse-s",
+        "phase": "spin",
+        "min": 6,
+        "end": "stop"
+      },
+      {
+        "pos": "soft-s",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "soft-s",
+        "phase": "spin",
+        "min": 6,
+        "end": "stop"
+      },
+      {
+        "pos": "spin-s",
+        "phase": "spin",
+        "min": 6,
+        "end": "stop"
+      },
+      {
+        "pos": "8",
+        "phase": "wash",
+        "min": 28,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "8",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "8",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "8",
+        "phase": "rinse",
+        "min": 8,
+        "dose": [
+          "3"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "rinse-w",
+        "phase": "rinse",
+        "min": 9
+      },
+      {
+        "pos": "rinse-w",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "rinse-w",
+        "phase": "spin",
+        "min": 5,
+        "end": "stop"
+      },
+      {
+        "pos": "soft-w",
+        "phase": "rinse",
+        "min": 9,
+        "dose": [
+          "3"
+        ]
+      },
+      {
+        "pos": "soft-w",
+        "phase": "spin",
+        "min": 5,
+        "end": "stop"
+      },
+      {
+        "pos": "spin-w",
+        "phase": "spin",
+        "min": 5,
+        "end": "stop"
+      },
+      {
+        "pos": "drain",
+        "phase": "drain",
+        "min": 2,
+        "end": "drain"
+      }
+    ],
+    "estimate": true
+  },
+  "programs": [
+    {
+      "pos": "1",
+      "name": "Хлопок и лён, сильно загрязнённое белое бельё (простыни, скатерти), с предварительной стиркой",
+      "fabric": "cotton",
+      "tempMaxC": 90,
+      "tempDefaultC": 90,
+      "spinMaxRpm": 600,
+      "dose": [
+        "1",
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "stop",
+      "note": "Предварительная стирка в тёплой воде, стирка при 90 °C, полоскание, смягчение, отжим. В таблице температура обозначена MAX.",
+      "sourcePage": 4,
+      "loadKg": 5,
+      "durationMin": 150,
+      "durationAtC": 90
+    },
+    {
+      "pos": "2",
+      "name": "Хлопок и лён, сильно загрязнённое белое бельё, 90 °C (в таблице также 60 и 40 °C)",
+      "fabric": "cotton",
+      "tempMaxC": 90,
+      "tempDefaultC": 90,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "stop",
+      "note": "В таблице три строки: MAX (90 °C) для сильно загрязнённого белого, 60 °C для слабо загрязнённого белого и прочно окрашенного, 40 °C для сильно загрязнённого белого; время во всех трёх 140 мин. Температуру задаёт ручка B.",
+      "sourcePage": 4,
+      "loadKg": 5,
+      "durationMin": 140,
+      "durationAtC": 90
+    },
+    {
+      "pos": "3",
+      "name": "Хлопок и лён, слабо загрязнённое белое и прочно окрашенное бельё, 60 °C (также 40 °C)",
+      "fabric": "cotton",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "stop",
+      "note": "Две строки таблицы: 60 °C (слабо загрязнённое белое и прочно окрашенное) и 40 °C (сильно загрязнённое белое); время 115 мин в обеих.",
+      "sourcePage": 4,
+      "loadKg": 5,
+      "durationMin": 115,
+      "durationAtC": 60
+    },
+    {
+      "pos": "4",
+      "name": "Хлопок и лён, цветное бельё, 40 °C",
+      "fabric": "cotton",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "stop",
+      "note": "Стирка при 40 °C, полоскание, смягчение, отжим.",
+      "sourcePage": 4,
+      "loadKg": 5,
+      "durationMin": 95,
+      "durationAtC": 40
+    },
+    {
+      "pos": "5",
+      "name": "Синтетика, цветная прочноокрашенная и нормально загрязнённая, 60 °C (также 50 и 40 °C)",
+      "fabric": "synthetic",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "water-stop",
+      "note": "В таблице три строки: 60, 50 и 40 °C, время 85 мин. Заканчивается остановкой с водой в барабане или деликатным отжимом.",
+      "sourcePage": 4,
+      "loadKg": 2.5,
+      "durationMin": 85,
+      "durationAtC": 60
+    },
+    {
+      "pos": "6",
+      "name": "Синтетика, нормально загрязнённая прочноокрашенная, 50 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 50,
+      "tempDefaultC": 50,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "water-stop",
+      "note": "Стирка при 50 °C, полоскание, смягчение, остановка с водой или деликатный отжим.",
+      "sourcePage": 4,
+      "loadKg": 2.5,
+      "durationMin": 75,
+      "durationAtC": 50
+    },
+    {
+      "pos": "7",
+      "name": "Синтетика, линяющая, 40 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "water-stop",
+      "note": "Стирка при 40 °C, полоскание, смягчение, остановка с водой или деликатный отжим.",
+      "sourcePage": 4,
+      "loadKg": 2.5,
+      "durationMin": 65,
+      "durationAtC": 40
+    },
+    {
+      "pos": "8",
+      "name": "Шерсть, выдерживающая машинную стирку, 40 °C",
+      "fabric": "wool",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "3"
+      ],
+      "options": [
+        "nospin",
+        "eco"
+      ],
+      "ends": "water-stop",
+      "note": "Стирка при 40 °C, полоскание, смягчение, остановка с водой или деликатный отжим. Загрузка не более 1 кг, жидкое средство для шерсти.",
+      "sourcePage": 4,
+      "loadKg": 1,
+      "durationMin": 55,
+      "durationAtC": 40
+    },
+    {
+      "pos": "rinse-c",
+      "name": "Полоскание (хлопок и лён)",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание, смягчение, отжим.",
+      "sourcePage": 4,
+      "loadKg": 5
+    },
+    {
+      "pos": "soft-c",
+      "name": "Смягчение (хлопок и лён)",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание, смягчение, отжим.",
+      "sourcePage": 4,
+      "loadKg": 5
+    },
+    {
+      "pos": "spin-c",
+      "name": "Отжим (хлопок и лён)",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "note": "Только отжим.",
+      "sourcePage": 4,
+      "loadKg": 5
+    },
+    {
+      "pos": "rinse-s",
+      "name": "Полоскание (синтетика)",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание, смягчение, отжим.",
+      "sourcePage": 4,
+      "loadKg": 2.5
+    },
+    {
+      "pos": "soft-s",
+      "name": "Смягчение (синтетика)",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание со смягчением, отжим.",
+      "sourcePage": 4,
+      "loadKg": 2.5
+    },
+    {
+      "pos": "spin-s",
+      "name": "Деликатный отжим (синтетика)",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "note": "Деликатный отжим.",
+      "sourcePage": 4,
+      "loadKg": 2.5
+    },
+    {
+      "pos": "rinse-w",
+      "name": "Полоскание (деликатные ткани и шерсть)",
+      "fabric": "delicate",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание, смягчение, отжим.",
+      "sourcePage": 4,
+      "loadKg": 1
+    },
+    {
+      "pos": "soft-w",
+      "name": "Смягчение (деликатные ткани и шерсть)",
+      "fabric": "delicate",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "3"
+      ],
+      "options": [],
+      "ends": "stop",
+      "note": "Полоскание со смягчением, отжим.",
+      "sourcePage": 4,
+      "loadKg": 1
+    },
+    {
+      "pos": "spin-w",
+      "name": "Деликатный отжим (деликатные ткани и шерсть)",
+      "fabric": "delicate",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "note": "Деликатный отжим.",
+      "sourcePage": 4,
+      "loadKg": 1
+    },
+    {
+      "pos": "drain",
+      "name": "Слив без отжима",
+      "fabric": "delicate",
+      "tempMaxC": 0,
+      "tempDefaultC": 0,
+      "spinMaxRpm": 600,
+      "dose": [],
+      "options": [],
+      "ends": "drain",
+      "note": "Слив без отжима.",
+      "sourcePage": 4
+    }
+  ],
+  "rules": [
+    {
+      "when": {
+        "pos": [
+          "8"
+        ]
+      },
+      "check": {
+        "tempMaxC": 40
+      },
+      "level": "error",
+      "message": "Шерсть: не выше 40 °C, загрузка не более 1 кг, моющее средство только для шерсти.",
+      "sourcePage": 6
+    },
+    {
+      "when": {
+        "pos": [
+          "rinse-c",
+          "soft-c",
+          "spin-c",
+          "rinse-s",
+          "soft-s",
+          "spin-s",
+          "rinse-w",
+          "soft-w",
+          "spin-w",
+          "drain"
+        ]
+      },
+      "check": {
+        "tempMaxC": 0
+      },
+      "level": "info",
+      "message": "Частичные программы идут без нагрева: положение ручки температуры на них не влияет.",
+      "sourcePage": 4
+    },
+    {
+      "when": {
+        "pos": [
+          "5",
+          "6",
+          "7",
+          "8"
+        ]
+      },
+      "check": {
+        "forbidOptions": [
+          "nospin"
+        ]
+      },
+      "level": "info",
+      "message": "Синтетика и шерсть и так заканчиваются остановкой с водой без отжима; кнопка D нужна лишь тем, кто потом сам включит деликатный отжим.",
+      "sourcePage": 2
+    }
+  ],
+  "presets": [
+    {
+      "id": "everyday-40",
+      "title": "Повседневное цветное бельё, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "4",
+        "temp": "40",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "2": "Порошок или жидкое средство",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Программа 4: стирка при 40 °C, полоскание, смягчение, отжим; 95 мин по таблице."
+    },
+    {
+      "id": "whites-60",
+      "title": "Слабо загрязнённое белое, 60 °C",
+      "group": "wash",
+      "set": {
+        "prog": "3",
+        "temp": "60",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "2": "Порошок",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Программа 3 при 60 °C, 115 мин."
+    },
+    {
+      "id": "heavy-90",
+      "title": "Сильно загрязнённое белое, 90 °C",
+      "group": "wash",
+      "set": {
+        "prog": "2",
+        "temp": "90",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "2": "Порошок",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Программа 2 на MAX, 140 мин, без предварительной стирки."
+    },
+    {
+      "id": "prewash-90",
+      "title": "Очень грязное, с предварительной стиркой",
+      "group": "wash",
+      "set": {
+        "prog": "1",
+        "temp": "90",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "1": "Порошок (около четверти дозы)",
+        "2": "Порошок (остальное)",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Программа 1: предварительная стирка в тёплой воде, затем стирка при 90 °C, 150 мин. Предварительная стирка нужна только для сильно загрязнённого белья."
+    },
+    {
+      "id": "synthetic-40",
+      "title": "Синтетика, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "5",
+        "temp": "40",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "2": "Порошок или жидкое средство",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Программа 5: цикл заканчивается остановкой с водой. Чтобы отжать, выключите машину, поверните ручку A на один щелчок по часовой стрелке и включите снова."
+    },
+    {
+      "id": "wool-40",
+      "title": "Шерсть, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "8",
+        "temp": "40",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "2": "Жидкое средство для шерсти",
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Не более 1 кг белья; цикл заканчивается остановкой с водой."
+    },
+    {
+      "id": "rinse-only",
+      "title": "Только полоскание, хлопок",
+      "group": "rinse",
+      "set": {
+        "prog": "rinse-c",
+        "temp": "0",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {
+        "3": "Кондиционер по желанию"
+      },
+      "note": "Полоскание, смягчение, отжим без стирки."
+    },
+    {
+      "id": "spin-only",
+      "title": "Только отжим, хлопок",
+      "group": "spin",
+      "set": {
+        "prog": "spin-c",
+        "temp": "0",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {},
+      "note": "Отжим для белья, которое было отстирано вручную или остановлено с водой."
+    },
+    {
+      "id": "drain-only",
+      "title": "Слить воду без отжима",
+      "group": "care",
+      "set": {
+        "prog": "drain",
+        "temp": "0",
+        "nospin": false,
+        "eco": false
+      },
+      "dose": {},
+      "note": "Слив: выключите машину, поверните ручку A на знак слива и включите снова."
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Машина не включается",
+      "causes": [
+        "Вилка не вставлена в розетку.",
+        "Отключено электричество или сработал автомат электросети.",
+        "Дверца машины не закрыта: стирка не включается при открытой дверце.",
+        "Не нажата кнопка F или задан программный пуск (по таймеру), если на модели есть такая ручка.",
+        "Закрыт кран подачи воды: машина без воды не включится."
+      ],
+      "sourcePage": 8
+    },
+    {
+      "title": "Машина не заливает воду",
+      "causes": [
+        "Неправильно подсоединён шланг.",
+        "Перекрыта подача воды в доме.",
+        "Недостаточное давление в водопроводе.",
+        "Засорён фильтр на заливном шланге.",
+        "Пережат заливной шланг."
+      ],
+      "sourcePage": 8
+    },
+    {
+      "title": "Машина одновременно заливает и сливает воду",
+      "causes": [
+        "Слишком низко расположен сливной шланг: конец должен быть на высоте 60-100 см.",
+        "Конец шланга погружён в воду.",
+        "В сливной системе нет отводной трубки (сифонный эффект на верхних этажах: нужен антисифон)."
+      ],
+      "sourcePage": 8
+    },
+    {
+      "title": "Проблемы при сливе воды и отжиме",
+      "causes": [
+        "Выбранная программа не предполагает автоматического слива: в некоторых программах слив выполняется вручную.",
+        "Включён режим остановки с водой.",
+        "Засорён сливной насос.",
+        "Пережат или засорён сливной шланг.",
+        "Засор в канализации."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Сильная вибрация при отжиме",
+      "causes": [
+        "Не сняты транспортировочные ограничители (болты на задней стенке).",
+        "Машина плохо выровнена: отрегулируйте ножки.",
+        "Недостаточный зазор между машиной, стеной и окружающими предметами."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Протечки",
+      "causes": [
+        "Плохо затянуто металлическое кольцо на конце заливного шланга.",
+        "Засорён распределитель моющих средств: извлеките и промойте.",
+        "Ненадёжно закреплён сливной шланг."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Избыточное пенообразование",
+      "causes": [
+        "Моющее средство не подходит для машинной стирки (нужна надпись «Для машинной стирки» или «Для ручной и машинной стирки»).",
+        "Передозировка моющего средства."
+      ],
+      "sourcePage": 9
+    }
+  ],
+  "care": [
+    {
+      "title": "Распределитель моющих средств",
+      "text": "Регулярно промывайте: потяните на себя и оставьте под струёй воды на несколько минут, чтобы не присыхали остатки порошка. Съёмный лоток легко моется под проточной водой.",
+      "interval": "регулярно",
+      "sourcePage": 7
+    },
+    {
+      "title": "Фильтр сливного насоса",
+      "text": "Насос самоочищающегося типа, но мелкие предметы (монеты, пуговицы) могут в него попасть. Снимите отвёрткой нижнюю переднюю панель, поверните крышку фильтра против часовой стрелки, извлеките и прочистите фильтр. Перед этим отключите машину от сети; немного воды может вылиться. Крючки панели должны войти в петли.",
+      "sourcePage": 11
+    },
+    {
+      "title": "Заливной шланг",
+      "text": "Проверяйте не реже одного раза в год. При признаках течи или повреждения немедленно замените шланг. Не используйте шланги, бывшие в употреблении.",
+      "interval": "не реже раза в год",
+      "sourcePage": 11
+    },
+    {
+      "title": "Корпус и резиновые детали",
+      "text": "Протирайте мягкой тканью с тёплой мыльной водой. Не используйте растворители и абразивные средства.",
+      "sourcePage": 8
+    },
+    {
+      "title": "Запах и плесень",
+      "text": "После стирки оставляйте дверцу приоткрытой, чтобы внутри не скапливался неприятный запах. Перекрывайте кран после каждой стирки.",
+      "sourcePage": 8
+    }
+  ],
+  "sources": [
+    {
+      "title": "Indesit W 63 T: руководство по установке и эксплуатации (RU, 14 с.), скан на McGrp",
+      "url": "https://mcgrp.ru/files/viewer/40964/1",
+      "kind": "manual-archive",
+      "pages": "1-12 брошюры (файл 4-15)"
+    }
+  ],
+  "notes": {
+    "assumptions": [
+      "Порядок положений на ручке программ взят из порядка групп в таблице программ (с. 4): хлопок 1-4 и три знака, синтетика 5-7 и три знака, деликатные 8, три знака и слив. Рисунка ручки в руководстве нет, углы условные (равномерно по 20 градусов).",
+      "Температурная ручка: деления 0 (снежинка), 40, 50, 60 и MAX выведены из таблицы программ; MAX принят за 90 °C по фразе о пуске по программе 1 при 90 °C (с. 2).",
+      "Мощность нагревателя в руководстве не указана; взято 2000 Вт по максимальной потребляемой мощности (с. 9). Объём воды главной стирки (12 л) оценён.",
+      "Годы выпуска в руководстве не указаны; оценка по оформлению и маркировке.",
+      "Длительности шагов цикла - оценка по общему времени из таблицы; в таблице время не зависит от температуры, поэтому при температуре ниже максимума расчёт даёт меньше.",
+      "Деление MAX на ручке температуры принято за наибольший нагрев программы."
+    ],
+    "gaps": [
+      "Руководство называет 15 программ, а по таблице получается 18 положений ручки (8 номеров, 9 знаков и слив): расхождение не разрешено.",
+      "Нет рисунка ручек и подписей кнопок на самой панели: D, E, F названы только буквами схемы.",
+      "Длительность частичных программ (полоскание, смягчение, отжим, слив) в таблице не указана.",
+      "Не указано, с какими программами совместимы кнопки D и E; в данных они разрешены для 1-8.",
+      "Не указан объём воды, мощность нагревателя и максимальная скорость отжима по программам (общий максимум 600 об/мин)."
+    ]
+  },
+  "en": {
+    "summary": "Electromechanical Indesit front-loader with two knobs (programme and temperature) and three unlabelled buttons. There is no spin knob: spin can only be switched off with a button, and synthetics and wool stop with water in the drum.",
+    "years": "around 1998-2005 (estimate, the manual gives no date)",
+    "pitfalls": [
+      "Knob A (programme) turns clockwise only and only with the machine off. The machine starts when you press button F after choosing programme and temperature.",
+      "The manual shows buttons D, E, F only as letters on a diagram: D - no spin, E - extra economy (less rinse water), F - on/off.",
+      "On the diagram both knobs are captioned \"programme selector knob\"; this is a misprint: the right one (A) selects the programme, the left one (B) sets the temperature.",
+      "Programmes 2, 3 and 5 appear in the table at several temperatures with one duration; the temperature is chosen with knob B, not by the programme number.",
+      "The rinse, softener, spin and drain symbols on knob A are separate partial programmes that you can choose, not only stages inside a cycle.",
+      "Synthetics and wool (5-8) stop with water in the drum. Switch the machine off with F, turn knob A one click clockwise (spin) or to the drain symbol, then switch on again.",
+      "After the wash wait about 3 minutes, press F (position O) and only then open the door.",
+      "When starting a new machine run one cycle on programme 1 at 90 C without laundry."
+    ],
+    "controls": {
+      "nospin": {
+        "name": "No-spin button",
+        "help": "Button D: removes the spin from the programme. Recommended for easily creased fabrics."
+      },
+      "eco": {
+        "name": "Extra economy button",
+        "help": "Button E: reduces rinse water. Recommended for part loads, with a proportionally smaller amount of detergent."
+      },
+      "lamp-power": {
+        "name": "Power indicator (G)",
+        "help": "Indicator G: lit while the machine is on."
+      },
+      "power": {
+        "name": "On/off button",
+        "help": "Button F (positions I and O): pressing it switches the machine on and starts the chosen programme, pressing it again switches off. Choose the programme and temperature before switching on. After a water-stop, switch the machine off with this button before touching the programme knob."
+      },
+      "temp": {
+        "name": "Temperature knob",
+        "help": "Knob B (named \"programme selector knob\" in the manual text by a misprint): wash temperature as in the programme table. You can set it lower than recommended or choose a cold wash (snowflake). The marks come from the programme table; MAX is taken as 90 C."
+      },
+      "prog": {
+        "name": "Programme selector knob",
+        "help": "Knob A: programme selection. Turn clockwise only and only with the machine off. The rinse, softener, spin and drain symbols on the knob are chosen as separate partial programmes. The knob turns by itself during the cycle. The order of positions is taken from the programme table (page 4); the manual has no drawing of the knob.",
+        "zones": {
+          "cotton": "Cotton and linen (1-4, rinse, softener, spin)",
+          "synthetic": "Synthetics (5-7, rinse, softener, spin)",
+          "delicate": "Delicates and wool (8, rinse, softener, spin, drain)"
+        }
+      }
+    },
+    "tray": {
+      "help": "The drawer pulls out towards you. Liquid detergent goes into compartment 2 right before starting; it is suitable for washes up to 60 C and programmes without prewash. Do not fill compartment 3 above the grille. To wash the drawer, pull it out and leave it under running water for a few minutes.",
+      "compartments": {
+        "1": "Compartment 1: prewash detergent (powder)",
+        "2": "Compartment 2: main wash detergent (powder or liquid)",
+        "3": "Compartment 3: additives (softeners, fragrances), not above the grille"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Cotton and linen, heavily soiled whites (sheets, tablecloths), with prewash",
+        "note": "Prewash in warm water, wash at 90 C, rinse, softener, spin. The table marks the temperature as MAX."
+      },
+      "2": {
+        "name": "Cotton and linen, heavily soiled whites, 90 C (the table also lists 60 and 40 C)",
+        "note": "The table has three rows: MAX (90 C) for heavily soiled whites, 60 C for lightly soiled whites and colourfast, 40 C for heavily soiled whites; 140 min in all three. Knob B sets the temperature."
+      },
+      "3": {
+        "name": "Cotton and linen, lightly soiled whites and colourfast, 60 C (also 40 C)",
+        "note": "Two table rows: 60 C (lightly soiled whites and colourfast) and 40 C (heavily soiled whites); 115 min in both."
+      },
+      "4": {
+        "name": "Cotton and linen, coloureds, 40 C",
+        "note": "Wash at 40 C, rinse, softener, spin."
+      },
+      "5": {
+        "name": "Synthetics, colourfast and normally soiled coloureds, 60 C (also 50 and 40 C)",
+        "note": "Three table rows: 60, 50 and 40 C, 85 min. Ends with a water-stop or a delicate spin."
+      },
+      "6": {
+        "name": "Synthetics, normally soiled colourfast, 50 C",
+        "note": "Wash at 50 C, rinse, softener, water-stop or delicate spin."
+      },
+      "7": {
+        "name": "Synthetics, colours that run, 40 C",
+        "note": "Wash at 40 C, rinse, softener, water-stop or delicate spin."
+      },
+      "8": {
+        "name": "Wool, machine-washable, 40 C",
+        "note": "Wash at 40 C, rinse, softener, water-stop or delicate spin. Load no more than 1 kg, use liquid wool detergent."
+      },
+      "rinse-c": {
+        "name": "Rinse (cotton and linen)",
+        "note": "Rinse, softener, spin."
+      },
+      "soft-c": {
+        "name": "Softener (cotton and linen)",
+        "note": "Rinse, softener, spin."
+      },
+      "spin-c": {
+        "name": "Spin (cotton and linen)",
+        "note": "Spin only."
+      },
+      "rinse-s": {
+        "name": "Rinse (synthetics)",
+        "note": "Rinse, softener, spin."
+      },
+      "soft-s": {
+        "name": "Softener (synthetics)",
+        "note": "Rinse with softener, spin."
+      },
+      "spin-s": {
+        "name": "Delicate spin (synthetics)",
+        "note": "Delicate spin."
+      },
+      "rinse-w": {
+        "name": "Rinse (delicates and wool)",
+        "note": "Rinse, softener, spin."
+      },
+      "soft-w": {
+        "name": "Softener (delicates and wool)",
+        "note": "Rinse with softener, spin."
+      },
+      "spin-w": {
+        "name": "Delicate spin (delicates and wool)",
+        "note": "Delicate spin."
+      },
+      "drain": {
+        "name": "Drain without spin",
+        "note": "Drain without spin."
+      }
+    },
+    "rules": [
+      "Wool: 40 C maximum, load no more than 1 kg, detergent for wool only.",
+      "Partial programmes run without heating: the temperature knob position does not matter for them.",
+      "Synthetics and wool already end with a water-stop without spin; button D only matters if you will start the delicate spin yourself."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday coloured clothes, 40 C",
+        "note": "Programme 4: wash at 40 C, rinse, softener, spin; 95 min per the table.",
+        "dose": {
+          "2": "Powder or liquid detergent",
+          "3": "Softener if you like"
+        }
+      },
+      "whites-60": {
+        "title": "Lightly soiled whites, 60 C",
+        "note": "Programme 3 at 60 C, 115 min.",
+        "dose": {
+          "2": "Powder",
+          "3": "Softener if you like"
+        }
+      },
+      "heavy-90": {
+        "title": "Heavily soiled whites, 90 C",
+        "note": "Programme 2 at MAX, 140 min, no prewash.",
+        "dose": {
+          "2": "Powder",
+          "3": "Softener if you like"
+        }
+      },
+      "prewash-90": {
+        "title": "Very dirty laundry, with prewash",
+        "note": "Programme 1: prewash in warm water, then wash at 90 C, 150 min. Prewash is only needed for heavily soiled laundry.",
+        "dose": {
+          "1": "Powder (about a quarter of the dose)",
+          "2": "Powder (the rest)",
+          "3": "Softener if you like"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 C",
+        "note": "Programme 5: the cycle ends with a water-stop. To spin, switch the machine off, turn knob A one click clockwise and switch on again.",
+        "dose": {
+          "2": "Powder or liquid detergent",
+          "3": "Softener if you like"
+        }
+      },
+      "wool-40": {
+        "title": "Wool, 40 C",
+        "note": "No more than 1 kg of laundry; the cycle ends with a water-stop.",
+        "dose": {
+          "2": "Liquid wool detergent",
+          "3": "Softener if you like"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only, cotton",
+        "note": "Rinse, softener, spin without a wash.",
+        "dose": {
+          "3": "Softener if you like"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only, cotton",
+        "note": "Spin for laundry that was washed by hand or stopped with water.",
+        "dose": {}
+      },
+      "drain-only": {
+        "title": "Drain the water without spin",
+        "note": "Drain: switch the machine off, turn knob A to the drain symbol and switch on again.",
+        "dose": {}
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on",
+        "causes": [
+          "The plug is not in the socket.",
+          "There is no electricity or the mains breaker has tripped.",
+          "The door is open: the machine cannot start with the door open.",
+          "Button F was not pressed, or a programmed start (timer) was set, if your model has such a knob.",
+          "The water tap is closed: the machine will not start without water."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The hose is connected incorrectly.",
+          "The water supply in the house is shut off.",
+          "Insufficient water pressure.",
+          "The filter on the inlet hose is clogged.",
+          "The inlet hose is kinked."
+        ]
+      },
+      {
+        "title": "The machine fills and drains at the same time",
+        "causes": [
+          "The drain hose is too low: its end should be 60-100 cm above the floor.",
+          "The end of the hose is under water.",
+          "The drain has no vent pipe (siphon effect on upper floors: an anti-siphon is needed)."
+        ]
+      },
+      {
+        "title": "Problems with draining and spinning",
+        "causes": [
+          "The selected programme does not drain automatically: in some programmes you drain by hand.",
+          "The water-stop mode is on.",
+          "The drain pump is clogged.",
+          "The drain hose is kinked or clogged.",
+          "A blockage in the sewer."
+        ]
+      },
+      {
+        "title": "Heavy vibration when spinning",
+        "causes": [
+          "The transport bolts on the back were not removed.",
+          "The machine is not level: adjust the feet.",
+          "Not enough gap between the machine, the wall and surrounding objects."
+        ]
+      },
+      {
+        "title": "Leaks",
+        "causes": [
+          "The metal ring on the end of the inlet hose is not tight enough.",
+          "The detergent drawer is clogged: remove it and rinse.",
+          "The drain hose is not secured firmly."
+        ]
+      },
+      {
+        "title": "Too much foam",
+        "causes": [
+          "The detergent is not suitable for machine washing (look for \"for machine washing\" or \"for hand and machine washing\").",
+          "Too much detergent."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Detergent drawer",
+        "text": "Rinse regularly: pull it out and leave it under running water for a few minutes so that powder residue does not cake. The removable drawer is easy to wash under running water.",
+        "interval": "regularly"
+      },
+      {
+        "title": "Drain pump filter",
+        "text": "The pump is self-cleaning, but small objects (coins, buttons) can get into it. Pry off the lower front panel with a screwdriver, turn the filter cover anticlockwise, take out and clean the filter. Disconnect the machine from the mains first; a little water may run out. The panel hooks must go into their loops."
+      },
+      {
+        "title": "Inlet hose",
+        "text": "Check at least once a year. At any sign of a leak or damage replace the hose at once. Never use hoses that have been used before.",
+        "interval": "at least once a year"
+      },
+      {
+        "title": "Cabinet and rubber parts",
+        "text": "Wipe with a soft cloth and warm soapy water. Do not use solvents or abrasive cleaners."
+      },
+      {
+        "title": "Odour and mould",
+        "text": "Leave the door ajar after washing so that no unpleasant smell builds up inside. Close the tap after every wash."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The order of positions on the programme knob follows the order of groups in the programme table (page 4): cotton 1-4 and three symbols, synthetics 5-7 and three symbols, delicates 8, three symbols and drain. The manual has no drawing of the knob, so the angles are placeholders (evenly 20 degrees apart).",
+        "Temperature knob: marks 0 (snowflake), 40, 50, 60 and MAX are derived from the programme table; MAX is taken as 90 C from the sentence about starting programme 1 at 90 C (page 2).",
+        "The manual does not state the heater power; 2000 W is used from the maximum power consumption (page 9). The main-wash water volume (12 L) is an estimate.",
+        "The manual gives no production years; the estimate is based on the design and markings.",
+        "Step durations in the cycle are estimates from the table total; the table time does not depend on temperature, so below the maximum temperature the calculation gives less.",
+        "The MAX mark on the temperature knob is taken as the highest heating of the programme."
+      ],
+      "gaps": [
+        "The manual speaks of 15 programmes, while the table gives 18 knob positions (8 numbers, 9 symbols and drain): the discrepancy is not resolved.",
+        "There is no drawing of the knobs and no button captions on the panel itself: D, E, F are named only by the letters of the diagram.",
+        "The duration of partial programmes (rinse, softener, spin, drain) is not given in the table.",
+        "It is not stated which programmes buttons D and E work with; the data allows them for 1-8.",
+        "Water volume, heater power and per-programme maximum spin speed are not given (overall maximum 600 rpm)."
+      ]
+    },
+    "sources": [
+      "Indesit W 63 T: installation and operating manual (RU, 14 pp.), scan on McGrp"
+    ]
+  }
+}

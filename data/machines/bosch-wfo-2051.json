@@ -1,0 +1,801 @@
+{
+  "id": "bosch-wfo-2051",
+  "brand": "Bosch",
+  "model": "WFO 2051",
+  "aliases": ["бош wfo 2051", "wfo2051", "wfo 2451", "wfo2451", "bosch wfo 2051 classixx", "bosch maxx wfo 2051", "WFO 2051/2451"],
+  "years": "2000-2008",
+  "loading": "front",
+  "capacityKg": 6,
+  "maxSpinRpm": 1000,
+  "summary": "Немецкая машина с электронным управлением: одна ручка включает машину и выбирает программу (все надписи по-немецки), вторая задаёт обороты отжима. Запускается отдельной кнопкой Start, во время стирки ручки не вращаются.",
+  "pitfalls": [
+    "Ручка программ одновременно и выключатель: положение «Aus» - машина выключена. Чтобы включить, поверните ручку на нужную программу (загорится лампа питания), потом нажмите кнопку Start (ромб): сама машина не стартует.",
+    "Все названия программ на панели немецкие: Buntwäsche (цветное, 30-60), Kochwäsche (белое, 90), Pflegeleicht (синтетика), Fein/Seide (тонкое, шёлк), Wolle (шерсть), Spülen (полоскание), Schleudern (отжим), Abpumpen (слив).",
+    "Во время стирки ручка программ не вращается. Выбрали не ту программу: переведите ручку на «Aus», затем на нужную программу и снова нажмите Start.",
+    "Ручка оборотов отжима имеет положение со значком ванночки: тогда бельё остаётся лежать в воде последнего полоскания, дверца не откроется. Чтобы слить воду, выберите «Abpumpen» или «Schleudern» и нажмите Start.",
+    "На панели напечатаны обороты 1200/1000/800/600 (панель общая с моделью WFO 2451). У WFO 2051 максимум 1000 об/мин (стр. 25).",
+    "Кнопка с утюгом (отжим с разрыхлением белья) в программе Koch/Buntwäsche снижает отжим до 800 об/мин.",
+    "Кнопка «Start in» откладывает старт на 1-19 часов (отсчёт идёт только в часах); кнопка Start после этого запускает отсчёт."
+  ],
+
+  "panel": {
+    "face": "#e6e7e5",
+    "ink": "#2c2e32",
+    "rows": [
+      ["start", "iron", "extrarinse", "intensive", "startin", "spin", "lamps", "prog"]
+    ],
+    "controls": [
+      {
+        "id": "start", "type": "button", "role": "start", "label": "", "symbol": "start", "name": "Start (ромб)",
+        "latching": false,
+        "help": "Кнопка Start (ромб): запускает выбранную программу. Загорается лампа «Стирка». Нажимать после выбора программы и дополнительных функций."
+      },
+      {
+        "id": "iron", "type": "button", "role": "option", "label": "", "name": "Утюг (отжим с разрыхлением)",
+        "latching": true,
+        "help": "Утюг: снижает измятость. Отжим идёт особым образом, затем бельё разрыхляется и остаётся лежать в барабане свободно. В программе Koch/Buntwäsche обороты при этом автоматически снижаются до 800 об/мин."
+      },
+      {
+        "id": "extrarinse", "type": "button", "role": "option", "label": "", "symbol": "extra-rinse", "name": "Дополнительное полоскание",
+        "latching": true,
+        "help": "Дополнительное полоскание (ванночка с волнами). Продолжительность стирки увеличивается. Рекомендуется при очень мягкой воде и для лучшего полоскания."
+      },
+      {
+        "id": "intensive", "type": "button", "role": "option", "label": "", "symbol": "intensive", "name": "Рубашка (интенсивная стирка)",
+        "latching": true,
+        "help": "Рубашка: более продолжительная интенсивная стирка сильно загрязнённого белья. Время программы увеличивается. Если белья мало или оно слабо загрязнено, кнопку не нужно нажимать; соотношение загрузки и загрязнения - в таблице на стр. 28."
+      },
+      {
+        "id": "startin", "type": "button", "role": "option", "label": "Start in", "name": "Start in (отложенный старт)",
+        "latching": false,
+        "help": "Рядом с дисплеем «Ready in / Start in». После выбора программы дисплей показывает время до конца («Ready in»). Нажимайте «Start in» до нужной задержки старта (1h...19h, шаг один час), потом Start. Точка между цифрой и «h» мигает, пока задержка не истечёт."
+      },
+      {
+        "id": "spin", "type": "knob", "role": "spin", "label": "об/мин", "rotation": "free", "pointer": "bar", "anglesEstimate": true,
+        "positions": [
+          { "value": "1200", "label": "1200", "angle": 0, "rpm": 1200 },
+          { "value": "1000", "label": "1000", "angle": 70, "rpm": 1000 },
+          { "value": "800", "label": "800", "angle": 142, "rpm": 800 },
+          { "value": "600", "label": "600", "angle": 210, "rpm": 600 },
+          { "value": "0", "label": "без отжима", "short": "ванна", "angle": 250, "rpm": 0, "symbol": "water-stop" }
+        ],
+        "help": "Ручка оборотов отжима. Основное положение: ручка вверх. Метка 1200 действует только у модели WFO 2451; у WFO 2051 максимум 1000. В положении со значком ванночки отжима нет, бельё остаётся в воде последнего полоскания (функция остановки с водой). Для тонких программ отжим снижен автоматически."
+      },
+      {
+        "id": "lamps", "type": "lamp", "color": "green", "lit": "phase", "label": "", "name": "Индикаторные лампочки",
+        "help": "Четыре лампочки справа от ручки отжима, сверху вниз: отжим, полоскание, стирка, питание. Три верхних показывают этап выполняемой программы; при ошибке или проблеме мигают (см. неисправности). Лампа питания горит, когда выбрана программа."
+      },
+      {
+        "id": "prog", "type": "knob", "role": "program", "label": "программы", "rotation": "free", "pointer": "bar",
+        "positions": [
+          { "value": "off", "label": "Aus", "short": "Aus", "angle": 0, "stop": true },
+          { "value": "col-30", "label": "30°", "angle": 30, "zone": "cotton", "tempC": 30 },
+          { "value": "col-40", "label": "40", "angle": 49, "zone": "cotton", "tempC": 40 },
+          { "value": "col-60", "label": "60", "angle": 70, "zone": "cotton", "tempC": 60 },
+          { "value": "intensive-60", "label": "60 Flecken", "short": "60 пятна", "angle": 90, "zone": "cotton", "tempC": 60 },
+          { "value": "white-90", "label": "90", "angle": 110, "zone": "cotton", "tempC": 90 },
+          { "value": "col-60-pre", "label": "60 + Vorwäsche", "short": "60+пред.", "angle": 135, "zone": "cotton", "tempC": 60 },
+          { "value": "rinse", "label": "Spülen", "angle": 155, "zone": "service" },
+          { "value": "spin-only", "label": "Schleudern", "angle": 180, "zone": "service" },
+          { "value": "drain", "label": "Abpumpen", "angle": 205, "zone": "service" },
+          { "value": "wool-30", "label": "Wolle 30", "angle": 225, "zone": "wool", "tempC": 30 },
+          { "value": "wool-cold", "label": "Wolle kalt", "angle": 246, "zone": "wool", "tempC": 0 },
+          { "value": "fine-30", "label": "Fein/Seide 30", "short": "Fein/Seide", "angle": 270, "zone": "delicate", "tempC": 30 },
+          { "value": "syn-60", "label": "60", "angle": 292, "zone": "synthetic", "tempC": 60 },
+          { "value": "syn-40", "label": "40", "angle": 313, "zone": "synthetic", "tempC": 40 },
+          { "value": "syn-30", "label": "30", "angle": 338, "zone": "synthetic", "tempC": 30 }
+        ],
+        "zones": [
+          { "id": "cotton", "label": "Koch/Buntwäsche: хлопок, лён, цветное и белое (правая верхняя часть)", "color": "#0d9488" },
+          { "id": "synthetic", "label": "Pflegeleicht: синтетика (левая верхняя часть)", "color": "#2563eb" },
+          { "id": "delicate", "label": "Fein/Seide: тонкое бельё, шёлк", "color": "#c026d3" },
+          { "id": "wool", "label": "Wolle: шерсть", "color": "#b45309" },
+          { "id": "service", "label": "Spülen, Schleudern, Abpumpen (низ шкалы)", "color": "#64748b" }
+        ],
+        "help": "Ручка выбора программ вращается в обе стороны. Положение «Aus» наверху - машина выключена. Справа от «Aus» идёт Koch/Buntwäsche (хлопок 30...90), внизу Spülen, Schleudern, Abpumpen, слева Wolle, Fein/Seide, Pflegeleicht. Во время выполнения программы ручка не вращается (электроника). Метки 30/40/60 слева вверху относятся к Pflegeleicht (синтетика), справа вверху к Buntwäsche (цветное)."
+      }
+    ]
+  },
+
+  "tray": {
+    "location": "top-left",
+    "layout": "columns",
+    "compartments": [
+      { "id": "II", "mark": "II", "use": "main", "label": "Основная стирка, смягчение воды, замачивание, отбеливатель, пятновыводитель", "width": 2 },
+      { "id": "flower", "mark": "flower", "use": "softener", "label": "Кондиционер, средство для придания формы (до метки на вставке 1)", "width": 1 },
+      { "id": "I", "mark": "I", "use": "prewash", "label": "Предварительная стирка, подкрахмаливание", "width": 1 }
+    ],
+    "help": "Кювета с тремя ячейками. Ячейка I: средство для предварительной стирки или подкрахмаливания. Ячейка II: основная стирка, умягчитель воды, замачивание, отбеливатель или пятновыводитель. Ячейка с цветком: кондиционер, средство против деформации (наливать не выше нижней кромки вставки 1). Расположение ячеек слева направо взято с рисунка в инструкции и совпадает с родственной машиной Bosch Maxx 4. Густые или вязкие средства разбавьте водой. Для чистки кювету вытягивают до упора, нажимают на вставку и вынимают целиком."
+  },
+
+  "cycle": {
+    "dialMoves": false,
+    "timerPausesForHeating": false,
+    "washLitres": 12,
+    "inletTempC": 15,
+    "estimate": true,
+    "steps": [
+      { "pos": "col-30", "phase": "wash", "min": 60, "dose": ["II"] },
+      { "pos": "col-30", "phase": "rinse", "min": 28 },
+      { "pos": "col-30", "phase": "softener", "min": 6, "dose": ["flower"] },
+      { "pos": "col-30", "phase": "drain", "min": 3 },
+      { "pos": "col-30", "phase": "spin", "min": 18, "end": "stop" },
+
+      { "pos": "col-40", "phase": "wash", "min": 66, "dose": ["II"] },
+      { "pos": "col-40", "phase": "rinse", "min": 28 },
+      { "pos": "col-40", "phase": "softener", "min": 6, "dose": ["flower"] },
+      { "pos": "col-40", "phase": "drain", "min": 3 },
+      { "pos": "col-40", "phase": "spin", "min": 27, "end": "stop" },
+
+      { "pos": "col-60", "phase": "wash", "min": 40, "dose": ["II"] },
+      { "pos": "col-60", "phase": "rinse", "min": 16 },
+      { "pos": "col-60", "phase": "softener", "min": 4, "dose": ["flower"] },
+      { "pos": "col-60", "phase": "drain", "min": 2 },
+      { "pos": "col-60", "phase": "spin", "min": 15, "end": "stop" },
+
+      { "pos": "intensive-60", "phase": "wash", "min": 80, "dose": ["II"] },
+      { "pos": "intensive-60", "phase": "rinse", "min": 28 },
+      { "pos": "intensive-60", "phase": "softener", "min": 6, "dose": ["flower"] },
+      { "pos": "intensive-60", "phase": "drain", "min": 3 },
+      { "pos": "intensive-60", "phase": "spin", "min": 18, "end": "stop" },
+
+      { "pos": "white-90", "phase": "wash", "min": 70, "dose": ["II"] },
+      { "pos": "white-90", "phase": "rinse", "min": 28 },
+      { "pos": "white-90", "phase": "softener", "min": 6, "dose": ["flower"] },
+      { "pos": "white-90", "phase": "drain", "min": 3 },
+      { "pos": "white-90", "phase": "spin", "min": 23, "end": "stop" },
+
+      { "pos": "col-60-pre", "phase": "prewash", "min": 20, "dose": ["I"] },
+      { "pos": "col-60-pre", "phase": "wash", "min": 70, "dose": ["II"] },
+      { "pos": "col-60-pre", "phase": "rinse", "min": 28 },
+      { "pos": "col-60-pre", "phase": "softener", "min": 6, "dose": ["flower"] },
+      { "pos": "col-60-pre", "phase": "drain", "min": 3 },
+      { "pos": "col-60-pre", "phase": "spin", "min": 23, "end": "stop" },
+
+      { "pos": "rinse", "phase": "rinse", "min": 18 },
+      { "pos": "rinse", "phase": "softener", "min": 5, "dose": ["flower"] },
+      { "pos": "rinse", "phase": "drain", "min": 2 },
+      { "pos": "rinse", "phase": "spin", "min": 6, "end": "stop" },
+
+      { "pos": "spin-only", "phase": "drain", "min": 2 },
+      { "pos": "spin-only", "phase": "spin", "min": 8, "end": "stop" },
+
+      { "pos": "drain", "phase": "drain", "min": 2, "end": "drain" },
+
+      { "pos": "wool-30", "phase": "wash", "min": 22, "dose": ["II"] },
+      { "pos": "wool-30", "phase": "rinse", "min": 15 },
+      { "pos": "wool-30", "phase": "drain", "min": 2 },
+      { "pos": "wool-30", "phase": "spin", "min": 11, "end": "stop" },
+
+      { "pos": "wool-cold", "phase": "wash", "min": 22, "dose": ["II"] },
+      { "pos": "wool-cold", "phase": "rinse", "min": 15 },
+      { "pos": "wool-cold", "phase": "drain", "min": 2 },
+      { "pos": "wool-cold", "phase": "spin", "min": 11, "end": "stop" },
+
+      { "pos": "fine-30", "phase": "wash", "min": 15, "dose": ["II"] },
+      { "pos": "fine-30", "phase": "rinse", "min": 14 },
+      { "pos": "fine-30", "phase": "drain", "min": 2 },
+      { "pos": "fine-30", "phase": "spin", "min": 4, "end": "stop" },
+
+      { "pos": "syn-60", "phase": "wash", "min": 38, "dose": ["II"] },
+      { "pos": "syn-60", "phase": "rinse", "min": 22 },
+      { "pos": "syn-60", "phase": "softener", "min": 5, "dose": ["flower"] },
+      { "pos": "syn-60", "phase": "drain", "min": 2 },
+      { "pos": "syn-60", "phase": "spin", "min": 11, "end": "stop" },
+
+      { "pos": "syn-40", "phase": "wash", "min": 38, "dose": ["II"] },
+      { "pos": "syn-40", "phase": "rinse", "min": 22 },
+      { "pos": "syn-40", "phase": "softener", "min": 5, "dose": ["flower"] },
+      { "pos": "syn-40", "phase": "drain", "min": 2 },
+      { "pos": "syn-40", "phase": "spin", "min": 11, "end": "stop" },
+
+      { "pos": "syn-30", "phase": "wash", "min": 38, "dose": ["II"] },
+      { "pos": "syn-30", "phase": "rinse", "min": 22 },
+      { "pos": "syn-30", "phase": "softener", "min": 5, "dose": ["flower"] },
+      { "pos": "syn-30", "phase": "drain", "min": 2 },
+      { "pos": "syn-30", "phase": "spin", "min": 11, "end": "stop" }
+    ]
+  },
+
+  "programs": [
+    {
+      "pos": "col-30", "name": "Buntwäsche 30 °C (цветное бельё, хлопок, лён)", "fabric": "cotton",
+      "tempMaxC": 30, "tempDefaultC": 30, "spinMaxRpm": 1000, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 6, "ends": "stop",
+      "note": "Стирка прочных изделий из хлопка и льна. Таблица расхода (стр. 50) для 30 °C отдельной строки не содержит. Нагрузка 6 кг: до 5 кг при нажатой кнопке «рубашка» для сильно грязного (стр. 28).",
+      "sourcePage": 21
+    },
+    {
+      "pos": "col-40", "name": "Buntwäsche 40 °C (цветное бельё, хлопок, лён)", "fabric": "cotton",
+      "tempMaxC": 40, "tempDefaultC": 40, "spinMaxRpm": 1000, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 6, "ends": "stop",
+      "durationMin": 130, "durationAtC": 40,
+      "note": "Для прочных изделий из хлопка и льна. По таблице расхода (контрольная стирка с нажатой кнопкой «рубашка»): 6 кг, 0,65 кВт-ч, 60 л, 2 ч 10 мин.",
+      "sourcePage": 50
+    },
+    {
+      "pos": "col-60", "name": "Buntwäsche 60 °C (цветное бельё, хлопок, лён)", "fabric": "cotton",
+      "tempMaxC": 60, "tempDefaultC": 60, "spinMaxRpm": 1000, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 5, "ends": "stop",
+      "durationMin": 77, "durationAtC": 60,
+      "note": "Для прочных изделий из хлопка и льна. По таблице расхода: 5 кг, 0,95 кВт-ч, 60 л, 1 ч 17 мин (без кнопки «рубашка»).",
+      "sourcePage": 50
+    },
+    {
+      "pos": "intensive-60", "name": "Buntwäsche 60 °C Flecken (цветное бельё, выведение пятен)", "fabric": "cotton",
+      "tempMaxC": 60, "tempDefaultC": 60, "spinMaxRpm": 1000, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 6, "ends": "stop",
+      "durationMin": 135, "durationAtC": 60,
+      "note": "Для сильно загрязнённых изделий из хлопка и льна с пятнами. Из-за большей продолжительности по результату близка к стирке при 90 °C, но потребляет заметно меньше энергии. По таблице расхода: 6 кг, 1,02 кВт-ч, 49 л, 2 ч 15 мин.",
+      "sourcePage": 50
+    },
+    {
+      "pos": "white-90", "name": "Kochwäsche 90 °C (белое бельё, кипячение)", "fabric": "cotton",
+      "tempMaxC": 90, "tempDefaultC": 90, "spinMaxRpm": 1000, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 6, "ends": "stop",
+      "durationMin": 130, "durationAtC": 90,
+      "note": "Для изделий из хлопка и льна, которые можно кипятить. Горячий раствор перед сливом смешивается с примерно 7 л холодной воды. По таблице расхода: 6 кг, 2,1 кВт-ч, 67 л, 2 ч 10 мин.",
+      "sourcePage": 50
+    },
+    {
+      "pos": "col-60-pre", "name": "Buntwäsche 60 °C + Vorwäsche (цветное бельё, предварительная стирка)", "fabric": "cotton",
+      "tempMaxC": 60, "tempDefaultC": 60, "spinMaxRpm": 1000, "dose": ["I", "II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 6, "ends": "stop",
+      "note": "Для сильно загрязнённых прочных изделий из хлопка. Ячейка I для порошка предстирки. В таблице расхода (стр. 50) строки для этой программы нет.",
+      "sourcePage": 22
+    },
+    {
+      "pos": "rinse", "name": "Spülen (полоскание)", "fabric": "special",
+      "tempMaxC": 0, "tempDefaultC": 0, "spinMaxRpm": 800, "dose": ["flower"],
+      "options": [], "ends": "stop",
+      "note": "Полоскание, завершающееся отжимом: для белья, выстиранного вручную, или для подкрахмаливания. Отжим пониженный (до 800 об/мин).",
+      "sourcePage": 24
+    },
+    {
+      "pos": "spin-only", "name": "Schleudern (отжим)", "fabric": "special",
+      "tempMaxC": 0, "tempDefaultC": 0, "spinMaxRpm": 800, "dose": [],
+      "options": [], "ends": "stop",
+      "note": "Отжим выстиранного вручную белья. Предварительно нужно установить ручкой оборотов нужное число оборотов. Раствор или вода после полоскания перед отжимом сливается. Также нужна, чтобы слить воду и отжать после остановки с водой.",
+      "sourcePage": 24
+    },
+    {
+      "pos": "drain", "name": "Abpumpen (слив воды)", "fabric": "special",
+      "tempMaxC": 0, "tempDefaultC": 0, "spinMaxRpm": 0, "dose": [],
+      "options": [], "ends": "drain",
+      "note": "Слив воды, в которой полоскалось бельё, после программы с остановкой с водой (ванночка на ручке отжима). Позволяет щадяще обращаться с тонким бельём.",
+      "sourcePage": 24
+    },
+    {
+      "pos": "wool-30", "name": "Wolle 30 °C (шерсть, машинная и ручная стирка)", "fabric": "wool",
+      "tempMaxC": 30, "tempDefaultC": 30, "spinMaxRpm": 800, "dose": ["II"],
+      "options": ["extrarinse"], "loadKg": 2, "ends": "stop",
+      "durationMin": 50, "durationAtC": 30,
+      "note": "Для изделий из шерсти или с примесью шерсти (кашемир, мохер, ангора), пригодных как для ручной, так и для машинной стирки; можно стирать шёлк, предназначенный для ручной стирки. По таблице расхода: 2 кг, 0,2 кВт-ч, 35 л, 50 мин.",
+      "sourcePage": 23
+    },
+    {
+      "pos": "wool-cold", "name": "Wolle kalt (шерсть, холодная вода)", "fabric": "wool",
+      "tempMaxC": 0, "tempDefaultC": 0, "spinMaxRpm": 800, "dose": ["II"],
+      "options": ["extrarinse"], "loadKg": 2, "ends": "stop",
+      "note": "Позиция «Wolle kalt» (значок шерсти). Описана вместе с «Wolle 30 °C» одним пунктом инструкции.",
+      "sourcePage": 23
+    },
+    {
+      "pos": "fine-30", "name": "Fein/Seide 30 °C (тонкое бельё, шёлк)", "fabric": "delicate",
+      "tempMaxC": 30, "tempDefaultC": 30, "spinMaxRpm": 600, "dose": ["II"],
+      "options": ["extrarinse"], "loadKg": 2, "ends": "stop",
+      "durationMin": 35, "durationAtC": 30,
+      "note": "Для тонкого белья из шёлка, атласа, синтетики или смешанных волокон (например, гардины). Шёлк стирается в щадящем режиме при 30 °C. В программе после промежуточного полоскания бельё не отжимается. По таблице расхода: 2 кг, 0,3 кВт-ч, 42 л, 35 мин.",
+      "sourcePage": 23
+    },
+    {
+      "pos": "syn-60", "name": "Pflegeleicht 60 °C (синтетика, смесовые ткани)", "fabric": "synthetic",
+      "tempMaxC": 60, "tempDefaultC": 60, "spinMaxRpm": 800, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 3, "ends": "stop",
+      "note": "Для изделий, не требующих особого ухода, из хлопка, льна, синтетики и смешанных тканей. Строки расхода для 60 °C в таблице нет.",
+      "sourcePage": 22
+    },
+    {
+      "pos": "syn-40", "name": "Pflegeleicht 40 °C (синтетика, смесовые ткани)", "fabric": "synthetic",
+      "tempMaxC": 40, "tempDefaultC": 40, "spinMaxRpm": 800, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 3, "ends": "stop",
+      "durationMin": 78, "durationAtC": 40,
+      "note": "Для изделий, не требующих особого ухода. По таблице расхода (с нажатой кнопкой «рубашка»): 3 кг, 0,5 кВт-ч, 50 л, 1 ч 18 мин.",
+      "sourcePage": 50
+    },
+    {
+      "pos": "syn-30", "name": "Pflegeleicht 30 °C (синтетика, смесовые ткани)", "fabric": "synthetic",
+      "tempMaxC": 30, "tempDefaultC": 30, "spinMaxRpm": 800, "dose": ["II", "flower"],
+      "options": ["iron", "extrarinse", "intensive"], "loadKg": 3, "ends": "stop",
+      "note": "Для изделий, не требующих особого ухода. Строки расхода для 30 °C в таблице нет.",
+      "sourcePage": 22
+    }
+  ],
+
+  "rules": [
+    {
+      "when": { "pos": ["wool-30", "wool-cold"] },
+      "check": { "tempMaxC": 30 },
+      "level": "error",
+      "message": "Шерсть: не выше 30 °C, иначе вещи сядут.",
+      "sourcePage": 23
+    },
+    {
+      "when": { "pos": ["fine-30"] },
+      "check": { "tempMaxC": 30 },
+      "level": "error",
+      "message": "Fein/Seide: только 30 °C; шёлк стирается в щадящем режиме.",
+      "sourcePage": 23
+    },
+    {
+      "when": { "pos": ["syn-30", "syn-40", "syn-60"] },
+      "check": { "spinMaxRpm": 800 },
+      "level": "warn",
+      "message": "В программе Pflegeleicht отжим автоматически идёт не выше 800 об/мин, независимо от положения ручки оборотов (таблица на стр. 25).",
+      "sourcePage": 25
+    },
+    {
+      "when": { "pos": ["wool-30", "wool-cold"] },
+      "check": { "spinMaxRpm": 800 },
+      "level": "warn",
+      "message": "В программе Wolle отжим автоматически не выше 800 об/мин.",
+      "sourcePage": 25
+    },
+    {
+      "when": { "pos": ["fine-30"] },
+      "check": { "spinMaxRpm": 600 },
+      "level": "warn",
+      "message": "В программе Fein/Seide отжим автоматически не выше 600 об/мин.",
+      "sourcePage": 25
+    },
+    {
+      "when": { "pos": ["col-30", "col-40", "col-60", "intensive-60", "white-90", "col-60-pre"] },
+      "check": { "spinMaxRpm": 1000 },
+      "level": "info",
+      "message": "Koch/Buntwäsche: максимум 1000 об/мин у WFO 2051 (1200 у WFO 2451). Если нажата кнопка с утюгом, отжим снижается до 800.",
+      "sourcePage": 27
+    },
+    {
+      "when": { "pos": ["rinse", "spin-only", "drain"] },
+      "check": { "forbidOptions": ["intensive"] },
+      "level": "error",
+      "message": "Spülen, Schleudern и Abpumpen - вспомогательные программы: кнопка «рубашка» (интенсивная стирка) для них не имеет смысла.",
+      "sourcePage": 24
+    },
+    {
+      "when": { "pos": ["col-30", "col-40", "col-60", "intensive-60", "white-90", "col-60-pre", "syn-30", "syn-40", "syn-60", "fine-30", "wool-30", "wool-cold"] },
+      "check": { "forbidOptions": [] },
+      "level": "info",
+      "message": "Если ручка оборотов стоит на значке ванночки (остановка с водой), после программы бельё останется в воде. Чтобы слить воду, выберите «Abpumpen» или «Schleudern» и нажмите Start.",
+      "sourcePage": 26
+    },
+    {
+      "when": { "pos": ["rinse", "spin-only", "drain", "col-30", "col-40", "col-60", "intensive-60", "white-90", "col-60-pre", "syn-30", "syn-40", "syn-60", "fine-30", "wool-30", "wool-cold"] },
+      "check": { "forbidOptions": [] },
+      "level": "info",
+      "message": "Выбрали не ту программу или хотите прервать: переведите ручку программ на «Aus», затем снова на нужную программу, выставите задержку «Start in» при необходимости и нажмите Start. Для досрочного окончания после «Aus» выберите «Abpumpen» или «Schleudern».",
+      "sourcePage": 33
+    }
+  ],
+
+  "presets": [
+    {
+      "id": "everyday-40",
+      "title": "Повседневная одежда, 40 °C",
+      "group": "wash",
+      "set": { "prog": "col-40", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок или гель", "flower": "Кондиционер (по желанию)" },
+      "note": "Buntwäsche 40, до 6 кг. Затем нажмите Start."
+    },
+    {
+      "id": "light-30",
+      "title": "Слегка загрязнённое цветное, 30 °C",
+      "group": "wash",
+      "set": { "prog": "col-30", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок или гель для цветного", "flower": "Кондиционер (по желанию)" },
+      "note": "Buntwäsche 30 (метка 30° справа от «Aus»)."
+    },
+    {
+      "id": "bedding-60",
+      "title": "Постельное бельё, 60 °C",
+      "group": "wash",
+      "set": { "prog": "col-60", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок", "flower": "Кондиционер (по желанию)" },
+      "note": "Buntwäsche 60, до 5 кг по таблице расхода."
+    },
+    {
+      "id": "stains-60",
+      "title": "Бельё с пятнами, 60 °C",
+      "group": "wash",
+      "set": { "prog": "intensive-60", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок с пятновыводителем" },
+      "note": "Buntwäsche 60 Flecken: долгая стирка, по результату близка к 90 °C при меньшем расходе энергии."
+    },
+    {
+      "id": "whites-90",
+      "title": "Белое бельё, кипячение 90 °C",
+      "group": "wash",
+      "set": { "prog": "white-90", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок", "flower": "Кондиционер (по желанию)" },
+      "note": "Kochwäsche 90: только для белого и цветного, устойчивого к кипячению."
+    },
+    {
+      "id": "heavy-prewash",
+      "title": "Очень грязное, 60 °C с предстиркой",
+      "group": "wash",
+      "set": { "prog": "col-60-pre", "spin": "1000", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "I": "Порошок для предстирки", "II": "Порошок для основной стирки" },
+      "note": "Buntwäsche 60 + Vorwäsche."
+    },
+    {
+      "id": "synthetic-40",
+      "title": "Синтетика, 40 °C",
+      "group": "wash",
+      "set": { "prog": "syn-40", "spin": "800", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Порошок или гель", "flower": "Кондиционер (по желанию)" },
+      "note": "Pflegeleicht 40, до 3 кг."
+    },
+    {
+      "id": "delicate-30",
+      "title": "Тонкое бельё и шёлк, 30 °C",
+      "group": "wash",
+      "set": { "prog": "fine-30", "spin": "600", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Средство для деликатной стирки" },
+      "note": "Fein/Seide 30, до 2 кг. Для деликатных вещей без отжима поставьте ручку оборотов на значок ванночки, а в конце выберите Abpumpen."
+    },
+    {
+      "id": "wool-30",
+      "title": "Шерсть, 30 °C",
+      "group": "care",
+      "set": { "prog": "wool-30", "spin": "800", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "II": "Средство для шерсти" },
+      "note": "Wolle 30, до 2 кг, только изделия с пометкой «можно стирать в машине»."
+    },
+    {
+      "id": "rinse-spin",
+      "title": "Только полоскание и отжим",
+      "group": "rinse",
+      "set": { "prog": "rinse", "spin": "800", "iron": false, "extrarinse": false, "intensive": false },
+      "dose": { "flower": "Кондиционер или крахмал (по желанию)" },
+      "note": "Spülen: полоскание с отжимом (для белья, выстиранного вручную)."
+    },
+    {
+      "id": "spin-only",
+      "title": "Только отжим",
+      "group": "spin",
+      "set": { "prog": "spin-only", "spin": "800", "iron": false, "extrarinse": false, "intensive": false },
+      "note": "Schleudern: сначала выставьте обороты ручкой, потом Start."
+    },
+    {
+      "id": "drain-only",
+      "title": "Слить воду после остановки с водой",
+      "group": "care",
+      "set": { "prog": "drain", "spin": "0", "iron": false, "extrarinse": false, "intensive": false },
+      "note": "Abpumpen: слив без отжима."
+    }
+  ],
+
+  "troubleshooting": [
+    {
+      "title": "Дверца не открывается",
+      "causes": [
+        "Была выбрана остановка с водой (значок ванночки на ручке оборотов). Выберите программу «Abpumpen» или «Schleudern».",
+        "Сработала блокировка дверцы: подождите две минуты."
+      ],
+      "sourcePage": 44
+    },
+    {
+      "title": "В кювете остаётся моющее средство",
+      "causes": [
+        "Порошок был влажным или комковатым. Очистите кювету (стр. 39).",
+        "Жидкое средство дозируйте специальным дозатором."
+      ],
+      "sourcePage": 45
+    },
+    {
+      "title": "Индикаторные лампочки не горят",
+      "causes": [
+        "Сработал предохранитель на щите: включите или замените его, при повторении вызовите сервис.",
+        "Отключили электроэнергию: программа продолжится после появления напряжения. Если нужно достать бельё, воспользуйтесь разделом «Чистка помпы».",
+        "Вилка не вставлена в розетку или болтается."
+      ],
+      "sourcePage": 45
+    },
+    {
+      "title": "Программа не начинается, мигает лампа питания",
+      "causes": [
+        "Дверца не полностью закрыта: проверьте, не зажата ли вещь, закройте до щелчка.",
+        "Не нажата кнопка Start (ромб)."
+      ],
+      "sourcePage": 45
+    },
+    {
+      "title": "Вода не поступает или моющее средство не смывается, мигает лампа полоскания",
+      "causes": [
+        "Кран не открыт или подающий шланг перегнут или зажат.",
+        "Забиты фильтры в подводящем шланге (раздел «Чистка фильтров», стр. 42)."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Из ячейки I не смывается моющее средство",
+      "causes": [
+        "Выбрана программа без предварительной стирки: выберите «Buntwäsche 60 °C + Vorwäsche»."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Воды в барабане не видно",
+      "causes": [
+        "Это не неисправность. Вода находится ниже видимого участка барабана."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Раствор откачивается не полностью, мигает лампа отжима",
+      "causes": [
+        "Посторонние предметы блокируют помпу: почистите её (стр. 40).",
+        "Стиралось очень ворсистое бельё: сливная труба или шланг засорились, прочистите."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Течёт вода из-под машины",
+      "causes": [
+        "Негерметично место присоединения подводящего шланга: затяните резьбовое соединение.",
+        "Негерметичен сливной шланг: замените его."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Из кюветы выступает пена",
+      "causes": [
+        "Слишком много моющего средства. Смешайте столовую ложку кондиционера с 1/2 л воды и влейте в ячейку II; в следующий раз дозируйте средство точнее."
+      ],
+      "sourcePage": 46
+    },
+    {
+      "title": "Бельё не было как следует отжато",
+      "causes": [
+        "Крупные вещи скатались вместе и не смогли равномерно распределиться: стирайте всегда вперемежку мелкие и крупные вещи.",
+        "Из соображений безопасности отжим на высокой скорости был выключен.",
+        "Нажата кнопка с утюгом: отжим идёт максимум 800 об/мин.",
+        "Выбрана программа «Spülen» или «Schleudern» (максимум 800 об/мин)."
+      ],
+      "sourcePage": 47
+    },
+    {
+      "title": "Многократный отжим или программа идёт дольше обычного",
+      "causes": [
+        "Это не неисправность: система компенсации дисбаланса пытается распределить бельё внутри барабана равномернее.",
+        "Система распознавания пены включила дополнительное полоскание: в следующий раз возьмите меньше моющего средства."
+      ],
+      "sourcePage": 47
+    },
+    {
+      "title": "Результат стирки неудовлетворительный",
+      "causes": [
+        "Загрязнение выше предполагавшегося или в машину загружено больше белья, чем рекомендуется: выберите подходящую программу, нажмите кнопку «рубашка» или загрузите меньше белья.",
+        "Моющего средства взято слишком мало: дозируйте по указаниям производителя."
+      ],
+      "sourcePage": 47
+    }
+  ],
+
+  "care": [
+    {
+      "title": "Корпус и панель управления",
+      "text": "Перед чисткой отключите машину от сети, не мойте струёй воды. Корпус и панель протирайте мыльным раствором или слабым неабразивным чистящим средством, затем вытрите насухо. Растворители не применять.",
+      "sourcePage": 38
+    },
+    {
+      "title": "Барабан",
+      "text": "Если из-за забытых внутри металлических предметов появились пятна ржавчины, удалите их чистящим средством без хлора, как указано производителем средства. Проволочной сеткой не пользоваться.",
+      "sourcePage": 38
+    },
+    {
+      "title": "Кювета для моющих средств",
+      "text": "Если на кювете образовался слой из остатков средств, вытяните кювету до упора, нажмите на вставку, извлеките кювету полностью. Вставку вытяните вверх, промойте кювету и вставку в проточной воде, просушите, вставьте вставку так, чтобы она зафиксировалась.",
+      "interval": "по мере загрязнения",
+      "sourcePage": 39
+    },
+    {
+      "title": "Помпа и слив раствора",
+      "text": "Помпа может быть забита посторонними предметами или ворсом. Для слива раствора переведите ручку на «Aus», откройте крышку в цоколе, освободите сливной шланг, откройте конец шланга и слейте раствор в ёмкость (до 20 л, остудите горячий раствор). Затем отвинтите крышку помпы, достаньте предметы и ворс, проверьте, что крыльчатка вращается свободно, закрутите крышку и закройте крышку цоколя. После чистки влейте в ячейку II примерно литр воды и запустите «Abpumpen».",
+      "interval": "при засорении",
+      "sourcePage": 40
+    },
+    {
+      "title": "Фильтры в системе подачи воды",
+      "text": "Если воды подаётся мало или совсем нет и мигает лампа полоскания: закройте кран, выберите любую программу (кроме Schleudern и Abpumpen), нажмите Start примерно на 40 секунд для сброса давления, переведите ручку на «Aus». Затем снимите шланг с крана и промойте сетчатый фильтр, при необходимости отсоедините шланг и с обратной стороны машины, извлеките фильтр и промойте его в проточной воде.",
+      "interval": "при слабом напоре",
+      "sourcePage": 42
+    },
+    {
+      "title": "Очистка от накипи",
+      "text": "Если всегда правильно дозировать моющее средство, чистить машину от накипи не нужно. Средства от накипи содержат кислоты, которые могут повредить детали машины; пользуйтесь строго по указаниям их производителя.",
+      "sourcePage": 43
+    }
+  ],
+
+  "sources": [
+    {
+      "title": "Инструкция по эксплуатации Bosch WFO 2451/2051 (RU, копия сервисного сайта)",
+      "url": "https://rembitteh.ru/manuals/krupnaya-byitovaya-tehnika/stiralnie-mashini/bosch/wfo-2051/",
+      "kind": "manual-archive",
+      "pages": "4-52 (номера страниц в данных совпадают с печатными номерами)"
+    }
+  ],
+
+  "notes": {
+    "assumptions": [
+      "Машина с электронным управлением: инструкция прямо указывает, что ручка программ не вращается во время выполнения (стр. 9). Поэтому cycle.dialMoves=false; позиции ручки в cycle.steps выбирают программу, а не шаг таймера.",
+      "Углы меток сняты со схемы панели на стр. 9 приблизительно (0 = 12 часов, по часовой стрелке). Расположение меток слева (Pflegeleicht 60/40/30, Fein/Seide, Wolle kalt/30) оценено по схеме.",
+      "Для программ с длительностью в таблице расхода (стр. 50) сумма этапов подогнана под указанное время; разбивка на стирку, полоскание, слив и отжим внутри него оценочная (cycle.estimate=true). Время, указанное в таблице, получено при контрольной стирке (для ряда программ с нажатой кнопкой «рубашка»).",
+      "Для позиций без строки в таблице расхода (Buntwäsche 30, 60+Vorwäsche, Pflegeleicht 30 и 60, Wolle kalt, Spülen, Schleudern, Abpumpen) длительности этапов оценочные, их общая продолжительность в durationMin не заявлена.",
+      "Ячейки кюветы слева направо (II, цветок, I) взяты с рисунка на стр. 20 и совпадают с родственной машиной Bosch Maxx 4; текст инструкции порядок не описывает.",
+      "Максимальные обороты по программам взяты из таблицы на стр. 25: Koch/Buntwäsche 1000 (у WFO 2451 1200), остальные программы 800 или 600 (Fein/Seide).",
+      "Загрузка: Koch- und Buntwäsche 6 кг, Pflegeleicht 3 кг, Fein/Seide 2 кг, Wolle 2 кг (стр. 5); у Buntwäsche 60 в таблице расхода 5 кг.",
+      "Цвета панели приблизительные: фото машины не просмотрено, схемы в инструкции серые.",
+      "Годы выпуска приблизительные: в инструкции их нет."
+    ],
+    "gaps": [
+      "В инструкции нет таблицы по ограничениям допустимых дополнительных функций для каждой программы; кнопки «утюг», «доп. полоскание», «рубашка» разрешены в данных для основных стиральных программ по общему описанию, а для Wolle и Fein/Seide только «доп. полоскание».",
+      "Для Buntwäsche 30 °C, Buntwäsche 60 + Vorwäsche, Pflegeleicht 30 и 60 °C, Wolle kalt, Spülen, Schleudern и Abpumpen в таблице расхода нет расхода воды, энергии и времени.",
+      "Метка 1200 об/мин напечатана на панели, но у WFO 2051 действует максимум 1000 (стр. 25); как именно ручка ведёт себя в положении 1200 на этой модели, инструкция не поясняет.",
+      "Порядок ячеек кюветы в тексте не описан, взят с рисунка.",
+      "Положение «Wolle kalt» отдельно в тексте не описано; температура 0 принята по надписи «kalt»."
+    ]
+  },
+
+  "en": {
+    "summary": "German machine with electronic control: one knob switches the machine on and selects the programme (all printed in German), a second knob sets the spin speed. It starts with a separate Start button and the knobs do not turn during the wash.",
+    "years": "2000-2008 (approximate)",
+    "pitfalls": [
+      "The programme knob is also the on/off switch: \"Aus\" means off. To switch on, turn the knob to a programme (the power lamp lights), then press the Start button (diamond). The machine does not start by itself.",
+      "All programme names on the panel are German: Buntwäsche (coloureds, 30-60), Kochwäsche (whites, 90), Pflegeleicht (easy-care synthetics), Fein/Seide (delicates, silk), Wolle (wool), Spülen (rinse), Schleudern (spin), Abpumpen (drain).",
+      "The programme knob does not turn during the wash. If you picked the wrong programme: turn the knob to \"Aus\", then to the right programme, and press Start again.",
+      "The spin knob has a position with a small tub symbol: the laundry then stays in the water of the last rinse and the door will not open. To drain, choose \"Abpumpen\" or \"Schleudern\" and press Start.",
+      "The panel prints 1200/1000/800/600 rpm (it is shared with the WFO 2451). The WFO 2051 tops out at 1000 rpm (p. 25).",
+      "The iron button (spin with loosening of the laundry) lowers the spin in Koch/Buntwäsche to 800 rpm.",
+      "The \"Start in\" button delays the start by 1-19 hours (counted in whole hours only); then press Start to begin the countdown."
+    ],
+    "controls": {
+      "start": {
+        "name": "Start (diamond)",
+        "help": "The Start button (diamond) starts the selected programme. The \"wash\" lamp lights. Press it after choosing the programme and any extra functions."
+      },
+      "iron": {
+        "name": "Iron (loosening spin)",
+        "help": "Iron: reduces creasing. The spin runs in a special way and the laundry is then loosened so it lies freely in the drum. In Koch/Buntwäsche the spin speed is automatically limited to 800 rpm."
+      },
+      "extrarinse": {
+        "name": "Extra rinse",
+        "help": "Extra rinse (tub with waves). The wash time gets longer. Recommended in very soft water and for better rinsing."
+      },
+      "intensive": {
+        "name": "Shirt (intensive wash)",
+        "help": "Shirt: a longer, more intensive wash for heavily soiled laundry. The programme time increases. Do not press it for small or lightly soiled loads; the load/soiling table is on p. 28."
+      },
+      "startin": {
+        "name": "Start in (delayed start)",
+        "help": "Next to the \"Ready in / Start in\" display. After you choose a programme the display shows the time to the end (\"Ready in\"). Press \"Start in\" until the desired delay appears (1h...19h, one-hour steps), then press Start. The dot between the digit and \"h\" blinks while the delay runs."
+      },
+      "spin": {
+        "name": "Spin speed",
+        "label": "rpm",
+        "help": "Spin speed knob. Basic position: pointing up. The 1200 mark applies only to the WFO 2451; the WFO 2051 tops out at 1000. In the position with the tub symbol there is no spin and the laundry stays in the water of the last rinse (rinse hold). Delicate programmes are limited automatically.",
+        "positions": { "0": "no spin" }
+      },
+      "lamps": {
+        "name": "Indicator lamps",
+        "help": "Four lamps to the right of the spin knob, top to bottom: spin, rinse, wash, power. The top three show the stage of the running programme and blink when there is a problem (see troubleshooting). The power lamp is lit when a programme is selected."
+      },
+      "prog": {
+        "label": "programmes",
+        "help": "The programme knob turns both ways. \"Aus\" at the top means the machine is off. To the right of \"Aus\" is Koch/Buntwäsche (cotton 30...90), at the bottom Spülen, Schleudern, Abpumpen, on the left Wolle, Fein/Seide, Pflegeleicht. The knob does not turn while a programme runs (electronic). The 30/40/60 marks on the upper left belong to Pflegeleicht (synthetics), the ones on the upper right to Buntwäsche (coloureds).",
+        "zones": {
+          "cotton": "Koch/Buntwäsche: cotton, linen, coloureds and whites (upper right)",
+          "synthetic": "Pflegeleicht: easy-care synthetics (upper left)",
+          "delicate": "Fein/Seide: delicates, silk",
+          "wool": "Wolle: wool",
+          "service": "Spülen, Schleudern, Abpumpen (bottom of the scale)"
+        }
+      }
+    },
+    "tray": {
+      "help": "A drawer with three compartments. Compartment I: prewash detergent or starch. Compartment II: main wash, water softener, soaking, bleach or stain remover. Flower compartment: fabric softener or anti-crease product (fill no higher than the lower edge of insert 1). The order of the compartments left to right is taken from the drawing in the manual and matches the related Bosch Maxx 4. Dilute thick or viscous products with water. To clean the drawer, pull it out fully, press on the insert and remove it completely.",
+      "compartments": {
+        "II": "Main wash, water softener, soaking, bleach, stain remover",
+        "flower": "Fabric softener, shape-retaining product (up to the mark on insert 1)",
+        "I": "Prewash, starch"
+      }
+    },
+    "programs": {
+      "col-30": { "name": "Buntwäsche 30 °C (coloureds, cotton, linen)", "note": "For hard-wearing cotton and linen. The consumption table (p. 50) has no separate row for 30 °C. Load 6 kg; up to 5 kg with the \"shirt\" button for heavy soiling (p. 28)." },
+      "col-40": { "name": "Buntwäsche 40 °C (coloureds, cotton, linen)", "note": "For hard-wearing cotton and linen. Consumption table (control wash with the \"shirt\" button): 6 kg, 0.65 kWh, 60 l, 2 h 10 min." },
+      "col-60": { "name": "Buntwäsche 60 °C (coloureds, cotton, linen)", "note": "For hard-wearing cotton and linen. Consumption table: 5 kg, 0.95 kWh, 60 l, 1 h 17 min (without the \"shirt\" button)." },
+      "intensive-60": { "name": "Buntwäsche 60 °C Flecken (coloureds, stain removal)", "note": "For heavily soiled and stained cotton and linen. Thanks to the longer duration the result is close to a 90 °C wash with much lower energy use. Consumption table: 6 kg, 1.02 kWh, 49 l, 2 h 15 min." },
+      "white-90": { "name": "Kochwäsche 90 °C (whites, boil wash)", "note": "For cotton and linen that can be boiled. The hot solution is mixed with about 7 l of cold water before draining. Consumption table: 6 kg, 2.1 kWh, 67 l, 2 h 10 min." },
+      "col-60-pre": { "name": "Buntwäsche 60 °C + Vorwäsche (coloureds, with prewash)", "note": "For heavily soiled hard-wearing cotton. Use compartment I for the prewash powder. The consumption table (p. 50) has no row for this programme." },
+      "rinse": { "name": "Spülen (rinse)", "note": "A rinse that ends with a spin: for hand-washed laundry or for starching. Reduced spin (up to 800 rpm)." },
+      "spin-only": { "name": "Schleudern (spin)", "note": "Spin for hand-washed laundry. Set the required speed with the spin knob first. The solution or rinse water is drained before the spin. Also needed to drain and spin after a rinse hold." },
+      "drain": { "name": "Abpumpen (drain)", "note": "Drains the water the laundry was rinsed in after a programme with rinse hold (tub symbol on the spin knob). Gentler on delicate laundry." },
+      "wool-30": { "name": "Wolle 30 °C (wool, machine and hand wash)", "note": "For wool or wool-blend items (cashmere, mohair, angora) suitable for hand or machine washing; hand-wash silk may also be washed. Consumption table: 2 kg, 0.2 kWh, 35 l, 50 min." },
+      "wool-cold": { "name": "Wolle kalt (wool, cold water)", "note": "The \"Wolle kalt\" position (wool symbol). Described together with \"Wolle 30 °C\" in a single entry of the manual." },
+      "fine-30": { "name": "Fein/Seide 30 °C (delicates, silk)", "note": "For delicate silk, satin, synthetic or mixed-fibre items (such as curtains). Silk is washed gently at 30 °C. The laundry is not spun after the intermediate rinse. Consumption table: 2 kg, 0.3 kWh, 42 l, 35 min." },
+      "syn-60": { "name": "Pflegeleicht 60 °C (synthetics, mixed fabrics)", "note": "For items needing no special care, made of cotton, linen, synthetics and mixed fabrics. The consumption table has no row for 60 °C." },
+      "syn-40": { "name": "Pflegeleicht 40 °C (synthetics, mixed fabrics)", "note": "For items needing no special care. Consumption table (with the \"shirt\" button): 3 kg, 0.5 kWh, 50 l, 1 h 18 min." },
+      "syn-30": { "name": "Pflegeleicht 30 °C (synthetics, mixed fabrics)", "note": "For items needing no special care. The consumption table has no row for 30 °C." }
+    },
+    "rules": [
+      "Wool: no higher than 30 °C, otherwise items will shrink.",
+      "Fein/Seide: 30 °C only; silk is washed gently.",
+      "In Pflegeleicht the spin automatically runs at no more than 800 rpm, regardless of the spin knob (table on p. 25).",
+      "In the Wolle programme the spin is automatically limited to 800 rpm.",
+      "In Fein/Seide the spin is automatically limited to 600 rpm.",
+      "Koch/Buntwäsche: maximum 1000 rpm on the WFO 2051 (1200 on the WFO 2451). With the iron button pressed the spin drops to 800.",
+      "Spülen, Schleudern and Abpumpen are auxiliary programmes: the \"shirt\" (intensive wash) button makes no sense for them.",
+      "If the spin knob is on the tub symbol (rinse hold), the laundry stays in the water after the programme. To drain, choose \"Abpumpen\" or \"Schleudern\" and press Start.",
+      "Wrong programme or want to stop: turn the programme knob to \"Aus\", then to the right programme, set the \"Start in\" delay if needed and press Start. To end early, after \"Aus\" choose \"Abpumpen\" or \"Schleudern\"."
+    ],
+    "presets": {
+      "everyday-40": { "title": "Everyday clothes, 40 °C", "note": "Buntwäsche 40, up to 6 kg. Then press Start.", "dose": { "II": "Powder or gel", "flower": "Fabric softener (optional)" } },
+      "light-30": { "title": "Lightly soiled coloureds, 30 °C", "note": "Buntwäsche 30 (the 30° mark to the right of \"Aus\").", "dose": { "II": "Powder or gel for coloureds", "flower": "Fabric softener (optional)" } },
+      "bedding-60": { "title": "Bed linen, 60 °C", "note": "Buntwäsche 60, up to 5 kg according to the consumption table.", "dose": { "II": "Powder", "flower": "Fabric softener (optional)" } },
+      "stains-60": { "title": "Stained laundry, 60 °C", "note": "Buntwäsche 60 Flecken: a long wash with a result close to 90 °C and lower energy use.", "dose": { "II": "Powder with stain remover" } },
+      "whites-90": { "title": "Whites, boil wash 90 °C", "note": "Kochwäsche 90: only for whites and coloureds that can be boiled.", "dose": { "II": "Powder", "flower": "Fabric softener (optional)" } },
+      "heavy-prewash": { "title": "Heavily soiled, 60 °C with prewash", "note": "Buntwäsche 60 + Vorwäsche.", "dose": { "I": "Prewash powder", "II": "Main wash powder" } },
+      "synthetic-40": { "title": "Synthetics, 40 °C", "note": "Pflegeleicht 40, up to 3 kg.", "dose": { "II": "Powder or gel", "flower": "Fabric softener (optional)" } },
+      "delicate-30": { "title": "Delicates and silk, 30 °C", "note": "Fein/Seide 30, up to 2 kg. For delicates with no spin, set the spin knob to the tub symbol and finish with Abpumpen.", "dose": { "II": "Detergent for delicates" } },
+      "wool-30": { "title": "Wool, 30 °C", "note": "Wolle 30, up to 2 kg, only items marked machine washable.", "dose": { "II": "Wool detergent" } },
+      "rinse-spin": { "title": "Rinse and spin only", "note": "Spülen: rinse with spin (for hand-washed laundry).", "dose": { "flower": "Softener or starch (optional)" } },
+      "spin-only": { "title": "Spin only", "note": "Schleudern: set the speed with the spin knob first, then press Start." },
+      "drain-only": { "title": "Drain after a rinse hold", "note": "Abpumpen: drain without a spin." }
+    },
+    "troubleshooting": [
+      { "title": "The door does not open", "causes": ["Rinse hold (tub symbol on the spin knob) was used. Choose \"Abpumpen\" or \"Schleudern\".", "The door lock is active: wait two minutes."] },
+      { "title": "Detergent remains in the drawer", "causes": ["The powder was damp or lumpy. Clean the drawer (p. 39).", "Use the dosing aid for liquid detergent."] },
+      { "title": "The indicator lamps are off", "causes": ["A fuse at the fuse box has blown: switch it on or replace it, call service if it happens again.", "A power cut: the programme continues when power returns. If you need to take out the laundry, follow the \"Cleaning the pump\" section.", "The plug is not in the socket or is loose."] },
+      { "title": "The programme does not start, the power lamp blinks", "causes": ["The door is not fully closed: check nothing is trapped, close until it clicks.", "The Start button (diamond) was not pressed."] },
+      { "title": "No water comes in or detergent is not rinsed in, the rinse lamp blinks", "causes": ["The tap is closed or the supply hose is kinked or squeezed.", "The filters in the supply hose are blocked (section \"Cleaning the filters\", p. 42)."] },
+      { "title": "Detergent is not flushed out of compartment I", "causes": ["A programme without prewash was selected: choose \"Buntwäsche 60 °C + Vorwäsche\"."] },
+      { "title": "No water visible in the drum", "causes": ["This is not a fault. The water is below the visible part of the drum."] },
+      { "title": "The solution is not fully drained, the spin lamp blinks", "causes": ["Foreign objects block the pump: clean it (p. 40).", "Very fluffy laundry was washed: the drain pipe or hose is clogged, clear it."] },
+      { "title": "Water leaks from under the machine", "causes": ["The inlet hose connection leaks: tighten the threaded joint.", "The drain hose leaks: replace it."] },
+      { "title": "Foam comes out of the drawer", "causes": ["Too much detergent. Mix a tablespoon of fabric softener with 1/2 l of water and pour it into compartment II; dose more precisely next time."] },
+      { "title": "Laundry was not wrung out properly", "causes": ["Large items rolled up together and could not distribute evenly: always wash small and large items together.", "For safety the high-speed spin was switched off.", "The iron button is pressed: the spin runs at 800 rpm at most.", "\"Spülen\" or \"Schleudern\" was selected (800 rpm at most)."] },
+      { "title": "Repeated spins or a programme longer than usual", "causes": ["This is not a fault: the unbalance compensation tries to distribute the laundry more evenly in the drum.", "The foam detection added an extra rinse: use less detergent next time."] },
+      { "title": "Unsatisfactory wash result", "causes": ["The soiling was heavier than assumed or the machine was loaded beyond the recommendation: choose a suitable programme, press the \"shirt\" button or load less.", "Too little detergent was used: dose according to the manufacturer's instructions."] }
+    ],
+    "care": [
+      { "title": "Housing and control panel", "text": "Unplug the machine before cleaning and never wash it with a jet of water. Wipe the housing and panel with soapy water or a mild non-abrasive cleaner, then dry. Do not use solvents." },
+      { "title": "Drum", "text": "If forgotten metal objects have left rust stains, remove them with a chlorine-free cleaner following its maker's instructions. Do not use wire wool." },
+      { "title": "Detergent drawer", "text": "If a layer of detergent residue has built up, pull the drawer out fully, press on the insert and remove the drawer completely. Lift out the insert, wash the drawer and insert under running water, dry them and click the insert back in.", "interval": "as it gets dirty" },
+      { "title": "Pump and draining the solution", "text": "The pump may be blocked by foreign objects or lint. To drain the solution, turn the knob to \"Aus\", open the plinth cover, free the drain hose, open its end and drain into a container (up to 20 l, let hot solution cool first). Then unscrew the pump cover, remove objects and lint, check that the impeller turns freely, screw the cover back and close the plinth cover. After cleaning, pour about a litre of water into compartment II and run \"Abpumpen\".", "interval": "when blocked" },
+      { "title": "Water supply filters", "text": "If little or no water comes in and the rinse lamp blinks: close the tap, select any programme (except Schleudern and Abpumpen), press Start for about 40 seconds to release pressure, turn the knob to \"Aus\". Then remove the hose from the tap and wash the mesh filter; if needed also disconnect the hose at the back of the machine, take out the filter and wash it under running water.", "interval": "when the flow is weak" },
+      { "title": "Descaling", "text": "If you always dose detergent correctly, descaling is not needed. Descalers contain acids that can damage machine parts; use them strictly as the maker of the descaler instructs." }
+    ],
+    "notes": {
+      "assumptions": [
+        "Electronic control: the manual states that the programme knob does not turn while a programme runs (p. 9). So cycle.dialMoves=false; knob positions in cycle.steps select the programme rather than a timer step.",
+        "Knob angles are taken from the panel drawing on p. 9, approximately (0 = 12 o'clock, clockwise). The positions on the left (Pflegeleicht 60/40/30, Fein/Seide, Wolle kalt/30) are estimated from the drawing.",
+        "For programmes with a time in the consumption table (p. 50) the sum of the steps is fitted to that time; the split into wash, rinse, drain and spin is an estimate (cycle.estimate=true). The table times come from a control wash (for several programmes with the \"shirt\" button pressed).",
+        "For positions without a row in the consumption table (Buntwäsche 30, 60+Vorwäsche, Pflegeleicht 30 and 60, Wolle kalt, Spülen, Schleudern, Abpumpen) the step durations are estimates and no total is stated in durationMin.",
+        "The drawer compartments left to right (II, flower, I) are taken from the drawing on p. 20 and match the related Bosch Maxx 4; the text does not describe the order.",
+        "Maximum spin per programme comes from the table on p. 25: Koch/Buntwäsche 1000 (1200 on the WFO 2451), other programmes 800 or 600 (Fein/Seide).",
+        "Load: Koch- und Buntwäsche 6 kg, Pflegeleicht 3 kg, Fein/Seide 2 kg, Wolle 2 kg (p. 5); Buntwäsche 60 is 5 kg in the consumption table.",
+        "Panel colours are approximate: no photo of the machine was viewed, the manual drawings are grey.",
+        "Years are approximate: the manual gives none."
+      ],
+      "gaps": [
+        "The manual has no per-programme table of which extra functions are allowed; the iron, extra rinse and shirt buttons are allowed in the data for the main wash programmes from the general description, and only extra rinse for Wolle and Fein/Seide.",
+        "For Buntwäsche 30 °C, Buntwäsche 60 + Vorwäsche, Pflegeleicht 30 and 60 °C, Wolle kalt, Spülen, Schleudern and Abpumpen the consumption table gives no water, energy or time.",
+        "The 1200 rpm mark is printed on the panel but the WFO 2051 tops out at 1000 (p. 25); the manual does not explain how the knob behaves at 1200 on this model.",
+        "The order of the drawer compartments is not described in the text, it is taken from the drawing.",
+        "The \"Wolle kalt\" position is not described separately in the text; temperature 0 is assumed from the word \"kalt\"."
+      ]
+    },
+    "sources": ["Operating instructions Bosch WFO 2451/2051 (RU, copy from a service site)"]
+  }
+}
