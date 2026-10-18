@@ -92,14 +92,3 @@ Link to a specific setting: `m/<id>/?p=4&t=40&s=600&o=half` or `m/<id>/?preset=e
 2. Copy a file in `data/machines/`, fill it in following `docs/schema.md`: page numbers for manual
    values, estimates in `notes.assumptions`, missing information in `notes.gaps`, English in `en`.
 3. `npm run check` and `npm test`, then `npm run build` and compare the page with the photo.
-
----
-
-## По-русски
-
-**washguide** — справочник по старым стиральным машинам с механическим таймером и непонятной панелью.
-Вы выбираете свою модель и видите её панель и лоток такими, какие они на машине. Ручки можно крутить
-прямо на рисунке, а страница считает время, предупреждает о несовместимых настройках и показывает,
-как машина закончит цикл. Данные взяты из инструкций производителей; всё оценённое помечено.
-
-Сайт: **[washguide.ru](https://washguide.ru)**. Как добавить машину и устроен формат данных — выше и в `docs/schema.md`.
