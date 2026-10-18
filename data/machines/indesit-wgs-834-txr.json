@@ -1,0 +1,1084 @@
+{
+  "id": "indesit-wgs-834-txr",
+  "brand": "Indesit",
+  "model": "WGS 834 TXR",
+  "aliases": [
+    "индезит wgs 834",
+    "индезит wgs834 txr",
+    "wgs834",
+    "wgs 834 tx",
+    "indesit wgs834txr"
+  ],
+  "years": "конец 1990-х — начало 2000-х",
+  "loading": "front",
+  "capacityKg": 3.5,
+  "maxSpinRpm": 800,
+  "heaterW": 1800,
+  "summary": "Узкая фронтальная машина с механическим командоаппаратом: три овальные кнопки слева и три ручки справа, программы 1–18 без названий, только цифры.",
+  "pitfalls": [
+    "Ручку программ P крутят только по часовой стрелке и только при выключенной кнопке I/O.",
+    "На программах 8–11 и 14–16 машина в конце останавливается с водой в баке — это не поломка.",
+    "Стартовая цифра задаёт, с какого шага начнётся цикл: «2» и «4» на хлопке отличаются примерно на 45 минут.",
+    "Дверца открывается только через 2–3 минуты после выключения."
+  ],
+  "panel": {
+    "face": "#e6d5bb",
+    "ink": "#3b2a17",
+    "rows": [
+      [
+        "power",
+        "lamp-on",
+        "half",
+        "waterstop",
+        "spin",
+        "temp",
+        "prog"
+      ]
+    ],
+    "controls": [
+      {
+        "id": "power",
+        "type": "button",
+        "role": "power",
+        "label": "I/O",
+        "symbol": "power",
+        "latching": true,
+        "help": "Кнопка включения. Программа стартует сразу после нажатия, поэтому сначала выставьте ручки."
+      },
+      {
+        "id": "lamp-on",
+        "type": "lamp",
+        "color": "red",
+        "lit": "power",
+        "label": "",
+        "help": "Горит, пока машина включена."
+      },
+      {
+        "id": "half",
+        "type": "button",
+        "role": "option",
+        "label": "1/2",
+        "symbol": "half-load",
+        "latching": true,
+        "effect": {
+          "waterFactor": 0.7
+        },
+        "help": "Половинная загрузка: машина берёт меньше воды при стирке и полоскании. Для 1,5 кг и меньше."
+      },
+      {
+        "id": "waterstop",
+        "type": "button",
+        "role": "option",
+        "label": "",
+        "symbol": "water-stop",
+        "latching": true,
+        "effect": {
+          "holdBeforeSpin": true
+        },
+        "help": "Остановка с водой: машина не сливает воду после последнего полоскания. Чтобы продолжить, отожмите кнопку."
+      },
+      {
+        "id": "spin",
+        "type": "knob",
+        "role": "spin",
+        "label": "об/мин",
+        "rotation": "free",
+        "pointer": "bar",
+        "positions": [
+          {
+            "value": "0",
+            "label": "без отжима",
+            "symbol": "no-spin",
+            "angle": 0,
+            "rpm": 0
+          },
+          {
+            "value": "MIN",
+            "label": "MIN",
+            "angle": 42,
+            "rpm": 300
+          },
+          {
+            "value": "400",
+            "label": "400",
+            "angle": 90,
+            "rpm": 400
+          },
+          {
+            "value": "500",
+            "label": "500",
+            "angle": 135,
+            "rpm": 500
+          },
+          {
+            "value": "600",
+            "label": "600",
+            "angle": 180,
+            "rpm": 600
+          },
+          {
+            "value": "700",
+            "label": "700",
+            "angle": 225,
+            "rpm": 700
+          },
+          {
+            "value": "800",
+            "label": "800",
+            "angle": 270,
+            "rpm": 800
+          },
+          {
+            "value": "MAX",
+            "label": "MAX",
+            "angle": 312,
+            "rpm": 800
+          }
+        ],
+        "help": "Скорость финального отжима. На «без отжима» машина только сливает воду."
+      },
+      {
+        "id": "temp",
+        "type": "knob",
+        "role": "temperature",
+        "label": "°C",
+        "rotation": "free",
+        "pointer": "bar",
+        "positions": [
+          {
+            "value": "0",
+            "label": "*",
+            "symbol": "snowflake",
+            "angle": 0,
+            "tempC": 0
+          },
+          {
+            "value": "30",
+            "label": "30",
+            "angle": 90,
+            "tempC": 30
+          },
+          {
+            "value": "40",
+            "label": "40",
+            "angle": 122,
+            "tempC": 40
+          },
+          {
+            "value": "50",
+            "label": "50",
+            "angle": 150,
+            "tempC": 50
+          },
+          {
+            "value": "60",
+            "label": "60",
+            "angle": 180,
+            "tempC": 60
+          },
+          {
+            "value": "70",
+            "label": "70",
+            "angle": 210,
+            "tempC": 70
+          },
+          {
+            "value": "80",
+            "label": "80",
+            "angle": 240,
+            "tempC": 80
+          },
+          {
+            "value": "MAX",
+            "label": "MAX",
+            "angle": 285,
+            "tempC": 90
+          }
+        ],
+        "help": "Термостат: до какой температуры ТЭН греет воду. Таймер стоит, пока вода греется."
+      },
+      {
+        "id": "prog",
+        "type": "knob",
+        "role": "program",
+        "label": "P",
+        "rotation": "cw-only",
+        "pointer": "bar",
+        "zones": [
+          {
+            "id": "cotton",
+            "label": "Хлопок 1–7",
+            "color": "#0f766e"
+          },
+          {
+            "id": "synthetic",
+            "label": "Синтетика 8–13",
+            "color": "#15803d"
+          },
+          {
+            "id": "wool",
+            "label": "Шерсть 14–18",
+            "color": "#7e22ce"
+          }
+        ],
+        "positions": [
+          {
+            "value": "1",
+            "label": "1",
+            "angle": 8,
+            "zone": "cotton"
+          },
+          {
+            "value": "2",
+            "label": "2",
+            "angle": 30,
+            "zone": "cotton"
+          },
+          {
+            "value": "3",
+            "label": "3",
+            "angle": 58,
+            "zone": "cotton"
+          },
+          {
+            "value": "4",
+            "label": "4",
+            "angle": 86,
+            "zone": "cotton"
+          },
+          {
+            "value": "5",
+            "label": "5",
+            "angle": 116,
+            "zone": "cotton"
+          },
+          {
+            "value": "6",
+            "label": "6",
+            "angle": 145,
+            "zone": "cotton"
+          },
+          {
+            "value": "7",
+            "label": "7",
+            "angle": 168,
+            "zone": "cotton"
+          },
+          {
+            "value": "stop-a",
+            "label": "•",
+            "angle": 181,
+            "stop": true
+          },
+          {
+            "value": "8",
+            "label": "8",
+            "angle": 194,
+            "zone": "synthetic"
+          },
+          {
+            "value": "9",
+            "label": "9",
+            "angle": 215,
+            "zone": "synthetic"
+          },
+          {
+            "value": "10",
+            "label": "10",
+            "angle": 235,
+            "zone": "synthetic"
+          },
+          {
+            "value": "11",
+            "label": "11",
+            "angle": 253,
+            "zone": "synthetic"
+          },
+          {
+            "value": "12",
+            "label": "12",
+            "angle": 266,
+            "zone": "synthetic"
+          },
+          {
+            "value": "13",
+            "label": "13",
+            "angle": 277,
+            "zone": "synthetic"
+          },
+          {
+            "value": "stop-b",
+            "label": "•",
+            "angle": 284,
+            "stop": true
+          },
+          {
+            "value": "14",
+            "label": "14",
+            "angle": 293,
+            "zone": "wool"
+          },
+          {
+            "value": "15",
+            "label": "15",
+            "angle": 315,
+            "zone": "wool"
+          },
+          {
+            "value": "16",
+            "label": "16",
+            "angle": 333,
+            "zone": "wool"
+          },
+          {
+            "value": "17",
+            "label": "17",
+            "angle": 345,
+            "zone": "wool"
+          },
+          {
+            "value": "18",
+            "label": "18",
+            "angle": 354,
+            "zone": "wool"
+          },
+          {
+            "value": "stop-c",
+            "label": "•",
+            "angle": 359,
+            "stop": true
+          }
+        ],
+        "help": "Выбор программы. Цифра — это шаг командоаппарата, с которого начнётся цикл. Крутить только по часовой стрелке при выключенной машине."
+      }
+    ],
+    "programChangeWhenOff": true
+  },
+  "tray": {
+    "location": "top-left",
+    "layout": "columns",
+    "compartments": [
+      {
+        "id": "1",
+        "mark": "1",
+        "use": "prewash",
+        "label": "Предварительная стирка",
+        "width": 1
+      },
+      {
+        "id": "2",
+        "mark": "2",
+        "use": "main",
+        "label": "Основная стирка",
+        "width": 2
+      },
+      {
+        "id": "3",
+        "mark": "triangle-cl",
+        "use": "bleach",
+        "label": "Отбеливатель",
+        "width": 1
+      },
+      {
+        "id": "4",
+        "mark": "flower",
+        "use": "softener",
+        "label": "Кондиционер",
+        "width": 1
+      }
+    ],
+    "help": "Лоток вынимается на себя с небольшим усилием. Правая вставка с отсеками 3 и 4 снимается вверх: под ней копится загустевший кондиционер, её стоит промывать."
+  },
+  "cycle": {
+    "timerPausesForHeating": true,
+    "washLitres": 12,
+    "inletTempC": 15,
+    "estimate": true,
+    "steps": [
+      {
+        "pos": "1",
+        "phase": "prewash",
+        "min": 20,
+        "heats": true,
+        "maxHeatC": 40,
+        "dose": [
+          "1"
+        ]
+      },
+      {
+        "pos": "2",
+        "phase": "wash",
+        "min": 16,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "3",
+        "phase": "wash",
+        "min": 19,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "4",
+        "phase": "wash",
+        "min": 15,
+        "heats": true,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "5",
+        "phase": "rinse",
+        "min": 11
+      },
+      {
+        "pos": "6",
+        "phase": "softener",
+        "min": 7,
+        "dose": [
+          "4"
+        ]
+      },
+      {
+        "pos": "7",
+        "phase": "spin",
+        "min": 7,
+        "minNoSpin": 3,
+        "end": "stop"
+      },
+      {
+        "pos": "8",
+        "phase": "wash",
+        "min": 10,
+        "heats": true,
+        "maxHeatC": 60,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "9",
+        "phase": "wash",
+        "min": 20,
+        "heats": true,
+        "maxHeatC": 60,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "10",
+        "phase": "rinse",
+        "min": 10
+      },
+      {
+        "pos": "11",
+        "phase": "softener",
+        "min": 10,
+        "dose": [
+          "4"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "12",
+        "phase": "spin",
+        "min": 6,
+        "minNoSpin": 3
+      },
+      {
+        "pos": "13",
+        "phase": "drain",
+        "min": 3,
+        "end": "stop"
+      },
+      {
+        "pos": "14",
+        "phase": "wash",
+        "min": 17,
+        "heats": true,
+        "maxHeatC": 40,
+        "dose": [
+          "2"
+        ]
+      },
+      {
+        "pos": "15",
+        "phase": "rinse",
+        "min": 10
+      },
+      {
+        "pos": "16",
+        "phase": "softener",
+        "min": 8,
+        "dose": [
+          "4"
+        ],
+        "end": "water-stop"
+      },
+      {
+        "pos": "17",
+        "phase": "spin",
+        "min": 5,
+        "minNoSpin": 2
+      },
+      {
+        "pos": "18",
+        "phase": "drain",
+        "min": 2,
+        "end": "stop"
+      }
+    ]
+  },
+  "programs": [
+    {
+      "pos": "1",
+      "name": "Хлопок, очень грязное, с предварительной стиркой",
+      "fabric": "cotton",
+      "tempMaxC": 90,
+      "tempDefaultC": 90,
+      "spinMaxRpm": 800,
+      "dose": [
+        "1",
+        "2",
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "2",
+      "name": "Хлопок, интенсивная стирка",
+      "fabric": "cotton",
+      "tempMaxC": 90,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 800,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "3",
+      "name": "Хлопок, обычное загрязнение",
+      "fabric": "cotton",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 800,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "4",
+      "name": "Хлопок, слегка грязное, короткая стирка",
+      "fabric": "cotton",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 800,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "5",
+      "name": "Полоскания и отжим",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "spinMaxRpm": 800,
+      "dose": [
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "6",
+      "name": "Смягчение (кондиционер) и отжим",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "spinMaxRpm": 800,
+      "dose": [
+        "4"
+      ],
+      "options": [
+        "half",
+        "waterstop"
+      ],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "7",
+      "name": "Отжим",
+      "fabric": "cotton",
+      "tempMaxC": 0,
+      "spinMaxRpm": 800,
+      "dose": [],
+      "options": [],
+      "loadKg": 3.5,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "8",
+      "name": "Синтетика и смесовые ткани, 60 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 60,
+      "tempDefaultC": 60,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [
+        "half"
+      ],
+      "loadKg": 2.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "9",
+      "name": "Синтетика, деликатная стирка, 40 °C",
+      "fabric": "synthetic",
+      "tempMaxC": 40,
+      "tempDefaultC": 40,
+      "spinMaxRpm": 600,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [
+        "half"
+      ],
+      "loadKg": 2.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "10",
+      "name": "Полоскание синтетики",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "4"
+      ],
+      "options": [
+        "half"
+      ],
+      "loadKg": 2.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "11",
+      "name": "Смягчение синтетики",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "spinMaxRpm": 600,
+      "dose": [
+        "4"
+      ],
+      "options": [],
+      "loadKg": 2.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "12",
+      "name": "Деликатный отжим синтетики",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "spinMaxRpm": 600,
+      "dose": [],
+      "options": [],
+      "loadKg": 2.0,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "13",
+      "name": "Слив воды",
+      "fabric": "synthetic",
+      "tempMaxC": 0,
+      "spinMaxRpm": 0,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "14",
+      "name": "Шерсть, ручная стирка, тюль",
+      "fabric": "wool",
+      "tempMaxC": 40,
+      "tempDefaultC": 30,
+      "spinMaxRpm": 400,
+      "dose": [
+        "2",
+        "4"
+      ],
+      "options": [],
+      "loadKg": 1.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "15",
+      "name": "Полоскание шерсти",
+      "fabric": "wool",
+      "tempMaxC": 0,
+      "spinMaxRpm": 400,
+      "dose": [
+        "4"
+      ],
+      "options": [],
+      "loadKg": 1.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "16",
+      "name": "Смягчение шерсти",
+      "fabric": "wool",
+      "tempMaxC": 0,
+      "spinMaxRpm": 400,
+      "dose": [
+        "4"
+      ],
+      "options": [],
+      "loadKg": 1.0,
+      "ends": "water-stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "17",
+      "name": "Деликатный отжим шерсти",
+      "fabric": "wool",
+      "tempMaxC": 0,
+      "spinMaxRpm": 400,
+      "dose": [],
+      "options": [],
+      "loadKg": 1.0,
+      "ends": "stop",
+      "sourcePage": 6
+    },
+    {
+      "pos": "18",
+      "name": "Слив воды без вращения",
+      "fabric": "wool",
+      "tempMaxC": 0,
+      "spinMaxRpm": 0,
+      "dose": [],
+      "options": [],
+      "ends": "stop",
+      "sourcePage": 6
+    }
+  ],
+  "rules": [],
+  "presets": [
+    {
+      "id": "everyday-40",
+      "title": "Повседневная одежда",
+      "group": "wash",
+      "set": {
+        "prog": "4",
+        "temp": "40",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Порошок или гель",
+        "4": "Кондиционер по желанию"
+      },
+      "note": "Короткий путь: стирка на шаге 4, полоскания 5–6, отжим 7. Подходит для вещей на один раз."
+    },
+    {
+      "id": "dirty-40",
+      "title": "Сильно грязное, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "2",
+        "temp": "40",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Порошок",
+        "4": "Кондиционер по желанию"
+      },
+      "note": "Длинный путь 2 → 3 → 4: стирка почти час. Для заношенной одежды."
+    },
+    {
+      "id": "small-30",
+      "title": "Мало вещей, 30 °C",
+      "group": "wash",
+      "set": {
+        "prog": "4",
+        "temp": "30",
+        "spin": "600",
+        "half": true,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Половина обычной дозы"
+      },
+      "note": "Кнопка 1/2 уменьшает воду. До 1,5 кг."
+    },
+    {
+      "id": "bedding-60",
+      "title": "Постельное и полотенца",
+      "group": "wash",
+      "set": {
+        "prog": "3",
+        "temp": "60",
+        "spin": "800",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Порошок",
+        "4": "Кондиционер"
+      },
+      "note": "Хлопок 60 °C — гигиеничная стирка без кипячения."
+    },
+    {
+      "id": "synthetics-40",
+      "title": "Синтетика, куртки, рубашки",
+      "group": "wash",
+      "set": {
+        "prog": "9",
+        "temp": "40",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Гель",
+        "4": "Кондиционер по желанию"
+      },
+      "note": "Бережное вращение в большом объёме воды. В конце машина остановится с водой на 11."
+    },
+    {
+      "id": "wool-30",
+      "title": "Шерсть и деликатное",
+      "group": "wash",
+      "set": {
+        "prog": "14",
+        "temp": "30",
+        "spin": "400",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "2": "Средство для шерсти",
+        "4": "Кондиционер"
+      },
+      "note": "Мягкие покачивания. В конце остановка с водой на 16."
+    },
+    {
+      "id": "rinse-spin",
+      "title": "Прополоскать и отжать",
+      "group": "rinse",
+      "set": {
+        "prog": "5",
+        "temp": "0",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "4": "Кондиционер по желанию"
+      },
+      "note": "Несколько полосканий холодной водой и отжим."
+    },
+    {
+      "id": "softener-only",
+      "title": "Одно полоскание с кондиционером",
+      "group": "rinse",
+      "set": {
+        "prog": "6",
+        "temp": "0",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {
+        "4": "Кондиционер"
+      },
+      "note": "Быстро освежить чистые вещи."
+    },
+    {
+      "id": "spin-only",
+      "title": "Только отжим",
+      "group": "spin",
+      "set": {
+        "prog": "7",
+        "temp": "0",
+        "spin": "600",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {},
+      "note": "Слить воду и отжать. Кладите несколько вещей, чтобы барабан сбалансировался."
+    },
+    {
+      "id": "drain-only",
+      "title": "Только слить воду",
+      "group": "spin",
+      "set": {
+        "prog": "13",
+        "temp": "0",
+        "spin": "0",
+        "half": false,
+        "waterstop": false
+      },
+      "dose": {},
+      "note": "Если машина остановилась с водой и нужно достать вещи без отжима."
+    }
+  ],
+  "troubleshooting": [
+    {
+      "title": "Машина остановилась с водой в барабане",
+      "causes": [
+        "Стирка шла на программах 8–11 или 14–16: так задумано. Выключите I/O, поверните P на 12 или 13 (синтетика), 17 или 18 (шерсть) и включите.",
+        "Нажата кнопка остановки с водой — отожмите её.",
+        "Засорился фильтр насоса — почистите его."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Набирает воду и сразу сливает",
+      "causes": [
+        "Сливной шланг висит слишком низко: верхняя точка шланга должна быть на высоте 60–70 см от пола.",
+        "Конец шланга опущен в воду — нужен воздушный зазор."
+      ],
+      "sourcePage": 11
+    },
+    {
+      "title": "Сильно вибрирует на отжиме",
+      "causes": [
+        "В барабане одна тяжёлая вещь — добавьте ещё несколько.",
+        "Машина стоит неровно или ослабли контргайки ножек."
+      ],
+      "sourcePage": 10
+    },
+    {
+      "title": "Дверца не открывается после стирки",
+      "causes": [
+        "Замок остывает: выключите I/O и подождите 2–3 минуты до щелчка."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Не включается или не набирает воду",
+      "causes": [
+        "Дверца не закрыта до щелчка.",
+        "Ручка P стоит на точке стопа.",
+        "Закрыт кран или засорена сетка на входе заливного шланга."
+      ],
+      "sourcePage": 9
+    },
+    {
+      "title": "Много пены или порошок остаётся в лотке",
+      "causes": [
+        "Порошок не для автоматических машин.",
+        "Засорилась вставка лотка — снимите её и промойте."
+      ],
+      "sourcePage": 9
+    }
+  ],
+  "care": [
+    {
+      "title": "Фильтр сливного насоса",
+      "text": "Отключите машину от сети, снимите нижнюю панель, подставьте ёмкость, открутите пробку фильтра против часовой стрелки, промойте и закрутите до упора.",
+      "interval": "раз в 3–4 месяца",
+      "sourcePage": 8
+    },
+    {
+      "title": "Лоток для моющих средств",
+      "text": "Вытяните лоток на себя, снимите правую вставку, промойте тёплой водой.",
+      "interval": "раз в 1–2 месяца",
+      "sourcePage": 8
+    },
+    {
+      "title": "Сетка заливного шланга",
+      "text": "Если вода набирается медленно, открутите гайку шланга и промойте сетку под прокладкой.",
+      "interval": "по необходимости",
+      "sourcePage": 10
+    },
+    {
+      "title": "После каждой стирки",
+      "text": "Оставьте люк приоткрытым, протрите манжету, закройте кран подачи воды.",
+      "interval": "каждый раз",
+      "sourcePage": 8
+    }
+  ],
+  "sources": [
+    {
+      "title": "Инструкция по эксплуатации Indesit WGS 834 TXR (RU), бумажный экземпляр владельца",
+      "kind": "manufacturer",
+      "pages": "1-11"
+    },
+    {
+      "title": "Фото панели и лотка конкретной машины",
+      "kind": "photo"
+    }
+  ],
+  "notes": {
+    "assumptions": [
+      "Углы меток на ручках сняты с фото панели, приблизительно.",
+      "Длительность шагов командоаппарата — оценка по типовой циклограмме Merloni, в инструкции её нет.",
+      "Объём воды основной стирки (12 л) — оценка для бака 3,5 кг.",
+      "Обороты положения MIN (300) и ограничения отжима для синтетики (600) и шерсти (400) не сверены с инструкцией."
+    ],
+    "gaps": [
+      "Инструкция не приводит длительность программ.",
+      "Ссылки на электронную версию инструкции нет."
+    ]
+  }
+}
