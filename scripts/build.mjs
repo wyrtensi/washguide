@@ -160,8 +160,11 @@ ${body}
 <footer class="foot"><div class="wrap">
   <p>${tr.siteName} — ${tr.footer}</p>
   <p class="foot-links"><a href="${langBase}">${tr.allMachines}</a> · <a href="${base}llms.txt">${tr.forAgents}</a> · <a href="${base}machines.json">${tr.dataJson}</a> · <a href="${altHref}" hreflang="${other(lang)}" data-lang-switch>${T[other(lang)].langLabel === 'English' ? 'Русский' : 'English'}</a></p>
+  <p class="foot-privacy">${tr.privacy}</p>
 </div></footer>
 <script type="module" src="${base}assets/app.js"></script>
+${noindex ? '' : `<script src="/assets/stats.js" defer></script>
+<script data-goatcounter="/stats/count" src="/stats/count.js" defer></script>`}
 </body>
 </html>
 `;
@@ -486,7 +489,7 @@ function llmsFull(list) {
 // ---------- write ----------
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(join(dist, 'assets'), { recursive: true });
-for (const f of ['engine.js', 'render.js', 'i18n.js', 'app.js', 'style.css']) copyFileSync(join(root, 'src', f), join(dist, 'assets', f));
+for (const f of ['engine.js', 'render.js', 'i18n.js', 'app.js', 'stats.js', 'style.css']) copyFileSync(join(root, 'src', f), join(dist, 'assets', f));
 // static/ is copied to the site root as is (IndexNow key file and the like)
 if (existsSync(join(root, 'static'))) for (const f of readdirSync(join(root, 'static'))) copyFileSync(join(root, 'static', f), join(dist, f));
 
