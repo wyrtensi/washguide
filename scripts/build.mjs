@@ -200,6 +200,7 @@ ${agentNote([
 // ---------- machine page ----------
 function machinePage(m) {
   const base = '../../';
+  const notes = m.notes || {};
   const st = E.defaultState(m);
   const preset = m.presets?.[0];
   const used = E.dosing(m, st);
@@ -229,7 +230,6 @@ function machinePage(m) {
   const trouble = (m.troubleshooting || []).map(t => `<details class="faq"><summary>${esc(t.title)}</summary><ul>${t.causes.map(c => `<li>${esc(c)}</li>`).join('')}</ul>${t.sourcePage ? `<p class="src">Инструкция, стр. ${t.sourcePage}</p>` : ''}</details>`).join('');
   const care = (m.care || []).map((c, i) => `<div class="care-item" data-care="${i}"><div><b>${esc(c.title)}</b>${c.interval ? ` <span class="pill">${esc(c.interval)}</span>` : ''}<p>${esc(c.text)}</p><p class="care-last" data-care-last></p></div><button type="button" class="btn-s" data-care-done="${i}">Сделано сегодня</button></div>`).join('');
   const sources = (m.sources || []).map(s => `<li>${s.url ? `<a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.title)}</a>` : esc(s.title)}${s.pages ? `, стр. ${esc(s.pages)}` : ''} <span class="muted">(${esc({ manufacturer: 'производитель', 'manual-archive': 'архив инструкций', photo: 'фото', forum: 'форум' }[s.kind] || s.kind || '')})</span></li>`).join('');
-  const notes = m.notes || {};
   const controlsHelp = m.panel.controls.filter(c => c.help).map(c => `<li><b>${esc(controlName(c))}</b> — ${esc(c.help)}</li>`).join('');
 
   const jsonld = {
@@ -257,6 +257,7 @@ function machinePage(m) {
     <p class="msum">${esc(m.summary || '')}</p>
     <ul class="tags">${E.features(m).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
   </div>
+  ${m.completeness === 'partial' ? `<aside class="partial">${R.icon('info')}<div><b>Данные неполные.</b> В найденной инструкции нет части сведений: ${esc((notes.gaps || []).slice(0, 2).join(' '))} Подробности — во вкладке «Источники».</div></aside>` : ''}
   ${m.pitfalls?.length ? `<aside class="pitfalls"><h2>${R.icon('alert')} На что обратить внимание</h2><ul>${m.pitfalls.map(p => `<li>${esc(p)}</li>`).join('')}</ul></aside>` : ''}
 </section>
 

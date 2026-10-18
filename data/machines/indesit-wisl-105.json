@@ -726,7 +726,8 @@
         "end": "drain"
       }
     ],
-    "estimate": true
+    "estimate": true,
+    "dialMoves": false
   },
   "programs": [
     {

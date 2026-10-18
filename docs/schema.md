@@ -160,3 +160,20 @@ and say so in `notes.gaps`.
   }
 }
 ```
+
+## Optional fields found in practice
+
+| Field | Where | Meaning |
+|---|---|---|
+| `completeness: "partial"` | machine | The manual found lacks key tables; the page shows a "данные неполные" banner built from `notes.gaps`. |
+| `cycle.dialMoves: false` | cycle | Electronic control: the program knob does not turn during the cycle; the page labels the step strip as program stages instead of the knob path. |
+| `positions[].timerOnly: true` | knob position | A mark the timer passes through by itself (rinse, softener, end); shown on the panel, hidden from the input chips unless current. |
+| `positions[].symbol` | knob position | Draw an icon instead of text (keys from "Symbols" above). |
+| `positions[].short` | knob position | Shorter text for the dial when `label` is long. |
+| `control.anglesEstimate: true` | knob | The manual has no knob drawing; angles are placeholders. |
+| `control.name` | any control | Human name for text when the printed label is a symbol or abbreviation. |
+| `lamp.lit: "door" \| "phase" \| "heat"` | lamp | What lights the lamp besides `power`. Informational. |
+| `panel.programChangeWhenOff: true` | panel | Program knob may only be turned with the machine switched off; the page reminds about it. |
+| `sourcePage` as string | anywhere | When the manual has no page numbers, a section or table reference, e.g. `"разд. 5, табл. 2"`. |
+| repeated `pos` in `cycle.steps` | cycle | Several sub-steps on one position, or a separate step block per start position for electronic machines (each block ends with `end`). The walk starts at the first step with that `pos`. |
+| preset `set` keyed by knob id | presets | `set` may use a knob's `id` instead of `prog`/`temp`/`spin`. |

@@ -2,7 +2,15 @@
   "id": "siemens-siwamat-plus-3600",
   "brand": "Siemens",
   "model": "Siwamat Plus 3600",
-  "aliases": ["сименс сиваммат плюс 3600", "siwamat plus 3600", "сиваммат 3600", "siemens 3600", "siwamat plus 36", "wm 3600", "сименс 3600"],
+  "aliases": [
+    "сименс сиваммат плюс 3600",
+    "siwamat plus 3600",
+    "сиваммат 3600",
+    "siemens 3600",
+    "siwamat plus 36",
+    "wm 3600",
+    "сименс 3600"
+  ],
   "years": "примерно 1990-е (приблизительно, год в инструкции не указан)",
   "loading": "front",
   "summary": "Немецкая машина с буквенным селекторным переключателем программ (A, B, C, D, F, G, H, J, P) и отдельным переключателем температуры, который одновременно служит выключателем (положение O). Название программы на панели не написано, расшифровка есть только в таблице программ, которой в доступной копии инструкции нет.",
@@ -18,264 +26,881 @@
     "Предварительная стирка нужна только для сильно загрязнённого белья: нормально загрязнённое стирают по программе без неё. При предстирке порошок делят: примерно 1/4 в отсек I и 3/4 в отсек II.",
     "Для замачивания, крахмаления и крашения в инструкции есть собственные последовательности (F, G, B, C), см. раздел «Замачивание», «Крахмаление»."
   ],
-
   "panel": {
     "face": "#ece9e2",
     "ink": "#2f2f33",
     "rows": [
-      ["spin", "eco", "short", "highwater", "gentle", "lamp-work", "lamp-door", "temp", "prog"]
+      [
+        "spin",
+        "eco",
+        "short",
+        "highwater",
+        "gentle",
+        "lamp-work",
+        "lamp-door",
+        "temp",
+        "prog"
+      ]
     ],
     "controls": [
       {
-        "id": "spin", "type": "button", "role": "option", "label": "обороты", "symbol": "spin", "latching": true,
+        "id": "spin",
+        "type": "button",
+        "role": "option",
+        "label": "обороты",
+        "symbol": "spin",
+        "latching": true,
         "help": "Клавиша режима центрифугирования (8). Для белого и цветного белья задаёт число оборотов: отпущена высокий отжим, нажата низкий. Для синтетики и шерсти нажатая клавиша включает отжим в конце программы. Числа оборотов зависят от исполнения машины: например 900/700, 1000/800, 1100/800, 1200/800, 1300/800."
       },
       {
-        "id": "eco", "type": "button", "role": "option", "label": "e", "symbol": "eco", "latching": true,
+        "id": "eco",
+        "type": "button",
+        "role": "option",
+        "label": "e",
+        "symbol": "eco",
+        "latching": true,
         "help": "Клавиша экономичного режима (9): стирка при более низкой температуре (белое 60 вместо 95 °C, цветное 40 вместо 60 °C) с более длинной основной стиркой. Экономит до 40 процентов электроэнергии."
       },
       {
-        "id": "short", "type": "button", "role": "option", "label": "короткая программа", "latching": true,
+        "id": "short",
+        "type": "button",
+        "role": "option",
+        "label": "короткая программа",
+        "latching": true,
         "help": "Клавиша короткой программы (10): сокращает время выполнения каждого этапа, общая продолжительность примерно на 55 процентов короче. Предварительная стирка при этом автоматически пропускается. Для небольшого количества слегка загрязнённого белья."
       },
       {
-        "id": "highwater", "type": "button", "role": "option", "label": "уровень воды", "symbol": "extra-rinse", "latching": true,
+        "id": "highwater",
+        "type": "button",
+        "role": "option",
+        "label": "уровень воды",
+        "symbol": "extra-rinse",
+        "latching": true,
         "help": "Клавиша более высокого уровня воды (11): больше воды при стирке и полоскании. Для чувствительных изделий (гардины, верхняя одежда), замачивания, крахмаления и районов с очень мягкой водой."
       },
       {
-        "id": "gentle", "type": "button", "role": "option", "label": "щадящий режим", "symbol": "delicate", "latching": true,
+        "id": "gentle",
+        "type": "button",
+        "role": "option",
+        "label": "щадящий режим",
+        "symbol": "delicate",
+        "latching": true,
         "help": "Клавиша щадящего режима обработки белья (12; есть не у всех исполнений): меньше механическое воздействие, барабан дольше стоит и меньше вращается."
       },
-      { "id": "lamp-work", "type": "lamp", "color": "green", "lit": "power", "label": "рабочий режим", "help": "Лампочка «рабочий режим» (14): горит, пока машина включена." },
-      { "id": "lamp-door", "type": "lamp", "color": "orange", "lit": "door", "label": "открыть лючок", "help": "Лампочка «открыть лючок» (15): горит, когда отперт замок лючка для закладки белья." },
       {
-        "id": "temp", "type": "knob", "role": "temperature", "label": "°C", "rotation": "free", "pointer": "bar",
+        "id": "lamp-work",
+        "type": "lamp",
+        "color": "green",
+        "lit": "power",
+        "label": "рабочий режим",
+        "help": "Лампочка «рабочий режим» (14): горит, пока машина включена."
+      },
+      {
+        "id": "lamp-door",
+        "type": "lamp",
+        "color": "orange",
+        "lit": "door",
+        "label": "открыть лючок",
+        "help": "Лампочка «открыть лючок» (15): горит, когда отперт замок лючка для закладки белья."
+      },
+      {
+        "id": "temp",
+        "type": "knob",
+        "role": "temperature",
+        "label": "°C",
+        "rotation": "free",
+        "pointer": "bar",
         "anglesEstimate": true,
         "positions": [
-          { "value": "O",  "label": "O",  "angle": 0,   "tempC": 0, "stop": true },
-          { "value": "I",  "label": "I",  "angle": 60,  "tempC": 0 },
-          { "value": "40", "label": "40", "angle": 120, "tempC": 40 },
-          { "value": "60", "label": "60", "angle": 180, "tempC": 60 },
-          { "value": "95", "label": "95", "angle": 240, "tempC": 95 }
+          {
+            "value": "O",
+            "label": "O",
+            "angle": 0,
+            "tempC": 0,
+            "stop": true
+          },
+          {
+            "value": "I",
+            "label": "I",
+            "angle": 60,
+            "tempC": 0
+          },
+          {
+            "value": "40",
+            "label": "40",
+            "angle": 120,
+            "tempC": 40
+          },
+          {
+            "value": "60",
+            "label": "60",
+            "angle": 180,
+            "tempC": 60
+          },
+          {
+            "value": "95",
+            "label": "95",
+            "angle": 240,
+            "tempC": 95
+          }
         ],
         "help": "Переключатель температуры (13) с выключателем и лимбом-индикатором. O означает «выключено», I это холодная вода. Инструкция называет метки 40, 60 и 95 °C, промежуточных меток в тексте нет."
       },
       {
-        "id": "prog", "type": "knob", "role": "program", "label": "A-P", "rotation": "cw-only", "pointer": "bar",
+        "id": "prog",
+        "type": "knob",
+        "role": "program",
+        "label": "A-P",
+        "rotation": "cw-only",
+        "pointer": "bar",
         "positions": [
-          { "value": "end-ws", "label": "конец", "angle": 352, "stop": true, "timerOnly": true },
-          { "value": "P",  "label": "P", "angle": 355, "zone": "drain" },
-          { "value": "J",  "label": "J", "angle": 6,   "zone": "wool" },
-          { "value": "soft-ws", "label": "умягчитель", "angle": 15, "zone": "wool", "timerOnly": true },
-          { "value": "rinse-ws", "label": "полоскание", "angle": 21, "zone": "wool", "timerOnly": true },
-          { "value": "H",  "label": "H", "angle": 55,  "zone": "wool" },
-          { "value": "end-n", "label": "конец", "angle": 66, "stop": true, "timerOnly": true },
-          { "value": "G",  "label": "G", "angle": 90,  "zone": "synthetic" },
-          { "value": "soft-n", "label": "умягчитель", "angle": 103, "zone": "synthetic", "timerOnly": true },
-          { "value": "rinse-n", "label": "полоскание", "angle": 112, "zone": "synthetic", "timerOnly": true },
-          { "value": "F",  "label": "F", "angle": 159, "zone": "synthetic" },
-          { "value": "D",  "label": "D", "angle": 181, "zone": "synthetic" },
-          { "value": "end-w", "label": "конец", "angle": 187, "stop": true, "timerOnly": true },
-          { "value": "C",  "label": "C", "angle": 222, "zone": "cotton" },
-          { "value": "soft-w", "label": "умягчитель", "angle": 230, "zone": "cotton", "timerOnly": true },
-          { "value": "rinse-w", "label": "полоскание", "angle": 258, "zone": "cotton", "timerOnly": true },
-          { "value": "B",  "label": "B", "angle": 323, "zone": "cotton" },
-          { "value": "A",  "label": "A", "angle": 348, "zone": "cotton" }
+          {
+            "value": "end-ws",
+            "label": "конец",
+            "angle": 352,
+            "stop": true,
+            "timerOnly": true
+          },
+          {
+            "value": "P",
+            "label": "P",
+            "angle": 355,
+            "zone": "drain"
+          },
+          {
+            "value": "J",
+            "label": "J",
+            "angle": 6,
+            "zone": "wool"
+          },
+          {
+            "value": "soft-ws",
+            "label": "умягчитель",
+            "angle": 15,
+            "zone": "wool",
+            "timerOnly": true
+          },
+          {
+            "value": "rinse-ws",
+            "label": "полоскание",
+            "angle": 21,
+            "zone": "wool",
+            "timerOnly": true
+          },
+          {
+            "value": "H",
+            "label": "H",
+            "angle": 55,
+            "zone": "wool"
+          },
+          {
+            "value": "end-n",
+            "label": "конец",
+            "angle": 66,
+            "stop": true,
+            "timerOnly": true
+          },
+          {
+            "value": "G",
+            "label": "G",
+            "angle": 90,
+            "zone": "synthetic"
+          },
+          {
+            "value": "soft-n",
+            "label": "умягчитель",
+            "angle": 103,
+            "zone": "synthetic",
+            "timerOnly": true
+          },
+          {
+            "value": "rinse-n",
+            "label": "полоскание",
+            "angle": 112,
+            "zone": "synthetic",
+            "timerOnly": true
+          },
+          {
+            "value": "F",
+            "label": "F",
+            "angle": 159,
+            "zone": "synthetic"
+          },
+          {
+            "value": "D",
+            "label": "D",
+            "angle": 181,
+            "zone": "synthetic"
+          },
+          {
+            "value": "end-w",
+            "label": "конец",
+            "angle": 187,
+            "stop": true,
+            "timerOnly": true
+          },
+          {
+            "value": "C",
+            "label": "C",
+            "angle": 222,
+            "zone": "cotton"
+          },
+          {
+            "value": "soft-w",
+            "label": "умягчитель",
+            "angle": 230,
+            "zone": "cotton",
+            "timerOnly": true
+          },
+          {
+            "value": "rinse-w",
+            "label": "полоскание",
+            "angle": 258,
+            "zone": "cotton",
+            "timerOnly": true
+          },
+          {
+            "value": "B",
+            "label": "B",
+            "angle": 323,
+            "zone": "cotton"
+          },
+          {
+            "value": "A",
+            "label": "A",
+            "angle": 348,
+            "zone": "cotton"
+          }
         ],
         "zones": [
-          { "id": "cotton",    "label": "Белое и цветное бельё: A, B, C", "color": "#0d9488" },
-          { "id": "synthetic", "label": "Бельё без особого ухода, верхняя одежда, гардины: D, F, G", "color": "#2563eb" },
-          { "id": "wool",      "label": "Шерсть: H, J", "color": "#b45309" },
-          { "id": "drain",     "label": "Откачка воды: P", "color": "#6b7280" }
+          {
+            "id": "cotton",
+            "label": "Белое и цветное бельё: A, B, C",
+            "color": "#0d9488"
+          },
+          {
+            "id": "synthetic",
+            "label": "Бельё без особого ухода, верхняя одежда, гардины: D, F, G",
+            "color": "#2563eb"
+          },
+          {
+            "id": "wool",
+            "label": "Шерсть: H, J",
+            "color": "#b45309"
+          },
+          {
+            "id": "drain",
+            "label": "Откачка воды: P",
+            "color": "#6b7280"
+          }
         ],
         "help": "Селекторный переключатель программ (16) с лимбом-указателем хода программы. Поворачивают по часовой стрелке до нужной буквы. Значки на кольце: U с одной чертой предварительная стирка, U с двумя чертами основная стирка, ванна с волной полоскание, спираль центрифугирование, цветок начало полоскания с умягчителем. Положения меток сняты со схемы на стр. 16, углы приблизительные; ход программы на схеме идёт против часовой стрелки по кольцу."
       }
     ]
   },
-
   "tray": {
     "location": "top-left",
     "layout": "columns",
     "compartments": [
-      { "id": "II", "mark": "II", "use": "main", "label": "Основная стирка (сюда же вставка для жидкого средства)", "width": 2 },
-      { "id": "flower", "mark": "flower", "use": "softener", "label": "Смягчители при полоскании (метка «макс», выше не заливать)", "width": 1 },
-      { "id": "I", "mark": "I", "use": "prewash", "label": "Предварительная стирка", "width": 1 }
+      {
+        "id": "II",
+        "mark": "II",
+        "use": "main",
+        "label": "Основная стирка (сюда же вставка для жидкого средства)",
+        "width": 2
+      },
+      {
+        "id": "flower",
+        "mark": "flower",
+        "use": "softener",
+        "label": "Смягчители при полоскании (метка «макс», выше не заливать)",
+        "width": 1
+      },
+      {
+        "id": "I",
+        "mark": "I",
+        "use": "prewash",
+        "label": "Предварительная стирка",
+        "width": 1
+      }
     ],
     "help": "Выдвижной ящик с боксами. Слева направо по рисунку: II основная стирка, цветок для умягчителя, I предварительная стирка. В ящике есть голубая вставка для жидких средств (ставится в бокс II и убирается в резервное гнездо при порошке) и диск-памятка жёсткости воды: монетой поверните диск так, чтобы стрелка совпала с жёсткостью воды в вашем районе. Сам ящик вынимают на себя до упора, приподнимают и вытаскивают."
   },
-
   "cycle": {
     "timerPausesForHeating": true,
     "washLitres": 12,
     "inletTempC": 15,
     "steps": [
-      { "pos": "A", "phase": "prewash", "min": 10, "dose": ["I"] },
-      { "pos": "A", "phase": "wash",    "min": 30, "heats": true, "dose": ["II"] },
-      { "pos": "A", "phase": "rinse",   "min": 15 },
-      { "pos": "A", "phase": "softener","min": 5,  "dose": ["flower"] },
-      { "pos": "A", "phase": "spin",    "min": 8,  "end": "stop" },
-
-      { "pos": "B", "phase": "wash",    "min": 30, "heats": true, "dose": ["II"] },
-      { "pos": "B", "phase": "rinse",   "min": 15 },
-      { "pos": "B", "phase": "softener","min": 5,  "dose": ["flower"] },
-      { "pos": "B", "phase": "spin",    "min": 8,  "end": "stop" },
-
-      { "pos": "C", "phase": "spin",    "min": 8,  "end": "stop" },
-
-      { "pos": "D", "phase": "prewash", "min": 8,  "dose": ["I"] },
-      { "pos": "D", "phase": "wash",    "min": 25, "heats": true, "dose": ["II"] },
-      { "pos": "D", "phase": "rinse",   "min": 12 },
-      { "pos": "D", "phase": "softener","min": 5,  "dose": ["flower"] },
-      { "pos": "D", "phase": "spin",    "min": 5,  "end": "water-stop" },
-
-      { "pos": "F", "phase": "wash",    "min": 25, "heats": true, "dose": ["II"] },
-      { "pos": "F", "phase": "rinse",   "min": 12 },
-      { "pos": "F", "phase": "softener","min": 5,  "dose": ["flower"] },
-      { "pos": "F", "phase": "spin",    "min": 5,  "end": "water-stop" },
-
-      { "pos": "G", "phase": "spin",    "min": 5,  "end": "stop" },
-
-      { "pos": "H", "phase": "wash",    "min": 12, "heats": true, "dose": ["II"] },
-      { "pos": "H", "phase": "rinse",   "min": 8 },
-      { "pos": "H", "phase": "softener","min": 4,  "dose": ["flower"] },
-      { "pos": "H", "phase": "spin",    "min": 3,  "end": "water-stop" },
-
-      { "pos": "J", "phase": "spin",    "min": 3,  "end": "stop" },
-
-      { "pos": "P", "phase": "drain",   "min": 2,  "end": "drain" }
+      {
+        "pos": "A",
+        "phase": "prewash",
+        "min": 10,
+        "dose": [
+          "I"
+        ]
+      },
+      {
+        "pos": "A",
+        "phase": "wash",
+        "min": 30,
+        "heats": true,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "A",
+        "phase": "rinse",
+        "min": 15
+      },
+      {
+        "pos": "A",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "A",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "B",
+        "phase": "wash",
+        "min": 30,
+        "heats": true,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "B",
+        "phase": "rinse",
+        "min": 15
+      },
+      {
+        "pos": "B",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "B",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "C",
+        "phase": "spin",
+        "min": 8,
+        "end": "stop"
+      },
+      {
+        "pos": "D",
+        "phase": "prewash",
+        "min": 8,
+        "dose": [
+          "I"
+        ]
+      },
+      {
+        "pos": "D",
+        "phase": "wash",
+        "min": 25,
+        "heats": true,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "D",
+        "phase": "rinse",
+        "min": 12
+      },
+      {
+        "pos": "D",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "D",
+        "phase": "spin",
+        "min": 5,
+        "end": "water-stop"
+      },
+      {
+        "pos": "F",
+        "phase": "wash",
+        "min": 25,
+        "heats": true,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "F",
+        "phase": "rinse",
+        "min": 12
+      },
+      {
+        "pos": "F",
+        "phase": "softener",
+        "min": 5,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "F",
+        "phase": "spin",
+        "min": 5,
+        "end": "water-stop"
+      },
+      {
+        "pos": "G",
+        "phase": "spin",
+        "min": 5,
+        "end": "stop"
+      },
+      {
+        "pos": "H",
+        "phase": "wash",
+        "min": 12,
+        "heats": true,
+        "dose": [
+          "II"
+        ]
+      },
+      {
+        "pos": "H",
+        "phase": "rinse",
+        "min": 8
+      },
+      {
+        "pos": "H",
+        "phase": "softener",
+        "min": 4,
+        "dose": [
+          "flower"
+        ]
+      },
+      {
+        "pos": "H",
+        "phase": "spin",
+        "min": 3,
+        "end": "water-stop"
+      },
+      {
+        "pos": "J",
+        "phase": "spin",
+        "min": 3,
+        "end": "stop"
+      },
+      {
+        "pos": "P",
+        "phase": "drain",
+        "min": 2,
+        "end": "drain"
+      }
     ],
     "estimate": true
   },
-
   "programs": [
     {
-      "pos": "A", "name": "Белое и цветное бельё, с предварительной стиркой",
-      "fabric": "cotton", "dose": ["I", "II", "flower"], "options": ["spin", "eco", "short", "highwater", "gentle"], "ends": "stop",
+      "pos": "A",
+      "name": "Белое и цветное бельё, с предварительной стиркой",
+      "fabric": "cotton",
+      "dose": [
+        "I",
+        "II",
+        "flower"
+      ],
+      "options": [
+        "spin",
+        "eco",
+        "short",
+        "highwater",
+        "gentle"
+      ],
+      "ends": "stop",
       "note": "Для сильно загрязнённого белья. Предварительная стирка, основная стирка, полоскания, отжим. С клавишей короткой программы предстирка пропускается. Температуры по таблице программ в инструкции не приведены.",
       "sourcePage": 16
     },
     {
-      "pos": "B", "name": "Белое и цветное бельё, без предварительной стирки",
-      "fabric": "cotton", "dose": ["II", "flower"], "options": ["spin", "eco", "short", "highwater", "gentle"], "ends": "stop",
+      "pos": "B",
+      "name": "Белое и цветное бельё, без предварительной стирки",
+      "fabric": "cotton",
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "spin",
+        "eco",
+        "short",
+        "highwater",
+        "gentle"
+      ],
+      "ends": "stop",
       "note": "Основная программа для нормально загрязнённого белья. Также используется для крахмаления (вместе с C).",
       "sourcePage": 16
     },
     {
-      "pos": "C", "name": "Отжим белого и цветного белья",
-      "fabric": "cotton", "dose": [], "options": ["spin"], "ends": "stop",
+      "pos": "C",
+      "name": "Отжим белого и цветного белья",
+      "fabric": "cotton",
+      "dose": [],
+      "options": [
+        "spin"
+      ],
+      "ends": "stop",
       "note": "Только центрифугирование. Применяется, например, после крахмаления.",
       "sourcePage": 16
     },
     {
-      "pos": "D", "name": "Бельё без особого ухода, верхняя одежда, гардины, с предварительной стиркой",
-      "fabric": "synthetic", "dose": ["I", "II", "flower"], "options": ["spin", "highwater", "gentle"], "ends": "water-stop",
+      "pos": "D",
+      "name": "Бельё без особого ухода, верхняя одежда, гардины, с предварительной стиркой",
+      "fabric": "synthetic",
+      "dose": [
+        "I",
+        "II",
+        "flower"
+      ],
+      "options": [
+        "spin",
+        "highwater",
+        "gentle"
+      ],
+      "ends": "water-stop",
       "note": "Заканчивается без отжима с остановом полоскания (бельё остаётся в воде), если не нажата клавиша отжима. Температуры по таблице не приведены.",
       "sourcePage": 17
     },
     {
-      "pos": "F", "name": "Бельё без особого ухода, верхняя одежда, гардины, без предварительной стирки",
-      "fabric": "synthetic", "dose": ["II", "flower"], "options": ["spin", "highwater", "gentle"], "ends": "water-stop",
+      "pos": "F",
+      "name": "Бельё без особого ухода, верхняя одежда, гардины, без предварительной стирки",
+      "fabric": "synthetic",
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "spin",
+        "highwater",
+        "gentle"
+      ],
+      "ends": "water-stop",
       "note": "Заканчивается с остановом полоскания, если не нажата клавиша отжима. Для замачивания: F, температура не выше 40 °C, через 20 минут выключить.",
       "sourcePage": 16
     },
     {
-      "pos": "G", "name": "Отжим белья без особого ухода",
-      "fabric": "synthetic", "dose": [], "options": ["spin"], "ends": "stop",
+      "pos": "G",
+      "name": "Отжим белья без особого ухода",
+      "fabric": "synthetic",
+      "dose": [],
+      "options": [
+        "spin"
+      ],
+      "ends": "stop",
       "note": "Только центрифугирование. Используется для завершения замачивания.",
       "sourcePage": 18
     },
     {
-      "pos": "H", "name": "Шерсть",
-      "fabric": "wool", "dose": ["II", "flower"], "options": ["spin", "highwater"], "ends": "water-stop",
+      "pos": "H",
+      "name": "Шерсть",
+      "fabric": "wool",
+      "dose": [
+        "II",
+        "flower"
+      ],
+      "options": [
+        "spin",
+        "highwater"
+      ],
+      "ends": "water-stop",
       "note": "Стирка и полоскание проходят автоматически с наибольшим уровнем воды. После программы бельё либо остаётся в воде, либо при нажатой клавише отжима проходит щадящее или краткое центрифугирование.",
       "sourcePage": 15
     },
     {
-      "pos": "J", "name": "Отжим шерсти",
-      "fabric": "wool", "dose": [], "options": ["spin"], "ends": "stop",
+      "pos": "J",
+      "name": "Отжим шерсти",
+      "fabric": "wool",
+      "dose": [],
+      "options": [
+        "spin"
+      ],
+      "ends": "stop",
       "note": "Короткое центрифугирование шерсти.",
       "sourcePage": 16
     },
     {
-      "pos": "P", "name": "Откачка воды без отжима",
-      "fabric": "special", "dose": [], "options": [], "ends": "drain",
+      "pos": "P",
+      "name": "Откачка воды без отжима",
+      "fabric": "special",
+      "dose": [],
+      "options": [],
+      "ends": "drain",
       "note": "Слив воды без центрифугирования. Нужен, чтобы закончить программу синтетики или шерсти без отжима.",
       "sourcePage": 17
     }
   ],
-
   "rules": [
-    { "when": { "pos": ["A", "B", "C", "D", "F", "G", "H", "J", "P"] }, "check": { "forbidOptions": [] }, "level": "info",
-      "message": "Изменить программу можно в любое время, но сначала поверните переключатель температуры на O: машина отключится. Потом выберите новую букву и снова поставьте температуру.", "sourcePage": 17 },
-    { "when": { "pos": ["A"] }, "check": { "forbidOptions": ["short"] }, "level": "info",
-      "message": "С клавишей короткой программы предварительная стирка автоматически пропускается, так что A превращается в B.", "sourcePage": 15 },
-    { "when": { "pos": ["D", "F", "H"] }, "check": { "forbidOptions": [] }, "level": "warn",
-      "message": "Без нажатой клавиши отжима программа заканчивается с водой в барабане. Поверните селектор на P, чтобы слить воду, или нажмите клавишу отжима.", "sourcePage": 17 },
-    { "when": { "pos": ["B"] }, "check": { "forbidOptions": [] }, "level": "info",
-      "message": "Клавиша «e» (экономичный режим) подходит для белья от лёгкой до нормальной степени загрязнения: белое при 60 вместо 95 °C, цветное при 40 вместо 60 °C.", "sourcePage": 15 }
+    {
+      "when": {
+        "pos": [
+          "A",
+          "B",
+          "C",
+          "D",
+          "F",
+          "G",
+          "H",
+          "J",
+          "P"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "info",
+      "message": "Изменить программу можно в любое время, но сначала поверните переключатель температуры на O: машина отключится. Потом выберите новую букву и снова поставьте температуру.",
+      "sourcePage": 17
+    },
+    {
+      "when": {
+        "pos": [
+          "A"
+        ]
+      },
+      "check": {
+        "forbidOptions": [
+          "short"
+        ]
+      },
+      "level": "info",
+      "message": "С клавишей короткой программы предварительная стирка автоматически пропускается, так что A превращается в B.",
+      "sourcePage": 15
+    },
+    {
+      "when": {
+        "pos": [
+          "D",
+          "F",
+          "H"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "warn",
+      "message": "Без нажатой клавиши отжима программа заканчивается с водой в барабане. Поверните селектор на P, чтобы слить воду, или нажмите клавишу отжима.",
+      "sourcePage": 17
+    },
+    {
+      "when": {
+        "pos": [
+          "B"
+        ]
+      },
+      "check": {
+        "forbidOptions": []
+      },
+      "level": "info",
+      "message": "Клавиша «e» (экономичный режим) подходит для белья от лёгкой до нормальной степени загрязнения: белое при 60 вместо 95 °C, цветное при 40 вместо 60 °C.",
+      "sourcePage": 15
+    }
   ],
-
   "presets": [
     {
-      "id": "everyday-40", "title": "Повседневное цветное бельё, 40 °C", "group": "wash",
-      "set": { "prog": "B", "temp": "40", "spin": false, "eco": false, "short": false, "highwater": false, "gentle": false },
-      "dose": { "II": "Порошок", "flower": "Кондиционер (по желанию)" },
+      "id": "everyday-40",
+      "title": "Повседневное цветное бельё, 40 °C",
+      "group": "wash",
+      "set": {
+        "prog": "B",
+        "temp": "40",
+        "spin": false,
+        "eco": false,
+        "short": false,
+        "highwater": false,
+        "gentle": false
+      },
+      "dose": {
+        "II": "Порошок",
+        "flower": "Кондиционер (по желанию)"
+      },
       "note": "Программа B без предварительной стирки."
     },
     {
-      "id": "heavy-60", "title": "Сильно загрязнённое белое бельё, 60 °C", "group": "wash",
-      "set": { "prog": "A", "temp": "60", "spin": false, "eco": false, "short": false, "highwater": false, "gentle": false },
-      "dose": { "I": "Порошок (примерно 1/4 дозы)", "II": "Порошок (примерно 3/4 дозы)" },
+      "id": "heavy-60",
+      "title": "Сильно загрязнённое белое бельё, 60 °C",
+      "group": "wash",
+      "set": {
+        "prog": "A",
+        "temp": "60",
+        "spin": false,
+        "eco": false,
+        "short": false,
+        "highwater": false,
+        "gentle": false
+      },
+      "dose": {
+        "I": "Порошок (примерно 1/4 дозы)",
+        "II": "Порошок (примерно 3/4 дозы)"
+      },
       "note": "Программа A с предварительной стиркой."
     },
     {
-      "id": "eco-40", "title": "Слабо загрязнённое бельё в экономичном режиме", "group": "wash",
-      "set": { "prog": "B", "temp": "40", "spin": false, "eco": true, "short": false, "highwater": false, "gentle": false },
-      "dose": { "II": "Порошок" },
+      "id": "eco-40",
+      "title": "Слабо загрязнённое бельё в экономичном режиме",
+      "group": "wash",
+      "set": {
+        "prog": "B",
+        "temp": "40",
+        "spin": false,
+        "eco": true,
+        "short": false,
+        "highwater": false,
+        "gentle": false
+      },
+      "dose": {
+        "II": "Порошок"
+      },
       "note": "Клавиша «e» удлиняет основную стирку и позволяет снизить температуру."
     },
     {
-      "id": "quick", "title": "Короткая программа для небольшой загрузки", "group": "wash",
-      "set": { "prog": "B", "temp": "40", "spin": false, "eco": false, "short": true, "highwater": false, "gentle": false },
-      "dose": { "II": "Порошок (при половинной загрузке примерно половина дозы)" },
+      "id": "quick",
+      "title": "Короткая программа для небольшой загрузки",
+      "group": "wash",
+      "set": {
+        "prog": "B",
+        "temp": "40",
+        "spin": false,
+        "eco": false,
+        "short": true,
+        "highwater": false,
+        "gentle": false
+      },
+      "dose": {
+        "II": "Порошок (при половинной загрузке примерно половина дозы)"
+      },
       "note": "Клавиша короткой программы сокращает время примерно на 55 процентов."
     },
     {
-      "id": "synthetic-gentle", "title": "Синтетика и верхняя одежда, щадяще", "group": "wash",
-      "set": { "prog": "F", "temp": "40", "spin": true, "eco": false, "short": false, "highwater": true, "gentle": true },
-      "dose": { "II": "Порошок или гель", "flower": "Кондиционер (по желанию)" },
+      "id": "synthetic-gentle",
+      "title": "Синтетика и верхняя одежда, щадяще",
+      "group": "wash",
+      "set": {
+        "prog": "F",
+        "temp": "40",
+        "spin": true,
+        "eco": false,
+        "short": false,
+        "highwater": true,
+        "gentle": true
+      },
+      "dose": {
+        "II": "Порошок или гель",
+        "flower": "Кондиционер (по желанию)"
+      },
       "note": "Программа F, температура 40 °C по замачиванию в инструкции, дальше по этикетке. Нажатая клавиша отжима включает отжим в конце."
     },
     {
-      "id": "wool", "title": "Шерсть", "group": "care",
-      "set": { "prog": "H", "temp": "I", "spin": true, "eco": false, "short": false, "highwater": true, "gentle": true },
-      "dose": { "II": "Средство для шерсти" },
+      "id": "wool",
+      "title": "Шерсть",
+      "group": "care",
+      "set": {
+        "prog": "H",
+        "temp": "I",
+        "spin": true,
+        "eco": false,
+        "short": false,
+        "highwater": true,
+        "gentle": true
+      },
+      "dose": {
+        "II": "Средство для шерсти"
+      },
       "note": "Температура I (холодная вода) выбрана осторожно: в инструкции температура шерсти не названа."
     },
     {
-      "id": "spin-only", "title": "Только отжим", "group": "spin",
-      "set": { "prog": "C", "temp": "I", "spin": false, "eco": false, "short": false, "highwater": false, "gentle": false },
+      "id": "spin-only",
+      "title": "Только отжим",
+      "group": "spin",
+      "set": {
+        "prog": "C",
+        "temp": "I",
+        "spin": false,
+        "eco": false,
+        "short": false,
+        "highwater": false,
+        "gentle": false
+      },
       "note": "Позиция C: центрифугирование белого и цветного белья."
     },
     {
-      "id": "drain-only", "title": "Только слив воды", "group": "rinse",
-      "set": { "prog": "P", "temp": "I", "spin": false, "eco": false, "short": false, "highwater": false, "gentle": false },
+      "id": "drain-only",
+      "title": "Только слив воды",
+      "group": "rinse",
+      "set": {
+        "prog": "P",
+        "temp": "I",
+        "spin": false,
+        "eco": false,
+        "short": false,
+        "highwater": false,
+        "gentle": false
+      },
       "note": "Позиция P откачивает воду без отжима."
     }
   ],
-
   "troubleshooting": [],
   "care": [
-    { "title": "Ящик для моющих средств и перелив", "text": "Выньте ящик на себя до упора, приподнимите и вытащите, преодолев толчком пружинный фиксатор. Выньте из ящика перелив и промойте всё под струёй воды, перелив вставьте до упора. После многократного полоскания с умягчителями обязательно чистите перелив, иначе остатки смягчителя могут его забить.", "sourcePage": 20 },
-    { "title": "Барабан и резиновая манжета", "text": "Не оставляйте в барабане и складках манжеты металлические предметы (скрепки, булавки): возможна ржавчина. Ржавчину удаляйте средством без хлора, щёток из металлической проволоки не используйте.", "sourcePage": 20 },
-    { "title": "Известковые отложения", "text": "При правильной дозировке удалять накипь обычно не нужно; при необходимости используйте только специальные средства для стиральных машин с антикоррозионной защитой.", "sourcePage": 20 },
-    { "title": "Ситечки (фильтры) на шланге подачи воды", "text": "Периодически чистите ситечко у водопроводного крана и в патрубке магнитного клапана на задней стенке машины. Перекройте кран, снимите давление в шланге (селектор на A, включить на 30 секунд), отвинтите шланг, плоскогубцами вытащите ситечко из магнитного клапана и почистите щёткой под струёй воды.", "sourcePage": 21 },
-    { "title": "Защита против промерзания", "text": "В помещении с риском промерзания слейте остатки воды из насоса и шлангов: закройте кран, опорожните подводящий шланг, запустите любую программу, чтобы остаточная вода стекла, затем опорожните насос.", "sourcePage": 22 },
-    { "title": "Очистка насоса для откачки моющего раствора", "text": "Чистить насос нужно только если его забили пуговицы, скрепки и подобные предметы и вода не откачивается. Выньте вилку из розетки, откройте цокольную панель (поверните пластмассовые головки монетой), слейте воду через опорожнительный шланг (b) в низкую ёмкость, открутите крышку насоса (a) влево, удалите посторонние предметы, закрутите крышку, закройте заглушкой и закройте панель. Горячий раствор сперва остудите. Перед следующей стиркой поставьте A, заполните машину водой, потом поставьте P и включите снова.", "sourcePage": 22 }
+    {
+      "title": "Ящик для моющих средств и перелив",
+      "text": "Выньте ящик на себя до упора, приподнимите и вытащите, преодолев толчком пружинный фиксатор. Выньте из ящика перелив и промойте всё под струёй воды, перелив вставьте до упора. После многократного полоскания с умягчителями обязательно чистите перелив, иначе остатки смягчителя могут его забить.",
+      "sourcePage": 20
+    },
+    {
+      "title": "Барабан и резиновая манжета",
+      "text": "Не оставляйте в барабане и складках манжеты металлические предметы (скрепки, булавки): возможна ржавчина. Ржавчину удаляйте средством без хлора, щёток из металлической проволоки не используйте.",
+      "sourcePage": 20
+    },
+    {
+      "title": "Известковые отложения",
+      "text": "При правильной дозировке удалять накипь обычно не нужно; при необходимости используйте только специальные средства для стиральных машин с антикоррозионной защитой.",
+      "sourcePage": 20
+    },
+    {
+      "title": "Ситечки (фильтры) на шланге подачи воды",
+      "text": "Периодически чистите ситечко у водопроводного крана и в патрубке магнитного клапана на задней стенке машины. Перекройте кран, снимите давление в шланге (селектор на A, включить на 30 секунд), отвинтите шланг, плоскогубцами вытащите ситечко из магнитного клапана и почистите щёткой под струёй воды.",
+      "sourcePage": 21
+    },
+    {
+      "title": "Защита против промерзания",
+      "text": "В помещении с риском промерзания слейте остатки воды из насоса и шлангов: закройте кран, опорожните подводящий шланг, запустите любую программу, чтобы остаточная вода стекла, затем опорожните насос.",
+      "sourcePage": 22
+    },
+    {
+      "title": "Очистка насоса для откачки моющего раствора",
+      "text": "Чистить насос нужно только если его забили пуговицы, скрепки и подобные предметы и вода не откачивается. Выньте вилку из розетки, откройте цокольную панель (поверните пластмассовые головки монетой), слейте воду через опорожнительный шланг (b) в низкую ёмкость, открутите крышку насоса (a) влево, удалите посторонние предметы, закрутите крышку, закройте заглушкой и закройте панель. Горячий раствор сперва остудите. Перед следующей стиркой поставьте A, заполните машину водой, потом поставьте P и включите снова.",
+      "sourcePage": 22
+    }
   ],
-
   "sources": [
-    { "title": "Инструкция по эксплуатации Siemens Siwamat Plus 3600 (RU, скан, разворотами)", "url": "https://mcgrp.ru/manual/siemens/siwamat-plus-3600", "kind": "manual-archive", "pages": "1-23 (12 разворотов)" }
+    {
+      "title": "Инструкция по эксплуатации Siemens Siwamat Plus 3600 (RU, скан, разворотами)",
+      "url": "https://mcgrp.ru/manual/siemens/siwamat-plus-3600",
+      "kind": "manual-archive",
+      "pages": "1-23 (12 разворотов)"
+    }
   ],
   "notes": {
     "assumptions": [
@@ -295,5 +920,6 @@
       "Для шерсти (H, J) температура и назначение метки «J» после полоскания определены по схеме, а текст про них скуп.",
       "Какая именно температура у «белого» и «цветного» белья по программам A, B не указана; значения в presets даны по тексту про клавишу «e» и по замачиванию."
     ]
-  }
+  },
+  "completeness": "partial"
 }

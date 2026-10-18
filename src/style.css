@@ -186,6 +186,9 @@ button { font: inherit; color: inherit; }
 .bar span { overflow: hidden; text-overflow: ellipsis; }
 .bar.ph-heat { background: var(--ph-heat); } .bar.ph-prewash { background: var(--ph-prewash); } .bar.ph-wash { background: var(--ph-wash); color: #fff; }
 .bar.ph-rinse { background: var(--ph-rinse); } .bar.ph-spin { background: var(--ph-spin); } .bar.ph-drain { background: var(--ph-drain); }
+.path-title { font-size: .8rem; color: var(--muted); margin: 0 0 4px; }
+.partial { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; background: var(--info-soft); color: var(--info); border-radius: var(--radius); padding: 12px 14px; font-size: .92rem; }
+.partial div { color: var(--text); }
 .path { list-style: none; padding: 0; margin: 0 0 12px; display: flex; flex-wrap: wrap; gap: 4px; }
 .path li { display: flex; flex-direction: column; align-items: center; background: var(--surface-2); border: 1px solid var(--line); border-radius: 10px; padding: 3px 8px; min-width: 44px; position: relative; }
 .path li b { font-size: .95rem; }

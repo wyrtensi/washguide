@@ -340,7 +340,7 @@ export function resultHTML(m, state, extra = []) {
       ${manual}
     </div>
     ${t.missingCycle ? '' : `<div class="bars">${bars}</div>`}
-    ${path ? `<ol class="path" aria-label="Путь ручки программ">${path}</ol>` : ''}
+    ${path ? `<p class="path-title">${m.cycle?.dialMoves === false ? 'Этапы программы (ручка во время стирки не поворачивается)' : 'Путь ручки программ: от выбранной позиции до остановки'}</p><ol class="path">${path}</ol>` : ''}
     ${conflicts}
     ${prog ? `<p class="prog-name"><b>${esc(E.label(E.position(pk, state.prog)))}</b> — ${esc(prog.name)}${prog.loadKg ? `, до ${String(prog.loadKg).replace('.', ',')} кг` : ''}</p>` : ''}
     ${ending}`;
