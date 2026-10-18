@@ -93,10 +93,11 @@ const title = m => `${m.brand} ${m.model}`;
 const other = lang => (lang === 'ru' ? 'en' : 'ru');
 
 // path: page path relative to the language root, e.g. '' or 'm/<id>/'
-function shell({ lang, path, depth, pageTitle, description, body, head = '', bodyClass = '' }) {
+function shell({ lang, path, depth, pageTitle, description, body, head = '', bodyClass = '', rootAbsolute = false }) {
   const tr = T[lang];
-  const base = '../'.repeat(depth) || './';          // to the site root (assets, data)
-  const langBase = '../'.repeat(depth - (lang === 'en' ? 1 : 0)) || './';  // to this language's root
+  // 404.html is served for any path, so it links from the root; other pages use relative links
+  const base = rootAbsolute ? '/' : ('../'.repeat(depth) || './');          // to the site root (assets, data)
+  const langBase = rootAbsolute ? `/${ROOTS[lang]}` : ('../'.repeat(depth - (lang === 'en' ? 1 : 0)) || './');  // to this language's root
   const altHref = `${base}${ROOTS[other(lang)]}${path}` || './';
   const alternates = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${SITE_URL ? `${SITE_URL}/${ROOTS[l]}${path}` : `${base}${ROOTS[l]}${path}`}">`).join('\n');
   return `<!doctype html>
@@ -491,5 +492,5 @@ ${urls.flatMap(u => LANGS.map(l => `<url><loc>${SITE_URL}/${ROOTS[l]}${u}</loc>$
 </urlset>
 `);
 }
-writeFileSync(join(dist, '404.html'), shell({ lang: 'ru', path: '', depth: 0, pageTitle: `${T.ru.notFound} — ${T.ru.siteName}`, description: T.ru.notFound, body: `<section class="wrap hero"><h1>${T.ru.notFound}</h1><p><a href="/">${T.ru.toAll}</a> · <a href="/en/">${T.en.toAll}</a></p></section>` }));
+writeFileSync(join(dist, '404.html'), shell({ lang: 'ru', path: '', depth: 0, rootAbsolute: true, pageTitle: `${T.ru.notFound} — ${T.ru.siteName}`, description: T.ru.notFound, body: `<section class="wrap hero"><h1>${T.ru.notFound}</h1><p><a href="/">${T.ru.toAll}</a> · <a href="/en/">${T.en.toAll}</a></p></section>` }));
 console.log(`built ${machines.length} machines x ${LANGS.length} languages into dist/${SITE_URL ? '' : ' (set SITE_URL for sitemap.xml)'}`);
