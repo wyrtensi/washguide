@@ -1,11 +1,10 @@
 <p align="center">
-  <a href="https://washguide.ru"><img src="docs/banner.svg" alt="washguide — how to work old washing machines with confusing panels" width="100%"></a>
+  <a href="https://washguide.ru/en/"><img src="docs/banner.svg" alt="washguide — how to work old washing machines with confusing panels" width="100%"></a>
 </p>
 
 <p align="center">
-  <a href="https://washguide.ru"><b>washguide.ru</b></a> ·
-  <a href="https://washguide.ru/en/">English</a> ·
-  <a href="https://washguide.ru/">Русский</a> ·
+  <a href="https://washguide.ru/en/"><b>washguide.ru</b></a> ·
+  <a href="README.ru.md">Русский</a> · <b>English</b> ·
   <a href="https://washguide.ru/llms.txt">llms.txt</a>
 </p>
 
