@@ -188,6 +188,11 @@ const AGENT_HOME = {
   ]
 };
 
+// Search console ownership tags. Only on the root page; the engines recheck them, keep them.
+const SITE_VERIFICATION = `<meta name="yandex-verification" content="719dc8d4766d9695">
+<meta name="google-site-verification" content="bayhd-e3j9ZgwBzoIevAWrtmMbOtUQcjYcYvHeyxQIw">
+`;
+
 // ---------- home ----------
 function homePage(lang, list) {
   const tr = T[lang];
@@ -235,7 +240,7 @@ ${agentNote(lang, AGENT_HOME[lang])}`;
     lang, path: '', depth, pageTitle: `${tr.siteName} — ${tr.tagline}`,
     description: tr.homeDesc,
     body, bodyClass: 'home',
-    head: `<script type="application/ld+json">${json({
+    head: `${lang === 'ru' ? SITE_VERIFICATION : ''}<script type="application/ld+json">${json({
       '@context': 'https://schema.org', '@type': 'WebSite', name: tr.siteName, description: tr.tagline, inLanguage: lang,
       ...(SITE_URL ? { url: `${SITE_URL}/${ROOTS[lang]}` } : {}),
       hasPart: list.map(m => ({ '@type': 'TechArticle', name: title(m), url: abs(`${ROOTS[lang]}m/${m.id}/`) }))
