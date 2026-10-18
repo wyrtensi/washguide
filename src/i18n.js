@@ -65,7 +65,7 @@ export const T = {
     // build
     controlName: { program: 'Ручка программ', temperature: 'Ручка температуры', spin: 'Ручка отжима', power: 'Кнопка питания', option: 'Кнопка', start: 'Кнопка старта', lamp: 'Лампа', other: 'Элемент' },
     allMachines: 'Все машины', toContent: 'К содержимому', searchPh: 'Найти машину: индезит, zanussi fl…',
-    searchLabel: 'Поиск машины', themeLabel: 'Сменить тему', langLabel: 'English',
+    searchLabel: 'Поиск машины', themeLabel: 'Сменить тему', langLabel: 'English', githubLabel: 'Исходный код на GitHub',
     footer: 'справочник по старым стиральным машинам с механическим таймером. Данные из инструкций производителей; оценки времени помечены.',
     privacy: 'Сайт не ставит cookie. Просмотры страниц считает наш собственный счётчик на нашем сервере, без сторонних сервисов; IP-адреса он не хранит. Для каждого просмотра сохраняются страница, время, источник перехода, страна, язык браузера, браузер и система — сводка открыта: <a href="https://stats.wyrtensi.ru/">stats.wyrtensi.ru</a>.',
     forAgents: 'Для ИИ-агентов', dataJson: 'Данные (JSON)',
@@ -159,7 +159,7 @@ export const T = {
     roleTitle: { program: 'Programme', temperature: 'Temperature', spin: 'Spin' }, buttons: 'Buttons',
     controlName: { program: 'Programme knob', temperature: 'Temperature knob', spin: 'Spin knob', power: 'Power button', option: 'Button', start: 'Start button', lamp: 'Lamp', other: 'Control' },
     allMachines: 'All machines', toContent: 'Skip to content', searchPh: 'Find a machine: indesit, zanussi fl…',
-    searchLabel: 'Search machines', themeLabel: 'Toggle theme', langLabel: 'Русский',
+    searchLabel: 'Search machines', themeLabel: 'Toggle theme', langLabel: 'Русский', githubLabel: 'Source code on GitHub',
     footer: 'a reference for old washing machines with mechanical timers. Data from manufacturer manuals; time estimates are marked.',
     privacy: 'This site sets no cookies. Page views are counted by our own counter on our own server, with no third-party services; it does not store IP addresses. For each view it keeps the page, the time, the referrer, the country, the browser language, the browser and the system; the summary is public: <a href="https://stats.wyrtensi.ru/">stats.wyrtensi.ru</a>.',
     forAgents: 'For AI agents', dataJson: 'Data (JSON)',
