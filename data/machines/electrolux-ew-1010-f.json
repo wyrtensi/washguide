@@ -645,7 +645,7 @@
         "spinred",
         "waterstop"
       ],
-      "loadKg": 2.0,
+      "loadKg": 2,
       "ends": "stop",
       "note": "Нормальная стирка, 3 полоскания, короткий отжим при 750 об/мин. С нажатой кнопкой отключения слива заканчивается с водой в баке.",
       "sourcePage": 45
@@ -665,7 +665,7 @@
         "spinred",
         "waterstop"
       ],
-      "loadKg": 2.0,
+      "loadKg": 2,
       "ends": "stop",
       "note": "Нормальная стирка, 3 полоскания, короткий отжим при 750 об/мин. С нажатой кнопкой отключения слива заканчивается с водой в баке.",
       "sourcePage": 45
@@ -684,7 +684,7 @@
       "options": [
         "spinred"
       ],
-      "loadKg": 1.0,
+      "loadKg": 1,
       "ends": "stop",
       "note": "Нормальная стирка, короткий отжим при 750 об/мин. Максимум 1 кг шерсти.",
       "sourcePage": 45
@@ -703,7 +703,7 @@
         "spinred",
         "waterstop"
       ],
-      "loadKg": 2.0,
+      "loadKg": 2,
       "ends": "stop",
       "note": "3 полоскания, короткий отжим при 750 об/мин. С нажатой кнопкой отключения слива заканчивается с водой в баке.",
       "sourcePage": 45
@@ -719,7 +719,7 @@
       "options": [
         "spinred"
       ],
-      "loadKg": 2.0,
+      "loadKg": 2,
       "ends": "stop",
       "note": "Отжим при 750 об/мин.",
       "sourcePage": 45
@@ -1202,6 +1202,329 @@
       "Не показан вид ручки температуры и её деления; не показана шкала селектора и позиция выключения.",
       "Программная карточка на русском языке в PDF отсутствует (в инструкции только упоминание), поэтому символы на панели не сверены.",
       "Не сказано, открывается ли люк раньше 1-2 минут при остановке с водой."
+    ]
+  },
+  "en": {
+    "summary": "Machine with electromechanical control: two knobs (temperature and program A-M), buttons for On/Off, reduced spin, reduced load and drain cancel. One manual shared with the EW 814 F (850 rpm).",
+    "years": "approx. 2000-2005 (approximate, the manual gives no year)",
+    "pitfalls": [
+      "Programs are marked with letters, and their names are printed on a separate program card that comes with the manual; the panel itself has only the letters.",
+      "Turn the program selector clockwise. The temperature is set by the other knob, which turns both ways.",
+      "The letter B appears on the card three times (60-95, 40-60 and 30-40 °C): this is one selector position.",
+      "The drain cancel button is needed on programs G, H, K: with it the laundry stays in the water after the rinse. To drain and spin, press the button again; to only drain, choose M.",
+      "Reduced spin button: from 1000 to 600 rpm for linen and cotton, from 750 to 400 for synthetics, fine fabrics and wool.",
+      "The door opens about 1-2 minutes after the program ends; while the lock lamp is lit it cannot be opened.",
+      "If the load is too uneven the machine may not spin: redistribute the laundry by hand."
+    ],
+    "controls": {
+      "power": {
+        "help": "On/Off. Press to start the machine: the \"Program running\" lamp lights up. To add laundry, release the button; pressing it again resumes the program. When the wash has finished, release the button."
+      },
+      "spinred": {
+        "help": "Reduces the spin speed: from 1000 to 600 rpm for linen and cotton, from 750 to 400 rpm for synthetics, fine fabrics and wool.",
+        "label": "spin"
+      },
+      "half": {
+        "help": "Reduced load (cotton and linen up to 2.25 kg): uses much less water for rinsing. Works with A, B, C, D."
+      },
+      "waterstop": {
+        "help": "Drain cancel: after rinsing the laundry stays in the water. With programs G, H, K. To drain and spin, press the button again; to only drain, choose M.",
+        "label": "drain off"
+      },
+      "dooropen": {
+        "help": "Opening the loading door. The door is locked for the duration of the program.",
+        "label": "door"
+      },
+      "temp": {
+        "help": "Turn the knob and set the required temperature; it turns both ways. At the snowflake symbol there is no heating."
+      },
+      "prog": {
+        "help": "Turn the knob clockwise, setting it to the required program; the program mark appears in the window.",
+        "label": "program",
+        "zones": {
+          "cotton": "Cotton and linen (A-F)",
+          "delicate": "Synthetics, fine fabrics, wool (G-M)"
+        }
+      },
+      "lamp": {
+        "help": "\"Program running\" signal lamp: comes on at the start of operation and goes off at the end."
+      }
+    },
+    "tray": {
+      "help": "The dispenser is removed by pressing the catch at the top left. Pour rinse additives into the compartment with the flower symbol, without exceeding the mark. If you need a prewash, put part of the powder into the compartment with one bar.",
+      "compartments": {
+        "I": "Powder for the prewash",
+        "II": "Powder for the main wash",
+        "flower": "Rinse additives"
+      }
+    },
+    "programs": {
+      "A": {
+        "name": "Cotton: whites with prewash, heavy soiling, 60-95 °C",
+        "note": "Prewash, normal wash, 3 rinses, spin at 850 or 1000 rpm (1000 for the EW 1010 F)."
+      },
+      "B": {
+        "name": "Cotton: whites without prewash, 60-95 °C; coloureds, normally soiled, 40-60 °C or 30-40 °C",
+        "note": "On the card the B rows are: 60-95 °C (whites, normal soiling), B(*) 40-60 °C (coloureds, normally soiled), 30-40 °C (coloureds, careful: may run). One selector position, the temperature is set by the second knob. Normal wash, 3 rinses, spin. Consumption with 4.5 kg of whites at 60 °C: 59 l, 1.15 kWh, 130 min (cold water 15 °C)."
+      },
+      "C": {
+        "name": "Short cycle: lightly soiled coloureds, 30-40 °C",
+        "note": "Normal wash, 3 rinses, spin."
+      },
+      "D": {
+        "name": "Rinses",
+        "note": "4 rinses, spin."
+      },
+      "F": {
+        "name": "Extended spin",
+        "note": "Spin at 850 or 1000 rpm (1000 for the EW 1010 F)."
+      },
+      "G": {
+        "name": "Synthetics without prewash, normal soiling, 40-60 °C",
+        "note": "Normal wash, 3 rinses, short spin at 750 rpm. With the drain cancel button pressed it ends with water in the tub."
+      },
+      "H": {
+        "name": "Light fabrics, 30-40 °C",
+        "note": "Normal wash, 3 rinses, short spin at 750 rpm. With the drain cancel button pressed it ends with water in the tub."
+      },
+      "J": {
+        "name": "Machine-washable wool and wool mixed with other fibres, 30-40 °C",
+        "note": "Normal wash, short spin at 750 rpm. Maximum 1 kg of wool."
+      },
+      "K": {
+        "name": "Rinses for delicate fabrics",
+        "note": "3 rinses, short spin at 750 rpm. With the drain cancel button pressed it ends with water in the tub."
+      },
+      "L": {
+        "name": "Short spin",
+        "note": "Spin at 750 rpm."
+      },
+      "M": {
+        "name": "Drain",
+        "note": "Draining the water (for example, after a stop with water). No spin."
+      }
+    },
+    "rules": [
+      "Short cycle C: no higher than 40 °C.",
+      "Synthetics G: no higher than 60 °C.",
+      "Light fabrics and wool (H, J): no higher than 40 °C.",
+      "This program runs without heating; the temperature knob position has no effect.",
+      "The 1/2 button works only with programs A, B, C, D.",
+      "The drain cancel button is marked in the program table only for G, H, K; it is not used in the other programs.",
+      "Drain: the buttons are not used.",
+      "With the drain cancel button pressed the program stops with water in the tub. To drain and spin, press the button again; to only drain, choose M. The door is locked until the water is drained.",
+      "Turn the program selector clockwise only."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Short cycle: wash, 3 rinses and spin.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, normal soiling, 60 °C",
+        "note": "For whites and coloureds without prewash. About 130 minutes according to the manual.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "bedding-95": {
+        "title": "Bedding, heavily soiled, 95 °C",
+        "note": "With prewash.",
+        "dose": {
+          "I": "Powder for the prewash",
+          "II": "Powder for the main wash",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Spin 750 rpm; up to 2 kg.",
+        "dose": {
+          "II": "Powder for fine fabrics or gel",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "wool-30": {
+        "title": "Machine-washable wool, 30 °C",
+        "note": "Up to 1 kg; spin reduced with the button.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "4 rinses and spin.",
+        "dose": {
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Extended spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Draining the water without spinning."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on",
+        "causes": [
+          "The loading door is not closed properly.",
+          "The plug is not inserted properly in the socket.",
+          "The main fuse has blown.",
+          "Make sure the right program is selected.",
+          "The On/Off button has not been pressed."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The water tap is not open or no water comes from the tap.",
+          "The fill hose is squeezed or kinked.",
+          "The fill hose filter is clogged.",
+          "The loading door is not closed properly."
+        ]
+      },
+      {
+        "title": "The machine fills and immediately drains the water",
+        "causes": [
+          "The end of the drain hose is too low (see the \"Installation\" section)."
+        ]
+      },
+      {
+        "title": "The machine does not drain and/or does not spin",
+        "causes": [
+          "The drain hose is squeezed or kinked.",
+          "The drain cancel function is selected.",
+          "Make sure the drain filter is clean."
+        ]
+      },
+      {
+        "title": "Water on the floor",
+        "causes": [
+          "Too much powder or an unsuitable one (heavy foaming).",
+          "A leak at the fill hose connections (not always visible, check whether the hose is damp).",
+          "The drain hose is damaged."
+        ]
+      },
+      {
+        "title": "The machine vibrates or is noisy",
+        "causes": [
+          "The internal packaging parts have not been removed.",
+          "The machine touches walls or furniture.",
+          "The feet are loose or the lock nuts are not tightened.",
+          "The laundry is unevenly placed in the drum or there is too little of it."
+        ]
+      },
+      {
+        "title": "The spin starts late or does not take place",
+        "causes": [
+          "The electronic imbalance control system has been triggered: the laundry is uneven. The machine changes the direction of rotation several times. If the laundry has not settled after 10 minutes there will be no spin: redistribute the laundry by hand and select the spin program again."
+        ]
+      },
+      {
+        "title": "The machine makes an unusual noise",
+        "causes": [
+          "A commutator motor sounds different from ordinary motors; it provides a smooth start of the spin and distribution of the laundry."
+        ]
+      },
+      {
+        "title": "No water is visible in the machine",
+        "causes": [
+          "The machine works economically, with reduced water use."
+        ]
+      },
+      {
+        "title": "The loading door does not open",
+        "causes": [
+          "The program is still running.",
+          "The lock has not released: the door can be opened when the door lock lamp goes out.",
+          "There is water in the tub."
+        ]
+      },
+      {
+        "title": "Detergent residue after the wash cycle",
+        "causes": [
+          "Insoluble components of modern detergents, this is not a sign of poor rinsing. Brush the laundry and shake it out; if necessary wash again."
+        ]
+      },
+      {
+        "title": "Foam residue after the last rinse",
+        "causes": [
+          "Modern detergents can produce foam even after rinsing, this does not affect the wash quality."
+        ]
+      },
+      {
+        "title": "Unsatisfactory wash results",
+        "causes": [
+          "Not enough detergent or the wrong choice of detergent.",
+          "Stubborn stains were not treated before washing.",
+          "The wrong temperature was selected.",
+          "Too much laundry was loaded."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Cabinet",
+        "text": "Wash with a hand dishwashing product, then rinse with clean water and wipe dry. Do not use products containing alcohol."
+      },
+      {
+        "title": "Dispenser",
+        "text": "Wash under running water from time to time. It is removed by pressing the catch at the top left; the upper part, where the additives are poured, can be taken out to make cleaning easier."
+      },
+      {
+        "title": "Dispenser recess",
+        "text": "Clean with an old toothbrush, then put the dispenser back and run a wash without laundry."
+      },
+      {
+        "title": "Drain hose filter",
+        "text": "Clean the mesh periodically: open the cover, place a tray, unscrew the mesh, rinse it, put it back and close the cover."
+      },
+      {
+        "title": "Fill hose filter",
+        "text": "If the machine fills with water slowly: close the tap, disconnect the hose, take out the filter with pliers, clean it with a toothbrush."
+      },
+      {
+        "title": "Cleaning the machine and limescale",
+        "text": "If you often wash at low temperature or with a small amount of powder, once a month run a program without laundry at 90-95 °C with the normal dose of powder. If the water hardness is above 7 °dH, remove limescale deposits at least 4 times a year (1.5 dl of citric acid instead of powder, a program without laundry at high temperature)."
+      },
+      {
+        "title": "Frost protection",
+        "text": "Close the tap, disconnect the fill hose, let the machine run for a few seconds, lower the end of the drain hose into a bucket, run the \"Drain\" program."
+      },
+      {
+        "title": "First start",
+        "text": "Before the first wash run a program at 60 °C without laundry, with the prewash switched off; put 100 g of powder in the main wash compartment."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The selector positions (A, B, C, D, F, G, H, J, K, L, M, 11 positions evenly around the circle) and the temperature knob divisions (0, 30, 40, 60, 95) are estimates: the manual shows only a small-scale photo of the panel and the program card separately. The order of letters is taken as alphabetical.",
+        "The duration is given in the manual only for B at 60 °C with 4.5 kg (130 min); the other steps and their order in cycle.steps are estimates.",
+        "Drain cancel button: the manual names programs G, H, J, K (p. 42), while in the table the symbol appears only for G, H, K (pp. 44-45); the table version is adopted, J is not included (J has no rinses in the table).",
+        "The panel colours are nominal: the photo from the manual was not used for the colours.",
+        "The year range is an estimate: the manual does not give the year of manufacture.",
+        "The main wash water volume (14 l) is an estimate; the table gives a consumption of 59 l for the whole of program B at 60 °C."
+      ],
+      "gaps": [
+        "The heater power is not given: the technical data has only the total power consumption of 2200 W (p. 52).",
+        "Durations and water consumption are not given for programs other than B at 60 °C.",
+        "The look of the temperature knob and its divisions are not shown; the selector scale and the off position are not shown.",
+        "The Russian-language program card is absent from the PDF (the manual only mentions it), so the panel symbols were not checked against it.",
+        "It does not say whether the door opens sooner than 1-2 minutes when stopped with water."
+      ]
+    },
+    "sources": [
+      "Electrolux EW 814 F / EW 1010 F: operating manual (RU)",
+      "Model page in the manual archive rembitteh.ru"
     ]
   }
 }

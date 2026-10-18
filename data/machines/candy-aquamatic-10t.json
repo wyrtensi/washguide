@@ -1198,5 +1198,264 @@
       "В таблице программ строка про белье без отжима относится к группе 10, A, значку отбеливания и Z, но границы группы в тексте не раскрыты.",
       "Конкретные деления ручки температуры 50 °C и 90 °C выведены из таблицы; значок холодной стирки не описан."
     ]
+  },
+  "en": {
+    "summary": "Italian machine with a mechanical 13-position selector (numbers 1-10, A, a bleach symbol and Z) and a separate temperature knob. One manual covers the Aquamatic 6, 6T, 8T, 10T family; the controls differ from model to model.",
+    "years": "approx. 1995-2005 (approximate, the manual gives no year)",
+    "pitfalls": [
+      "The program selector turns clockwise only. Do not turn it anticlockwise and do not press \"on/off\" until a program is selected.",
+      "The temperature is set by a separate knob, and it must not be set above the program maximum from the table. The knob turns both ways.",
+      "Program 1 appears in the table three times: 90 °C (heavily soiled), 60 °C (economy), 40 °C (delicate items). This is one selector position, the difference is only in the temperature knob.",
+      "The dispenser has only two compartments: powder and special additives. For the prewash (A) the powder is put straight into the drum.",
+      "The door does not open right after the end of the spin: wait 2 minutes.",
+      "The \"400\" button limits the final spin to 400 rpm in the durable fabric programs; in the delicate programs the spin is always 400 rpm.",
+      "The 10T has no stop-with-water button (only the 6T does). To simply drain the water without spinning, switch the machine off, set Z and switch on again."
+    ],
+    "controls": {
+      "spin400": {
+        "help": "\"400\" button (for 8T and 10T). In the durable fabric programs the final spin runs at high speed; the button rules out the high-speed spin, leaving 400 rpm."
+      },
+      "nospin": {
+        "help": "Cancels the spin in all cycles. Useful at 90 °C and 60 °C for items with special finishes (pleats) and for delicate items made of mixed fabrics.",
+        "label": "spin off"
+      },
+      "power": {
+        "help": "Switching on and off. First set the program selector, then press the button.",
+        "label": "on/off"
+      },
+      "dooropen": {
+        "help": "Opening the loading door. After the end of the wash or spin cycle wait 2 minutes: the safety device will not open the door at once.",
+        "label": "door"
+      },
+      "temp": {
+        "help": "The knob turns in either direction. Do not set the temperature above the maximum for the chosen program (table on pp. 19-20)."
+      },
+      "prog": {
+        "help": "Turn clockwise only. Do not turn anticlockwise and do not press \"on/off\" until a program is set.",
+        "label": "program",
+        "zones": {
+          "durable": "Durable fabrics (1-5)",
+          "delicate": "Mixed and delicate, wool (6-10)",
+          "special": "Prewash, bleach, drain (A, Z)"
+        },
+        "positions": {
+          "bleach": "triangle (bleach)"
+        }
+      }
+    },
+    "tray": {
+      "help": "Two compartments: for washing powder and for special additives. The additives compartment is filled with liquid products only. Bleach is poured into it as well. For the prewash the powder is put straight into the drum; if the powder does not wash out well, use the special container that is put into the drum with the powder.",
+      "compartments": {
+        "I": "Washing powder",
+        "flower": "Special additives (liquid): fabric softener, bleach"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Durable fabrics: cotton, linen; heavily soiled laundry (90 °C), economy (60 °C), delicate items (40 °C)",
+        "note": "One selector position, three table rows: 90 °C (heavily soiled: sheets, tablecloths, towels, underwear), 60 °C (economy program), 40 °C (coloured laundry, skirts, shirts). The temperature is set with the temperature knob. Note 1 in the table: the program complies with IEC 456."
+      },
+      "2": {
+        "name": "Durable fabrics: lightly soiled laundry, 30-60 °C",
+        "note": "Coloured laundry, clothes, shirts, dressing gowns, vests, sheets."
+      },
+      "3": {
+        "name": "Quick program, 30-40 °C",
+        "note": "Coloured laundry that runs, clothes, blue jeans. Load up to 2 kg."
+      },
+      "4": {
+        "name": "Intensive rinse",
+        "note": "Conditioning, fragrance, softening."
+      },
+      "5": {
+        "name": "Intensive spin",
+        "note": "Spin only."
+      },
+      "6": {
+        "name": "Mixed durable fabrics: heavily soiled laundry, 40-60 °C",
+        "note": "Shirts, sheets, fabrics, newborn laundry, underwear. The spin in the delicate programs is always 400 rpm. If the laundry is very dirty, do not load more than 2 kg."
+      },
+      "7": {
+        "name": "Universal mode: lightly soiled items, 30-50 °C",
+        "note": "Cotton, mixed fabrics, synthetics. All types of lightly soiled items."
+      },
+      "8": {
+        "name": "Quick program for synthetics, 40 °C",
+        "note": "Synthetics (nylon, perlon), mixed cotton fabrics: shirts, blouses, coloured (non-running) skirts, curtains."
+      },
+      "9": {
+        "name": "Machine-washable wool, 40 °C",
+        "note": "Only items with a \"machine washable\" label. No more than 1 kg."
+      },
+      "10": {
+        "name": "Delicate rinse (for laundry without spinning)",
+        "note": "The manual classes this program as for laundry without spinning, but does not say whether the water is drained at the end: if water remains, turn the selector to Z."
+      },
+      "A": {
+        "name": "Prewash, 40 °C",
+        "note": "Put the powder straight into the drum (note 2 to the table). The manual does not describe how the program ends or whether the water is drained."
+      },
+      "bleach": {
+        "name": "Pre-bleaching",
+        "note": "Bleach is poured into the special additives compartment. Intended for removing individual stains before the main wash; then add the rest of the laundry and choose a suitable program (p. 21)."
+      },
+      "Z": {
+        "name": "Drain only",
+        "note": "Draining the water without spinning. According to the manual, to drain without spinning, switch the machine off, set Z and switch on again."
+      }
+    },
+    "rules": [
+      "This program: no higher than 60 °C.",
+      "This program: no higher than 40 °C.",
+      "Universal mode: no higher than 50 °C.",
+      "In the delicate fabric programs the spin is always 400 rpm.",
+      "The \"400\" button is not needed here: in the delicate programs the spin is 400 rpm anyway.",
+      "The spin buttons are not used in this program.",
+      "Turn the program selector clockwise only. Do not turn it anticlockwise and do not press \"on/off\" before a program is set.",
+      "For the prewash put the powder straight into the drum, not into the dispenser.",
+      "Bleach is poured into the special additives compartment."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Quick program 3 (30-40 °C), load up to 2 kg.",
+        "dose": {
+          "I": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, normal soiling, 60 °C",
+        "note": "Program 2 for lightly soiled laundry, 30-60 °C.",
+        "dose": {
+          "I": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding, heavily soiled, 90 °C",
+        "note": "Program 1 at 90 °C: sheets, tablecloths, towels. Up to 3 kg.",
+        "dose": {
+          "I": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Quick program for synthetics, 400 rpm spin.",
+        "dose": {
+          "I": "Powder for fine fabrics or gel",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "wool-40": {
+        "title": "Machine-washable wool, 40 °C",
+        "note": "No more than 1 kg; only items with a \"machine washable\" label.",
+        "dose": {
+          "I": "Wool detergent",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "Intensive rinse with spin.",
+        "dose": {
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Intensive spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Draining the water without spinning."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not work on any program",
+        "causes": [
+          "The plug is not properly inserted in the socket: insert the plug.",
+          "The machine is not switched on: press the \"on/off\" key.",
+          "No electricity: check.",
+          "The fuses have blown: check."
+        ]
+      },
+      {
+        "title": "It does not fill with water",
+        "causes": [
+          "The door is open: close the door.",
+          "The causes from item 1: check."
+        ]
+      },
+      {
+        "title": "It does not drain the water",
+        "causes": [
+          "The water supply tap is closed: open the tap."
+        ]
+      },
+      {
+        "title": "Water on the floor around the machine",
+        "causes": [
+          "The program selection knob is set wrongly: set the knob to the required position.",
+          "The drain hose is kinked: straighten the hose."
+        ]
+      },
+      {
+        "title": "It does not spin",
+        "causes": [
+          "Water seeps through the gasket of the tap and the water intake hose: replace the gasket, tighten the connection.",
+          "The machine has not drained the water: wait until the machine drains the water."
+        ]
+      },
+      {
+        "title": "Strong vibrations during the spin",
+        "causes": [
+          "The spin mode is switched off (only for some models): switch the spin mode on.",
+          "The machine is not level: level it by turning the feet.",
+          "The transport elements have not been removed: remove them.",
+          "The laundry is unevenly distributed in the drum: distribute it evenly."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Cabinet",
+        "text": "For external cleaning do not use abrasives, alcohol or solvents: wiping with a damp cloth is enough."
+      },
+      {
+        "title": "Dispenser",
+        "text": "From time to time wash the container for powder, bleaches and additives: pull it slightly and take it out, rinse the inside with clean water, put it back."
+      },
+      {
+        "title": "Moving and long stoppage",
+        "text": "In an unheated room drain the remaining water from the hoses: with the plug pulled out, release the drain hose, lay it on the floor and lower its end into a low basin; do the same with the fill hose."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The order of the selector positions is taken as in the program table: 1-10, A, bleach symbol, Z; the angles are even (27.7 degrees each), the starting point is arbitrary. The panel drawing in the manual is schematic and does not show the marks on the knob.",
+        "The divisions of the temperature knob (30, 40, 50, 60, 90 °C) are derived from the ranges in the program table; the actual marks of the knob are not shown in the manual. A \"cold wash\" position is not mentioned in the manual.",
+        "The maximum spin of 1000 rpm is taken from the name 10T and the 600/800/1000 rpm list in the technical data of the family (p. 7): the manual does not name a specific value for the 10T.",
+        "The program table gives only the temperature, load and compartments; durations are not given at all, so all the cycle.steps and their order are estimates. According to the text on p. 16: for durable fabrics the rinses alternate with spins and a final spin, for delicates the wash alternates with soaking.",
+        "Which compartments are used is taken from the table columns: the first (I) is considered the powder compartment, the second (flower) the special additives compartment; the left-to-right order is taken as in the table header.",
+        "The panel colours are nominal: the manual has only a black-and-white drawing, no photo of the machine was used.",
+        "The year range is an estimate: the manual does not give the year of manufacture.",
+        "The main wash water volume is taken as ~10 l (p. 7)."
+      ],
+      "gaps": [
+        "The manual does not give program durations or water and energy consumption.",
+        "The manual does not say how programs A, bleach and 10 end (with water or with a drain); the data marks \"stop\" without a guarantee.",
+        "The marks and the order of positions on the knobs are not given (the panel drawing is schematic).",
+        "The heater power and the maximum spin for the 10T separately are not given: p. 7 refers to the rating plate on the cabinet.",
+        "In the program table the row about laundry without spinning refers to the group 10, A, bleach symbol and Z, but the boundaries of the group are not explained in the text.",
+        "The specific divisions of the temperature knob 50 °C and 90 °C are derived from the table; the cold wash symbol is not described."
+      ]
+    },
+    "sources": [
+      "Candy Aquamatic 6, 6T, 8T, 10T: operating manual (RU)",
+      "Model page in the manual archive rembitteh.ru"
+    ]
   }
 }

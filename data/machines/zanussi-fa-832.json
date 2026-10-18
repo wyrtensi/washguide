@@ -1315,5 +1315,329 @@
       "Не показаны точные деления ручек и промежуточные значения на ручке отжима.",
       "Не показано, как выглядит положение «выключено» селектора и есть ли у него отдельная метка."
     ]
+  },
+  "en": {
+    "summary": "A machine that is switched on by pulling out the programme knob: there is no separate power button. Three knobs (spin, temperature, programme A-P) and two buttons (drain off and reduced load). The same manual covers the FA 1032 (1000 rpm).",
+    "years": "around 2003-2007 (approximate; the manual carries a layout date of 27.05.2003)",
+    "pitfalls": [
+      "There is no separate On/Off button: the machine is switched on by pulling the programme selector towards you, and pressing the selector stops the work and cuts the power. If the machine \"does not switch on\", check whether the selector is pulled out.",
+      "Programmes are marked with letters; the names are printed on the panel to the left of the knobs.",
+      "The letter B appears twice (60-90 and 40-60 °C): it is one selector position, and the temperature is set by the temperature knob.",
+      "A separate spin speed knob: 0 cancels the spin, 300 is the minimum, 800 the maximum for cotton; for synthetics, delicate fabrics and wool no more than 750 rpm.",
+      "The drain-off button leaves the water of the last rinse in the tub. To drain and spin, press it again; to drain without a spin, select P.",
+      "The programme selector turns to the right; the temperature knob turns both ways, and on the snowflake symbol there is no heating."
+    ],
+    "controls": {
+      "spin": {
+        "help": "Spin speed control: 0 cancels the spin, 300 is the minimum speed for all programmes, 800 the maximum for cotton. For synthetics, delicate fabrics and wool the maximum is 750 rpm. There are intermediate values between the marks.",
+        "label": "spin"
+      },
+      "waterstop": {
+        "help": "Drain off: the water of the last rinse stays in the tub and the laundry does not crease. To drain and spin, press the button again; to drain without a spin, select programme P.",
+        "label": "drain off"
+      },
+      "half": {
+        "help": "Reduced load (cotton and linen up to 2 kg): saves water on the rinse."
+      },
+      "lamp": {
+        "help": "\"Programme in progress\" signal lamp: lit during operation, goes out at the end."
+      },
+      "temp": {
+        "help": "Turn the knob and set the desired temperature; it turns both ways. On the snowflake symbol there is no heating."
+      },
+      "prog": {
+        "help": "Turn the selector to the right and set it to the desired programme. Switch the machine on by pulling the selector towards you. Pressing the selector stops the work and cuts the power.",
+        "label": "programme",
+        "zones": {
+          "cotton": "Cotton and linen (A-G)",
+          "delicate": "Synthetics, delicate fabrics, wool (H-P)"
+        }
+      }
+    },
+    "tray": {
+      "help": "The dispenser is removed by pressing the upper catch on the left. Prewash powder goes into the first compartment, main wash powder into the second, rinse additives into the compartment with the flower symbol. When using concentrated powders and liquid detergents, choose a programme without a prewash.",
+      "compartments": {
+        "I": "Prewash powder",
+        "II": "Main wash powder",
+        "flower": "Rinse additives"
+      }
+    },
+    "programs": {
+      "A": {
+        "name": "Cotton: whites with prewash, very dirty, 60-90 °C",
+        "note": "Prewash, main wash at 60-90 °C, 3 rinses, long spin. The drain-off button symbol in the table is also shown for A, but the manual text names it for H-J-K-L-M."
+      },
+      "B": {
+        "name": "Cotton: whites without prewash, 60-90 °C; coloureds without prewash, 40-60 °C",
+        "note": "Two lines on the card: B 60-90 °C (sheets, towels, tea towels, underwear) and B** 40-60 °C (coloured fabrics without prewash). It is one selector position. Programme B at 60 °C with a 4 kg load is the standard one (norm 92/75/EEC). 3 rinses, long spin."
+      },
+      "C": {
+        "name": "Short cycle: lightly soiled laundry, 30-40 °C",
+        "note": "Main wash at 30-40 °C, 3 rinses, long spin."
+      },
+      "D": {
+        "name": "Rinses (no heating)",
+        "note": "Extra rinses for hand-washed laundry: 4 rinses, long spin."
+      },
+      "F": {
+        "name": "Softening (no heating)",
+        "note": "1 rinse, long spin. For freshly washed laundry that needs starching or softening."
+      },
+      "G": {
+        "name": "Spin for hand-washed laundry",
+        "note": "Drain and long spin."
+      },
+      "H": {
+        "name": "Synthetics and fibre blends with prewash, 30-60 °C",
+        "note": "Prewash, main wash at 30-60 °C, 3 rinses, short spin."
+      },
+      "J": {
+        "name": "Synthetics and fibre blends without prewash, 30-60 °C",
+        "note": "Main wash at 30-60 °C, 3 rinses, short spin."
+      },
+      "K": {
+        "name": "Light fabrics, 30-40 °C",
+        "note": "Main wash at 30-40 °C, 3 rinses, short spin."
+      },
+      "L": {
+        "name": "Machine-washable wool and wool with other fibres, 30-40 °C",
+        "note": "Main wash at 30-40 °C, 3 rinses, short spin. Wool up to 1 kg."
+      },
+      "M": {
+        "name": "Rinses for delicate fabrics (no heating)",
+        "note": "3 rinses, short spin."
+      },
+      "N": {
+        "name": "Short spin for synthetics, delicate fabrics and wool",
+        "note": "Spin on its own: drain and short spin."
+      },
+      "P": {
+        "name": "Drain",
+        "note": "Drains the water of the last rinse for programmes with the drain-off function. No spin."
+      }
+    },
+    "rules": [
+      "Short cycle C: no higher than 40 °C.",
+      "Synthetics (H, J): no higher than 60 °C.",
+      "Light fabrics and wool (K, L): no higher than 40 °C.",
+      "This programme runs without heating; the position of the temperature knob has no effect.",
+      "The 1/2 button is marked in the programme table only for A, B, C, D.",
+      "The drain-off button is not used on this programme.",
+      "When the drain-off button is pressed, the water of the last rinse stays in the tub so that the laundry does not crease. To drain and spin, press the button again; to drain without a spin, select P. The door is locked while there is water in the tub.",
+      "The machine can be switched on by pulling the programme selector towards you; pressing the selector stops the work and cuts the power."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Short cycle: wash, 3 rinses and spin.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, normal soiling, 60 °C",
+        "note": "For whites and coloureds without prewash. B at 60 °C with 4 kg is the standard programme under norm 92/75/EEC.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding, heavily soiled, 90 °C",
+        "note": "With prewash.",
+        "dose": {
+          "I": "Prewash powder",
+          "II": "Main wash powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Spin for synthetics no higher than 750 rpm.",
+        "dose": {
+          "II": "Powder for delicates or gel",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "wool-30": {
+        "title": "Machine-washable wool, 30 °C",
+        "note": "Up to 1 kg; the laundry stays in the water until the water is drained (drain-off button).",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "4 rinses and a spin.",
+        "dose": {
+          "flower": "Softener (if desired)"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Drain and long spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Drains the water without a spin."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on",
+        "causes": [
+          "The loading door is not closed properly.",
+          "The water tap is not open.",
+          "The plug is not inserted properly in the socket.",
+          "The socket has no power.",
+          "A fuse has blown.",
+          "The programme selector is not pulled out."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The water tap is not open.",
+          "The inlet hose filter is blocked.",
+          "The inlet hose is pinched or kinked.",
+          "The loading door is not closed properly."
+        ]
+      },
+      {
+        "title": "The machine fills and drains water at once",
+        "causes": [
+          "The end of the drain hose is too low (see the \"Installation\" section)."
+        ]
+      },
+      {
+        "title": "The machine does not drain and/or does not spin",
+        "causes": [
+          "The drain hose is pinched or kinked.",
+          "The drain-off function is selected.",
+          "The drain pump is blocked: check it.",
+          "The \"Spin off\" function (0) is selected."
+        ]
+      },
+      {
+        "title": "Water on the floor",
+        "causes": [
+          "Too much or unsuitable powder (heavy foaming).",
+          "A leak at the inlet hose connections (not always visible, check whether the hose is damp).",
+          "The drain hose is damaged.",
+          "The drain filter cap is not screwed on properly or the drain tube is not closed with its plug."
+        ]
+      },
+      {
+        "title": "The machine vibrates or is noisy",
+        "causes": [
+          "The internal packing parts have not been removed.",
+          "The machine touches walls or furniture.",
+          "The feet are not firmly set.",
+          "The laundry is unevenly distributed in the drum or there is too little of it."
+        ]
+      },
+      {
+        "title": "No water is visible in the machine",
+        "causes": [
+          "The machine is working economically, with reduced water consumption."
+        ]
+      },
+      {
+        "title": "The loading door does not open",
+        "causes": [
+          "The machine is running a programme.",
+          "The door has not unlocked.",
+          "The drain-off function is selected."
+        ]
+      },
+      {
+        "title": "Detergent residues after the wash cycle",
+        "causes": [
+          "Insoluble components of modern detergents, this is not a sign of poor rinsing. Brush the laundry clean, wash again if necessary."
+        ]
+      },
+      {
+        "title": "Foam residues after the last rinse",
+        "causes": [
+          "Modern detergents can form foam even after rinsing; it does not affect the wash quality."
+        ]
+      },
+      {
+        "title": "Unsatisfactory wash results",
+        "causes": [
+          "Not enough detergent or the wrong choice of detergent.",
+          "Stubborn stains were not pre-treated before washing.",
+          "The wrong temperature was selected.",
+          "Too much laundry was loaded."
+        ]
+      },
+      {
+        "title": "The spin starts late or does not happen",
+        "causes": [
+          "The electronic imbalance control has tripped: the laundry is uneven. The machine changes the drum direction several times. If the laundry has not settled after 6 minutes, there will be no spin: spread the laundry by hand and select the spin programme again."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Cabinet",
+        "text": "Wash with a hand dishwashing detergent, then rinse with clean water and wipe. Do not use products containing alcohol."
+      },
+      {
+        "title": "Door seal",
+        "text": "Check from time to time that there are no foreign objects in the seal: paper clips, buttons, toothpicks."
+      },
+      {
+        "title": "Dispenser",
+        "text": "It is removed by pressing the upper catch on the left; the upper part can be taken off for cleaning. Clean the recess with an old brush, then put the dispenser back and run a wash without laundry."
+      },
+      {
+        "title": "Drain filter",
+        "text": "Inspect it if the machine does not drain or does not spin, or is noisy when draining. Pull the plug, wait for the water to cool, open the filter door, place a container underneath, take the drain tube out of its seat and remove the plug, let the water run out, unscrew the filter, clean it, put it back and close the door."
+      },
+      {
+        "title": "Inlet hose filter",
+        "text": "If filling with water is slow: close the tap, unscrew the hose, clean the filter with a toothbrush, screw the hose back on."
+      },
+      {
+        "title": "Emergency water drain",
+        "text": "Pull the plug, close the tap, wait for the water to cool, open the drain filter door, drain the water through the drain tube into a container, clean the filter."
+      },
+      {
+        "title": "Frost protection",
+        "text": "Pull the plug, close the tap and unscrew the inlet hose, lower the ends of the hoses into a container, drain the water; when installing the hose, put the drain tube with its plug back in place."
+      },
+      {
+        "title": "After an emergency drain",
+        "text": "After draining the water through the drain tube, pour about 2 litres of water into the detergent compartment and select the drain programme P so that the ECONOMY valve can switch on."
+      },
+      {
+        "title": "First start",
+        "text": "Before the first wash, run a programme at 60 °C without laundry, putting 100 g of powder into the main wash compartment."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The selector positions (13 positions, A-P, evenly round the circle) and the marks of the temperature knob (0, 30, 40, 60, 90) and spin knob (0, 300, 800) are estimates: the manual shows the panel in a small drawing.",
+        "The order of the letters on the selector is assumed to be alphabetical.",
+        "The maximum spin of 800 rpm: p. 22 (FA 832 800 rpm, FA 1032 1000 rpm) and the \"Aquacycle 800\" inscription on the panel.",
+        "The manual has no programme durations, so all cycle.steps steps and their order are estimates; consumption data for the FA 832 are not given in the manual.",
+        "The drain-off button: the text on p. 26 names programmes H-J-K-L-M, the table on pp. 32-33 marks the drain symbol also for A, B, C, D, F. The table variant is adopted, the conflict is noted in gaps.",
+        "The panel colours are nominal: no photo of the machine was used.",
+        "The range of years is an estimate: the booklet carries only a layout date of 27.05.2003."
+      ],
+      "gaps": [
+        "No programme durations or water and electricity consumption.",
+        "The heater power is not given: the technical data show only the total power consumption of 2200 W (p. 22).",
+        "Conflict: on which programmes the drain-off button works (text H-J-K-L-M, table also A, B, C, D, F).",
+        "The exact marks of the knobs and the intermediate values on the spin knob are not shown.",
+        "It is not shown what the \"off\" position of the selector looks like or whether it has a separate mark."
+      ]
+    },
+    "sources": [
+      "Zanussi FA 832 / FA 1032: operating manual (RU), booklet 132992720",
+      "Model page in the manual archive rembitteh.ru"
+    ]
   }
 }

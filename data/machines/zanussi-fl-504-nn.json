@@ -1279,5 +1279,315 @@
       "Скорость отжима по программам не дана: известен только максимум 500 об/мин (стр. 26).",
       "Не показан вид ручек на фото, поэтому форма указателя и цвета условны."
     ]
+  },
+  "en": {
+    "summary": "A narrow (32 cm deep) machine with a mechanical selector of programmes marked with the letters A-P and a separate temperature knob. Programmes H-N always end with water in the tub, and it has to be drained manually.",
+    "years": "around 2000-2005 (approximate, the manual does not give the year)",
+    "pitfalls": [
+      "The programme names are only on the card to the left of the knobs; the knob itself carries letters.",
+      "The letter B appears twice on the card: 60-95 °C for whites and 30-60 °C for coloureds. It is one selector position, and the second knob sets the temperature.",
+      "Programmes H, J, K, L, M, N end with a stop with water. The door is locked until the water is drained: release the button, turn the selector to P (drain) or G (drain and short spin), switch on again.",
+      "The programme can be changed only with the machine switched off: first release the On/Off button, then turn the knob.",
+      "The temperature knob turns both ways; on the snowflake symbol there is no heating.",
+      "The spin is no faster than 500 rpm, and the button with the crossed-out spiral cancels the spin on programmes A-F.",
+      "After a 95 °C programme the machine cools the water to 60 °C by itself before draining."
+    ],
+    "controls": {
+      "power": {
+        "help": "On/Off. Press to start the machine, the \"Programme in progress\" lamp lights. To add laundry while it is running, release the button; press again and the programme continues. Release the button when the wash is finished."
+      },
+      "half": {
+        "help": "Reduced load (no more than 1.75 kg of cotton or linen): saves water on the rinse. Works with A, B, C, D."
+      },
+      "nospin": {
+        "help": "Cancels all spin phases, for particularly delicate cotton and linen. Works with A, B, C, D, F.",
+        "label": "spin off"
+      },
+      "dooropen": {
+        "help": "Opens the loading door. The door is locked during the programme and opens about 1-2 minutes after it ends.",
+        "label": "door"
+      },
+      "temp": {
+        "help": "Turn the knob until the desired temperature appears in the window. It turns both ways. On the snowflake symbol there is no heating."
+      },
+      "lamp": {
+        "help": "\"Programme in progress\" signal lamp: lit while the machine is working, goes out at the end of the programme."
+      },
+      "prog": {
+        "help": "Turn the selector to the right and set it to the desired programme. The programme can be changed only with the machine switched off.",
+        "label": "programme",
+        "zones": {
+          "cotton": "Cotton and linen (A-G)",
+          "delicate": "Synthetics, delicate fabrics, wool (H-P)"
+        },
+        "positions": {
+          "stop": "Stop"
+        }
+      }
+    },
+    "tray": {
+      "help": "The dispenser is removed by pressing the catch at the top left. Do not exceed the MAX mark. Liquid softening and starching additives are poured into the compartment with the flower symbol before the programme starts. Liquid detergent is poured into the main wash compartment just before starting. With concentrated and liquid detergents choose a programme without a prewash.",
+      "compartments": {
+        "I": "Prewash powder",
+        "II": "Main wash powder",
+        "flower": "Rinse additives (softener)"
+      }
+    },
+    "programs": {
+      "A": {
+        "name": "Cotton, linen: heavily soiled, with prewash, 60-95 °C",
+        "note": "Prewash, main wash, 4 rinses, long spin. Consumption 2.0 kWh, 70 l (for 3 kg, at 95 °C)."
+      },
+      "B": {
+        "name": "Cotton, linen: without prewash. 60-95 °C (whites) or 30-60 °C (coloureds, terry)",
+        "note": "The card has two lines with the same letter B: 60-95 °C (sheets, towels, linen) and 30-60 °C (coloured laundry, shirts, blouses). They differ only in the temperature knob. Consumption 1.8 kWh and 59 l at 60-95 °C, 1.03 kWh and 59 l at 30-60 °C; time 135 min in both cases."
+      },
+      "C": {
+        "name": "Short cycle: lightly soiled laundry, 30-40 °C",
+        "note": "Main wash, 4 rinses, long spin. Consumption 0.5 kWh, 59 l."
+      },
+      "D": {
+        "name": "Rinses (no heating)",
+        "note": "4 rinses, long spin. For hand-washed laundry. 0.15 kWh, 45 l."
+      },
+      "F": {
+        "name": "Softening (no heating)",
+        "note": "1 rinse, long spin. For freshly washed laundry that needs starching or softening. 18 l."
+      },
+      "G": {
+        "name": "Spin (with drain)",
+        "note": "Drain and short spin; the usual spin for hand-washed laundry. Also suitable for draining the water after programmes that stop with water."
+      },
+      "H": {
+        "name": "Synthetics and mixed fabrics: heavily soiled, with prewash, 30-60 °C",
+        "note": "Prewash, main wash, 3 rinses, stop with water in the tub. To drain, select P or G. 0.95 kWh, 59 l."
+      },
+      "J": {
+        "name": "Synthetics and mixed fabrics: medium soiling, without prewash, 30-60 °C",
+        "note": "Main wash, 3 rinses, stop with water. 0.8 kWh, 42 l."
+      },
+      "K": {
+        "name": "Light fabrics, 30-40 °C",
+        "note": "Main wash, 3 rinses, stop with water. 0.4 kWh, 45 l."
+      },
+      "L": {
+        "name": "Machine-washable wool and wool with other fibres, 30-40 °C",
+        "note": "Main wash, 3 rinses, stop with water. 0.4 kWh, 45 l."
+      },
+      "M": {
+        "name": "Rinses for delicate fabrics (no heating)",
+        "note": "3 rinses, stop with water. 35 l."
+      },
+      "N": {
+        "name": "Softening rinse (no heating)",
+        "note": "1 rinse, stop with water. For hand-washed laundry. 15 l."
+      },
+      "P": {
+        "name": "Drain (no spin)",
+        "note": "Drains the water after programmes H-N. No spin."
+      }
+    },
+    "rules": [
+      "Programme C: no higher than 40 °C.",
+      "Synthetics (H, J): no higher than 60 °C.",
+      "Light fabrics and wool (K, L): no higher than 40 °C.",
+      "Rinses and softening run without heating: the position of the temperature knob has no effect on them.",
+      "The 1/2 button has no effect on this programme: it works only with A, B, C, D.",
+      "The spin-off and 1/2 buttons are not used on this programme: the card shows no symbols for it.",
+      "The programme ends with water in the tub, the door is locked. To drain the water: release the On/Off button, turn the knob to P (drain) or G (drain and short spin) and switch on again.",
+      "The programme can be changed only with the machine switched off: first release the On/Off button."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Short cycle: main wash, 4 rinses and spin. For lightly soiled laundry.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, medium soiling, 60 °C",
+        "note": "White and coloured cotton and linen laundry without prewash.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "bedding-95": {
+        "title": "Bedding, heavily soiled, 95 °C",
+        "note": "The longest cotton programme: 150 minutes according to the manual.",
+        "dose": {
+          "I": "Prewash powder",
+          "II": "Main wash powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics and mixed fabrics, 40 °C",
+        "note": "Ends with water in the tub: before opening the door drain the water with programme P.",
+        "dose": {
+          "II": "Powder for delicates or gel",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "wool-30": {
+        "title": "Machine-washable wool, 30 °C",
+        "note": "No more than 0.7 kg. Ends with water in the tub.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "4 rinses and a spin without heating, for hand-washed laundry.",
+        "dose": {
+          "flower": "Softener (if desired)"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Drain and short spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Drain without a spin, for example after programmes that stop with water."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on",
+        "causes": [
+          "The loading door is not closed properly.",
+          "Make sure the water tap is open.",
+          "The plug is not inserted properly in the socket.",
+          "The socket has no power.",
+          "A fuse has blown.",
+          "The On/Off button is not pressed."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The water tap is not open.",
+          "The inlet hose filter is blocked.",
+          "The inlet hose is pinched or kinked."
+        ]
+      },
+      {
+        "title": "The machine fills and drains water at once",
+        "causes": [
+          "The end of the drain hose is too low (see the \"Installation\" section)."
+        ]
+      },
+      {
+        "title": "The machine does not drain and/or does not spin",
+        "causes": [
+          "The drain hose is pinched or kinked.",
+          "A programme that ends with water in the tub is selected.",
+          "The spin-off button is pressed."
+        ]
+      },
+      {
+        "title": "Water on the floor",
+        "causes": [
+          "Too much or unsuitable powder (heavy foaming).",
+          "A leak at the inlet hose connections (not always visible, check whether the hose is damp).",
+          "The drain hose is damaged.",
+          "The loading door is not closed properly."
+        ]
+      },
+      {
+        "title": "The machine vibrates or is noisy",
+        "causes": [
+          "The internal packing parts and transport bolts have not been removed.",
+          "The machine touches walls or furniture.",
+          "The feet are not firmly set.",
+          "The laundry is unevenly distributed or there is too little of it."
+        ]
+      },
+      {
+        "title": "The door does not open",
+        "causes": [
+          "The programme is still running.",
+          "The door has not unlocked yet: it opens about 1-2 minutes after the programme ends.",
+          "A programme with a stop with water is selected: drain the water first."
+        ]
+      },
+      {
+        "title": "Powder and foam residues after the wash",
+        "causes": [
+          "Insoluble components of modern powders: this is not a sign of poor rinsing. Brush the laundry clean, wash again if necessary.",
+          "Modern powders can foam even after rinsing; it does not affect the wash quality."
+        ]
+      },
+      {
+        "title": "Unsatisfactory wash result",
+        "causes": [
+          "Not enough powder or an unsuitable choice.",
+          "Stubborn stains were not pre-treated before washing.",
+          "An unsuitable temperature was selected.",
+          "Too much laundry was loaded."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Cabinet",
+        "text": "Wash with a hand dishwashing solution, rinse with clean water and wipe. Do not use products containing alcohol."
+      },
+      {
+        "title": "Door seal",
+        "text": "Check from time to time that there are no foreign objects in the seal: paper clips, buttons, toothpicks."
+      },
+      {
+        "title": "Dispenser",
+        "text": "It is removed by pressing the upper catch on the left; the upper part of the additive compartments can be taken off. Clean the recess under the dispenser with an old toothbrush, then fit the dispenser and run a wash without laundry."
+      },
+      {
+        "title": "Inlet hose filter",
+        "text": "If the water fills slowly: close the tap, unscrew the hose, clean the filter in the hose with a toothbrush, screw the hose back on."
+      },
+      {
+        "title": "Drain hose",
+        "text": "The hose is self-cleaning, there is no drain hose filter, and the pump needs no special care."
+      },
+      {
+        "title": "Emergency water drain",
+        "text": "Pull the plug from the socket, close the tap, wait for the water to cool, put a container on the floor and lower the end of the drain hose into it."
+      },
+      {
+        "title": "Frost protection",
+        "text": "Close the tap, remove the inlet hose, lower the ends of the hoses into a basin, run the drain programme and wait for the selector to return to \"Stop\", pull the plug."
+      },
+      {
+        "title": "First start",
+        "text": "Before the first wash, run a programme at 60 °C without laundry, putting 100 g of powder into the main wash compartment."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The angles of the selector positions (14 positions, evenly round the circle, \"Stop\" at the top) and the marks of the temperature knob (0, 30, 40, 60, 95) are estimates: the manual has only a schematic drawing of the panel and a card with letters.",
+        "The order of the letters on the selector is assumed to be alphabetical (Stop, A, B, C, D, F, G, H, J, K, L, M, N, P). On the card they are printed in two columns; the actual order on the knob is not shown in the manual.",
+        "The \"Stop\" position on the selector follows from the text on frost protection (p. 39: the selector must return to the \"Stop\" position); its place on the scale is not shown.",
+        "The cycle.steps durations are chosen so that together with heating they add up to the total time from the programme table (pp. 36-37); the split into phases is an estimate. Each programme is recorded as a separate chain of steps ending with a step with end.",
+        "The panel colours are taken from the black-and-white drawing in the manual and are nominal; no photo of the machine was used.",
+        "The range of years is an estimate: the manual does not give the year of manufacture.",
+        "The consumption data in the table are for 3 kg of laundry and the warmest water; the time stated includes heating.",
+        "The water volume of the main wash (12 l) is an estimate."
+      ],
+      "gaps": [
+        "The heater power is not given separately: the technical data show only the total power consumption of 1800 W (p. 26), so heaterW is not filled in.",
+        "The exact marks on the temperature knob and the position of the \"cold wash\" on the scale are not given, other than the snowflake symbol.",
+        "The prewash temperature (programmes A and H) is not given.",
+        "The duration of the individual phases within programmes is not given, only the total time.",
+        "The spin speed per programme is not given: only the maximum of 500 rpm is known (p. 26).",
+        "The look of the knobs is not shown in a photo, so the pointer shape and colours are nominal."
+      ]
+    },
+    "sources": [
+      "Zanussi FL 504 NN: operating manual (RU), booklet 132998371",
+      "Model page in the manual archive rembitteh.ru"
+    ]
   }
 }

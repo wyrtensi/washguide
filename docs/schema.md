@@ -177,3 +177,33 @@ and say so in `notes.gaps`.
 | `sourcePage` as string | anywhere | When the manual has no page numbers, a section or table reference, e.g. `"разд. 5, табл. 2"`. |
 | repeated `pos` in `cycle.steps` | cycle | Several sub-steps on one position, or a separate step block per start position for electronic machines (each block ends with `end`). The walk starts at the first step with that `pos`. |
 | preset `set` keyed by knob id | presets | `set` may use a knob's `id` instead of `prog`/`temp`/`spin`. |
+
+## English translation: `en` block
+
+Every machine carries an optional top-level `en` object with English versions of its user-facing
+strings. The Russian fields stay the source of truth; the site falls back to Russian for anything
+missing in `en`. Do not translate text printed on the real panel (knob/button `label`, position
+`label`, tray `mark`) unless it is Russian words — then give the English in `en`.
+
+```jsonc
+"en": {
+  "summary": "...",
+  "years": "late 1990s – early 2000s",
+  "pitfalls": ["...", "..."],                       // same order and count as pitfalls
+  "controls": {                                      // keyed by control id
+    "prog": { "help": "...", "name": "...", "label": "programme",   // label only if the Russian label is a word
+              "zones": { "cotton": "Cotton 1–7" },                  // zone id -> label
+              "positions": { "rinse": "rinse" } }                   // position value -> label, only for word labels
+  },
+  "tray": { "help": "...", "compartments": { "II": "Main wash" } }, // compartment id -> label
+  "programs": { "1": { "name": "...", "note": "..." } },            // keyed by pos
+  "rules": ["...", "..."],                                          // messages, same order as rules
+  "presets": { "everyday-40": { "title": "...", "note": "...", "dose": { "II": "Powder or gel" } } },
+  "troubleshooting": [{ "title": "...", "causes": ["..."] }],       // same order
+  "care": [{ "title": "...", "text": "...", "interval": "..." }],   // same order
+  "notes": { "assumptions": ["..."], "gaps": ["..."] },
+  "sources": ["title 1", "title 2"]                                  // source titles, same order
+}
+```
+
+Keep the English plain and practical (UK/US neutral), same facts as the Russian, no additions.

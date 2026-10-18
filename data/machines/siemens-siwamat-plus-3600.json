@@ -921,5 +921,228 @@
       "Какая именно температура у «белого» и «цветного» белья по программам A, B не указана; значения в presets даны по тексту про клавишу «e» и по замачиванию."
     ]
   },
-  "completeness": "partial"
+  "completeness": "partial",
+  "en": {
+    "summary": "A German machine with a lettered rotary programme selector (A, B, C, D, F, G, H, J, P) and a separate temperature switch that also serves as the power switch (position O). The programme name is not written on the panel; the key to it is only in the programme table, which is missing from the available copy of the manual.",
+    "years": "approximately the 1990s (approximate, the manual does not give the year)",
+    "pitfalls": [
+      "Programmes are marked with the letters A, B, C, D, F, G, H, J, P. What each letter washes can only be seen from the arc on the knob ring (whites and coloureds, synthetics and outerwear, wool) and from the programme table.",
+      "The temperature switch is also the main power switch: position O means \"off\". The machine starts when it is moved from O to the desired temperature.",
+      "First turn the programme selector clockwise to the desired letter, and only then move the temperature switch from O to the desired value.",
+      "The programme can be changed at any time, but first turn the temperature switch to O: the machine switches off. Then choose the new letter and set the temperature again.",
+      "The programme knob turns by itself as the programme runs and shows the current stage by the symbols on the ring.",
+      "The programmes for whites and coloureds automatically end with a spin. The programmes for synthetics and wool end without a spin unless the spin button is pressed: the laundry stays in the water (\"rinse hold\").",
+      "To finish a synthetics or wool wash: press the spin button (8) or turn the selector to P (pumping out the water without a spin).",
+      "The loading hatch opens about 1 minute after switching off or when the \"open hatch\" lamp lights. The lock is engaged during the wash.",
+      "A prewash is needed only for heavily soiled laundry: normally soiled laundry is washed with a programme without it. With a prewash the powder is split: about 1/4 into compartment I and 3/4 into compartment II.",
+      "For soaking, starching and dyeing the manual has its own sequences (F, G, B, C), see the sections \"Soaking\" and \"Starching\"."
+    ],
+    "controls": {
+      "spin": {
+        "help": "Spin mode key (8). For whites and coloureds it sets the speed: released is high spin, pressed is low spin. For synthetics and wool the pressed key switches on the spin at the end of the programme. The speeds depend on the version of the machine: for example 900/700, 1000/800, 1100/800, 1200/800, 1300/800.",
+        "label": "rpm"
+      },
+      "eco": {
+        "help": "Economy mode key (9): wash at a lower temperature (whites 60 instead of 95 °C, coloureds 40 instead of 60 °C) with a longer main wash. Saves up to 40 percent of electricity."
+      },
+      "short": {
+        "help": "Short programme key (10): shortens each stage, the total duration is about 55 percent shorter. The prewash is skipped automatically. For a small amount of lightly soiled laundry.",
+        "label": "short programme"
+      },
+      "highwater": {
+        "help": "Higher water level key (11): more water for washing and rinsing. For delicate items (curtains, outerwear), soaking, starching and areas with very soft water.",
+        "label": "water level"
+      },
+      "gentle": {
+        "help": "Gentle laundry treatment key (12; not on all versions): less mechanical action, the drum stands still longer and turns less.",
+        "label": "gentle mode"
+      },
+      "lamp-work": {
+        "help": "\"Operating mode\" lamp (14): lit while the machine is on.",
+        "label": "operating mode"
+      },
+      "lamp-door": {
+        "help": "\"Open hatch\" lamp (15): lit when the lock of the loading hatch is released.",
+        "label": "open hatch"
+      },
+      "temp": {
+        "help": "Temperature switch (13) with power switch and dial indicator. O means \"off\", I is cold water. The manual names the marks 40, 60 and 95 °C; there are no intermediate marks in the text."
+      },
+      "prog": {
+        "help": "Rotary programme selector (16) with a dial showing the progress of the programme. Turn clockwise to the desired letter. Symbols on the ring: U with one bar is prewash, U with two bars is main wash, a tub with a wave is rinse, a spiral is spin, a flower is the start of the rinse with softener. The positions of the marks are taken from the diagram on p. 16, angles are approximate; on the diagram the programme runs anticlockwise round the ring.",
+        "zones": {
+          "cotton": "Whites and coloureds: A, B, C",
+          "synthetic": "Easy-care laundry, outerwear, curtains: D, F, G",
+          "wool": "Wool: H, J",
+          "drain": "Pumping out water: P"
+        },
+        "positions": {
+          "end-ws": "end",
+          "soft-ws": "softener",
+          "rinse-ws": "rinse",
+          "end-n": "end",
+          "soft-n": "softener",
+          "rinse-n": "rinse",
+          "end-w": "end",
+          "soft-w": "softener",
+          "rinse-w": "rinse"
+        }
+      }
+    },
+    "tray": {
+      "help": "A pull-out drawer with compartments. From left to right in the picture: II main wash, flower for softener, I prewash. The drawer has a blue insert for liquid detergents (placed in compartment II and put away in the spare slot when using powder) and a water hardness reminder disc: use a coin to turn the disc so that the arrow matches the water hardness in your area. The drawer itself is pulled out towards you as far as it goes, lifted and taken out.",
+      "compartments": {
+        "II": "Main wash (the insert for liquid detergent also goes here)",
+        "flower": "Softeners for the rinse (\"max\" mark, do not fill above it)",
+        "I": "Prewash"
+      }
+    },
+    "programs": {
+      "A": {
+        "name": "Whites and coloureds, with prewash",
+        "note": "For heavily soiled laundry. Prewash, main wash, rinses, spin. With the short programme key the prewash is skipped. The manual does not give temperatures from the programme table."
+      },
+      "B": {
+        "name": "Whites and coloureds, without prewash",
+        "note": "The main programme for normally soiled laundry. Also used for starching (together with C)."
+      },
+      "C": {
+        "name": "Spin for whites and coloureds",
+        "note": "Spin only. Used, for example, after starching."
+      },
+      "D": {
+        "name": "Easy-care laundry, outerwear, curtains, with prewash",
+        "note": "Ends without a spin, with a rinse hold (the laundry stays in the water), unless the spin key is pressed. Temperatures from the table are not given."
+      },
+      "F": {
+        "name": "Easy-care laundry, outerwear, curtains, without prewash",
+        "note": "Ends with a rinse hold unless the spin key is pressed. For soaking: F, temperature no higher than 40 °C, switch off after 20 minutes."
+      },
+      "G": {
+        "name": "Spin for easy-care laundry",
+        "note": "Spin only. Used to finish soaking."
+      },
+      "H": {
+        "name": "Wool",
+        "note": "Washing and rinsing run automatically with the highest water level. After the programme the laundry either stays in the water or, with the spin key pressed, gets a gentle or short spin."
+      },
+      "J": {
+        "name": "Wool spin",
+        "note": "Short spin for wool."
+      },
+      "P": {
+        "name": "Pumping out the water without a spin",
+        "note": "Drains the water without spinning. Needed to finish a synthetics or wool programme without a spin."
+      }
+    },
+    "rules": [
+      "The programme can be changed at any time, but first turn the temperature switch to O: the machine switches off. Then choose the new letter and set the temperature again.",
+      "With the short programme key the prewash is skipped automatically, so A turns into B.",
+      "Without the spin key pressed, the programme ends with water in the drum. Turn the selector to P to drain the water, or press the spin key.",
+      "The \"e\" key (economy mode) suits laundry from lightly to normally soiled: whites at 60 instead of 95 °C, coloureds at 40 instead of 60 °C."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday coloureds, 40 °C",
+        "note": "Programme B without prewash.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "heavy-60": {
+        "title": "Heavily soiled whites, 60 °C",
+        "note": "Programme A with prewash.",
+        "dose": {
+          "I": "Powder (about 1/4 of the dose)",
+          "II": "Powder (about 3/4 of the dose)"
+        }
+      },
+      "eco-40": {
+        "title": "Lightly soiled laundry in economy mode",
+        "note": "The \"e\" key lengthens the main wash and allows a lower temperature.",
+        "dose": {
+          "II": "Powder"
+        }
+      },
+      "quick": {
+        "title": "Short programme for a small load",
+        "note": "The short programme key cuts the time by about 55 percent.",
+        "dose": {
+          "II": "Powder (about half the dose for a half load)"
+        }
+      },
+      "synthetic-gentle": {
+        "title": "Synthetics and outerwear, gently",
+        "note": "Programme F, temperature 40 °C taken from the soaking section of the manual, then follow the care label. The pressed spin key switches on the spin at the end.",
+        "dose": {
+          "II": "Powder or gel",
+          "flower": "Softener (if desired)"
+        }
+      },
+      "wool": {
+        "title": "Wool",
+        "note": "Temperature I (cold water) is chosen cautiously: the manual does not name a temperature for wool.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Position C: spin for whites and coloureds."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Position P pumps out the water without a spin."
+      }
+    },
+    "care": [
+      {
+        "title": "Detergent drawer and overflow insert",
+        "text": "Pull the drawer out towards you as far as it goes, lift it and take it out, pushing past the spring catch. Take the overflow insert out of the drawer and rinse everything under running water, push the insert back in as far as it goes. After repeated rinses with softeners always clean the insert, otherwise softener residues may block it."
+      },
+      {
+        "title": "Drum and rubber seal",
+        "text": "Do not leave metal objects (paper clips, pins) in the drum or the folds of the seal: they may rust. Remove rust with a chlorine-free product, do not use wire brushes."
+      },
+      {
+        "title": "Limescale deposits",
+        "text": "With correct dosing, descaling is usually not needed; if necessary use only special products for washing machines with corrosion protection."
+      },
+      {
+        "title": "Screens (filters) on the water inlet hose",
+        "text": "Clean the screen at the water tap and in the solenoid valve connector on the back of the machine from time to time. Close the tap, relieve the pressure in the hose (selector on A, switch on for 30 seconds), unscrew the hose, pull the screen out of the solenoid valve with pliers and clean it with a brush under running water."
+      },
+      {
+        "title": "Frost protection",
+        "text": "In a room where freezing is a risk, drain the remaining water from the pump and hoses: close the tap, empty the inlet hose, run any programme so that the residual water runs out, then empty the pump."
+      },
+      {
+        "title": "Cleaning the wash water pump",
+        "text": "The pump needs cleaning only if buttons, paper clips and similar objects have blocked it and the water is not pumped out. Pull the plug from the socket, open the plinth panel (turn the plastic heads with a coin), drain the water through the drain hose (b) into a low container, unscrew the pump cover (a) to the left, remove the foreign objects, screw the cover back, close the plug and close the panel. Let hot liquid cool first. Before the next wash set A, fill the machine with water, then set P and switch on again."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The manual in the available copy is in Russian, scanned in spreads; the page numbers (sourcePage) are the printed page numbers on the scans (contents: programme sequence p. 16, setting the programme 17, soaking 18, maintenance 20-23).",
+        "The meaning of the letters is determined from the \"Programme sequence\" diagram on p. 16 and from the texts of the sections \"Soaking\", \"Starching\", \"End of the programme\": A prewash and main wash, B main wash, C spin (whites and coloureds), D prewash and main wash, F main wash, G spin (easy-care laundry), H main wash of wool, J wool spin, P pumping out. This is a reconstruction from the diagram, not from a ready-made table.",
+        "On the diagram the programme runs round the ring anticlockwise (the symbols from prewash to spin decrease in angle), so the cycle.steps cycles are described from the starting letter forward along this ring.",
+        "The angles of the marks on the programme knob are taken from the diagram on p. 16 (degrees clockwise from 12 o'clock), approximately; the timerOnly marks (rinse, softener, end) are stages of the ring, not selectable positions. The angular positions of the temperature marks are estimated evenly because they are not on the diagram (anglesEstimate).",
+        "The durations of all stages are estimates: the manual gives no programme times. Typical values for machines with heating are used.",
+        "The panel colours (face, ink) are approximate: the available copy has only black-and-white scans, and no photo of the machine was viewed.",
+        "The page number for the keys (pp. 13-15), for setting the programme (17) and for the end of the programme (17) is taken from the contents."
+      ],
+      "gaps": [
+        "The available copy has no programme table: the temperatures per programme, the load (kg), the number of rinses, the duration and the water and energy consumption are not known.",
+        "The drum capacity, maximum speed (the manual says it depends on the version), heater power and the exact year of manufacture are not given.",
+        "The marks of the temperature switch are named in the text only partly (O, I, 40, 60, 95); the others are not known. Because of this the temperatures in presets are limited to 40, 60, I.",
+        "There is no troubleshooting table in this copy: the section \"Notes on possible faults\" contains only general guidance (p. 23), so troubleshooting is empty.",
+        "For wool (H, J) the temperature and the purpose of the \"J\" mark after the rinse are determined from the diagram, while the text about them is scant.",
+        "The exact temperature for \"whites\" and \"coloureds\" in programmes A, B is not given; the values in presets are based on the text about the \"e\" key and on soaking."
+      ]
+    },
+    "sources": [
+      "Operating manual Siemens Siwamat Plus 3600 (RU, scan, in spreads)"
+    ]
+  }
 }

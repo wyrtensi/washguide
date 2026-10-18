@@ -1166,5 +1166,333 @@
       "Длительность по каждой программе даётся в таблице только в минутах без разбивки на фазы.",
       "Год выпуска и фото панели не найдены."
     ]
+  },
+  "en": {
+    "summary": "Front-loading Indesit with two knobs (programme and temperature) and three buttons without text labels. The spin speed is not chosen with a separate knob, and a programme starts only after the power button is pressed and a 5-second wait.",
+    "years": "approx. 2000-2008 (estimate, the manual does not say)",
+    "pitfalls": [
+      "The programme knob can only be turned clockwise. After choosing the programme and pressing the power button, wait 5 seconds: the blinking lamp becomes steady, and only then does the cycle start.",
+      "To cancel a programme or choose another one, set the knob to the \"•\" mark (Stop/Reset) and wait 5 seconds. Simply switching off with the button does not cancel the programme.",
+      "Buttons D, E, F on the panel have no text, only symbols. D is easy iron, E is slow spin (down to 400 rpm), F is stain removal.",
+      "On programmes 5, 6, 8, 9 the easy-iron button stops the machine with water in the drum: the knob stops at the drain symbol and you have to drain the water yourself.",
+      "In the programme table, 2 and 3 differ only in temperature and time, and the temperature on knob B sets the maximum. The same programme number can wash at different temperatures.",
+      "Easy iron and stain removal are not compatible: press only one of the two buttons (p. 7).",
+      "The door is locked and stays closed for about 3 minutes after the end of the cycle: wait until the lock lamp goes out."
+    ],
+    "controls": {
+      "iron": {
+        "help": "Button D. Washing without creasing. Only with programmes 3-4, 5-6, 8-9. On 5, 6, 8, 9 the programme knob stops at the drain symbol and does not drain the water from the drum; the wash can be finished by pressing the button again. Cannot be used together with the stain removal button.",
+        "label": "Easy iron"
+      },
+      "slow": {
+        "help": "Button E. Reduces the spin speed: from 800 to 400 rpm on cotton and from 700 to 400 rpm on synthetics.",
+        "label": "Slow spin"
+      },
+      "stain": {
+        "help": "Button F. Intensive wash: detergent additives work more effectively and stubborn soiling is removed. After pressing it the prewash is not available. Also used for bleaching (insert 4 in compartment 1).",
+        "label": "Stain removal"
+      },
+      "power": {
+        "help": "Button G, on/off. Switching the machine off does not cancel the programme that was set."
+      },
+      "lamp-power": {
+        "help": "Lamp H. Blinks when the machine is on and waiting for a setting; a steady light means the setting is accepted and the wash has started. The special pattern lit 2 s, off 4 s means a delayed start is set."
+      },
+      "lamp-door": {
+        "help": "Lamp I. Lit while the door is locked. Goes out about 3 minutes after the end of the wash; do not open the door before that."
+      },
+      "temp": {
+        "help": "Knob B. Sets the wash temperature according to the programme table; you can choose lower than recommended or a cold wash (snowflake symbol). The manual does not give labels for the knob marks."
+      },
+      "prog": {
+        "help": "Knob A. Turn clockwise only. Align the marker on the knob with the number of the programme you want. After the start the knob turns by itself; to cancel, set it to \"•\" and wait 5 seconds.",
+        "label": "Programmes",
+        "zones": {
+          "cotton": "Durable fabrics (cotton, linen)",
+          "synthetic": "Synthetics",
+          "delicate": "Delicate fabrics",
+          "delay": "Delayed start"
+        },
+        "positions": {
+          "rinse-c": "rinse",
+          "spin-c": "spin",
+          "rinse-s": "rinse",
+          "soften": "softener",
+          "spin-s": "spin",
+          "rinse-d": "rinse",
+          "spin-d": "spin",
+          "drain": "drain",
+          "d18": "18 h",
+          "d12": "12 h",
+          "d8": "8 h",
+          "d3": "3 h"
+        }
+      }
+    },
+    "tray": {
+      "help": "The drawer slides out towards you. To clean it, lift it slightly, take it out and hold it under running water for a few minutes. Insert 4 for bleach is supplied with the machine and goes into compartment 1; fill no higher than the max mark. Liquid detergent is poured into compartment 2 before switching the machine on. Do not use softener and starch together.",
+      "compartments": {
+        "1": "Compartment 1: prewash powder (insert 4 for bleach goes here)",
+        "2": "Compartment 2: main wash detergent (powder or liquid)",
+        "3": "Compartment 3: additives (softener, fragrance), not above the grille"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Cotton, very heavily soiled whites, with prewash",
+        "note": "Sheets, tablecloths. Prewash, wash at 90 °C, rinse, intermediate and final spin. Prewash and button F are not compatible."
+      },
+      "2": {
+        "name": "Cotton, heavily soiled whites",
+        "note": "Sheets, tablecloths. Wash at 90 °C, rinse, intermediate and final spin."
+      },
+      "3": {
+        "name": "Cotton, moderately soiled whites and coloureds that run",
+        "note": "Wash at 60 °C, rinse, intermediate and final spin."
+      },
+      "4": {
+        "name": "Cotton, lightly soiled whites and delicate coloureds",
+        "note": "Shirts, vests. Wash at 40 °C, rinse, intermediate and final spin."
+      },
+      "rinse-c": {
+        "name": "Rinse / bleach (durable fabrics)",
+        "note": "Rinse, intermediate and final spin. For bleaching on its own, pour bleach into insert 4 and press button F."
+      },
+      "spin-c": {
+        "name": "Spin (durable fabrics)",
+        "note": "Drain and final spin."
+      },
+      "5": {
+        "name": "Synthetics, colourfast coloureds, heavily soiled",
+        "note": "Children's clothes. Wash at 60 °C, rinse, stop with water (with easy iron on) or delicate spin."
+      },
+      "6": {
+        "name": "Synthetics, delicate coloureds, lightly soiled",
+        "note": "Any clothes. Wash at 40 °C, rinse, stop with water (with easy iron) or delicate spin."
+      },
+      "7": {
+        "name": "Synthetics, delicate coloureds, lightly soiled: everyday wash 30 minutes (Daily wash)",
+        "note": "Quick programme at 30 °C; different fabrics can be washed together, except wool and silk; 3 kg maximum; liquid detergent recommended. Wash at 30 °C, rinse, delicate spin."
+      },
+      "rinse-s": {
+        "name": "Rinse / bleach (synthetics)",
+        "note": "Rinse, stop with water or delicate spin."
+      },
+      "soften": {
+        "name": "Softening (synthetics)",
+        "note": "Rinse, automatic addition of softener, stop with water or delicate spin."
+      },
+      "spin-s": {
+        "name": "Spin (synthetics)",
+        "note": "Drain and delicate spin."
+      },
+      "8": {
+        "name": "Delicate fabrics meant for hand washing",
+        "note": "Wash at 40 °C, rinse and delicate spin."
+      },
+      "9": {
+        "name": "Extra delicate items (curtains, silk, viscose)",
+        "note": "Wash at 30 °C, rinse, stop with water or drain; no spin. Curtains: no more than half the normal load."
+      },
+      "rinse-d": {
+        "name": "Rinse (delicate fabrics)",
+        "note": "Rinse, stop with water or drain."
+      },
+      "spin-d": {
+        "name": "Delicate spin",
+        "note": "Delicate spin and drain."
+      },
+      "drain": {
+        "name": "Drain",
+        "note": "Drain only."
+      },
+      "d18": {
+        "name": "Delayed start in 18 hours",
+        "note": "After setting the delay, set the wash programme you want."
+      },
+      "d12": {
+        "name": "Delayed start in 12 hours",
+        "note": "After setting the delay, set the wash programme."
+      },
+      "d8": {
+        "name": "Delayed start in 8 hours",
+        "note": "After setting the delay, set the wash programme."
+      },
+      "d3": {
+        "name": "Delayed start in 3 hours",
+        "note": "After setting the delay, set the wash programme."
+      }
+    },
+    "rules": [
+      "Easy iron works only with programmes 3-4, 5-6 and 8-9. On programmes 1, 2 and 7 release the button.",
+      "If the stain removal button is pressed, the prewash (programme 1) is not available."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Cotton, lightly soiled, 95 minutes per the table. Shirts, vests, delicate coloureds.",
+        "dose": {
+          "2": "Powder or gel",
+          "3": "Softener if desired"
+        }
+      },
+      "cotton-60": {
+        "title": "Linen and towels, 60 °C",
+        "note": "Moderately soiled whites and colourfast coloureds, 130 minutes.",
+        "dose": {
+          "2": "Powder",
+          "3": "Softener if desired"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding and tablecloths, 90 °C",
+        "note": "Heavily soiled whites. For very dirty items: programme 1 with prewash (compartment 1).",
+        "dose": {
+          "2": "Powder"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Delicate coloured clothes, 70 minutes. Maximum 2.5 kg in a mixed load.",
+        "dose": {
+          "2": "Powder or gel"
+        }
+      },
+      "quick-30": {
+        "title": "Quick wash 30 minutes",
+        "note": "Daily wash: lightly soiled clothes at 30 °C, no more than 3 kg, no wool or silk.",
+        "dose": {
+          "2": "Liquid detergent"
+        }
+      },
+      "delicate-30": {
+        "title": "Extra delicate, curtains, 30 °C",
+        "note": "Silk, viscose, curtains (folded into a pillowcase). No spin, stops with water or drains.",
+        "dose": {
+          "2": "Delicate detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "Rinse with intermediate and final spin for durable fabrics.",
+        "dose": {
+          "3": "Softener if desired"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Drain and final spin. Button E can reduce the speed to 400 rpm."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Drains the water without spinning, for example after a stop with water."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on",
+        "causes": [
+          "The plug is not in the socket or there is no power.",
+          "The door is not closed properly.",
+          "Whether power button G is pressed; if it is pressed but the machine does not work, a delayed start may have been set.",
+          "Programme knob A is not in the correct position.",
+          "The water tap is closed or there is no water in the house."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The hose is connected incorrectly or pinched.",
+          "The water is shut off in the house or the pressure is low.",
+          "The filter on the inlet hose is blocked."
+        ]
+      },
+      {
+        "title": "The programme knob keeps turning",
+        "causes": [
+          "Wait a few minutes for the pump to empty the water, switch the machine off, set the knob to \"•\" (Stop/Reset) and switch on again. If it keeps turning, call service."
+        ]
+      },
+      {
+        "title": "The machine fills and drains water at the same time",
+        "causes": [
+          "The end of the drain hose is too low: a height of 60-100 cm is needed.",
+          "The end of the hose is submerged in water.",
+          "There is no air vent in the drain system; on upper floors a siphon effect is possible, an anti-siphon is fitted."
+        ]
+      },
+      {
+        "title": "It does not drain or spin",
+        "causes": [
+          "A programme without automatic draining is selected: the drain must be started manually.",
+          "Easy iron is on (stop with water).",
+          "The drain pump or filter is blocked, the drain hose is pinched or blocked, or there is a blockage in the sewer."
+        ]
+      },
+      {
+        "title": "Strong vibration during spin",
+        "causes": [
+          "The transport restraints have not been removed (p. 21).",
+          "The machine is not level.",
+          "There is no gap between the machine and the wall or furniture."
+        ]
+      },
+      {
+        "title": "Water is leaking",
+        "causes": [
+          "The ring of the inlet hose is not tightened properly or the gasket is seated wrongly.",
+          "The detergent drawer is blocked.",
+          "The drain hose is not fixed properly."
+        ]
+      },
+      {
+        "title": "Too much foam",
+        "causes": [
+          "The detergent is not suitable for front-loading automatic machines.",
+          "Too much detergent."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "After washing",
+        "text": "Close the water tap, leave the door slightly open so that odours do not build up, and unplug the machine when going away or servicing it."
+      },
+      {
+        "title": "Detergent drawer",
+        "text": "Lift slightly and take out the drawer, hold it under running water for a few minutes. Rinse regularly so that powder residues do not dry up."
+      },
+      {
+        "title": "Pump filter",
+        "text": "The machine has a self-cleaning pump, but small objects can get into the filter at the bottom. Before removing the panel with a screwdriver, disconnect the machine from the mains, place a container underneath, turn the filter cap anticlockwise, clean it, screw it back and refit the panel."
+      },
+      {
+        "title": "Inlet hose and limescale",
+        "text": "Check the hose at least once a year and replace it if cracked. With hard water, run an empty wash with a descaler from time to time."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The manual describes the W 84 TX and W 84 TK together. Page 5 shows three round keys and two knobs; there is no spin speed knob (the WS 84 TX has one, it is a separate model).",
+        "The order of positions on the programme knob follows the order of the rows in the table on p. 8: 1-4, rinse, spin, stop; 5-7, rinse, softener, spin, stop; 8-9, rinse, spin, drain, stop; four delayed-start positions, stop. 25 positions in all, angles are evenly spaced and approximate. Position labels replace the pictograms with text.",
+        "The values on the temperature knob (cold, 30, 40, 60, 90) are derived from the programme temperatures and the text on cold washing; the scale itself is not shown in the manual, angles are nominal.",
+        "The durations of cycle.steps are chosen so that the timer time plus the heating estimate roughly gives the total times from the table (165, 145, 130, 95, 100, 70, 30, 60, 50 min). The split into phases and the chain of steps are not confirmed by the manual (for positions 2, 3 and 4 they are assumed to follow one another).",
+        "The water volume in the main wash (8 l) is an estimate; the manufacturer only says that half as much water is used. The 1850 W in the manual is the maximum power of the machine, not of the heater.",
+        "For programmes 5-6 (synthetics) the table says \"stop with water or delicate spin\"; it is assumed that without easy iron the cycle ends with a spin and with it with a stop with water (p. 7). For programme 9, no spin is assumed based on p. 9 and similar text of a related model.",
+        "The panel colours (light grey plastic, dark lettering) are typical for the series; no photo of this particular machine was used.",
+        "The year of manufacture is not given in the manual; the range is estimated from the series."
+      ],
+      "gaps": [
+        "The manual does not give the prewash temperature or the spin speed for the delicate programmes 8-9.",
+        "In the table on p. 9 the symbol in the \"Detergent\" column against the \"Rinse\" row for synthetics is ambiguous; compartments for these rows are not set.",
+        "Labels of the marks on the temperature knob and the exact angles of the positions on the programme knob are absent from the manual.",
+        "The duration of each programme is given in the table only in minutes without a split into phases.",
+        "The year of manufacture and a photo of the panel were not found."
+      ]
+    },
+    "sources": [
+      "Indesit W 84 TX, W 84 TK: Operating manual (RU, 35 pp.), scan on McGrp",
+      "Indesit WS 84 TX: Manual (a close relative from the same series; text cross-check)"
+    ]
   }
 }

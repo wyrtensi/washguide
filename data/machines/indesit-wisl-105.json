@@ -1423,5 +1423,339 @@
       "Длительность отсрочки: на с. 7 сказано \"вплоть до 9 ч\", конкретные шаги кнопки не указаны, тут они не заданы.",
       "Объём воды, мощность нагревателя отдельно от общей мощности 1850 Вт не указаны."
     ]
+  },
+  "en": {
+    "summary": "A late Indesit without a display: a programme knob with numbers 1-13 and special positions, separate temperature and spin knobs, four unlabelled function buttons and a separate Start/Reset button.",
+    "years": "approx. 2007-2012 (estimate, the manual does not say)",
+    "pitfalls": [
+      "Switching the machine on is not enough: after choosing the programme, temperature and spin you still have to press the Start/Reset button. To cancel a start, hold it for 2 seconds.",
+      "During the cycle the programme knob stays still, so you cannot see the cycle from it: four LEDs show the progress of the programme (prewash, wash, rinse, spin).",
+      "The four function buttons have no labels: delay, stain removal (bleaching), easy iron, extra rinse. If a function does not suit the programme, its button often blinks and the function does not switch on.",
+      "One knob position can wash at different temperatures: programmes 2 and 4 are repeated several times in the table, and the temperature is chosen by a separate knob.",
+      "Easy iron on programmes 4-7 stops the machine with water in the drum; the cycle can be finished with the Start/Reset button, or drain the water by setting the knob to drain.",
+      "Programme 7 (silk, curtains) has no spin; bleaching is not possible with it or with programme 11.",
+      "The door opens only after the \"Power/Door locked\" indicator starts to blink; after a delay the door cannot be opened."
+    ],
+    "controls": {
+      "led-prewash": {
+        "help": "Phase indicator: prewash. Shows the progress of the programme; with a delay the indicators show the remaining time.",
+        "label": "prewash"
+      },
+      "led-wash": {
+        "help": "Phase indicator: wash.",
+        "label": "wash"
+      },
+      "led-rinse": {
+        "help": "Phase indicator: rinse.",
+        "label": "rinse"
+      },
+      "led-spin": {
+        "help": "Phase indicator: spin (it is also lit during draining).",
+        "label": "spin"
+      },
+      "delay": {
+        "help": "Delay timer, up to 9 hours. Press several times until the desired value; the fifth press switches the function off. After Start/Reset the value can only be reduced. Works with all programmes. While a delay is running the door cannot be opened.",
+        "label": "Delay"
+      },
+      "stain": {
+        "help": "Bleaching cycle for stubborn soiling. Pour bleach into insert 4 (in compartment 1). Available with programmes 2, 3, 4, 5 and rinse; not combined with easy iron.",
+        "label": "Stain removal"
+      },
+      "iron": {
+        "help": "Less creasing. On programmes 4, 5, 6, 7 it interrupts the cycle without draining (stop with water). Available with programmes 3-10 and rinse. Not combined with stain removal.",
+        "label": "Easy iron"
+      },
+      "xrinse": {
+        "help": "Improves rinsing efficiency; useful with a full load or a lot of detergent. Available with programmes 1-5, 8-10, 12, 13 and rinse.",
+        "label": "Extra rinse"
+      },
+      "start": {
+        "help": "Start/Reset: starts the programme. To cancel a programming mistake, hold it pressed for 2 seconds.",
+        "label": "Start/Reset"
+      },
+      "lamp-power": {
+        "help": "\"Power / Door locked\" indicator: blinks after switching on, lit while the door is locked; blinks at the end - the door can be opened. Rapid blinking together with another indicator means a fault."
+      },
+      "power": {
+        "help": "Button for switching the machine on and off."
+      },
+      "spin": {
+        "help": "Spin speed: cotton up to 1000, synthetics up to 800, wool up to 600, silk no spin. The machine will not let you set a speed above the programme maximum. The position with the crossed-out symbol cancels the spin.",
+        "label": "Spin",
+        "positions": {
+          "0": "no spin"
+        }
+      },
+      "temp": {
+        "help": "The temperature can be lowered down to a cold wash (snowflake). It cannot be set higher than the one provided for the programme."
+      },
+      "prog": {
+        "help": "Programme selection. The manual does not state the direction of rotation. The knob does not turn during the cycle.",
+        "label": "Programmes",
+        "zones": {
+          "usual": "Standard programmes",
+          "foryou": "4 programmes for you",
+          "sport": "Sport",
+          "partial": "Partial programmes"
+        },
+        "positions": {
+          "rinse": "rinse",
+          "spin": "spin",
+          "drain": "drain"
+        }
+      }
+    },
+    "tray": {
+      "help": "The drawer slides out and is removed by lifting it. Insert 4 for bleach goes into compartment 1, fill no higher than max; a prewash is not possible with the insert in place. Liquid washing detergent is poured into compartment 2 just before the start.",
+      "compartments": {
+        "1": "Compartment 1: prewash powder (insert 4 for bleach goes here)",
+        "2": "Compartment 2: washing detergent (powder or liquid)",
+        "3": "Compartment 3: additives (softener, fragrance), not above the grille"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Very heavily soiled whites (sheets, tablecloths), with prewash",
+        "note": "Prewash, wash, rinse, intermediate and final spin. Load up to 5 kg for durable fabrics (p. 8)."
+      },
+      "2": {
+        "name": "Heavily soiled whites and colourfast coloureds",
+        "note": "Three temperatures on one position: 90 °C - 125 min (very dirty whites), 60 °C - 110 min (whites and colourfast coloureds), 40 °C - 105 min (coloureds that run). The recommended programme for a first wash without laundry: 90 °C without prewash (p. 3)."
+      },
+      "3": {
+        "name": "Lightly soiled whites and coloureds that run",
+        "note": "Sheets, tablecloths, etc. Wash, rinse, intermediate and final spin."
+      },
+      "4": {
+        "name": "Heavily soiled colourfast coloureds (children's clothes)",
+        "note": "Two temperatures: 60 °C - 75 min, 40 °C - 60 min. Wash, rinse, stop with water (with the easy-iron function) or delicate spin."
+      },
+      "5": {
+        "name": "Lightly soiled coloureds that run (any clothes)",
+        "note": "Wash, rinse, stop with water (with easy iron) or delicate spin."
+      },
+      "6": {
+        "name": "Wool",
+        "note": "Wash, rinse, stop with water and delicate spin. Wool: no more than 1 kg, liquid wool detergent (p. 8)."
+      },
+      "7": {
+        "name": "Extra delicate fabrics and clothes (curtains, silk, viscose)",
+        "note": "Wash, rinse, stop with water or drain; the spin is excluded automatically. Curtains: no more than half the drum load, folded into a pillowcase (p. 8). Bleaching is not possible with this programme."
+      },
+      "8": {
+        "name": "Heavily soiled colourfast coloureds (\"4 programmes for you\")",
+        "note": "Wash, rinse, intermediate and final spin. A load of no more than 3.5 kg is recommended (note on p. 6)."
+      },
+      "9": {
+        "name": "Lightly soiled whites and coloureds that run (shirts, vests)",
+        "note": "Wash, rinse, intermediate and final spin. Load no more than 3.5 kg (p. 6)."
+      },
+      "10": {
+        "name": "Lightly soiled coloureds that run (any clothes)",
+        "note": "Wash, rinse, delicate spin."
+      },
+      "11": {
+        "name": "Lightly soiled coloureds that run: everyday wash 30 minutes",
+        "note": "Quick wash for lightly soiled laundry; different fabrics can be washed together, except wool and silk; up to 3 kg; liquid detergent is better. Wash, rinse, delicate spin."
+      },
+      "12": {
+        "name": "Sports shoes (max. 2 pairs)",
+        "note": "Wash in cold water without detergent, then wash, rinse and delicate spin."
+      },
+      "13": {
+        "name": "Sportswear (tracksuits, shorts)",
+        "note": "Wash, rinse, intermediate and final spin. A load of no more than 2 kg is recommended (p. 6)."
+      },
+      "rinse": {
+        "name": "Rinse and spin",
+        "note": "Partial programme \"Rinse and spin\"; softener in compartment 3. For bleaching on its own, pour bleach into insert 4 and select this programme."
+      },
+      "spin": {
+        "name": "Drain and spin",
+        "note": "Partial programme \"Spin\": drain and spin."
+      },
+      "drain": {
+        "name": "Drain",
+        "note": "Partial programme \"Drain\"."
+      }
+    },
+    "rules": [
+      "Stain removal (bleaching cycle) is available only with programmes 2, 3, 4, 5 and with rinse.",
+      "Easy iron is available only with programmes 3-10 and with rinse.",
+      "Extra rinse is available with programmes 1-5, 8-10, 12, 13 and with rinse."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Lightly soiled whites and coloureds, 70 minutes per the table.",
+        "dose": {
+          "2": "Powder or gel",
+          "3": "Softener if desired"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, 60 °C",
+        "note": "Heavily soiled whites and colourfast coloureds, 110 minutes. Position 2 washes at 90 and at 40 °C as well: the knob sets the temperature.",
+        "dose": {
+          "2": "Powder",
+          "3": "Softener if desired"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding, towels, 90 °C",
+        "note": "Very dirty whites, 125 minutes. For the dirtiest: programme 1 with prewash, 135 minutes.",
+        "dose": {
+          "2": "Powder"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Lightly soiled coloureds, 60 minutes, load up to 2.5 kg.",
+        "dose": {
+          "2": "Powder or gel"
+        }
+      },
+      "quick-30": {
+        "title": "Quick wash 30 minutes",
+        "note": "Everyday wash: up to 3 kg of lightly soiled laundry, no wool or silk.",
+        "dose": {
+          "2": "Liquid detergent"
+        }
+      },
+      "wool-40": {
+        "title": "Wool, 40 °C",
+        "note": "No more than 1 kg, 50 minutes, spin up to 600 rpm.",
+        "dose": {
+          "2": "Wool detergent"
+        }
+      },
+      "delicate-30": {
+        "title": "Silk, curtains, 30 °C",
+        "note": "No spin, stop with water or drain. Fold curtains into a pillowcase, no more than half a load.",
+        "dose": {
+          "2": "Delicate detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "Partial programme \"Rinse and spin\".",
+        "dose": {
+          "3": "Softener if desired"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Drain and spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Drain the water, for example after a stop with water."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on / the cycle does not start",
+        "causes": [
+          "The plug is not inserted or there is no power in the house.",
+          "The door is not closed properly.",
+          "The power button or the Start/Reset button has not been pressed.",
+          "The water tap is closed.",
+          "A delayed start (timer) is set."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water",
+        "causes": [
+          "The hose is not connected to the tap or is pinched.",
+          "The tap is closed, there is no water in the house or the pressure is low.",
+          "The Start/Reset button has not been pressed."
+        ]
+      },
+      {
+        "title": "The machine keeps filling and draining water",
+        "causes": [
+          "The drain hose is lower than 65 or higher than 100 cm from the floor.",
+          "The end of the drain hose is submerged in water.",
+          "A wall drain without an air valve; on upper floors a siphon effect can occur, an anti-siphon valve is needed."
+        ]
+      },
+      {
+        "title": "It does not drain or spin",
+        "causes": [
+          "The programme does not include draining, so the drain must be started manually.",
+          "Easy iron is on: press Start/Reset to finish.",
+          "The drain hose is pinched or blocked, or there is a blockage in the sewer."
+        ]
+      },
+      {
+        "title": "Strong vibration during spin",
+        "causes": [
+          "The drum was not unlocked correctly during installation (transport bolts).",
+          "The machine is not level.",
+          "Not enough gap to the wall or furniture."
+        ]
+      },
+      {
+        "title": "Water is leaking",
+        "causes": [
+          "The inlet hose is not screwed on tightly.",
+          "The detergent drawer is blocked.",
+          "The drain hose is not fixed properly."
+        ]
+      },
+      {
+        "title": "The \"Power/Door locked\" indicator blinks rapidly together with another indicator",
+        "causes": [
+          "This means a fault: contact an authorised service centre."
+        ]
+      },
+      {
+        "title": "Too much foam",
+        "causes": [
+          "The detergent is not suitable for front-loading automatic machines.",
+          "Too much detergent."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Pump filter",
+        "text": "Disconnect the machine from the mains. Remove the lower panel with a screwdriver, unscrew the filter cap anticlockwise (a little water will run out), clean it, screw it back, and refit the panel so that the hooks go into the loops."
+      },
+      {
+        "title": "Detergent drawer",
+        "text": "Lift slightly and take out the drawer, rinse under running water; do this regularly."
+      },
+      {
+        "title": "Door and drum",
+        "text": "After washing leave the door slightly open so that odours and mould do not appear."
+      },
+      {
+        "title": "Tap and inlet hose",
+        "text": "Close the tap after every wash. Check the hose at least once a year and replace it if cracked."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The order of positions on the programme knob is assumed to follow ascending numbers (1-13) and then the partial programmes (rinse, spin, drain) in the order of the rows of the table on p. 6; the printed order on the knob is not shown in the manual. Angles are nominal.",
+        "The values on the temperature knob (cold, 30, 40, 60, 90) and the spin knob (0, 600, 800, 1000) are derived from the values in the tables; the manual gives no intermediate marks.",
+        "Programme numbers 2 and 4 are repeated in the table at different temperatures; programs[] holds the variant with the highest temperature, the others are in the note. The cycle.steps durations are taken from the highest variant.",
+        "The cycle.steps phases are split in proportion to the total duration in the table (the sum equals the figure from the table). This is an estimate: the machine has electronic control and the manual does not give the times of individual phases. Heating is not added separately (timerPausesForHeating: false) because the figures in the table already include it.",
+        "The durations of the partial programmes (rinse, spin, drain) are not given in the manual and are estimated at 30, 12 and 3 minutes.",
+        "The fabric category of programmes 8-13 is derived from the row description; in the table they are grouped as \"4 programmes for you\" and \"Sport\".",
+        "The labels of the four function buttons are in the order in which they are listed in the table on p. 7; the real order on the panel is not shown in the manual. The LED colour is not stated.",
+        "The panel colours (light plastic, dark lettering) are typical for the series; no photo of this particular machine was used.",
+        "The year of manufacture is not given in the manual; the range is estimated from the series."
+      ],
+      "gaps": [
+        "The spin speed for programmes 8-13 is not given in the manual (a general table by fabric type is given).",
+        "The direction of rotation of the programme knob and the labels on it are not described in the manual.",
+        "Delay duration: p. 7 says \"up to 9 h\", the specific button steps are not given and are not set here.",
+        "The water volume and the heater power separate from the total power of 1850 W are not given."
+      ]
+    },
+    "sources": [
+      "Indesit WISL 105: Operating manual (RU, 12 pp.), scan on McGrp"
+    ]
   }
 }

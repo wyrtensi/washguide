@@ -1,13 +1,21 @@
 import * as E from './engine.js';
 import * as R from './render.js';
+import { T } from './i18n.js';
 
-const BASE = new URL('../', import.meta.url);
+const LANG = document.documentElement.lang === 'en' ? 'en' : 'ru';
+const tr = T[LANG];
+const BASE = new URL(document.body.dataset.langRoot || './', location.href);
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 const store = {
   get(k) { try { return localStorage.getItem(k); } catch { return null; } },
   set(k, v) { try { localStorage.setItem(k, v); } catch { /* storage unavailable */ } }
 };
+
+// keep the current setting when switching language
+document.querySelectorAll('[data-lang-switch]').forEach(a => a.addEventListener('click', () => {
+  if (location.search) a.href = a.href.split('?')[0] + location.search;
+}));
 
 // ---------- theme ----------
 $('[data-theme-toggle]')?.addEventListener('click', () => {
@@ -54,7 +62,7 @@ if (topInput && suggest) {
     active = -1;
     suggest.innerHTML = res.length
       ? res.map(({ e }) => `<a href="${new URL(e.url, BASE).pathname}"><b>${R.esc(e.brand)} ${R.esc(e.model)}</b><span>${R.esc(e.features.slice(0, 3).join(' · '))}</span></a>`).join('')
-      : '<p>Ничего не нашлось</p>';
+      : `<p>${tr.nothing}</p>`;
     suggest.hidden = false;
   };
   topInput.addEventListener('input', render);
@@ -211,11 +219,11 @@ function initMachine(m) {
     if (c.role === 'program') {
       const before = E.position(c, state.prog), after = E.position(c, value);
       if (c.rotation === 'cw-only' && before && after && after.angle < before.angle) {
-        lastWarn = `На машине эта ручка крутится только по часовой: чтобы попасть с ${E.label(before)} на ${E.label(after)}, проведите её вперёд через точку стопа.`;
+        lastWarn = tr.cwWarn(E.label(before), E.label(after));
       }
       if (m.panel.programChangeWhenOff) {
         const pw = m.panel.controls.find(x => x.role === 'power');
-        lastWarn = (lastWarn ? lastWarn + ' ' : '') + (pw ? `Поворачивайте при выключенной кнопке ${pw.label || 'питания'}.` : '');
+        lastWarn = (lastWarn ? lastWarn + ' ' : '') + (pw ? tr.offWarn(pw.label || tr.powerWord) : '');
       }
       state = E.withProgramDefaults(m, { ...state, prog: value });
     } else if (c.role === 'temperature') state = { ...state, temp: value };
@@ -287,12 +295,12 @@ function initMachine(m) {
     const log = careLog();
     $$('[data-care]').forEach(el => {
       const d = log[el.dataset.care];
-      $('[data-care-last]', el).textContent = d ? `Последний раз: ${d}` : 'Ещё не отмечено';
+      $('[data-care-last]', el).textContent = d ? tr.careLast(d) : tr.careNever;
     });
   };
   $$('[data-care-done]').forEach(b => b.addEventListener('click', () => {
     const log = careLog();
-    log[b.dataset.careDone] = new Date().toLocaleDateString('ru-RU');
+    log[b.dataset.careDone] = new Date().toLocaleDateString(tr.locale);
     store.set(careKey, JSON.stringify(log));
     drawCare();
   }));
@@ -305,11 +313,7 @@ function initMachine(m) {
 }
 
 // ---------- laundry weight ----------
-const ITEMS = [
-  ['Простыня', 500], ['Пододеяльник', 800], ['Наволочка', 200], ['Рубашка, футболка', 200],
-  ['Джинсы, брюки', 600], ['Пижама', 450], ['Банное полотенце', 400], ['Полотенце для рук', 120],
-  ['Махровый халат', 1200], ['Свитер', 500], ['Куртка', 1000], ['Скатерть', 250]
-];
+const ITEMS = [500, 800, 200, 200, 600, 450, 400, 120, 1200, 500, 1000, 250].map((g, i) => [tr.items[i], g]);
 
 function initLoad(m, getState) {
   const el = $('[data-load]');
@@ -321,14 +325,14 @@ function initLoad(m, getState) {
     const p = E.program(m, getState().prog);
     const limit = (p?.loadKg || m.capacityKg || 5) * 1000;
     const pct = Math.min(100, Math.round(g / limit * 100));
-    let advice = 'Добавьте вещи, чтобы посчитать вес сухого белья.';
+    let advice = tr.loadEmpty;
     let cls = '';
-    if (g > limit) { advice = `Перегруз для текущей программы (до ${limit / 1000} кг). Разделите на две стирки.`; cls = 'bad'; }
-    else if (g > 0 && half && g <= limit / 2) { advice = `Мало белья: можно нажать кнопку «${half.label || 'половинная загрузка'}».`; cls = 'good'; }
-    else if (g > 0) { advice = 'Загрузка в норме.'; cls = 'good'; }
-    el.innerHTML = `<p class="hint">Вес сухих вещей примерный. Лимит берётся из выбранной программы.</p>
-      <div class="load-grid">${ITEMS.map(([n, w], i) => `<div class="load-item"><span>${n}<small>${w} г</small></span><div class="stepper"><button type="button" data-d="-1" data-i="${i}" aria-label="Меньше">−</button><b>${counts[i]}</b><button type="button" data-d="1" data-i="${i}" aria-label="Больше">+</button></div></div>`).join('')}</div>
-      <div class="load-sum ${cls}"><b>${(g / 1000).toFixed(1).replace('.', ',')} кг</b> из ${limit / 1000} кг<div class="meter"><i style="width:${pct}%"></i></div><p>${advice}</p></div>`;
+    if (g > limit) { advice = tr.loadOver(limit / 1000); cls = 'bad'; }
+    else if (g > 0 && half && g <= limit / 2) { advice = tr.loadHalf(half.label || tr.halfWord); cls = 'good'; }
+    else if (g > 0) { advice = tr.loadOk; cls = 'good'; }
+    el.innerHTML = `<p class="hint">${tr.loadHint}</p>
+      <div class="load-grid">${ITEMS.map(([n, w], i) => `<div class="load-item"><span>${n}<small>${w} ${tr.g}</small></span><div class="stepper"><button type="button" data-d="-1" data-i="${i}" aria-label="${tr.less}">−</button><b>${counts[i]}</b><button type="button" data-d="1" data-i="${i}" aria-label="${tr.more}">+</button></div></div>`).join('')}</div>
+      <div class="load-sum ${cls}"><b>${tr.num((g / 1000).toFixed(1))} ${tr.kg}</b> ${tr.of} ${tr.num(limit / 1000)} ${tr.kg}<div class="meter"><i style="width:${pct}%"></i></div><p>${advice}</p></div>`;
   };
   el.addEventListener('click', ev => {
     const b = ev.target.closest('[data-d]');

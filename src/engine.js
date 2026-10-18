@@ -1,8 +1,9 @@
 // Pure machine logic shared by the build script (prerender) and the browser (interaction).
 // No DOM access here.
 
-const WATER_KJ_PER_KG_K = 4.186;
+import { L } from './i18n.js';
 
+const WATER_KJ_PER_KG_K = 4.186;
 
 export function controlsByRole(m, role) {
   return m.panel.controls.filter(c => c.role === role);
@@ -17,16 +18,11 @@ export function knob(m, role) {
       || m.panel.controls.find(c => c.type === 'slider' && c.role === role);
 }
 
-const SYMBOL_NAMES = {
-  power: 'питание', 'half-load': 'половинная загрузка', 'water-stop': 'остановка с водой', 'no-spin': 'без отжима',
-  spin: 'отжим', rinse: 'полоскание', 'extra-rinse': 'дополнительное полоскание', prewash: 'предварительная стирка',
-  eco: 'экономия', intensive: 'интенсивная стирка', start: 'старт', drain: 'слив', delicate: 'деликатная', wool: 'шерсть'
-};
 
 // Human name of a control for text: printed label if it reads as a word, else what its symbol means.
-export function controlTitle(c) {
+export function controlTitle(c, m) {
   if (c.name) return c.name;
-  const sym = SYMBOL_NAMES[c.symbol];
+  const sym = L(m).symbolNames[c.symbol];
   if (c.label && sym && c.label.length <= 3) return `${c.label} (${sym})`;
   return c.label || sym || c.id;
 }
@@ -221,9 +217,10 @@ export function conflicts(m, state) {
   const tempC = selectedTempC(m, state);
   const rpm = selectedRpm(m, state);
   const t = timing(m, state);
+  const tr = L(m);
 
   if (progPos?.stop) {
-    out.push({ level: 'error', message: 'Ручка программ стоит на точке стопа: машина ничего не будет делать. Поверните её на номер программы.' });
+    out.push({ level: 'error', message: tr.cStop });
     return out;
   }
   if (p) {
@@ -231,8 +228,8 @@ export function conflicts(m, state) {
       out.push({
         level: p.tempMaxC === 0 ? 'info' : 'error',
         message: p.tempMaxC === 0
-          ? 'Эта программа не греет воду: ручка температуры ни на что не влияет.'
-          : `Для программы ${label(progPos)} не выше ${p.tempMaxC} °C, выбрано ${tempC} °C.`,
+          ? tr.cNoHeat
+          : tr.cTempMax(label(progPos), p.tempMaxC, tempC),
         sourcePage: p.sourcePage
       });
     }
@@ -240,14 +237,14 @@ export function conflicts(m, state) {
       out.push({
         level: 'warn',
         message: p.spinMaxRpm === 0
-          ? 'Программа не отжимает: ручка отжима ни на что не влияет.'
-          : `Для этой ткани отжим не выше ${p.spinMaxRpm} об/мин, выбрано ${rpm}.`,
+          ? tr.cNoSpin
+          : tr.cSpinMax(p.spinMaxRpm, rpm),
         sourcePage: p.sourcePage
       });
     }
     for (const b of optionButtons(m)) {
       if (state.options[b.id] && p.options && !p.options.includes(b.id)) {
-        out.push({ level: 'warn', message: `Кнопка «${controlTitle(b)}» с этой программой не используется.`, sourcePage: p.sourcePage });
+        out.push({ level: 'warn', message: tr.cOption(controlTitle(b, m)), sourcePage: p.sourcePage });
       }
     }
   }
@@ -262,10 +259,10 @@ export function conflicts(m, state) {
     if (hit) out.push({ level: r.level || 'warn', message: r.message, sourcePage: r.sourcePage });
   }
   if (t.missingCycle && !p) {
-    out.push({ level: 'warn', message: 'Для этого положения нет данных о программе.' });
+    out.push({ level: 'warn', message: tr.cNoData });
   }
   if (!t.missingCycle && !t.heats && tempC && tempC > 0 && !(p && p.tempMaxC === 0)) {
-    out.push({ level: 'info', message: 'На этом участке цикла вода не нагревается: температура не влияет.' });
+    out.push({ level: 'info', message: tr.cNoHeatHere });
   }
   const order = { error: 0, warn: 1, info: 2 };
   return dedupe(out).sort((a, b) => order[a.level] - order[b.level]);
@@ -281,24 +278,16 @@ export function label(pos) {
   return pos.short || pos.label;
 }
 
-export function formatMin(min) {
+export function formatMin(min, m) {
   if (min == null) return '';
+  const tr = L(m);
   const h = Math.floor(min / 60);
   const mm = Math.round(min % 60);
-  if (!h) return `${mm} мин`;
-  return mm ? `${h} ч ${mm} мин` : `${h} ч`;
+  return h ? tr.hm(h, mm) : tr.min(mm);
 }
 
-export const END_TEXT = {
-  stop: 'Остановится сама и сольёт воду',
-  'water-stop': 'Остановится с водой в баке',
-  drain: 'Сольёт воду и остановится'
-};
-
-export const PHASE_TEXT = {
-  heat: 'Нагрев', prewash: 'Предстирка', wash: 'Стирка', rinse: 'Полоскания',
-  softener: 'Кондиционер', spin: 'Отжим', drain: 'Слив', soak: 'Замачивание', pause: 'Пауза'
-};
+export const endText = (m, end) => L(m).end[end] || '';
+export const phaseText = (m, ph) => L(m).phase[ph] || ph;
 
 // What to do next when the cycle ends with water in the drum: find the first spin step after
 // the end of the walk on the same dial.
@@ -316,13 +305,14 @@ export function continueAfterWaterStop(m, state) {
 // Short human summary of where each control must be.
 export function settingsList(m, state) {
   const rows = [];
+  const tr = L(m);
   for (const c of m.panel.controls) {
     if (c.type === 'knob' || c.type === 'slider') {
       const val = c.role === 'program' ? state.prog : c.role === 'temperature' ? state.temp : c.role === 'spin' ? state.spin : null;
       const pos = position(c, val);
       if (pos) rows.push({ id: c.id, role: c.role, control: c.label || c.role, value: pos.label, pos });
     } else if (c.type === 'button' && c.role === 'option') {
-      rows.push({ id: c.id, role: 'option', control: controlTitle(c), value: state.options[c.id] ? 'нажата' : 'отжата', pressed: Boolean(state.options[c.id]) });
+      rows.push({ id: c.id, role: 'option', control: controlTitle(c, m), value: state.options[c.id] ? tr.pressed : tr.released, pressed: Boolean(state.options[c.id]) });
     }
   }
   return rows;
@@ -357,21 +347,21 @@ export function searchKeys(text) {
 
 // Features a visitor might search by, derived from the data.
 export function features(m) {
+  const tr = L(m);
   const f = [];
   const pk = knob(m, 'program');
-  const progCount = m.programs.length;
-  f.push(`${progCount} программ`);
+  f.push(tr.fPrograms(m.programs.length));
   const knobs = m.panel.controls.filter(c => c.type === 'knob').length;
-  if (knobs) f.push(`${knobs} ${plural(knobs, 'ручка', 'ручки', 'ручек')}`);
+  if (knobs) f.push(tr.fKnobs(knobs));
   const buttons = m.panel.controls.filter(c => c.type === 'button').length;
-  if (buttons) f.push(`${buttons} ${plural(buttons, 'кнопка', 'кнопки', 'кнопок')}`);
-  if (pk?.rotation === 'cw-only') f.push('ручка только по часовой');
-  if (m.programs.some(p => p.ends === 'water-stop')) f.push('остановка с водой');
-  if (pk && pk.positions.every(p => p.stop || /^[0-9]+$/.test(p.label))) f.push('программы цифрами');
-  if (pk && pk.positions.some(p => /^[A-Za-zА-Яа-я]$/.test(p.label))) f.push('программы буквами');
-  f.push(m.loading === 'top' ? 'вертикальная загрузка' : 'фронтальная загрузка');
-  if (m.capacityKg) f.push(`до ${String(m.capacityKg).replace('.', ',')} кг`);
-  if (m.maxSpinRpm) f.push(`${m.maxSpinRpm} об/мин`);
+  if (buttons) f.push(tr.fButtons(buttons));
+  if (pk?.rotation === 'cw-only') f.push(tr.fCw);
+  if (m.programs.some(p => p.ends === 'water-stop')) f.push(tr.fWaterStop);
+  if (pk && pk.positions.every(p => p.stop || p.timerOnly || /^[0-9]+$/.test(p.label))) f.push(tr.fDigits);
+  if (pk && pk.positions.some(p => /^[A-Za-zА-Яа-я]$/.test(p.label))) f.push(tr.fLetters);
+  f.push(m.loading === 'top' ? tr.fTop : tr.fFront);
+  if (m.capacityKg) f.push(tr.fKg(m.capacityKg));
+  if (m.maxSpinRpm) f.push(tr.fRpm(m.maxSpinRpm));
   return f;
 }
 

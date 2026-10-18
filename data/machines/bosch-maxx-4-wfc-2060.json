@@ -1511,5 +1511,367 @@
       "Мощность нагревателя и точный год выпуска в инструкции не указаны.",
       "Стр. 24 (сервис) и стр. 26-36 (установка и подключение) не использованы."
     ]
+  },
+  "en": {
+    "summary": "German machine with a single program knob where the temperature is built into the knob positions (30, 40, 60, 90) and shown by symbols, plus a separate spin speed selector. Control is electronic: the knob does not turn during the wash, and the program is started with the \"Start\" button. The panel is confusing because the same numbers appear next to different symbols.",
+    "years": "approx. 2002-2008 (approximate, the manual gives no year)",
+    "pitfalls": [
+      "The program knob switches the machine on and off; it can be turned in both directions. During the wash the knob does not turn: control is electronic, and the lamps show how the program is progressing.",
+      "The program starts only with the \"Start\" button (diamond) after you choose it with the knob. Without it the wash will not begin and the \"Ready\" lamp will stay lit.",
+      "The temperature is set by the knob position itself: on the right part of the scale are coloureds (30, 40, 60), \"60 and a stain symbol\" is the intensive wash, \"90\" is whites, \"60 plus a tub\" is coloureds with prewash. On the left are synthetics (30, 40, 60), the dress symbol 30 for delicates, wool and hand wash (15 and 30).",
+      "The numbers 30 and 60 appear two or three times on the scale with different symbols. Look at the symbol next to it, not just the number.",
+      "To change the program, set the knob to \"off\" (O), then to the new program and press \"Start\" again.",
+      "To interrupt a program, set the knob to O, then to \"Drain\" or \"Spin\" and press \"Start\".",
+      "The spin speed selector (on the left) with the \"no spin\" position (tub symbol) has to be set to that position manually: with \"no spin\" the laundry stays in the water, and then the \"Drain\" or \"Spin\" program is needed.",
+      "In the \"Delicates\", \"Synthetics\" and \"Wool\" programs the spin automatically runs at lower speed, regardless of the selector position.",
+      "The door does not open at once: wait about 2 minutes, or if \"no spin\" is selected and water remains in the tub, choose \"Drain\" or \"Spin\".",
+      "The first wash runs on \"Whites 90\" without laundry, with about 1 litre of water and half a measuring cup of powder in compartment II."
+    ],
+    "controls": {
+      "start": {
+        "help": "\"Start\" button (diamond): starts the selected program. The \"Wash\" lamp lights up.",
+        "label": "Start"
+      },
+      "crease": {
+        "help": "A special spin process followed by loosening of the laundry: after the spin the laundry lies loose in the drum, which prevents creasing. Do not wash more laundry at once than is allowed, and take the laundry out right after the spin.",
+        "label": "Anti-crease"
+      },
+      "extrarinse": {
+        "help": "Adds one extra rinse; the wash duration is lengthened accordingly. Recommended with very soft water.",
+        "label": "Extra rinse"
+      },
+      "quick": {
+        "help": "Shortened wash: only two rinses. Suitable for lightly soiled laundry, up to 2 kg.",
+        "label": "Quick wash"
+      },
+      "spinsel": {
+        "help": "Centrifuge speed selector. The basic knob position is up. In the \"no spin\" position (tub symbol) the laundry stays in the water of the last rinse; before taking it out the \"Drain\" or \"Spin\" program is needed. Shows the values from the panel diagram, the angles are approximate.",
+        "label": "rpm",
+        "positions": {
+          "0": "no spin"
+        }
+      },
+      "lamps": {
+        "help": "Three lamps: \"End\" (O) is lit when the program has finished; \"Wash\" (|) is lit after pressing \"Start\" and during the program; \"Ready\" (power symbol) is lit if a program is selected. A flashing \"Ready\" means the door is not closed."
+      },
+      "prog": {
+        "help": "Program selection: switches the machine on and off. Position O is off. The temperature is shown next to the position; the symbols differ for the same number. The \"15\" position next to the wool symbol is taken as a cold wash (the manual says \"Wool cold, 30 °C\"), the mark angles are taken from the panel diagram, approximate.",
+        "label": "programs",
+        "zones": {
+          "cotton": "Whites and coloureds (right part of the scale)",
+          "synthetic": "Synthetics (shirt on a hanger)",
+          "delicate": "Delicates (dress)",
+          "wool": "Wool and hand wash",
+          "service": "Rinse, spin, drain"
+        },
+        "positions": {
+          "intensive-60": "60 (stains)",
+          "rinse": "Rinse",
+          "spin": "Spin",
+          "drain": "Drain",
+          "wool-30": "30 (wool)",
+          "wool-15": "15 (wool)",
+          "fine-30": "30 (delicates)"
+        }
+      }
+    },
+    "tray": {
+      "help": "Drawer with three compartments (from left to right in the picture: II, flower, I). Compartment I is for prewash, starching and soaking; compartment II is for the main wash, water softening, bleaching and stain removal; the compartment with the flower is for fabric softener and shaping products. Pour softener no higher than the lower edge of insert 1; dilute thick products slightly with water before loading. To clean, pull the drawer out to the stop, press the recess in the insert and take it out completely.",
+      "compartments": {
+        "II": "Main wash, water softening, bleaching, stain removal",
+        "flower": "Fabric softener, shaping (up to the mark on insert 1)",
+        "I": "Prewash, starching, soaking"
+      }
+    },
+    "programs": {
+      "white-90": {
+        "name": "Whites 90 °C",
+        "note": "The most energy-hungry program, for cotton and linen that can withstand boiling. To protect the pipes, the hot solution is mixed with about 5 litres of cold water before draining. 1.6 kWh, 52 l."
+      },
+      "intensive-60": {
+        "name": "Intensive wash, stain removal 60 °C",
+        "note": "For stained, very dirty laundry with energy saving: a longer duration with reduced energy use. 0.66 kWh, 45 l."
+      },
+      "col-60-pre": {
+        "name": "Coloureds 60 °C, prewash",
+        "note": "For durable textiles. The table gives no data on duration and consumption."
+      },
+      "col-30": {
+        "name": "Coloureds 30 °C",
+        "note": "For durable textiles. The consumption table has no separate row for 30 °C."
+      },
+      "col-40": {
+        "name": "Coloureds 40 °C",
+        "note": "For durable textiles. 0.4 kWh, 45 l at 3.5 kg (at 2 kg: 32 l, 70 min)."
+      },
+      "col-60": {
+        "name": "Coloureds 60 °C",
+        "note": "For durable textiles. 0.7 kWh, 45 l at 3.5 kg (at 2 kg: 0.5 kWh, 32 l, 70 min)."
+      },
+      "syn-30": {
+        "name": "Synthetics 30 °C",
+        "note": "For textiles needing special care, made of cotton, synthetics or mixed fibres. The spin automatically runs at lower speed."
+      },
+      "syn-40": {
+        "name": "Synthetics 40 °C",
+        "note": "Like 30 and 60, but at 40 °C. 0.4 kWh, 45 l, 75 min at 2 kg."
+      },
+      "syn-60": {
+        "name": "Synthetics 60 °C",
+        "note": "For textiles needing special care. The table gives no consumption data for 60 °C."
+      },
+      "fine-30": {
+        "name": "Delicates 30 °C",
+        "note": "For sensitive textiles made of cotton, synthetics, silk or mixed fibres, and for curtains. No intermediate spin between stages. 0.3 kWh, 50 l, 45 min."
+      },
+      "wool-30": {
+        "name": "Wool, cold, 30 °C (mark 30)",
+        "note": "For woollen or part-wool items suitable for machine washing. 0.2 kWh, 35 l, 45 min. The spin automatically runs at lower speed."
+      },
+      "wool-15": {
+        "name": "Wool, cold (mark 15)",
+        "note": "Taken from the label \"Wool cold, 30 °C\": two marks (15 and 30) next to the wool symbol. The manual does not explicitly explain which means what."
+      },
+      "rinse": {
+        "name": "Rinse",
+        "note": "A separate rinse process ending with a spin; for textiles that do not need special care."
+      },
+      "spin": {
+        "name": "Spin",
+        "note": "A separate spin stage, when the solution or the water after rinsing is pumped out before the spin."
+      },
+      "drain": {
+        "name": "Drain",
+        "note": "Pumping out the water after rinsing if \"no spin\" is selected (spin selector on the tub symbol)."
+      }
+    },
+    "rules": [
+      "Wool: no higher than 30 °C. A higher temperature will cause shrinkage.",
+      "Delicates: no higher than 30 °C.",
+      "In the synthetics, delicates and wool programs the spin automatically runs at lower speed, regardless of the selector (per the table the maximum is: synthetics and wool 800, delicates 600).",
+      "Quick wash: recommended load no more than 2 kg; only two rinses, for lightly soiled laundry.",
+      "If the spin selector is on \"no spin\", the laundry stays in the water: after the program choose \"Drain\" or \"Spin\", otherwise the door will not open.",
+      "To change the program, first set the knob to O (off), then to the new program and press \"Start\"."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday cotton clothes, 40 °C",
+        "note": "Coloureds 40 °C, up to 3.5 kg.",
+        "dose": {
+          "II": "Powder or gel",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "everyday-60": {
+        "title": "Normally soiled laundry, 60 °C",
+        "note": "Coloureds 60 °C.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding and towels, 90 °C",
+        "note": "For laundry that can withstand boiling. The program is energy-hungry.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "stains-60": {
+        "title": "Stained, very dirty, 60 °C",
+        "note": "Intensive wash 60 °C for stain removal: longer, but with lower energy use.",
+        "dose": {
+          "II": "Powder"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Up to 2 kg, the spin automatically runs at lower speed.",
+        "dose": {
+          "II": "Powder or gel",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "fine-30": {
+        "title": "Delicates and curtains, 30 °C",
+        "note": "Up to 2 kg, no intermediate spin.",
+        "dose": {
+          "II": "Detergent for delicates"
+        }
+      },
+      "wool-30": {
+        "title": "Wool, 30 °C",
+        "note": "Up to 2 kg.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "quick-40": {
+        "title": "Quick wash of lightly soiled items",
+        "note": "Only two rinses; a load of up to 2 kg is recommended.",
+        "dose": {
+          "II": "Powder"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "Rinse with spin.",
+        "dose": {
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "A separate spin."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Draining the water after rinsing if the spin selector was on \"no spin\"."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The loading door does not open",
+        "causes": [
+          "The \"Spin off\" program is selected: set \"Drain\" or \"Spin\".",
+          "The door lock function is active: wait two minutes."
+        ]
+      },
+      {
+        "title": "Some of the detergent stays in the drawer",
+        "causes": [
+          "The detergent is damp or lumpy: wash the drawer and wipe it dry, as described on p. 17."
+        ]
+      },
+      {
+        "title": "The program does not start, the \"Ready\" indicator lamp flashes",
+        "causes": [
+          "The loading door is not closed: check that no item is trapped between the door and the opening, and close the door properly (a click should be heard)."
+        ]
+      },
+      {
+        "title": "The indicator lamps do not light",
+        "causes": [
+          "The fuse has tripped: replace or reset it; if it trips again, call service.",
+          "The power was cut: the program will continue when it is restored.",
+          "The plug is not inserted in the socket or is loose in it."
+        ]
+      },
+      {
+        "title": "The program does not start",
+        "causes": [
+          "The \"Start\" key has not been pressed."
+        ]
+      },
+      {
+        "title": "No water enters the machine or the detergent is not flushed in, the \"Wash\" lamp flashes",
+        "causes": [
+          "The water tap is closed: open it.",
+          "The supply hose is kinked or squeezed.",
+          "The filters in the supply hose are clogged: clean them as described on p. 19."
+        ]
+      },
+      {
+        "title": "The detergent is not flushed out of compartment I",
+        "causes": [
+          "A program without prewash was chosen: choose \"Coloureds 60 °C, prewash\"."
+        ]
+      },
+      {
+        "title": "No water is visible in the drum",
+        "causes": [
+          "Everything is fine: the water is below the visible part of the drum."
+        ]
+      },
+      {
+        "title": "The detergent solution is not fully pumped out, the \"End\" lamp flashes",
+        "causes": [
+          "The pump that drains the solution is blocked by foreign objects: clean it (p. 18).",
+          "The drain pipe or hose is blocked with lint or threads: clean the drain pipe and/or hose."
+        ]
+      },
+      {
+        "title": "Water leaks from under the machine",
+        "causes": [
+          "The supply hose connection is not tight: tighten the thread.",
+          "The drain hose is leaking: replace the drain hose."
+        ]
+      },
+      {
+        "title": "Foam comes out of the drawer",
+        "causes": [
+          "Too much detergent was used: mix a tablespoon of fabric softener with 1/2 litre of water and pour it into compartment II; dose more precisely next time."
+        ]
+      },
+      {
+        "title": "The machine performs repeated spins",
+        "causes": [
+          "Everything is fine: the electronic control system has registered an imbalance and is trying to correct it."
+        ]
+      },
+      {
+        "title": "The program takes longer than usual",
+        "causes": [
+          "Everything is fine: the electronic system has registered an imbalance and is trying to correct it: wash large and small items together.",
+          "The foam detection system has added an extra rinse: choose a suitable program."
+        ]
+      },
+      {
+        "title": "The wash result is unsatisfactory",
+        "causes": [
+          "The laundry was more soiled than expected: choose a suitable program.",
+          "Too little detergent was used: dose precisely."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Cleaning the washing machine",
+        "text": "First disconnect the machine from the mains, do not wash it with a jet of water. Wipe the cabinet with a soap solution without abrasives, and dry it at the end. Never use solvents."
+      },
+      {
+        "title": "Cleaning the drum",
+        "text": "If metal objects were left in the drum and rust has appeared, clean the drum with chlorine-free products. Steel scouring pads must not be used."
+      },
+      {
+        "title": "Limescale",
+        "text": "With correct dosing, descaling is not required. If it is still needed, use products according to the manufacturer's instructions; they contain acids and may damage parts."
+      },
+      {
+        "title": "Cleaning the detergent drawer",
+        "text": "Pull the drawer out to the stop, press the recess in the insert and take the drawer out completely. Take out the insert by pulling it up, rinse it under running water, fix the insert and put the drawer back."
+      },
+      {
+        "title": "Cleaning the pump",
+        "text": "Needed if the solution is not fully pumped out. Set the knob to O, fold down the plinth cover, open the pump cover carefully, only enough for the water to run into a container placed underneath (up to 20 litres may come out, at up to 90 °C). Close the cover when the container is half full and empty the water, repeat. Remove lint and foreign objects, the impeller must turn freely, then screw the cover back on and close the plinth. After that pour 1 litre of water into compartment II and run the \"Drain\" program."
+      },
+      {
+        "title": "Filters in the supply hose",
+        "text": "Clean them if no water, or little water, enters with the tap open. First release the pressure: close the tap, set the knob to any program except \"Spin\" and \"Drain\", press \"Start\" and let the program run for about 40 seconds."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The machine has electronic control: the program knob does not turn during the wash, so the cycle.steps are tied to the knob position as a choice of program, not to the progress of a timer. The model in the data is simplified to electromechanical.",
+        "The durations from the consumption table (p. 25) refer to a load of 3.5 kg (cotton) or 2 kg (synthetics, delicates, wool) and include heating. Therefore timerPausesForHeating=false, heats is not given for the stages; the breakdown by stage within the duration is an estimate (cycle.estimate=true).",
+        "For the knob positions \"30°\", \"60+\", \"15\" the purpose was determined from the panel diagram (p. 4) and the text of pp. 9-10: \"30°/40/60\" are coloureds, \"60+tub\" is coloureds with prewash, \"15\" and \"30\" next to the wool symbol are wool. Treating the \"15\" mark as a cold wash is an assumption.",
+        "The mark angles are taken from the panel diagram on p. 4, approximately (0 = 12 o'clock, clockwise).",
+        "The maximum speed table (p. 12) gives 1000 for whites and coloureds, 800 for synthetics, wool, rinse and spin, 600 for delicates.",
+        "The panel colours are approximate: the photo of the machine was not viewed, the diagrams in the manual are grey.",
+        "The page numbers (sourcePage) match the printed numbers of the file.",
+        "The manual covers the Maxx 4 series; the WFC 2060 panel and the tables in the data are taken from it."
+      ],
+      "gaps": [
+        "The consumption table (p. 25) has no rows for \"Synthetics 30 and 60\", \"Coloureds 30\", \"Coloureds 60 with prewash\"; consumption and time for them are unknown.",
+        "The manual does not make clear which extra functions are allowed with each program individually; general rules are given only in the text (quick wash up to 2 kg, combining functions is possible).",
+        "The temperatures \"15\" and \"30\" next to the wool symbol and the difference between them are not explained in the text.",
+        "The heater power and the exact year of manufacture are not given in the manual.",
+        "P. 24 (service) and pp. 26-36 (installation and connection) were not used."
+      ]
+    },
+    "sources": [
+      "Operating manual Bosch Maxx 4 WFC 2060 (RU, copy from a service site)"
+    ]
   }
 }

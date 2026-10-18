@@ -1381,5 +1381,329 @@
       "Не названа длительность отсрочки по шагам (сказано \"вплоть до 12 часов\").",
       "Таблица на с. 6 не указывает отделение для предварительной стирки: для программы 1 принято отделение 1 по общему описанию лотка на с. 8."
     ]
+  },
+  "en": {
+    "summary": "Hotpoint-Ariston with a programme knob of 12 numbers and four letters, separate temperature and spin knobs, four function buttons with LEDs and a Start/Pause button. There is no display; a column of LEDs shows the progress of the cycle.",
+    "years": "approx. 2008-2013 (estimate, the manual does not say)",
+    "pitfalls": [
+      "Two things are needed to start: the ON/OFF button and then the Start/Pause button. Until Start/Pause is pressed, the indicator blinks and the cycle does not run.",
+      "The programme knob does not turn during a cycle. To change the programme after the start, pause with the Start/Pause button and select the new cycle.",
+      "Two numbers appear twice in the table: positions 2 and 4 are repeated at different temperatures (and have different names); the temperature is chosen by a separate knob, and it will not go above the programme maximum.",
+      "Special programmes 7-12 come before the daily programmes 1-6 in the table; the manual does not show the order of the positions on the knob.",
+      "If a function does not suit the programme, its indicator often blinks and the function does not switch on. With incompatible functions only the last one pressed stays on.",
+      "The night cycle (8) and baby clothes (9) end with a stop with water in the drum: drain and spin are started with the Start/Pause button.",
+      "After 30 minutes of inactivity the machine switches itself off (standby mode); press ON/OFF once to switch it on again.",
+      "If a delay is set, the door cannot be opened until the machine is paused with the Start/Pause button."
+    ],
+    "controls": {
+      "power": {
+        "help": "Switches the machine on and off. After switching on, all indicators light for a few seconds, then only the indicators of the selected programme stay lit and Start/Pause blinks.",
+        "label": "ON/OFF"
+      },
+      "prog": {
+        "help": "Programme selection. The knob does not turn while a programme is running. The manual does not state the direction of rotation.",
+        "label": "Programmes",
+        "zones": {
+          "daily": "Daily programmes",
+          "special": "Special programmes",
+          "extra": "Additional programmes"
+        }
+      },
+      "temp": {
+        "help": "Temperature control: can be lowered to a cold wash (snowflake). The machine does not allow a temperature above the programme maximum."
+      },
+      "spin": {
+        "help": "Spin speed: cotton up to 1000, synthetics up to 800, wool up to 600, silk no spin. The spin can be reduced or cancelled. A value above the programme maximum cannot be selected.",
+        "label": "Spin",
+        "positions": {
+          "0": "no spin"
+        }
+      },
+      "phases": {
+        "help": "Six LEDs: the phases of the cycle (wash, rinse, spin, drain, end of cycle); with a delay they show the time remaining before the start.",
+        "label": "Phases"
+      },
+      "lamp-door": {
+        "help": "Door lock indicator: lit means the door is locked. Open it only when it is off."
+      },
+      "delay": {
+        "help": "Delays the start by up to 12 hours. Press several times until the desired indicator lights; the fifth press cancels it. After Start/Pause the value can only be reduced. Compatible with any programme.",
+        "label": "Delay timer"
+      },
+      "iron": {
+        "help": "Fewer creases: at the end the drum turns slowly, the indicators blink orange, in the END phase. The cycle can be finished with the Start/Pause button or the easy-iron button. Not compatible with programmes 5, 6, 7, 8, 9, 12, B, C, D.",
+        "label": "Easy iron"
+      },
+      "xrinse": {
+        "help": "Improves rinsing, useful for sensitive skin. Not compatible with programmes 5, 6, B, C, D.",
+        "label": "Extra rinse"
+      },
+      "super": {
+        "help": "More water at the start of the cycle and a longer cycle. Not compatible with programmes 5, 6, 7, 11, 12, A, B, C, D.",
+        "label": "Super wash"
+      },
+      "start": {
+        "help": "Starts the programme (the indicator lights green) or pauses it (blinks orange). Press again to resume. A pause is also needed to open the door or cancel a cycle.",
+        "label": "Start/Pause"
+      }
+    },
+    "tray": {
+      "help": "Bleaching only with programmes 2, 3, 7: bleach goes into insert 4 (placed in compartment 1), detergent and softener into their own compartments. A prewash is not possible with the insert in place. Recommended for very dirty cotton laundry.",
+      "compartments": {
+        "1": "Compartment 1: prewash powder (insert 4 for bleach is placed here)",
+        "2": "Compartment 2: main wash detergent (powder or liquid), added before the start",
+        "3": "Compartment 3: additives (rinse aid/softener), not above the grille"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Prewash + cotton 90 °C, very heavily soiled whites",
+        "note": "Daily programme. Buttons: delay, easy iron, extra rinse, super wash."
+      },
+      "2": {
+        "name": "Cotton, heavily soiled whites and colourfast coloureds",
+        "note": "Two lines on one position: COTTON at 60 °C - 119 min; COTTON (2) at 40 °C - 129 min. Bleach is allowed (programmes 2, 3, 7). For EN 60456 testing: programme 7 at 60 °C; long cotton programme: 2 at 40 °C."
+      },
+      "3": {
+        "name": "Cotton coloureds (3), lightly soiled whites and delicate coloureds",
+        "note": "Short programme for cotton laundry. Bleach is allowed."
+      },
+      "4": {
+        "name": "Synthetics, colourfast coloureds",
+        "note": "Two lines: heavily soiled at 60 °C - 85 min; lightly soiled at 40 °C - 70 min."
+      },
+      "5": {
+        "name": "MIX 30 min, quick refresh of lightly soiled laundry",
+        "note": "Different fabrics can be washed together, except wool, silk and hand-wash items; up to 3 kg. Easy iron, extra rinse and super wash are not compatible with it."
+      },
+      "6": {
+        "name": "MIX 15 min, quick refresh of lightly soiled laundry",
+        "note": "Same restrictions as MIX 30; up to 1.5 kg."
+      },
+      "7": {
+        "name": "ANTIBACTERIAL cycle: heavily soiled whites",
+        "note": "Disinfecting programme at a high temperature; bleach use is provided for. Variant \"ANTIBACTERIAL CYCLE (1)\" at 60 °C - 145 min."
+      },
+      "8": {
+        "name": "Night cycle: lightly soiled delicate coloureds",
+        "note": "Silent cycle. Ends with a stop with water in the drum; press Start/Pause to drain and spin, otherwise after 8 hours the machine drains and spins by itself."
+      },
+      "9": {
+        "name": "Baby clothes: heavily soiled delicate coloureds",
+        "note": "Larger water volume and special disinfecting additives; when finished the drum turns slowly, stop it with the Start/Pause button."
+      },
+      "10": {
+        "name": "Shirts",
+        "note": "For shirts of different fabrics and colours; less creasing."
+      },
+      "11": {
+        "name": "Silk / curtains: items of silk, viscose, underwear",
+        "note": "No spin (speed 0 in the table). If easy iron is selected, the cycle ends without draining the water (p. 7). Curtains are folded into a pillowcase (p. 8)."
+      },
+      "12": {
+        "name": "Wool: for wool, cashmere, etc.",
+        "note": "Woolmark Platinum Care mark is claimed; up to 1 kg (p. 8)."
+      },
+      "A": {
+        "name": "Additional programme A: rinse",
+        "note": "Rinse with softener and spin. For bleaching on its own, pour bleach into insert 4 (p. 8)."
+      },
+      "B": {
+        "name": "Additional programme B: spin",
+        "note": "Drain and spin."
+      },
+      "C": {
+        "name": "Additional programme C: delicate spin",
+        "note": "Delicate spin."
+      },
+      "D": {
+        "name": "Additional programme D: drain",
+        "note": "Drain only."
+      }
+    },
+    "rules": [
+      "Easy iron is not compatible with programmes 5, 6, 7, 8, 9, 12 and additional B, C, D.",
+      "Extra rinse is not compatible with programmes 5, 6 and additional B, C, D.",
+      "Super wash is not compatible with programmes 5, 6, 7, 11, 12 and additional A, B, C, D."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes, 40 °C",
+        "note": "Lightly soiled whites and delicate coloureds, 89 minutes.",
+        "dose": {
+          "2": "Powder or gel",
+          "3": "Softener if desired"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, 60 °C",
+        "note": "Heavily soiled whites and colourfast coloureds, 119 minutes.",
+        "dose": {
+          "2": "Powder",
+          "3": "Softener if desired"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding and towels, 90 °C",
+        "note": "Very dirty whites, 164 minutes (with prewash).",
+        "dose": {
+          "1": "Prewash powder",
+          "2": "Powder",
+          "3": "Softener if desired"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Colourfast coloureds, up to 2.5 kg; 70 minutes at 40 °C.",
+        "dose": {
+          "2": "Powder or gel"
+        }
+      },
+      "mix-30": {
+        "title": "Quick refresh 30 minutes",
+        "note": "Up to 3 kg of lightly soiled laundry, no wool or silk.",
+        "dose": {
+          "2": "Liquid detergent"
+        }
+      },
+      "wool": {
+        "title": "Wool, 40 °C",
+        "note": "Up to 1 kg, spin up to 600 rpm, 55 minutes.",
+        "dose": {
+          "2": "Wool detergent"
+        }
+      },
+      "silk": {
+        "title": "Silk and curtains, 30 °C",
+        "note": "No spin, up to 1 kg.",
+        "dose": {
+          "2": "Delicate detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "Additional programme A: 36 minutes.",
+        "dose": {
+          "3": "Softener if desired"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Additional programme B: 16 minutes."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "Additional programme D: drain, about 2 minutes."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine does not switch on / the cycle does not start",
+        "causes": [
+          "The plug is not inserted or there is no power.",
+          "The door is not closed properly.",
+          "The ON/OFF button or the Start/Pause button has not been pressed.",
+          "The water tap is closed.",
+          "A delay timer is set."
+        ]
+      },
+      {
+        "title": "The machine does not fill with water, the first-phase indicator blinks often",
+        "causes": [
+          "The hose is not connected to the tap or is kinked.",
+          "The tap is closed, there is no water in the house, or the pressure is low.",
+          "The Start/Pause button has not been pressed."
+        ]
+      },
+      {
+        "title": "The machine keeps filling and draining water",
+        "causes": [
+          "The drain hose is not at a height of 65-100 cm from the floor.",
+          "The end of the hose is submerged in water.",
+          "A wall drain without an air vent; on upper floors a siphon effect can occur, an anti-siphon valve is fitted."
+        ]
+      },
+      {
+        "title": "It does not drain or spin",
+        "causes": [
+          "The programme does not include draining, so the drain must be started manually.",
+          "Easy iron is on: finish with the Start/Pause button.",
+          "The drain hose is kinked or blocked."
+        ]
+      },
+      {
+        "title": "Strong vibration during spin",
+        "causes": [
+          "The drum was not unlocked correctly during installation.",
+          "The machine is not level.",
+          "It is wedged between a wall and furniture."
+        ]
+      },
+      {
+        "title": "Water is leaking",
+        "causes": [
+          "The inlet hose is not screwed on tightly.",
+          "The detergent drawer is blocked.",
+          "The drain hose is not fixed properly."
+        ]
+      },
+      {
+        "title": "The Start/Pause indicator is orange and the function indicators blink often",
+        "causes": [
+          "Switch the machine off, unplug it, wait a minute and switch on again. If that does not help, contact service."
+        ]
+      },
+      {
+        "title": "Too much foam",
+        "causes": [
+          "The detergent is not for machine washing (it must say \"for washing machines\").",
+          "Too much detergent."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Detergent drawer",
+        "text": "Lift slightly, pull out and rinse with warm water; do this regularly."
+      },
+      {
+        "title": "Pump filter",
+        "text": "Disconnect from the mains. Remove the front panel with a screwdriver, unscrew the cap anticlockwise (a small leak is normal), clean the housing, screw it back and refit the panel."
+      },
+      {
+        "title": "Door and drum",
+        "text": "After washing, leave the door slightly open to avoid odours."
+      },
+      {
+        "title": "Emergency door opening",
+        "text": "In a power cut: unplug, make sure the water is below the door (if necessary drain it through the tube into a bucket), remove the panel, pull the lock tab down and open the door."
+      },
+      {
+        "title": "Tap and hose",
+        "text": "Close the tap after washing; check the hose at least once a year."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The order of positions on the programme knob is assumed ascending (1-12, then A-D). The table on p. 6 lists special programmes 7-12 first, then 1-6, then A-D, and the printed order on the knob is not shown. Angles are nominal.",
+        "Positions 2 and 4 appear in the table as two lines at different temperatures. programs[] holds the higher-temperature variant; the lower one and its time are in the note.",
+        "The values on the temperature knob (cold, 30, 40, 60, 90) and spin knob (0, 600, 800, 1000) are derived from the programme table and the text on maximum speeds; the manual gives no intermediate marks.",
+        "The order of the functions (delay, easy iron, extra rinse, super wash) follows the description on p. 7; the manual shows the order of the buttons on the panel without labels.",
+        "The cycle.steps phases are split in proportion to the total duration from the table (the sum equals the table). Heating is not added separately. The machine is electronic and the manual does not give the times of individual phases.",
+        "Insert 4 for bleach (placed in compartment 1) is not shown as a separate tray compartment; bleaching is allowed only with programmes 2, 3, 7 (p. 8).",
+        "The night cycle and baby clothes are recorded as ending with a stop with water in the drum, based on the text under the table. The end of the cycle for programme 11 (silk) is not described directly in the manual.",
+        "The panel colours (light plastic) are typical for the series; no photo of this particular machine was used. LED colours other than those stated (green Start, orange pause) are not named.",
+        "The manual does not give the year of manufacture; the range is estimated from the series."
+      ],
+      "gaps": [
+        "No labels for the positions on the temperature and spin knobs and no direction of rotation for the programme knob.",
+        "No phase durations, water volume or heater power; technical data: load 1-5 kg, drum 40 l, spin up to 1000 rpm, pressure 0.05-1 MPa (p. 3).",
+        "The delay duration per step is not given (it says \"up to 12 hours\").",
+        "The table on p. 6 does not state the compartment for prewash: for programme 1 compartment 1 is assumed from the general tray description on p. 8."
+      ]
+    },
+    "sources": [
+      "Hotpoint-Ariston ARSL 105: Operating manual (RU/CIS, 12 pp.), scan on McGrp"
+    ]
   }
 }

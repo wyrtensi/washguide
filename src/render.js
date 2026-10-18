@@ -1,5 +1,6 @@
 // String renderers shared by the build (static HTML) and the browser (re-render on demand).
 import * as E from './engine.js';
+import { L } from './i18n.js';
 
 export const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
@@ -276,10 +277,10 @@ function drawSlider(c, state, { x, y, w, h, ink, interactive }) {
 
 // ---------- tray (HTML grid) ----------
 const MARK_ICON = { flower: 'flower', 'triangle-cl': 'triangle-cl', asterisk: 'snowflake' };
-const USE_TEXT = { prewash: 'Предстирка', main: 'Основная стирка', softener: 'Кондиционер', bleach: 'Отбеливатель', starch: 'Крахмал' };
 
 export function trayHTML(m, used, notes = {}) {
   const t = m.tray;
+  const tr = L(m);
   if (!t) return '';
   const cols = t.compartments.map(c => `${c.width || 1}fr`).join(' ');
   const cells = t.compartments.map(c => {
@@ -288,12 +289,12 @@ export function trayHTML(m, used, notes = {}) {
     const mark = MARK_ICON[c.mark] ? icon(MARK_ICON[c.mark], 'ic mark') : `<span class="mark-txt">${esc(c.mark)}</span>`;
     return `<div class="slot${on ? ' on' : ''}" data-slot="${esc(c.id)}">
       <div class="slot-mark">${mark}</div>
-      <div class="slot-name">${esc(c.label || USE_TEXT[c.use] || '')}</div>
-      <div class="slot-state">${on ? esc(note || 'Нужно') : (note ? esc(note) : 'Пусто')}</div>
+      <div class="slot-name">${esc(c.label || tr.use[c.use] || '')}</div>
+      <div class="slot-state">${on ? esc(note || tr.slotNeeded) : (note ? esc(note) : tr.slotEmpty)}</div>
     </div>`;
   }).join('');
   return `<div class="tray" style="grid-template-columns:${cols}">${cells}</div>
-  <div class="tray-front">Ручка лотка — к вам</div>`;
+  <div class="tray-front">${tr.trayFront}</div>`;
 }
 
 // ---------- result card ----------
@@ -305,6 +306,8 @@ export function resultHTML(m, state, extra = []) {
   const prog = E.program(m, state.prog);
   const pk = E.knob(m, 'program');
   const after = E.continueAfterWaterStop(m, state);
+  const tr = L(m);
+  const fm = v => E.formatMin(v, m);
 
   // consecutive sub-steps on the same dial position collapse into one chip
   const groups = [];
@@ -314,35 +317,35 @@ export function resultHTML(m, state, extra = []) {
     else groups.push({ pos: s.pos, phases: [s.phase] });
   }
   const path = groups.length ? groups.map(g => {
-    const names = g.phases.map(ph => E.PHASE_TEXT[ph] || ph);
+    const names = g.phases.map(ph => E.phaseText(m, ph));
     return `<li class="ph-${g.phases[g.phases.length - 1]}"><b>${esc(E.label(E.position(pk, g.pos)) || g.pos)}</b><span>${esc(names.length > 2 ? `${names[0]} … ${names[names.length - 1]}` : names.join(', '))}</span></li>`;
-  }).join('') + `<li class="end end-${t.end}"><b>${t.end === 'water-stop' ? '' : '•'}</b><span>${t.end === 'water-stop' ? 'с водой' : 'стоп'}</span></li>` : '';
+  }).join('') + `<li class="end end-${t.end}"><b>${t.end === 'water-stop' ? '' : '•'}</b><span>${tr.endChip[t.end === 'water-stop' ? 'water-stop' : 'stop']}</span></li>` : '';
 
   const bars = Object.entries(t.phases).filter(([, v]) => v > 0).map(([k, v]) =>
-    `<div class="bar ph-${k}" style="flex:${v}" title="${E.PHASE_TEXT[k]}: ${v} мин"><span>${E.PHASE_TEXT[k]} ${v}</span></div>`).join('');
+    `<div class="bar ph-${k}" style="flex:${v}" title="${E.phaseText(m, k)}: ${fm(v)}"><span>${E.phaseText(m, k)} ${v}</span></div>`).join('');
 
   const conflicts = cf.length ? `<ul class="conflicts">${cf.map(c =>
-    `<li class="lvl-${c.level}">${icon(LEVEL_ICON[c.level])}<span>${esc(c.message)}${c.sourcePage ? ` <small>стр. ${c.sourcePage}</small>` : ''}</span></li>`).join('')}</ul>`
-    : `<p class="ok-line">${icon('check')} Конфликтов нет: так можно запускать.</p>`;
+    `<li class="lvl-${c.level}">${icon(LEVEL_ICON[c.level])}<span>${esc(c.message)}${c.sourcePage ? ` <small>${tr.page} ${c.sourcePage}</small>` : ''}</span></li>`).join('')}</ul>`
+    : `<p class="ok-line">${icon('check')} ${tr.ok}</p>`;
 
-  let ending = `<p class="ending end-${t.end}">${esc(E.END_TEXT[t.end] || '')}`;
+  let ending = `<p class="ending end-${t.end}">${esc(E.endText(m, t.end))}`;
   if (after) {
     ending += after.viaButton
-      ? '. Чтобы слить и отжать, отожмите кнопку остановки с водой.'
-      : `. Чтобы продолжить: выключите машину, поверните ручку программ на ${esc(after.spin || after.drain)}${after.drain && after.spin ? ` (или ${esc(after.drain)} — только слив)` : ''} и включите снова.`;
+      ? tr.viaButton
+      : tr.contAfter(esc(after.spin || after.drain), after.drain && after.spin ? esc(after.drain) : null);
   }
   ending += '</p>';
 
-  const manual = t.manual ? `<span class="manual">по инструкции: ${E.formatMin(t.manual.min)}${t.manual.atC != null ? ` при ${t.manual.atC} °C` : ''}</span>` : '';
+  const manual = t.manual ? `<span class="manual">${tr.manual(fm(t.manual.min), t.manual.atC)}</span>` : '';
 
   return `<div class="time-row">
-      <div class="time-big">${icon('clock')}<span><b data-total>${t.missingCycle ? '—' : '≈ ' + E.formatMin(t.total)}</b>${t.estimate && !t.missingCycle ? '<em>оценка</em>' : ''}</span></div>
+      <div class="time-big">${icon('clock')}<span><b data-total>${t.missingCycle ? '—' : '≈ ' + fm(t.total)}</b>${t.estimate && !t.missingCycle ? `<em>${tr.estimate}</em>` : ''}</span></div>
       ${manual}
     </div>
     ${t.missingCycle ? '' : `<div class="bars">${bars}</div>`}
-    ${path ? `<p class="path-title">${m.cycle?.dialMoves === false ? 'Этапы программы (ручка во время стирки не поворачивается)' : 'Путь ручки программ: от выбранной позиции до остановки'}</p><ol class="path">${path}</ol>` : ''}
+    ${path ? `<p class="path-title">${m.cycle?.dialMoves === false ? tr.pathStages : tr.pathKnob}</p><ol class="path">${path}</ol>` : ''}
     ${conflicts}
-    ${prog ? `<p class="prog-name"><b>${esc(E.label(E.position(pk, state.prog)))}</b> — ${esc(prog.name)}${prog.loadKg ? `, до ${String(prog.loadKg).replace('.', ',')} кг` : ''}</p>` : ''}
+    ${prog ? `<p class="prog-name"><b>${esc(E.label(E.position(pk, state.prog)))}</b> — ${esc(prog.name)}${prog.loadKg ? tr.upToKg(tr.num(prog.loadKg)) : ''}</p>` : ''}
     ${ending}`;
 }
 
@@ -352,41 +355,39 @@ export function howToHTML(m, state, preset) {
   const tray = m.tray?.compartments.filter(c => used.has(c.id)) || [];
   const power = m.panel.controls.find(c => c.role === 'power');
   const startBtn = m.panel.controls.find(c => c.role === 'start');
+  const tr = L(m);
   const li = [];
-  if (power && m.panel.programChangeWhenOff) li.push(`Машина выключена (кнопка ${esc(power.label || 'питания')} отжата).`);
+  if (power && m.panel.programChangeWhenOff) li.push(tr.hOff(esc(power.label || tr.powerWord)));
   for (const r of rows) {
     if (r.role === 'option') {
-      if (r.pressed) li.push(`Нажмите кнопку <b>${esc(r.control)}</b>.`);
+      if (r.pressed) li.push(tr.hPress(esc(r.control)));
       continue;
     }
     const c = E.control(m, r.id);
-    const how = c.rotation === 'cw-only' ? ' (только по часовой стрелке)' : '';
-    li.push(`Ручка <b>${esc(r.control)}</b> — на <b>${esc(r.value)}</b>${how}.`);
+    li.push(tr.hKnob(esc(r.control), esc(r.value), c.rotation === 'cw-only' && m.cycle?.dialMoves !== false));
   }
   const unpressed = rows.filter(r => r.role === 'option' && !r.pressed).map(r => esc(r.control));
-  if (unpressed.length) li.push(`Кнопки ${unpressed.join(', ')} — отжаты.`);
+  if (unpressed.length) li.push(tr.hReleased(unpressed.join(', ')));
   if (tray.length) {
-    li.push('Лоток: ' + tray.map(c => `${esc(c.label)} (${esc(markText(c.mark))})${preset?.dose?.[c.id] ? ' — ' + esc(preset.dose[c.id]) : ''}`).join('; ') + '.');
+    li.push(tr.hTray + tray.map(c => `${esc(c.label)} (${esc(tr.marks[c.mark] || c.mark)})${preset?.dose?.[c.id] ? ' — ' + esc(preset.dose[c.id]) : ''}`).join('; ') + '.');
   } else {
-    li.push('Моющее средство не нужно.');
+    li.push(tr.hNoDet);
   }
-  li.push('Закройте дверцу до щелчка.');
-  if (startBtn) li.push(`Нажмите <b>${esc(startBtn.label || 'Старт')}</b>.`);
-  else if (power) li.push(`Нажмите <b>${esc(power.label || 'кнопку питания')}</b> — машина стартует сразу.`);
+  li.push(tr.hDoor);
+  if (startBtn) li.push(tr.hStart(esc(startBtn.label || tr.startWord)));
+  else if (power) li.push(tr.hPower(esc(power.label || tr.powerWord)));
   return `<ol class="howto">${li.map(x => `<li>${x}</li>`).join('')}</ol>`;
 }
 
-function markText(mark) {
-  return { flower: 'цветок', 'triangle-cl': 'треугольник CL', asterisk: 'звёздочка' }[mark] || mark;
-}
 
 // ---------- chips (touch-friendly input mirroring the panel) ----------
 export function chipsHTML(m, state) {
+  const tr = L(m);
   let s = '';
   for (const c of m.panel.controls) {
     if (c.type === 'knob' || c.type === 'slider') {
       const val = knobValue(state, c);
-      const title = { program: 'Программа', temperature: 'Температура', spin: 'Отжим' }[c.role] || c.label;
+      const title = tr.roleTitle[c.role] || c.label;
       s += `<div class="chip-group" data-ctrl="${c.id}"><div class="chip-title">${esc(title)}${c.label && c.label !== title ? ` <span>${esc(c.label)}</span>` : ''}</div><div class="chips">`;
       const counts = {};
       for (const p of c.positions) if (!p.stop) counts[p.label] = (counts[p.label] || 0) + 1;
@@ -403,10 +404,10 @@ export function chipsHTML(m, state) {
   }
   const opts = E.optionButtons(m);
   if (opts.length) {
-    s += `<div class="chip-group"><div class="chip-title">Кнопки</div><div class="chips">`;
+    s += `<div class="chip-group"><div class="chip-title">${tr.buttons}</div><div class="chips">`;
     for (const b of opts) {
       const on = Boolean(state.options[b.id]);
-      s += `<button type="button" class="chip opt${on ? ' on' : ''}" data-opt="${b.id}" aria-pressed="${on}" title="${esc(b.help || '')}">${b.symbol ? icon(b.symbol) : ''}<span>${esc(E.controlTitle(b))}</span></button>`;
+      s += `<button type="button" class="chip opt${on ? ' on' : ''}" data-opt="${b.id}" aria-pressed="${on}" title="${esc(b.help || '')}">${b.symbol ? icon(b.symbol) : ''}<span>${esc(E.controlTitle(b, m))}</span></button>`;
     }
     s += '</div></div>';
   }

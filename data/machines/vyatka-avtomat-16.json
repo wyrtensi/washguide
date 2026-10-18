@@ -1068,5 +1068,253 @@
       "Нет фото панели; цвет и вид ручки не подтверждены.",
       "Режим экономичного бака (рис. 2) и модели без горячей воды описаны лишь общо."
     ]
+  },
+  "en": {
+    "summary": "A Russian automatic machine with a single programmer knob for 16 programmes and three keys. The programme is chosen with the knob pushed in and started by pulling the knob out towards you; during operation the knob turns by itself to zero.",
+    "years": "mid-1990s and later (estimated from the 1994 certificate in the manual)",
+    "pitfalls": [
+      "The programme is chosen while the programmer knob is pushed in (machine off). Turn it clockwise only, never anticlockwise: the programmer will break.",
+      "To switch on: pull the knob towards you until it clicks (the \"Mains\" indicator lights). To interrupt the programme: push the knob in.",
+      "Instead of being switched off with a button, the cycle ends by itself: the disc turns clockwise to zero, and the machine stops and switches off automatically.",
+      "Delicate programmes 10-15 end with a water hold: the water stays in the tub. To drain, set the knob to 16 (drain), and unload the laundry right after draining.",
+      "The keys on the panel have no words: E is the energy-saving mode (heating no higher than 60 °C), the saving symbol is the eco mode for a load of up to 60% of nominal, the crossed-out symbol cancels the spin.",
+      "Numbers 1 and 2 in the table are described identically (prewash at 40 °C, wash at 90 °C), they differ only in the name of the soiling level.",
+      "After the end, open the door no sooner than 3-4 minutes later: some machines have a hatch lock.",
+      "Only cold water is taken in for the prewash and rinses. Hot water goes only into the main wash with a mixed water supply."
+    ],
+    "controls": {
+      "e60": {
+        "help": "Key E: energy-saving mode, heating of the wash liquid is limited to 60 °C. On machines with an economy tub it is switched on for programme 5.",
+        "label": "E"
+      },
+      "eco": {
+        "help": "Economy wash mode: use when the load is 60% of nominal or less. About a third less powder can be used.",
+        "label": "Eco"
+      },
+      "nospin": {
+        "help": "Cancels the spin operation. Buttons may be fitted on the panel instead of keys.",
+        "label": "No spin"
+      },
+      "prog": {
+        "help": "A single knob-disc for 16 programmes and zero. To choose: with the knob pushed in, turn it clockwise so that the number lines up with the pointer. Start: pull the knob towards you until it clicks. Stop: push the knob in. During the cycle the disc turns clockwise to zero.",
+        "label": "Programmer",
+        "zones": {
+          "durable": "Durable fabrics (cotton, linen)",
+          "delicate": "Delicate fabrics, synthetics, wool"
+        }
+      },
+      "lamp-heat": {
+        "help": "\"Heating\" indicator: lit while the heater is working.",
+        "label": "HEAT"
+      },
+      "lamp-net": {
+        "help": "\"Mains\" indicator: the machine is on.",
+        "label": "MAINS"
+      }
+    },
+    "tray": {
+      "help": "The dispenser hopper slides out towards you. The trays must be dry before powder is put in. Special-treatment product is poured in as a solution; do not push the hopper in sharply when fitting it: the solution may spill. Use low-foaming powder. After washing, rinse the hopper under running water and wipe it.",
+      "compartments": {
+        "A": "A: prewash (about 45 g of powder)",
+        "B": "B (centre): main wash (about 110 g of powder); bleach can be added here together with the powder",
+        "C": "C: special treatment (blueing, fragrance, antistatic), solution not above the level on the cap"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Durable fabrics (cotton, linen), heavy soiling",
+        "note": "Prewash at 40 °C, wash at 90 °C, 5 rinses, spin. On the panel: \"heavy soiling\". With key E heating is limited to 60 °C. With the eco key the load is 2.5 kg."
+      },
+      "2": {
+        "name": "Durable fabrics, medium soiling",
+        "note": "Prewash at 40 °C, wash at 90 °C, 5 rinses, spin (the cycle description in the table is the same as programme 1). On the panel: \"medium soiling\"."
+      },
+      "3": {
+        "name": "Durable fabrics, normal soiling",
+        "note": "Wash at 90 °C, 5 rinses, spin. On the panel: \"normal soiling\"."
+      },
+      "4": {
+        "name": "Durable fabrics, light soiling",
+        "note": "Wash at 60 °C, 5 rinses, spin. On the panel: \"light soiling\"."
+      },
+      "5": {
+        "name": "Durable non-running fabrics, medium soiling, fast at 60 °C",
+        "note": "Wash at 60 °C, 5 rinses, spin. On the panel: \"coloured fabrics 60C\" and a symbol. On machines with an economy tub, key E must be on."
+      },
+      "6": {
+        "name": "Durable running fabrics, medium soiling",
+        "note": "Wash at 40 °C, 5 rinses, spin. On the panel: \"coloured fabrics 40C\"."
+      },
+      "7": {
+        "name": "Rinse (durable fabrics)",
+        "note": "5 rinses, spin. For fabric that needs rinsing further."
+      },
+      "8": {
+        "name": "Special treatment (durable fabrics)",
+        "note": "2 rinses, spin. The special-treatment product (blueing, fragrance, antistatic) is poured into compartment C."
+      },
+      "9": {
+        "name": "Spin (durable fabrics)",
+        "note": "Spin only. A load of less than 1.5 kg is not recommended: vibration will be stronger (cl. 5.4.4)."
+      },
+      "10": {
+        "name": "Bio-delicate wash: delicate non-running fabrics (silk, synthetics), heavy soiling",
+        "note": "Prewash at 40 °C, wash at 60 °C, 3 rinses, water hold. With the eco key the load is 1.5 kg."
+      },
+      "11": {
+        "name": "Mixed fabrics: delicate non-running, medium soiling",
+        "note": "Prewash at 20-30 °C, wash at 60 °C, 3 rinses, water hold."
+      },
+      "12": {
+        "name": "Synthetics 60 °C: delicate non-running, light soiling",
+        "note": "Wash at 60 °C, 3 rinses, water hold."
+      },
+      "13": {
+        "name": "Synthetics 40 °C: light soiling, fast at 40 °C",
+        "note": "Wash at 40 °C, 3 rinses, water hold."
+      },
+      "14": {
+        "name": "Wool: pure wool fabrics",
+        "note": "Wash at 40 °C, 3 rinses, water hold."
+      },
+      "15": {
+        "name": "Rinse (delicate fabrics)",
+        "note": "3 rinses, water hold."
+      },
+      "16": {
+        "name": "Drain",
+        "note": "Drains the water after a water hold only."
+      }
+    },
+    "rules": [
+      "On machines with an economy tub, key E (energy-saving mode) must be pressed on programme 5; without it the wash temperature is not regulated.",
+      "The delicate programmes with a water hold have no spin anyway: the machine will stop with water in the tub."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Coloured laundry, 40 °C",
+        "note": "Durable running fabrics, medium soiling. 5 rinses, spin.",
+        "dose": {
+          "B": "Low-foaming powder, about 110 g"
+        }
+      },
+      "cotton-60": {
+        "title": "Cotton, light soiling, 60 °C",
+        "note": "Durable fabrics with light soiling. For fast coloured fabrics: programme 5.",
+        "dose": {
+          "B": "Powder, about 110 g"
+        }
+      },
+      "bedding-90": {
+        "title": "Bedding and towels, 90 °C",
+        "note": "Durable fabrics with normal soiling. For heavy soiling: programme 1 with prewash.",
+        "dose": {
+          "B": "Powder, about 110 g"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Light soiling, load up to 2.5 kg. It will stop with water: drain with programme 16.",
+        "dose": {
+          "B": "Powder, about 110 g"
+        }
+      },
+      "wool-40": {
+        "title": "Wool, 40 °C",
+        "note": "Pure wool, up to 1.5 kg, water hold; drain with programme 16.",
+        "dose": {
+          "B": "Wool powder"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only",
+        "note": "5 rinses and a spin."
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Spin; at least 1.5 kg of laundry."
+      },
+      "drain-only": {
+        "title": "Drain the water after a water hold",
+        "note": "Set the knob to 16 and pull it out: the water drains, then unload the laundry right away."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The indicator does not light and no water is taken in",
+        "causes": [
+          "The loading hatch is not closed.",
+          "There is no mains voltage: switch the machine off until it returns."
+        ]
+      },
+      {
+        "title": "No water enters the tub",
+        "causes": [
+          "There is no water in the supply: switch the machine off until water returns.",
+          "The tap or valve is closed.",
+          "The inlet hose is kinked.",
+          "The solenoid valve screen is blocked: remove the hose, take out and clean the screen."
+        ]
+      },
+      {
+        "title": "The pump drains the water weakly",
+        "causes": [
+          "The drain hose is kinked: straighten it."
+        ]
+      },
+      {
+        "title": "Weak spin, laundry is very damp after the spin",
+        "causes": [
+          "The drain hose is kinked: remove the cause."
+        ]
+      },
+      {
+        "title": "Increased vibration during spin",
+        "causes": [
+          "The machine is not set stable: level it with the feet.",
+          "A load of less than 1.5 kg is not recommended on the spin programme."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "After washing",
+        "text": "Wipe the body and rubber parts with a soft damp cloth without petrol or solvents, leave the hatch slightly open, switch the machine off by pushing in the knob, pull the plug and close the taps."
+      },
+      {
+        "title": "Dispenser hopper",
+        "text": "After washing pull the hopper out towards you, rinse it under running water, wipe it dry and push it in as far as it goes."
+      },
+      {
+        "title": "Pump filter",
+        "text": "Place a tray underneath, unscrew the filter cap by 2-3 turns and pull the filter towards you (the remaining water may run out), clean the holes, rinse under running water and put it back. If instead of an unscrewing filter there is a lower plastic panel: remove it, detach the hose, take out the plug, drain the water, unscrew the filter cap anticlockwise; do not forget to put the plug back."
+      },
+      {
+        "title": "First start and storage",
+        "text": "Before the first wash, clean the machine: 40 g of powder in the centre tray and a delicate wash without laundry on programme 13. Store at a temperature not below 5 °C and protect from impacts."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "No separate user manual for the \"Vyatka-avtomat-12\" was found online (only repair articles), so the \"Vyatka-avtomat-16\" (SMA-4FB) is documented. The programmer design is similar, but their programme tables differ.",
+        "The source is an HTML copy of the manual without page numbers, so sourcePage holds section and table numbers.",
+        "Position \"0\" is taken at the pointer, positions 1-16 run clockwise with an equal step; angles are nominal, the labels on the disc are not shown in the manual. In operation the disc turns clockwise to zero, so the path between programmes in cycle.steps is modelled as a separate block for each starting position (steps with the same pos).",
+        "The cycle.steps durations are estimated: the manual gives no programme times (except \"final spin at least 2.5 min\"). The prewash temperature is taken from the table (40 °C, 20-30 °C for programme 11).",
+        "The water volume of 25 l is estimated; the heater power is not given in the manual.",
+        "Load per table 4: for durable fabrics 4 and 2.5 kg are given, for delicate ones 2.5 and 1.5. The second figure is assumed to be the load with the eco mode on (60% of nominal, as stated in cl. 6). loadKg holds the first figure.",
+        "The spin speed of 500 rpm is taken from the example designation of the machine (VA160500); other versions may differ.",
+        "The panel colours (light) and the colours of the \"Heating\" and \"Mains\" indicators are not stated in the text; they are taken as nominal.",
+        "Key labels: for the eco-mode key and the \"no spin\" key the manual shows only pictograms; text labels are used on the panel."
+      ],
+      "gaps": [
+        "No programme times, water volume, heater power or exact angles on the disc.",
+        "The order of positions on the disc itself between programmes is not described; for 1 and 2 the table gives the same cycle description.",
+        "No photo of the panel; the colour and look of the knob are not confirmed.",
+        "The economy tub mode (fig. 2) and models without hot water are described only in general terms."
+      ]
+    },
+    "sources": [
+      "Operating manual for the \"Vyatka-avtomat-16\" washing machine (manual text, elremont.ru)"
+    ]
   }
 }

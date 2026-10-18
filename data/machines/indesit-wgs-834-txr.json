@@ -1080,5 +1080,267 @@
       "Инструкция не приводит длительность программ.",
       "Ссылки на электронную версию инструкции нет."
     ]
+  },
+  "en": {
+    "summary": "A narrow front-loading machine with a mechanical programmer: three oval buttons on the left and three knobs on the right, programmes 1-18 without names, only numbers.",
+    "years": "late 1990s - early 2000s",
+    "pitfalls": [
+      "The programme knob P is turned only clockwise and only when the I/O button is off.",
+      "On programmes 8-11 and 14-16 the machine stops at the end with water in the tub - this is not a fault.",
+      "The starting number sets the step from which the cycle begins: \"2\" and \"4\" on cotton differ by about 45 minutes.",
+      "The door opens only 2-3 minutes after switching off."
+    ],
+    "controls": {
+      "power": {
+        "help": "Power button. The programme starts immediately after pressing, so set the knobs first."
+      },
+      "lamp-on": {
+        "help": "Lit while the machine is on."
+      },
+      "half": {
+        "help": "Half load: the machine takes less water for washing and rinsing. For 1.5 kg and less."
+      },
+      "waterstop": {
+        "help": "Stop with water: the machine does not drain the water after the last rinse. To continue, release the button."
+      },
+      "spin": {
+        "help": "Final spin speed. At \"no spin\" the machine only drains the water.",
+        "label": "rpm",
+        "positions": {
+          "0": "no spin"
+        }
+      },
+      "temp": {
+        "help": "Thermostat: the temperature to which the heater warms the water. The timer stands still while the water is heating."
+      },
+      "prog": {
+        "help": "Programme selection. The number is the programmer step from which the cycle will begin. Turn clockwise only, with the machine off.",
+        "zones": {
+          "cotton": "Cotton 1-7",
+          "synthetic": "Synthetics 8-13",
+          "wool": "Wool 14-18"
+        }
+      }
+    },
+    "tray": {
+      "help": "The drawer pulls out towards you with a little effort. The right-hand insert with compartments 3 and 4 lifts out upwards: thickened softener builds up under it, so it is worth rinsing.",
+      "compartments": {
+        "1": "Prewash",
+        "2": "Main wash",
+        "3": "Bleach",
+        "4": "Fabric softener"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Cotton, very dirty, with prewash"
+      },
+      "2": {
+        "name": "Cotton, intensive wash"
+      },
+      "3": {
+        "name": "Cotton, normal soiling"
+      },
+      "4": {
+        "name": "Cotton, lightly soiled, short wash"
+      },
+      "5": {
+        "name": "Rinses and spin"
+      },
+      "6": {
+        "name": "Softening (fabric softener) and spin"
+      },
+      "7": {
+        "name": "Spin"
+      },
+      "8": {
+        "name": "Synthetics and mixed fabrics, 60 °C"
+      },
+      "9": {
+        "name": "Synthetics, delicate wash, 40 °C"
+      },
+      "10": {
+        "name": "Synthetics rinse"
+      },
+      "11": {
+        "name": "Synthetics softening"
+      },
+      "12": {
+        "name": "Delicate spin for synthetics"
+      },
+      "13": {
+        "name": "Drain"
+      },
+      "14": {
+        "name": "Wool, hand wash, tulle"
+      },
+      "15": {
+        "name": "Wool rinse"
+      },
+      "16": {
+        "name": "Wool softening"
+      },
+      "17": {
+        "name": "Delicate spin for wool"
+      },
+      "18": {
+        "name": "Drain without turning the drum"
+      }
+    },
+    "rules": [],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday clothes",
+        "note": "Short path: wash at step 4, rinses 5-6, spin 7. Suitable for items worn once.",
+        "dose": {
+          "2": "Powder or gel",
+          "4": "Softener if desired"
+        }
+      },
+      "dirty-40": {
+        "title": "Heavily soiled, 40 °C",
+        "note": "Long path 2 → 3 → 4: the wash takes almost an hour. For well-worn clothes.",
+        "dose": {
+          "2": "Powder",
+          "4": "Softener if desired"
+        }
+      },
+      "small-30": {
+        "title": "Few items, 30 °C",
+        "note": "The 1/2 button reduces the water. Up to 1.5 kg.",
+        "dose": {
+          "2": "Half the usual dose"
+        }
+      },
+      "bedding-60": {
+        "title": "Bedding and towels",
+        "note": "Cotton at 60 °C - a hygienic wash without boiling.",
+        "dose": {
+          "2": "Powder",
+          "4": "Softener"
+        }
+      },
+      "synthetics-40": {
+        "title": "Synthetics, jackets, shirts",
+        "note": "Gentle tumbling in a large volume of water. At the end the machine will stop with water at 11.",
+        "dose": {
+          "2": "Gel",
+          "4": "Softener if desired"
+        }
+      },
+      "wool-30": {
+        "title": "Wool and delicates",
+        "note": "Soft rocking movements. At the end a stop with water at 16.",
+        "dose": {
+          "2": "Wool detergent",
+          "4": "Softener"
+        }
+      },
+      "rinse-spin": {
+        "title": "Rinse and spin",
+        "note": "Several rinses with cold water and a spin.",
+        "dose": {
+          "4": "Softener if desired"
+        }
+      },
+      "softener-only": {
+        "title": "One rinse with softener",
+        "note": "Quickly freshen clean items.",
+        "dose": {
+          "4": "Softener"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Drain the water and spin. Put in several items so that the drum balances."
+      },
+      "drain-only": {
+        "title": "Drain only",
+        "note": "If the machine has stopped with water and you need to take the items out without spinning."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The machine stopped with water in the drum",
+        "causes": [
+          "The wash was on programmes 8-11 or 14-16: this is by design. Switch off I/O, turn P to 12 or 13 (synthetics), 17 or 18 (wool) and switch on.",
+          "The stop-with-water button is pressed - release it.",
+          "The pump filter is blocked - clean it."
+        ]
+      },
+      {
+        "title": "It takes in water and drains it at once",
+        "causes": [
+          "The drain hose hangs too low: the top point of the hose must be 60-70 cm above the floor.",
+          "The end of the hose is submerged in water - an air gap is needed."
+        ]
+      },
+      {
+        "title": "Vibrates strongly on the spin",
+        "causes": [
+          "There is one heavy item in the drum - add a few more.",
+          "The machine is not level or the lock nuts on the feet have loosened."
+        ]
+      },
+      {
+        "title": "The door does not open after the wash",
+        "causes": [
+          "The lock is cooling down: switch off I/O and wait 2-3 minutes until it clicks."
+        ]
+      },
+      {
+        "title": "Does not switch on or does not take in water",
+        "causes": [
+          "The door is not closed until it clicks.",
+          "Knob P is on a stop dot.",
+          "The tap is closed or the screen at the inlet of the fill hose is blocked."
+        ]
+      },
+      {
+        "title": "A lot of foam or powder stays in the drawer",
+        "causes": [
+          "The powder is not for automatic machines.",
+          "The drawer insert is blocked - remove it and rinse."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Drain pump filter",
+        "text": "Disconnect the machine from the mains, remove the lower panel, place a container underneath, unscrew the filter plug anticlockwise, rinse and screw it back fully.",
+        "interval": "every 3-4 months"
+      },
+      {
+        "title": "Detergent drawer",
+        "text": "Pull the drawer out towards you, remove the right-hand insert, rinse with warm water.",
+        "interval": "every 1-2 months"
+      },
+      {
+        "title": "Fill hose screen",
+        "text": "If the water fills slowly, unscrew the hose nut and rinse the screen under the gasket.",
+        "interval": "as needed"
+      },
+      {
+        "title": "After every wash",
+        "text": "Leave the door slightly open, wipe the seal, close the water tap.",
+        "interval": "every time"
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The angles of the marks on the knobs are taken from a photo of the panel, approximately.",
+        "The durations of the programmer steps are an estimate from a typical Merloni cycle chart; the manual does not give them.",
+        "The water volume of the main wash (12 l) is an estimate for a 3.5 kg tub.",
+        "The speed of the MIN position (300) and the spin limits for synthetics (600) and wool (400) have not been checked against the manual."
+      ],
+      "gaps": [
+        "The manual does not give programme durations.",
+        "There is no link to an electronic version of the manual."
+      ]
+    },
+    "sources": [
+      "Operating manual Indesit WGS 834 TXR (RU), owner's paper copy",
+      "Photos of the panel and drawer of this particular machine"
+    ]
   }
 }

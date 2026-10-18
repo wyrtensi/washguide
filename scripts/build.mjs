@@ -7,12 +7,11 @@ import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import * as E from '../src/engine.js';
 import * as R from '../src/render.js';
+import { T, LANGS, localize } from '../src/i18n.js';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
 const SITE_URL = (process.env.SITE_URL || '').replace(/\/$/, '');
-const SITE_NAME = 'Старая стиралка';
-const SITE_TAGLINE = 'Как пользоваться старыми стиральными машинами с непонятной панелью';
 const checkOnly = process.argv.includes('--check');
 
 // ---------- load + validate ----------
@@ -59,6 +58,16 @@ function validate(m, f) {
     if (sk && s.spin != null && !E.position(sk, s.spin)) e.push(`preset ${pr.id}: spin ${s.spin} not on knob`);
     for (const k of Object.keys(pr.set || {})) if (!['prog', 'temp', 'spin', ...knobIds].includes(k) && !opts.has(k)) e.push(`preset ${pr.id}: unknown key ${k}`);
   }
+  if (m.en) {
+    const en = m.en;
+    const progs = new Set(m.programs.map(p => p.pos)), presets = new Set((m.presets || []).map(p => p.id));
+    for (const k of Object.keys(en.programs || {})) if (!progs.has(k)) e.push(`en.programs: unknown pos ${k}`);
+    for (const k of Object.keys(en.presets || {})) if (!presets.has(k)) e.push(`en.presets: unknown preset ${k}`);
+    for (const k of Object.keys(en.controls || {})) if (!ids.has(k)) e.push(`en.controls: unknown control ${k}`);
+    for (const k of ['pitfalls', 'rules', 'troubleshooting', 'care', 'sources']) {
+      if (en[k] && en[k].length !== (m[k] || []).length) e.push(`en.${k}: ${en[k].length} items, Russian has ${(m[k] || []).length}`);
+    }
+  }
   if (m.cycle?.steps?.length) {
     for (const p of m.programs) {
       const w = E.walk(m, { prog: p.pos, temp: null, spin: null, options: {} });
@@ -77,49 +86,60 @@ if (checkOnly) process.exit(0);
 
 // ---------- helpers ----------
 const esc = R.esc;
+const ROOTS = { ru: '', en: 'en/' };
 const abs = p => (SITE_URL ? `${SITE_URL}/${p}` : `/${p}`);
 const json = o => JSON.stringify(o).replace(/</g, '\\u003c');
 const title = m => `${m.brand} ${m.model}`;
+const other = lang => (lang === 'ru' ? 'en' : 'ru');
 
-function shell({ base, path, pageTitle, description, body, head = '', bodyClass = '' }) {
+// path: page path relative to the language root, e.g. '' or 'm/<id>/'
+function shell({ lang, path, depth, pageTitle, description, body, head = '', bodyClass = '' }) {
+  const tr = T[lang];
+  const base = '../'.repeat(depth) || './';          // to the site root (assets, data)
+  const langBase = '../'.repeat(depth - (lang === 'en' ? 1 : 0)) || './';  // to this language's root
+  const altHref = `${base}${ROOTS[other(lang)]}${path}` || './';
+  const alternates = LANGS.map(l => `<link rel="alternate" hreflang="${l}" href="${SITE_URL ? `${SITE_URL}/${ROOTS[l]}${path}` : `${base}${ROOTS[l]}${path}`}">`).join('\n');
   return `<!doctype html>
-<html lang="ru">
+<html lang="${lang}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>${esc(pageTitle)}</title>
 <meta name="description" content="${esc(description)}">
 <meta name="theme-color" content="#f6f4ef" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#151514" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#121418" media="(prefers-color-scheme: dark)">
 <meta property="og:title" content="${esc(pageTitle)}">
 <meta property="og:description" content="${esc(description)}">
 <meta property="og:type" content="website">
-${SITE_URL ? `<link rel="canonical" href="${SITE_URL}/${path}">` : ''}
-<link rel="help" type="text/plain" href="${base}llms.txt" title="Инструкции для ИИ-агентов">
+<meta property="og:locale" content="${tr.locale.replace('-', '_')}">
+${SITE_URL ? `<link rel="canonical" href="${SITE_URL}/${ROOTS[lang]}${path}">` : ''}
+${alternates}
+<link rel="help" type="text/plain" href="${base}llms.txt" title="Instructions for AI agents">
 <link rel="icon" href="data:image/svg+xml,${encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="8" fill="#1d4ed8"/><circle cx="16" cy="17" r="9" fill="none" stroke="#fff" stroke-width="2.5"/><circle cx="16" cy="17" r="4.5" fill="#93c5fd"/><rect x="6" y="4" width="8" height="3" rx="1.5" fill="#fff"/></svg>')}">
 <link rel="stylesheet" href="${base}assets/style.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
 ${head}
 </head>
-<body class="${bodyClass}">
-<a class="skip" href="#main">К содержимому</a>
+<body class="${bodyClass}" data-lang-root="${langBase}">
+<a class="skip" href="#main">${tr.toContent}</a>
 <header class="top">
   <div class="wrap top-in">
-    <a class="logo" href="${base}">${R.icon('door', 'ic logo-ic')}<span>${SITE_NAME}</span></a>
-    <form class="top-search" action="${base}" role="search">
+    <a class="logo" href="${langBase}">${R.icon('door', 'ic logo-ic')}<span>${tr.siteName}</span></a>
+    <form class="top-search" action="${langBase}" role="search">
       ${R.icon('search')}
-      <input type="search" name="q" placeholder="Найти машину: индезит, zanussi fl…" aria-label="Поиск машины" autocomplete="off" data-search>
+      <input type="search" name="q" placeholder="${esc(tr.searchPh)}" aria-label="${esc(tr.searchLabel)}" autocomplete="off" data-search>
       <div class="suggest" data-suggest hidden></div>
     </form>
-    <button class="theme-btn" type="button" data-theme-toggle aria-label="Сменить тему">${R.icon('moon', 'ic i-moon')}${R.icon('sun', 'ic i-sun')}</button>
+    <a class="lang-btn" href="${altHref}" hreflang="${other(lang)}" lang="${other(lang)}" data-lang-switch title="${esc(tr.langLabel)}">${other(lang).toUpperCase()}</a>
+    <button class="theme-btn" type="button" data-theme-toggle aria-label="${esc(tr.themeLabel)}">${R.icon('moon', 'ic i-moon')}${R.icon('sun', 'ic i-sun')}</button>
   </div>
 </header>
 <main id="main">
 ${body}
 </main>
 <footer class="foot"><div class="wrap">
-  <p>${SITE_NAME} — справочник по старым стиральным машинам с механическим таймером. Данные из инструкций производителей; оценки времени помечены.</p>
-  <p class="foot-links"><a href="${base}">Все машины</a> · <a href="${base}llms.txt">Для ИИ-агентов</a> · <a href="${base}machines.json">Данные (JSON)</a></p>
+  <p>${tr.siteName} — ${tr.footer}</p>
+  <p class="foot-links"><a href="${langBase}">${tr.allMachines}</a> · <a href="${base}llms.txt">${tr.forAgents}</a> · <a href="${base}machines.json">${tr.dataJson}</a> · <a href="${altHref}" hreflang="${other(lang)}" data-lang-switch>${T[other(lang)].langLabel === 'English' ? 'Русский' : 'English'}</a></p>
 </div></footer>
 <script type="module" src="${base}assets/app.js"></script>
 </body>
@@ -127,19 +147,33 @@ ${body}
 `;
 }
 
-function agentNote(lines) {
+function agentNote(lang, lines) {
   // Visible to screen readers and crawlers, hidden visually. Not display:none.
-  return `<section class="sr-only" aria-label="Для ИИ-агентов и поисковых роботов" data-agent-note>
-<h2>Для ИИ-агентов</h2>
+  return `<section class="sr-only" aria-label="${esc(T[lang].forAgents)}" data-agent-note>
+<h2>${esc(T[lang].forAgents)}</h2>
 ${lines.map(l => `<p>${l}</p>`).join('\n')}
 </section>`;
 }
 
+const AGENT_HOME = {
+  ru: [
+    'Это справочник по старым электромеханическим стиральным машинам. У каждой машины своя страница m/&lt;id&gt;/ и машиночитаемые данные /m/&lt;id&gt;.json (с английским блоком en).',
+    'Список всех машин: /machines.json. Поисковый индекс: search-index.json. Полное текстовое описание: llms-full.txt. Правила использования: /llms.txt. English version: /en/.',
+    'Ссылка на конкретную настройку: m/&lt;id&gt;/?p=&lt;позиция программы&gt;&amp;t=&lt;температура&gt;&amp;s=&lt;отжим&gt;&amp;o=&lt;кнопки через запятую&gt; или ?preset=&lt;id пресета&gt;.'
+  ],
+  en: [
+    'This is a reference for old electromechanical washing machines. Each machine has a page en/m/&lt;id&gt;/ and machine-readable data at /m/&lt;id&gt;.json (Russian fields plus an English "en" block).',
+    'All machines: /machines.json. Search index: en/search-index.json. Full text of all machines: en/llms-full.txt. Usage notes: /llms.txt. Russian version: /.',
+    'To link to a specific setting: en/m/&lt;id&gt;/?p=&lt;programme position&gt;&amp;t=&lt;temperature&gt;&amp;s=&lt;spin&gt;&amp;o=&lt;comma-separated buttons&gt; or ?preset=&lt;preset id&gt;.'
+  ]
+};
+
 // ---------- home ----------
-function homePage() {
-  const base = './';
-  const brands = [...new Set(machines.map(m => m.brand))];
-  const cards = machines.map((m, i) => {
+function homePage(lang, list) {
+  const tr = T[lang];
+  const depth = lang === 'en' ? 1 : 0;
+  const brands = [...new Set(list.map(m => m.brand))];
+  const cards = list.map((m, i) => {
     const st = E.defaultState(m);
     const feats = E.features(m).slice(0, 4);
     return `<a class="card mcard" href="m/${m.id}/" data-machine="${m.id}" data-brand="${esc(m.brand)}">
@@ -155,57 +189,51 @@ function homePage() {
 
   const body = `
 <section class="hero"><div class="wrap">
-  <h1>Как включить старую стиральную машину</h1>
-  <p class="lead">Выберите свою модель: покажем панель такой, какая она у вас, куда ставить ручки для нужной стирки, сколько это займёт и куда сыпать порошок.</p>
+  <h1>${tr.heroTitle}</h1>
+  <p class="lead">${tr.heroLead}</p>
   <form class="big-search" action="./" role="search" onsubmit="return false">
     ${R.icon('search')}
-    <input type="search" name="q" placeholder="Марка или модель: Indesit WGS 834, Вятка, Zanussi…" aria-label="Поиск машины" autocomplete="off" data-filter autofocus>
+    <input type="search" name="q" placeholder="${esc(tr.bigSearchPh)}" aria-label="${esc(tr.searchLabel)}" autocomplete="off" data-filter autofocus>
   </form>
-  <div class="filters" role="group" aria-label="Фильтр по марке">
-    <button type="button" class="chip on" data-brand-filter="">Все <span>${machines.length}</span></button>
-    ${brands.map(b => `<button type="button" class="chip" data-brand-filter="${esc(b)}">${esc(b)} <span>${machines.filter(m => m.brand === b).length}</span></button>`).join('')}
+  <div class="filters" role="group" aria-label="${esc(tr.brandFilter)}">
+    <button type="button" class="chip on" data-brand-filter="">${tr.all} <span>${list.length}</span></button>
+    ${brands.map(b => `<button type="button" class="chip" data-brand-filter="${esc(b)}">${esc(b)} <span>${list.filter(m => m.brand === b).length}</span></button>`).join('')}
   </div>
 </div></section>
 <section class="wrap">
   <div class="grid" data-grid>
 ${cards}
   </div>
-  <p class="empty" data-empty hidden>Ничего не нашлось. Попробуйте только марку или цифры модели.</p>
+  <p class="empty" data-empty hidden>${tr.empty}</p>
 </section>
 <section class="wrap how">
-  <h2>Как это работает</h2>
-  <ol class="how-list">
-    <li><b>Найдите модель</b> по надписи на панели или наклейке за дверцей.</li>
-    <li><b>Выберите задачу</b> — «обычная стирка», «только отжим», «шерсть» — или крутите ручки на рисунке сами.</li>
-    <li><b>Смотрите время и предупреждения</b>: что машина сделает, когда остановится и что с этой программой нельзя.</li>
-  </ol>
+  <h2>${tr.howTitle}</h2>
+  <ol class="how-list">${tr.how.map(h => `<li>${h}</li>`).join('')}</ol>
 </section>
-${agentNote([
-  'Это справочник по старым электромеханическим стиральным машинам. У каждой машины своя страница m/&lt;id&gt;/ и машиночитаемые данные m/&lt;id&gt;.json.',
-  'Список всех машин: machines.json. Поисковый индекс: search-index.json. Полное текстовое описание всех машин: llms-full.txt. Правила использования: llms.txt.',
-  'Чтобы дать человеку ссылку на конкретную настройку, используйте параметры: m/&lt;id&gt;/?p=&lt;позиция программы&gt;&amp;t=&lt;температура&gt;&amp;s=&lt;отжим&gt;&amp;o=&lt;кнопки через запятую&gt; или ?preset=&lt;id пресета&gt;.'
-])}`;
+${agentNote(lang, AGENT_HOME[lang])}`;
   return shell({
-    base, path: '', pageTitle: `${SITE_NAME} — ${SITE_TAGLINE}`,
-    description: `${SITE_TAGLINE}: ${machines.map(title).join(', ')}. Панель, программы, время, лоток для порошка.`,
+    lang, path: '', depth, pageTitle: `${tr.siteName} — ${tr.tagline}`,
+    description: `${tr.tagline}: ${list.map(title).join(', ')}.`,
     body, bodyClass: 'home',
     head: `<script type="application/ld+json">${json({
-      '@context': 'https://schema.org', '@type': 'WebSite', name: SITE_NAME, description: SITE_TAGLINE,
-      ...(SITE_URL ? { url: SITE_URL + '/' } : {}),
-      hasPart: machines.map(m => ({ '@type': 'TechArticle', name: `Как пользоваться ${title(m)}`, url: abs(`m/${m.id}/`) }))
+      '@context': 'https://schema.org', '@type': 'WebSite', name: tr.siteName, description: tr.tagline, inLanguage: lang,
+      ...(SITE_URL ? { url: `${SITE_URL}/${ROOTS[lang]}` } : {}),
+      hasPart: list.map(m => ({ '@type': 'TechArticle', name: title(m), url: abs(`${ROOTS[lang]}m/${m.id}/`) }))
     })}</script>`
   });
 }
 
 // ---------- machine page ----------
-function machinePage(m) {
-  const base = '../../';
+function machinePage(lang, m) {
+  const tr = T[lang];
+  const depth = lang === 'en' ? 3 : 2;
+  const base = '../'.repeat(depth);
   const notes = m.notes || {};
   const st = E.defaultState(m);
   const preset = m.presets?.[0];
   const used = E.dosing(m, st);
   const pk = E.knob(m, 'program');
-  const groups = { wash: 'Стирка', rinse: 'Полоскание', spin: 'Отжим и слив', care: 'Уход' };
+  const fm = v => E.formatMin(v, m);
 
   const presets = (m.presets || []).map((p, i) => `<button type="button" class="preset${i === 0 ? ' on' : ''}" data-preset="${esc(p.id)}" data-group="${esc(p.group || 'wash')}">
       <b>${esc(p.title)}</b><span>${presetLine(m, p)}</span></button>`).join('');
@@ -219,37 +247,38 @@ function machinePage(m) {
     return `<tr data-prog="${esc(p.pos)}" tabindex="0">
       <td><span class="pnum" style="${zone ? `--z:${zone.color}` : ''}">${esc(E.label(pos))}</span></td>
       <td><b>${esc(p.name)}</b>${p.note ? `<div class="muted">${esc(p.note)}</div>` : ''}</td>
-      <td>${p.tempMaxC ? `до ${p.tempMaxC} °C` : 'без нагрева'}</td>
-      <td>${p.spinMaxRpm ? `до ${p.spinMaxRpm}` : (p.spinMaxRpm === 0 ? 'нет' : '—')}</td>
+      <td>${p.tempMaxC ? tr.upToC(p.tempMaxC) : tr.noHeat}</td>
+      <td>${p.spinMaxRpm ? tr.upTo(p.spinMaxRpm) : (p.spinMaxRpm === 0 ? tr.none : '—')}</td>
       <td>${(p.dose || []).map(d => esc(m.tray?.compartments.find(c => c.id === d)?.label || d)).join(', ') || '—'}</td>
-      <td>${p.durationMin ? `${E.formatMin(p.durationMin)}${p.durationAtC != null ? ` <span class="muted">при ${p.durationAtC} °C</span>` : ''}` : (t.missingCycle ? '—' : `≈ ${E.formatMin(t.total)} <span class="muted">оценка</span>`)}</td>
-      <td>${{ stop: 'сама', 'water-stop': 'с водой', drain: 'слив' }[p.ends] || '—'}</td>
+      <td>${p.durationMin ? `${fm(p.durationMin)}${p.durationAtC != null ? ` <span class="muted">${tr.atC(p.durationAtC)}</span>` : ''}` : (t.missingCycle ? '—' : `≈ ${fm(t.total)} <span class="muted">${tr.estimate}</span>`)}</td>
+      <td>${tr.endsShort[p.ends] || '—'}</td>
     </tr>`;
   }).join('');
 
-  const trouble = (m.troubleshooting || []).map(t => `<details class="faq"><summary>${esc(t.title)}</summary><ul>${t.causes.map(c => `<li>${esc(c)}</li>`).join('')}</ul>${t.sourcePage ? `<p class="src">Инструкция, стр. ${t.sourcePage}</p>` : ''}</details>`).join('');
-  const care = (m.care || []).map((c, i) => `<div class="care-item" data-care="${i}"><div><b>${esc(c.title)}</b>${c.interval ? ` <span class="pill">${esc(c.interval)}</span>` : ''}<p>${esc(c.text)}</p><p class="care-last" data-care-last></p></div><button type="button" class="btn-s" data-care-done="${i}">Сделано сегодня</button></div>`).join('');
-  const sources = (m.sources || []).map(s => `<li>${s.url ? `<a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.title)}</a>` : esc(s.title)}${s.pages ? `, стр. ${esc(s.pages)}` : ''} <span class="muted">(${esc({ manufacturer: 'производитель', 'manual-archive': 'архив инструкций', photo: 'фото', forum: 'форум' }[s.kind] || s.kind || '')})</span></li>`).join('');
-  const controlsHelp = m.panel.controls.filter(c => c.help).map(c => `<li><b>${esc(controlName(c))}</b> — ${esc(c.help)}</li>`).join('');
+  const trouble = (m.troubleshooting || []).map(t => `<details class="faq"><summary>${esc(t.title)}</summary><ul>${t.causes.map(c => `<li>${esc(c)}</li>`).join('')}</ul>${t.sourcePage ? `<p class="src">${tr.manualPage(esc(t.sourcePage))}</p>` : ''}</details>`).join('');
+  const care = (m.care || []).map((c, i) => `<div class="care-item" data-care="${i}"><div><b>${esc(c.title)}</b>${c.interval ? ` <span class="pill">${esc(c.interval)}</span>` : ''}<p>${esc(c.text)}</p><p class="care-last" data-care-last></p></div><button type="button" class="btn-s" data-care-done="${i}">${tr.careDone}</button></div>`).join('');
+  const sources = (m.sources || []).map(s => `<li>${s.url ? `<a href="${esc(s.url)}" rel="nofollow noopener" target="_blank">${esc(s.title)}</a>` : esc(s.title)}${s.pages ? `, ${tr.page} ${esc(s.pages)}` : ''} <span class="muted">(${esc(tr.srcKind[s.kind] || s.kind || '')})</span></li>`).join('');
+  const controlsHelp = m.panel.controls.filter(c => c.help).map(c => `<li><b>${esc(controlName(lang, c))}</b> — ${esc(c.help)}</li>`).join('');
 
   const jsonld = {
     '@context': 'https://schema.org',
     '@graph': [
-      { '@type': 'Product', name: title(m), brand: { '@type': 'Brand', name: m.brand }, model: m.model, category: 'Стиральная машина' },
+      { '@type': 'Product', name: title(m), brand: { '@type': 'Brand', name: m.brand }, model: m.model, category: tr.product },
       {
-        '@type': 'HowTo', name: `Как запустить ${title(m)}: ${preset?.title || 'стирка'}`,
+        '@type': 'HowTo', inLanguage: lang, name: tr.howToName(title(m), preset?.title || tr.washing),
         totalTime: `PT${E.timing(m, st).total}M`,
         step: howToSteps(m, st, preset).map((t, i) => ({ '@type': 'HowToStep', position: i + 1, text: t }))
       },
       ...(m.troubleshooting?.length ? [{
-        '@type': 'FAQPage',
+        '@type': 'FAQPage', inLanguage: lang,
         mainEntity: m.troubleshooting.map(t => ({ '@type': 'Question', name: t.title, acceptedAnswer: { '@type': 'Answer', text: t.causes.join(' ') } }))
       }] : [])
     ]
   };
+  const lp = lang === 'en' ? 'en/' : '';
 
   const body = `
-<div class="wrap crumbs"><a href="${base}">${R.icon('back')} Все машины</a></div>
+<div class="wrap crumbs"><a href="../../">${R.icon('back')} ${tr.allMachines}</a></div>
 <section class="wrap mhead">
   <div>
     <div class="mbrand">${esc(m.brand)}</div>
@@ -257,153 +286,161 @@ function machinePage(m) {
     <p class="msum">${esc(m.summary || '')}</p>
     <ul class="tags">${E.features(m).map(f => `<li>${esc(f)}</li>`).join('')}</ul>
   </div>
-  ${m.completeness === 'partial' ? `<aside class="partial">${R.icon('info')}<div><b>Данные неполные.</b> В найденной инструкции нет части сведений: ${esc((notes.gaps || []).slice(0, 2).join(' '))} Подробности — во вкладке «Источники».</div></aside>` : ''}
-  ${m.pitfalls?.length ? `<aside class="pitfalls"><h2>${R.icon('alert')} На что обратить внимание</h2><ul>${m.pitfalls.map(p => `<li>${esc(p)}</li>`).join('')}</ul></aside>` : ''}
+  ${m.completeness === 'partial' ? `<aside class="partial">${R.icon('info')}<div>${tr.partial(esc((notes.gaps || []).slice(0, 2).join(' ')))}</div></aside>` : ''}
+  ${m.pitfalls?.length ? `<aside class="pitfalls"><h2>${R.icon('alert')} ${tr.pitfalls}</h2><ul>${m.pitfalls.map(p => `<li>${esc(p)}</li>`).join('')}</ul></aside>` : ''}
 </section>
 
 <section class="wrap block">
-  <div class="block-head"><h2>1. Что нужно сделать?</h2>
-  ${presetGroups.length > 1 ? `<div class="seg" role="group" aria-label="Тип задачи"><button type="button" class="on" data-pgroup="">Все</button>${presetGroups.map(g => `<button type="button" data-pgroup="${g}">${groups[g] || g}</button>`).join('')}</div>` : ''}</div>
+  <div class="block-head"><h2>${tr.step1}</h2>
+  ${presetGroups.length > 1 ? `<div class="seg" role="group" aria-label="${esc(tr.taskType)}"><button type="button" class="on" data-pgroup="">${tr.all}</button>${presetGroups.map(g => `<button type="button" data-pgroup="${g}">${tr.groups[g] || g}</button>`).join('')}</div>` : ''}</div>
   <div class="presets" data-presets>${presets}</div>
 </section>
 
 <section class="wrap block work">
   <div class="panel-card card">
-    <div class="block-head"><h2>2. Панель машины</h2>
-      <div class="seg" role="group" aria-label="Вид панели"><button type="button" data-layout-btn="compact">Крупно</button><button type="button" data-layout-btn="machine">Как на машине</button></div>
+    <div class="block-head"><h2>${tr.step2}</h2>
+      <div class="seg" role="group" aria-label="${esc(tr.panelView)}"><button type="button" data-layout-btn="compact">${tr.compact}</button><button type="button" data-layout-btn="machine">${tr.machine}</button></div>
     </div>
-    <p class="hint">Нажимайте на цифры вокруг ручек и на кнопки — или выбирайте ниже.</p>
+    <p class="hint">${tr.panelHint}</p>
     <div class="panel-wrap" data-panel>${R.panelSVG(m, st, { layout: 'machine', uid: 'pm' })}</div>
     <div class="chips-wrap" data-chips>${R.chipsHTML(m, st)}</div>
   </div>
   <div class="result-card card" aria-live="polite">
-    <h2>3. Что будет</h2>
+    <h2>${tr.step3}</h2>
     <div data-result>${R.resultHTML(m, st)}</div>
-    <h3>Как запустить</h3>
+    <h3>${tr.howStart}</h3>
     <div data-howto>${R.howToHTML(m, st, preset)}</div>
     <p class="note" data-preset-note>${esc(preset?.note || '')}</p>
   </div>
 </section>
 
 ${m.tray ? `<section class="wrap block card tray-card">
-  <h2>4. Лоток для моющих средств</h2>
-  <p class="hint">Вид спереди, слева направо. Подсвечены отсеки, из которых машина возьмёт средство на выбранной программе.</p>
+  <h2>${tr.step4}</h2>
+  <p class="hint">${tr.trayHint}</p>
   <div data-tray>${R.trayHTML(m, used, preset?.dose || {})}</div>
   ${m.tray.help ? `<p class="note">${esc(m.tray.help)}</p>` : ''}
 </section>` : ''}
 
 <section class="wrap block">
   <div class="tabs" role="tablist">
-    <button type="button" role="tab" aria-selected="true" data-tab="programs">Все программы</button>
-    <button type="button" role="tab" aria-selected="false" data-tab="controls">Что за кнопки</button>
-    ${m.troubleshooting?.length ? '<button type="button" role="tab" aria-selected="false" data-tab="trouble">Неисправности</button>' : ''}
-    ${m.care?.length ? '<button type="button" role="tab" aria-selected="false" data-tab="care">Уход</button>' : ''}
-    <button type="button" role="tab" aria-selected="false" data-tab="load">Вес белья</button>
-    <button type="button" role="tab" aria-selected="false" data-tab="sources">Источники</button>
+    <button type="button" role="tab" aria-selected="true" data-tab="programs">${tr.tabs.programs}</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="controls">${tr.tabs.controls}</button>
+    ${m.troubleshooting?.length ? `<button type="button" role="tab" aria-selected="false" data-tab="trouble">${tr.tabs.trouble}</button>` : ''}
+    ${m.care?.length ? `<button type="button" role="tab" aria-selected="false" data-tab="care">${tr.tabs.care}</button>` : ''}
+    <button type="button" role="tab" aria-selected="false" data-tab="load">${tr.tabs.load}</button>
+    <button type="button" role="tab" aria-selected="false" data-tab="sources">${tr.tabs.sources}</button>
   </div>
   <div class="tabpanel card" data-tabpanel="programs">
-    <p class="hint">Нажмите на строку, чтобы выставить программу на панели.</p>
-    <div class="table-wrap"><table class="ptable">
-      <thead><tr><th>№</th><th>Программа</th><th>Темп.</th><th>Отжим</th><th>Лоток</th><th>Время</th><th>Конец</th></tr></thead>
+    <p class="hint">${tr.rowHint}</p>
+    <div class="table-wrap"><table class="ptable" data-th='${esc(JSON.stringify(tr.th))}'>
+      <thead><tr>${tr.th.map(h => `<th>${h}</th>`).join('')}</tr></thead>
       <tbody>${programsRows}</tbody>
     </table></div>
   </div>
   <div class="tabpanel card" data-tabpanel="controls" hidden><ul class="ctrl-help">${controlsHelp}</ul></div>
   ${m.troubleshooting?.length ? `<div class="tabpanel card" data-tabpanel="trouble" hidden>${trouble}</div>` : ''}
-  ${m.care?.length ? `<div class="tabpanel card" data-tabpanel="care" hidden><p class="hint">Отметки сохраняются только в этом браузере.</p>${care}</div>` : ''}
+  ${m.care?.length ? `<div class="tabpanel card" data-tabpanel="care" hidden><p class="hint">${tr.careLocal}</p>${care}</div>` : ''}
   <div class="tabpanel card" data-tabpanel="load" hidden data-load></div>
   <div class="tabpanel card" data-tabpanel="sources" hidden>
-    <h3>Откуда данные</h3><ul class="sources">${sources || '<li>Источник не указан.</li>'}</ul>
-    ${notes.assumptions?.length ? `<h3>Допущения</h3><ul>${notes.assumptions.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
-    ${notes.gaps?.length ? `<h3>Чего нет в инструкции</h3><ul>${notes.gaps.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
-    <p class="muted">Время — оценка по шагам командоаппарата и мощности ТЭНа: нагрев воды объёмом ${m.cycle?.washLitres ?? '?'} л от ${m.cycle?.inletTempC ?? 15} °C до выбранной температуры ТЭНом ${m.heaterW ? `${m.heaterW} Вт` : '2000 Вт (мощность в инструкции не указана, взято типичное значение)'}. Реальное время зависит от температуры воды в трубах, загрузки и напряжения в сети.</p>
+    <h3>${tr.srcTitle}</h3><ul class="sources">${sources || `<li>${tr.srcNone}</li>`}</ul>
+    ${notes.assumptions?.length ? `<h3>${tr.assumptions}</h3><ul>${notes.assumptions.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+    ${notes.gaps?.length ? `<h3>${tr.gaps}</h3><ul>${notes.gaps.map(a => `<li>${esc(a)}</li>`).join('')}</ul>` : ''}
+    <p class="muted">${tr.timeNote(m.cycle?.washLitres ?? '?', m.cycle?.inletTempC ?? 15, m.heaterW ? tr.watt(m.heaterW) : tr.heaterAssumed)}</p>
   </div>
 </section>
 
-${agentNote([
-  `Страница машины ${esc(title(m))}. Машиночитаемые данные: <a href="../${m.id}.json">../${m.id}.json</a> (формат описан в <a href="${base}llms.txt">llms.txt</a>).`,
-  `Ссылка на конкретную настройку: ?p=&lt;позиция ручки программ&gt;&amp;t=&lt;значение ручки температуры&gt;&amp;s=&lt;значение ручки отжима&gt;&amp;o=&lt;id кнопок через запятую&gt;, или ?preset=&lt;id&gt;. Пресеты: ${(m.presets || []).map(p => `${esc(p.id)} (${esc(p.title)})`).join(', ')}.`,
-  `Позиции ручки программ: ${pk.positions.filter(p => !p.stop).map(p => esc(p.value)).join(', ')}. Время на странице — оценка, кроме случаев, где указано «по инструкции».`
+${agentNote(lang, lang === 'ru' ? [
+  `Страница машины ${esc(title(m))}. Машиночитаемые данные: <a href="${base}m/${m.id}.json">/m/${m.id}.json</a> (формат — в <a href="${base}llms.txt">/llms.txt</a>). English: <a href="${base}en/m/${m.id}/">/en/m/${m.id}/</a>.`,
+  `Ссылка на настройку: ?p=&lt;позиция ручки программ&gt;&amp;t=&lt;значение ручки температуры&gt;&amp;s=&lt;значение ручки отжима&gt;&amp;o=&lt;id кнопок через запятую&gt;, или ?preset=&lt;id&gt;. Пресеты: ${(m.presets || []).map(p => `${esc(p.id)} (${esc(p.title)})`).join(', ')}.`,
+  `Позиции ручки программ: ${pk.positions.filter(p => !p.stop).map(p => esc(p.value)).join(', ')}. Время — оценка, кроме помеченного «по инструкции».`
+] : [
+  `Machine page for the ${esc(title(m))}. Machine-readable data: <a href="${base}m/${m.id}.json">/m/${m.id}.json</a> (format in <a href="${base}llms.txt">/llms.txt</a>). Russian: <a href="${base}m/${m.id}/">/m/${m.id}/</a>.`,
+  `Link to a setting: ?p=&lt;programme knob position&gt;&amp;t=&lt;temperature knob value&gt;&amp;s=&lt;spin knob value&gt;&amp;o=&lt;comma-separated button ids&gt;, or ?preset=&lt;id&gt;. Presets: ${(m.presets || []).map(p => `${esc(p.id)} (${esc(p.title)})`).join(', ')}.`,
+  `Programme knob positions: ${pk.positions.filter(p => !p.stop).map(p => esc(p.value)).join(', ')}. Times are estimates unless marked "manual".`
 ])}
 <script type="application/json" id="machine-data">${json(m)}</script>`;
 
   return shell({
-    base, path: `m/${m.id}/`, pageTitle: `${title(m)}: как пользоваться, программы, панель — ${SITE_NAME}`,
-    description: `${title(m)}: ${m.summary || ''} Куда ставить ручки, сколько идёт стирка, куда сыпать порошок, что делать, если остановилась с водой.`,
+    lang, path: `m/${m.id}/`, depth, pageTitle: `${tr.pageTitle(title(m))} — ${tr.siteName}`,
+    description: tr.pageDesc(title(m), m.summary || ''),
     body, bodyClass: 'machine',
-    head: `<link rel="alternate" type="application/json" href="../${m.id}.json" title="${esc(title(m))} — данные">
+    head: `<link rel="alternate" type="application/json" href="${base}m/${m.id}.json" title="${esc(title(m))} — data">
 <script type="application/ld+json">${json(jsonld)}</script>`
   });
 }
 
-function controlName(c) {
-  const role = { program: 'Ручка программ', temperature: 'Ручка температуры', spin: 'Ручка отжима', power: 'Кнопка питания', option: 'Кнопка', start: 'Кнопка старта' }[c.role];
-  if (c.type === 'lamp') return 'Лампа';
-  return `${role || 'Элемент'}${c.label ? ' ' + c.label : ''}`;
+function controlName(lang, c) {
+  const n = T[lang].controlName;
+  if (c.type === 'lamp') return n.lamp;
+  return `${n[c.role] || n.other}${c.label ? ' ' + c.label : ''}`;
 }
 
 function presetLine(m, p) {
+  const tr = T[m._lang];
   const st = E.stateFromPreset(m, p);
   const parts = [];
   const pk = E.knob(m, 'program'), tk = E.knob(m, 'temperature'), sk = E.knob(m, 'spin');
   parts.push(`${pk.label || 'P'} ${E.label(E.position(pk, st.prog))}`);
-  const tp = E.position(tk, st.temp); if (tp) parts.push(tp.tempC ? `${tp.tempC}°` : 'холодная');
-  const sp = E.position(sk, st.spin); if (sp) parts.push(sp.rpm ? `${sp.rpm}` : 'без отжима');
+  const tp = E.position(tk, st.temp); if (tp) parts.push(tp.tempC ? `${tp.tempC}°` : (m._lang === 'en' ? 'cold' : 'холодная'));
+  const sp = E.position(sk, st.spin); if (sp) parts.push(sp.rpm ? `${sp.rpm}` : tr.symbolNames['no-spin']);
   for (const b of E.optionButtons(m)) if (st.options[b.id]) parts.push(b.label || b.id);
-  return esc(parts.join(' · ')) + ` · ≈ ${E.formatMin(E.timing(m, st).total)}`;
+  return esc(parts.join(' · ')) + ` · ≈ ${E.formatMin(E.timing(m, st).total, m)}`;
 }
 
 function howToSteps(m, st, preset) {
   return R.howToHTML(m, st, preset).replace(/<\/li>/g, '\n').replace(/<[^>]+>/g, '').split('\n').map(s => s.trim()).filter(Boolean);
 }
 
-// ---------- llms.txt ----------
-function llmsTxt() {
-  return `# ${SITE_NAME}
+// ---------- llms.txt (English, covers both languages) ----------
+function llmsTxt(list) {
+  return `# ${T.en.siteName} / ${T.ru.siteName}
 
-> ${SITE_TAGLINE}. Справочник по старым электромеханическим стиральным машинам (механический таймер, ручки с цифрами, без дисплея): как выглядит панель, куда ставить ручки, сколько идёт программа, куда класть порошок, какие комбинации нельзя.
+> ${T.en.tagline}. A reference for old electromechanical washing machines (mechanical timer, numbered or lettered dials, no display): what the panel looks like, where to set the knobs, how long a programme takes, where the detergent goes, which combinations are not allowed. Pages exist in Russian (/) and English (/en/).
 
-Сайт статический. Для каждой машины есть HTML-страница и JSON с полными данными. Используйте JSON, если нужно ответить человеку точно; давайте человеку ссылку на страницу, чтобы он увидел панель.
+The site is static. Every machine has an HTML page per language and one JSON file with the full data. Use the JSON to answer precisely; give people the page link so they can see the panel.
 
-## Как пользоваться
+## How to use it
 
-- Найти машину: ${abs('search-index.json')} (поля id, brand, model, aliases, features, url) или список ${abs('machines.json')}.
-- Данные машины: ${abs('m/<id>.json')}. Формат: panel.controls (ручки и кнопки, позиции ручек по часовой стрелке от 12 часов), tray.compartments (отсеки лотка слева направо), cycle.steps (порядок шагов таймера, минуты без нагрева), programs (таблица программ из инструкции, sourcePage — страница инструкции), rules (конфликты), presets (готовые сценарии), troubleshooting, care, sources, notes.
-- Ссылка на настройку: ${abs('m/<id>/')}?p=<позиция ручки программ>&t=<значение ручки температуры>&s=<значение ручки отжима>&o=<id кнопок через запятую>. Или ?preset=<id пресета>. Страница сама покажет панель, время и предупреждения.
-- Время: оценка. Таймер проходит cycle.steps от выбранной позиции до первого шага с end; если timerPausesForHeating, добавляется нагрев washLitres литров от inletTempC до выбранной температуры при мощности heaterW. Где в programs есть durationMin, это цифра из инструкции — она важнее оценки.
-- end: stop — машина остановится сама; water-stop — остановится с водой в баке, человеку нужно перевести ручку на отжим/слив; drain — сольёт и остановится.
-- Не выдумывайте значения, которых нет в данных: смотрите notes.gaps.
+- Find a machine: ${abs('search-index.json')} (Russian) or ${abs('en/search-index.json')} (English); fields id, brand, model, aliases, features, url. Or the list ${abs('machines.json')}.
+- Machine data: ${abs('m/<id>.json')}. Russian strings in the main fields; English in the "en" block (same structure, see below). Main parts: panel.controls (knobs and buttons; knob positions clockwise from 12 o'clock), tray.compartments (drawer compartments left to right), cycle.steps (timer steps in order, minutes without heating), programs (programme table from the manual; sourcePage = manual page), rules (conflicts), presets (ready-made scenarios), troubleshooting, care, sources, notes.
+- Link to a setting: ${abs('m/<id>/')} or ${abs('en/m/<id>/')} with ?p=<programme knob position>&t=<temperature knob value>&s=<spin knob value>&o=<comma-separated button ids>, or ?preset=<preset id>. The page shows the panel, time and warnings.
+- Time is an estimate: the timer walks cycle.steps from the selected position to the first step with "end"; if timerPausesForHeating, heating washLitres litres from inletTempC to the selected temperature at heaterW is added. Where programs[].durationMin exists, it is the manual's figure and takes precedence.
+- end: "stop" = stops by itself; "water-stop" = stops with water in the drum, the person must turn the knob to spin or drain; "drain" = drains and stops.
+- completeness: "partial" means the available manual lacked key tables. Do not invent values that are not in the data; see notes.gaps.
 
-## Машины
+## Machines
 
-${machines.map(m => `- [${title(m)}](${abs(`m/${m.id}/`)}): ${m.summary || ''} Данные: ${abs(`m/${m.id}.json`)}`).join('\n')}
+${list.map(m => `- [${title(m)}](${abs(`en/m/${m.id}/`)}) ([RU](${abs(`m/${m.id}/`)})): ${m.en?.summary || m.summary || ''} Data: ${abs(`m/${m.id}.json`)}`).join('\n')}
 
-## Дополнительно
+## Full text
 
-- [Полное текстовое описание всех машин](${abs('llms-full.txt')})
+- [All machines, English](${abs('en/llms-full.txt')})
+- [Все машины, по-русски](${abs('llms-full.txt')})
 `;
 }
 
-function llmsFull() {
-  return machines.map(m => {
+function llmsFull(list) {
+  return list.map(m => {
+    const tr = T[m._lang];
     const pk = E.knob(m, 'program');
-    const lines = [`# ${title(m)}`, '', m.summary || '', '', `Годы: ${m.years || '—'}. Загрузка: ${m.capacityKg ?? '—'} кг. Отжим до ${m.maxSpinRpm ?? '—'} об/мин.`, ''];
-    if (m.pitfalls?.length) lines.push('## Важно', ...m.pitfalls.map(p => `- ${p}`), '');
-    lines.push('## Панель (слева направо)');
+    const ru = m._lang === 'ru';
+    const lines = [`# ${title(m)}`, '', m.summary || '', '', `${tr.years}: ${m.years || '—'}. ${tr.capacity}: ${m.capacityKg ?? '—'} ${tr.kg}. ${tr.spinUpTo} ${m.maxSpinRpm ?? '—'} rpm.`, ''];
+    if (m.pitfalls?.length) lines.push(`## ${tr.pitfalls}`, ...m.pitfalls.map(p => `- ${p}`), '');
+    lines.push(`## ${ru ? 'Панель (слева направо)' : 'Panel (left to right)'}`);
     for (const c of (m.panel.rows || [m.panel.controls.map(c => c.id)]).flat().map(id => E.control(m, id)).filter(Boolean)) {
-      const pos = c.positions ? `: ${c.positions.map(p => p.stop ? '• (стоп)' : p.label).join(', ')}` : '';
-      lines.push(`- ${controlName(c)}${pos}${c.help ? ` — ${c.help}` : ''}`);
+      const pos = c.positions ? `: ${c.positions.map(p => p.stop ? '• (stop)' : p.label).join(', ')}` : '';
+      lines.push(`- ${controlName(m._lang, c)}${pos}${c.help ? ` — ${c.help}` : ''}`);
     }
-    if (m.tray) lines.push('', '## Лоток (слева направо)', ...m.tray.compartments.map(c => `- ${c.mark}: ${c.label}`));
-    lines.push('', '## Программы');
+    if (m.tray) lines.push('', `## ${ru ? 'Лоток (слева направо)' : 'Drawer (left to right)'}`, ...m.tray.compartments.map(c => `- ${c.mark}: ${c.label}`));
+    lines.push('', `## ${tr.tabs.programs}`);
     for (const p of m.programs) {
       const s0 = E.withProgramDefaults(m, { prog: p.pos, temp: null, spin: null, options: {} });
       const t = E.timing(m, s0);
-      lines.push(`- ${E.label(E.position(pk, p.pos))}: ${p.name}; до ${p.tempMaxC || 0} °C; отжим до ${p.spinMaxRpm ?? '—'}; ${p.durationMin ? `по инструкции ${p.durationMin} мин` : (t.missingCycle ? 'время неизвестно' : `оценка ${t.total} мин`)}; конец: ${p.ends || '—'}`);
+      lines.push(`- ${E.label(E.position(pk, p.pos))}: ${p.name}; ${p.tempMaxC ? tr.upToC(p.tempMaxC) : tr.noHeat}; ${tr.roleTitle.spin} ${p.spinMaxRpm ?? '—'}; ${p.durationMin ? tr.manual(E.formatMin(p.durationMin, m), p.durationAtC) : (t.missingCycle ? '—' : `${tr.estimate} ${E.formatMin(t.total, m)}`)}; ${tr.th[6]}: ${tr.endsShort[p.ends] || '—'}`);
     }
-    if (m.presets?.length) lines.push('', '## Готовые сценарии', ...m.presets.map(p => `- ${p.title}: ${presetLine(m, p).replace(/&[a-z#0-9]+;/g, ' ')}. ${p.note || ''}`));
-    if (m.troubleshooting?.length) lines.push('', '## Неисправности', ...m.troubleshooting.map(t => `- ${t.title}: ${t.causes.join(' ')}`));
-    lines.push('', `Страница: ${abs(`m/${m.id}/`)}`, '');
+    if (m.presets?.length) lines.push('', `## ${ru ? 'Готовые сценарии' : 'Ready-made scenarios'}`, ...m.presets.map(p => `- ${p.title}: ${presetLine(m, p).replace(/&[a-z#0-9]+;/g, ' ')}. ${p.note || ''}`));
+    if (m.troubleshooting?.length) lines.push('', `## ${tr.tabs.trouble}`, ...m.troubleshooting.map(t => `- ${t.title}: ${t.causes.join(' ')}`));
+    lines.push('', `${ru ? 'Страница' : 'Page'}: ${abs(`${ROOTS[m._lang]}m/${m.id}/`)}`, '');
     return lines.join('\n');
   }).join('\n---\n\n');
 }
@@ -411,38 +448,46 @@ function llmsFull() {
 // ---------- write ----------
 rmSync(dist, { recursive: true, force: true });
 mkdirSync(join(dist, 'assets'), { recursive: true });
-for (const f of ['engine.js', 'render.js', 'app.js', 'style.css']) copyFileSync(join(root, 'src', f), join(dist, 'assets', f));
+for (const f of ['engine.js', 'render.js', 'i18n.js', 'app.js', 'style.css']) copyFileSync(join(root, 'src', f), join(dist, 'assets', f));
 
-writeFileSync(join(dist, 'index.html'), homePage());
-for (const m of machines) {
-  mkdirSync(join(dist, 'm', m.id), { recursive: true });
-  writeFileSync(join(dist, 'm', m.id, 'index.html'), machinePage(m));
-  writeFileSync(join(dist, 'm', `${m.id}.json`), JSON.stringify(m, null, 2));
+for (const lang of LANGS) {
+  const list = machines.map(m => localize(m, lang));
+  const dir = join(dist, ROOTS[lang]);
+  mkdirSync(dir, { recursive: true });
+  writeFileSync(join(dir, 'index.html'), homePage(lang, list));
+  for (const m of list) {
+    mkdirSync(join(dir, 'm', m.id), { recursive: true });
+    writeFileSync(join(dir, 'm', m.id, 'index.html'), machinePage(lang, m));
+  }
+  const index = list.map(m => ({
+    id: m.id, brand: m.brand, model: m.model, years: m.years || '', url: `m/${m.id}/`,
+    aliases: m.aliases || [], features: E.features(m),
+    keys: [...new Set([title(m), ...(m.aliases || [])].flatMap(E.searchKeys))],
+    programs: m.programs.map(p => p.name)
+  }));
+  writeFileSync(join(dir, 'search-index.json'), JSON.stringify(index));
+  writeFileSync(join(dir, 'llms-full.txt'), llmsFull(list));
 }
-const index = machines.map(m => ({
-  id: m.id, brand: m.brand, model: m.model, years: m.years || '', url: `m/${m.id}/`,
-  aliases: m.aliases || [], features: E.features(m),
-  keys: [...new Set([title(m), ...(m.aliases || [])].flatMap(E.searchKeys))],
-  programs: m.programs.map(p => p.name)
-}));
-writeFileSync(join(dist, 'search-index.json'), JSON.stringify(index));
-writeFileSync(join(dist, 'machines.json'), JSON.stringify(machines.map(m => ({ id: m.id, brand: m.brand, model: m.model, years: m.years, summary: m.summary, page: abs(`m/${m.id}/`), data: abs(`m/${m.id}.json`) })), null, 2));
-writeFileSync(join(dist, 'llms.txt'), llmsTxt());
-writeFileSync(join(dist, 'llms-full.txt'), llmsFull());
+for (const m of machines) writeFileSync(join(dist, 'm', `${m.id}.json`), JSON.stringify(m, null, 2));
+writeFileSync(join(dist, 'machines.json'), JSON.stringify(machines.map(m => ({
+  id: m.id, brand: m.brand, model: m.model, years: m.years, summary: m.summary, summaryEn: m.en?.summary,
+  page: abs(`m/${m.id}/`), pageEn: abs(`en/m/${m.id}/`), data: abs(`m/${m.id}.json`)
+})), null, 2));
+writeFileSync(join(dist, 'llms.txt'), llmsTxt(machines));
 writeFileSync(join(dist, 'robots.txt'), [
   'User-agent: *', 'Allow: /', '',
   ...['GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-User', 'Claude-SearchBot', 'anthropic-ai', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'YandexBot', 'YandexAdditional', 'CCBot', 'Bytespider', 'meta-externalagent']
     .flatMap(a => [`User-agent: ${a}`, 'Allow: /', '']),
-  '# Описание сайта для ИИ-агентов: /llms.txt',
+  '# Site description for AI agents: /llms.txt',
   SITE_URL ? `Sitemap: ${SITE_URL}/sitemap.xml` : ''
 ].join('\n'));
 if (SITE_URL) {
+  const urls = ['', ...machines.map(m => `m/${m.id}/`)];
   writeFileSync(join(dist, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url><loc>${SITE_URL}/</loc></url>
-${machines.map(m => `<url><loc>${SITE_URL}/m/${m.id}/</loc></url>`).join('\n')}
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urls.flatMap(u => LANGS.map(l => `<url><loc>${SITE_URL}/${ROOTS[l]}${u}</loc>${LANGS.map(a => `<xhtml:link rel="alternate" hreflang="${a}" href="${SITE_URL}/${ROOTS[a]}${u}"/>`).join('')}</url>`)).join('\n')}
 </urlset>
 `);
 }
-writeFileSync(join(dist, '404.html'), shell({ base: '/', path: '404', pageTitle: `Не найдено — ${SITE_NAME}`, description: 'Страница не найдена', body: `<section class="wrap hero"><h1>Такой страницы нет</h1><p><a href="/">Ко всем машинам</a></p></section>` }));
-console.log(`built ${machines.length} machine pages into dist/${SITE_URL ? '' : ' (set SITE_URL for sitemap.xml)'}`);
+writeFileSync(join(dist, '404.html'), shell({ lang: 'ru', path: '', depth: 0, pageTitle: `${T.ru.notFound} — ${T.ru.siteName}`, description: T.ru.notFound, body: `<section class="wrap hero"><h1>${T.ru.notFound}</h1><p><a href="/">${T.ru.toAll}</a> · <a href="/en/">${T.en.toAll}</a></p></section>` }));
+console.log(`built ${machines.length} machines x ${LANGS.length} languages into dist/${SITE_URL ? '' : ' (set SITE_URL for sitemap.xml)'}`);

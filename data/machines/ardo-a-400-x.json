@@ -1533,5 +1533,324 @@
       "Отдельной программы «только слив» нет: 8 и 16 всегда включают отжим."
     ]
   },
-  "completeness": "partial"
+  "completeness": "partial",
+  "en": {
+    "summary": "Italian machine with a selector of 16 numbered programs and a separate thermostat knob. The program number does not tell you the fabric: the laundry type and temperature can only be read from the table, and the three panel variants have different sets of buttons.",
+    "years": "approx. 1999-2006 (approximate, the manual gives no year)",
+    "pitfalls": [
+      "Programs are numbered 1-16, but the number alone tells you nothing. Programs 1-5 are for durable fabrics, 9-13 for delicate and mixed fabrics, and 6-8 and 14-16 are rinse, spin and drain only.",
+      "The temperature is set by a separate thermostat knob, and the table gives a maximum for each program. For programs 6-8 and 14-16 the thermostat position can be anything: they do not heat the water.",
+      "The selector knob can only be turned clockwise. If you went past the mark you wanted, do not turn it back: keep turning clockwise until you reach the right position.",
+      "Choose the program, temperature and extra buttons only while the machine is off, that is, with the knob or the on/off button at 0.",
+      "On some versions the machine is switched on by pulling the selector knob towards you, on others there is an on/off button. The pilot lamp should light up.",
+      "The \"stop with water\" button (switch-off with water in the tub) is suitable only for synthetics and wool. After it you must start the drain manually: set the knob to the drain or spin program (8 or 16).",
+      "For the delicate programs 9-16 the spin runs at low speed (the manual gives 550 rpm), regardless of the spin control position.",
+      "The economy button is intended for loads under 3 kg.",
+      "After the program the machine stops at one of the STOP marks; switch it off (button or knob to 0), then take out the laundry.",
+      "Drawer: the numbers 1, 2 and the flower symbol mean prewash, main wash and fabric softener."
+    ],
+    "controls": {
+      "waterstop": {
+        "help": "Switch-off with water in the tub: the machine stops after the last rinse and does not drain. Only for synthetics and wool. To finish, choose the drain program (8 or 16) or a spin program.",
+        "label": "stop with water"
+      },
+      "nospin": {
+        "help": "Spin cancel button: the wash cycle runs without spinning.",
+        "label": "spin off"
+      },
+      "eco": {
+        "help": "Economy wash: reduces water and electricity use. Use it when the load is under 3 kg.",
+        "label": "economy"
+      },
+      "extrarinse": {
+        "help": "Extra rinse: adds one more rinse cycle. Needed with very soft water and for washing the clothes of people with allergies.",
+        "label": "extra rinse"
+      },
+      "spin550": {
+        "help": "Switches the spin speed between the minimum (550 rpm) and the maximum. The maximum depends on the model; if the panel has a spin control, set it to the value you need. Works only in programs for durable fabrics: in delicate programs the spin is always 550 rpm."
+      },
+      "power": {
+        "help": "Switches the machine on (on some versions, pull the selector knob towards you instead). The off position is needed to change the program, temperature and buttons.",
+        "label": "on/off"
+      },
+      "lamp": {
+        "help": "On/off pilot lamp: lit while the machine is on."
+      },
+      "temp": {
+        "help": "The thermostat knob turns both ways. The positions are taken from the program table: 35, 40, 50, 60, 90 °C; the manual shows no intermediate marks."
+      },
+      "prog": {
+        "help": "Selector: 16 numbered programs and a STOP/0 position. Turn clockwise only. The mark angles are nominal: the manual has no diagram of the knob.",
+        "zones": {
+          "heavy": "Durable fabrics: programs 1-5",
+          "heavy-extra": "Durable fabrics, additional: 6-8",
+          "delicate": "Delicate and mixed: 9-13",
+          "delicate-extra": "Delicates, additional: 14-16"
+        }
+      }
+    },
+    "tray": {
+      "help": "Drawer with three compartments: 1 prewash, 2 main wash, flower for fabric softener, fragrances, additives and bleaches. The left-to-right order is taken from the pictograms in the program table. For hard water use an anti-scale agent together with the powder in compartment 2. Use low-foaming powder for automatic machines. Take the drawer out completely from time to time and wash it under running water.",
+      "compartments": {
+        "I": "Prewash and soaking",
+        "II": "Main wash",
+        "flower": "Fabric softener, fragrance, additives, bleach"
+      }
+    },
+    "programs": {
+      "1": {
+        "name": "Cotton, linen, hemp, heavily soiled, with prewash",
+        "note": "Prewash at about 40 °C, main wash, rinse, softener, drain and final spin."
+      },
+      "2": {
+        "name": "Coloured laundry, shirts, dressing gowns, underwear, heavily soiled, with prewash",
+        "note": "Cotton, linen, mixed durable fabrics. Prewash, main wash, rinse, softener, drain and final spin."
+      },
+      "3": {
+        "name": "Sheets, white and colourfast items, heavily soiled, without prewash",
+        "note": "Main wash, rinse, softener, drain and final spin."
+      },
+      "4": {
+        "name": "Coloured laundry, shirts, dressing gowns, normally soiled",
+        "note": "Cotton, linen, mixed durable fabrics."
+      },
+      "5": {
+        "name": "Cotton, mixed delicate fabrics, lightly soiled items",
+        "note": "Sheets, white and colourfast items, lightly soiled."
+      },
+      "6": {
+        "name": "Intensive rinse",
+        "note": "Rinse, softener, drain and final spin only. Any thermostat position."
+      },
+      "7": {
+        "name": "Starching, fragrance, softener",
+        "note": "Rinse, softener, drain and final spin. Any thermostat position."
+      },
+      "8": {
+        "name": "Intensive spin",
+        "note": "Drain and final spin. Any thermostat position."
+      },
+      "9": {
+        "name": "Mixed durable fabrics, heavily soiled, with prewash",
+        "note": "Prewash at about 40 °C, wash, rinse, softener, drain and low-speed spin."
+      },
+      "10": {
+        "name": "Mixed durable fabrics, normally soiled",
+        "note": "Wash, rinse, softener, drain and low-speed spin."
+      },
+      "11": {
+        "name": "Mixed durable fabrics, lightly soiled",
+        "note": "Wash, rinse, softener, drain and low-speed spin."
+      },
+      "12": {
+        "name": "Synthetics (nylon, perlon), mixed cotton fabrics, lightly soiled",
+        "note": "Wash, rinse, softener, drain and low-speed spin."
+      },
+      "13": {
+        "name": "Woollen laundry that can be machine washed",
+        "note": "Wool symbol on the label, temperature 35 °C. Wash, rinse, softener, drain and low-speed spin."
+      },
+      "14": {
+        "name": "Delicate rinse",
+        "note": "Rinse, softener, drain and final spin. Any thermostat position."
+      },
+      "15": {
+        "name": "Starching, fragrance, softener, delicate spin",
+        "note": "Rinse, softener, drain and final spin. Any thermostat position."
+      },
+      "16": {
+        "name": "Delicate spin",
+        "note": "Drain and spin. Any thermostat position."
+      }
+    },
+    "rules": [
+      "Programs 1-3: up to 90 °C (cotton, linen, hemp, mixed durable fabrics).",
+      "Program 4: no higher than 60 °C.",
+      "Programs 5 and 12: no higher than 40 °C (delicate fabrics, synthetics, nylon, perlon).",
+      "Programs 9 and 10 for mixed durable fabrics: no higher than 60 °C.",
+      "Program 11: no higher than 50 °C.",
+      "Wool (program 13): no higher than 35 °C, load up to 1 kg, otherwise the items will shrink.",
+      "Delicate programs 9-16: low-speed spin (550 rpm), regardless of the spin speed control position.",
+      "Stop with water applies only to the synthetics and wool programs (9-16); the table does not show it for 1-8.",
+      "Extra rinse is not marked in the table for the delicate programs.",
+      "Choose the program, temperature and buttons with the machine off (on/off and selector at 0). Turn the selector knob clockwise only.",
+      "The thermostat knob position is irrelevant for this program: the water is not heated."
+    ],
+    "presets": {
+      "everyday-40": {
+        "title": "Everyday cotton clothes, 40 °C",
+        "note": "Program 5: main wash, rinse, softener, spin.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "everyday-60": {
+        "title": "Shirts and normally soiled laundry, 60 °C",
+        "note": "Program 4 for coloured laundry and shirts.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "bedding-60": {
+        "title": "Sheets and bedding, 60 °C",
+        "note": "Program 3 without prewash allows up to 90 °C; 60 °C is enough for ordinary laundry.",
+        "dose": {
+          "II": "Powder",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "heavy-90-prewash": {
+        "title": "Heavily soiled whites, 90 °C, with prewash",
+        "note": "Program 1; at 90 °C energy use is at its highest.",
+        "dose": {
+          "I": "Powder for the prewash",
+          "II": "Powder for the main wash"
+        }
+      },
+      "synthetic-40": {
+        "title": "Synthetics, 40 °C",
+        "note": "Program 12. Stop with water protects against creases: afterwards drain the water with program 16 or 8.",
+        "dose": {
+          "II": "Powder or gel for synthetics",
+          "flower": "Fabric softener (optional)"
+        }
+      },
+      "wool-35": {
+        "title": "Wool, 35 °C",
+        "note": "Program 13: load up to 1 kg, low-speed spin.",
+        "dose": {
+          "II": "Wool detergent"
+        }
+      },
+      "rinse-only": {
+        "title": "Rinse only with softener",
+        "note": "Program 6 for durable fabrics. Use 14 for delicates.",
+        "dose": {
+          "flower": "Fabric softener"
+        }
+      },
+      "spin-only": {
+        "title": "Spin only",
+        "note": "Program 8: drain and intensive spin. Program 16 for delicate items."
+      }
+    },
+    "troubleshooting": [
+      {
+        "title": "The washing machine does not work (the pilot lamp does not light)",
+        "causes": [
+          "No mains voltage.",
+          "The plug is not inserted properly.",
+          "The selector knob is not in the on position, or the on/off button is not pressed."
+        ]
+      },
+      {
+        "title": "The washing machine does not work (the pilot lamp is lit)",
+        "causes": [
+          "The programming knob is not set to the chosen program.",
+          "The instructions in the section \"The washing machine does not fill with water\" have not been followed."
+        ]
+      },
+      {
+        "title": "The washing machine does not fill with water",
+        "causes": [
+          "There is no water in the supply or the tap is closed.",
+          "The fill hose is kinked.",
+          "The fill hose filter is clogged (disconnect the appliance from the mains before cleaning).",
+          "Hardened detergent residue is left in the drawer."
+        ]
+      },
+      {
+        "title": "The washing machine keeps filling and draining continuously",
+        "causes": [
+          "The drain hose is not at a height of 60-90 cm.",
+          "The end of the drain pipe is submerged in water."
+        ]
+      },
+      {
+        "title": "The washing machine does not drain and the spin does not work",
+        "causes": [
+          "The drain pipe is connected wrongly or bent.",
+          "The drain filter is blocked.",
+          "The spin is switched off or the \"switch-off with water in the tub\" function is on."
+        ]
+      },
+      {
+        "title": "The washing machine vibrates and is noisy",
+        "causes": [
+          "Not all the transport protections have been removed.",
+          "The machine is not levelled.",
+          "Large items (sheets, tablecloths) have gathered in one part of the drum."
+        ]
+      },
+      {
+        "title": "The door will not open",
+        "causes": [
+          "Wait about one minute after the wash has finished."
+        ]
+      },
+      {
+        "title": "The laundry is not spun dry enough",
+        "causes": [
+          "The items are unevenly distributed in the drum.",
+          "The appropriate spin speed has not been set."
+        ]
+      },
+      {
+        "title": "Items have shrunk or the colours have run",
+        "causes": [
+          "The wrong program or wash temperature was chosen."
+        ]
+      },
+      {
+        "title": "The laundry stays dirty after washing",
+        "causes": [
+          "The tub was overfilled.",
+          "Too little detergent, or it is unsuitable.",
+          "An unsuitable wash program was chosen."
+        ]
+      }
+    ],
+    "care": [
+      {
+        "title": "Detergent drawer",
+        "text": "Take the drawer out completely and wash it under running water, then put it back."
+      },
+      {
+        "title": "Pump filter",
+        "text": "The machine must be empty of water before cleaning. Do not remove the filter while the machine is running or when there is water in the tub. Put a cloth or a flat tray under the filter, open the cover, unscrew the filter anticlockwise and take it out. Clean it under running water, screw it back in clockwise and make sure it is tightly closed."
+      },
+      {
+        "title": "Cabinet and door seal",
+        "text": "Wipe with a soft damp cloth, without abrasives, petrol or solvents. After washing leave the door slightly open, and wash the drawer compartments from time to time."
+      },
+      {
+        "title": "First wash",
+        "text": "Before the first wash run a short cycle without laundry to check that the machine works and to clean the drum."
+      }
+    ],
+    "notes": {
+      "assumptions": [
+        "The manual covers several versions (it has three different panel drawings); the data was compiled for the A 400 X variant, but the text does not tie the tables to a specific model.",
+        "The angles of the selector and thermostat knob marks are nominal (evenly around the circle): the manual has no diagram of the knobs, anglesEstimate=true. The order of positions 1-16 is taken from the numbers and from the table groups.",
+        "The cycle.steps chains are built from the description in the program table (prewash, main wash, rinse, softener, drain, spin) and tied to the program number; the internal order of the timer marks is not shown in the manual. The step durations are estimates, the manual gives no times.",
+        "The table column with the crossed-out symbol was matched to the spin cancel button and the 550/MAX switch: the meaning of the column is not explained, so both buttons are listed in options.",
+        "The panel colours (face, ink) are approximate, the photo of the machine was not viewed.",
+        "The page numbers match the PDF and the printed numbers: for this file they are the same.",
+        "The 550 rpm spin speed for delicate programs is taken from the description of the 550/MAX button (\"when running delicate fabric and wool programs the spin speed is 550 rpm\")."
+      ],
+      "gaps": [
+        "No program durations, water or energy consumption.",
+        "The maximum spin speed is not given (depends on the model); maxSpinRpm is not set.",
+        "No knob diagram: the number of thermostat marks, the exact angles and the STOP position on the knob are unknown.",
+        "The labels in the panel legend (p. 7) contradict the tables: \"P\" there is a button, \"T\" is the program knob, while in the tables P is the selector knob and T is the thermostat knob. The button layout by version is ambiguous.",
+        "The heater power is not given (it says \"see the rating plate\").",
+        "There is no separate \"drain only\" program: 8 and 16 always include a spin."
+      ]
+    },
+    "sources": [
+      "Ardo A 400 X operating manual (RU, copy from a service site, code SM505)"
+    ]
+  }
 }
